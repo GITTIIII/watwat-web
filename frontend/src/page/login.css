@@ -1,0 +1,245 @@
+@import url('https://fonts.googleapis.com/css2?family=Sarabun&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Sarabun;
+    
+}
+
+
+.icon{
+    color:orange;
+}
+
+header{
+    height: 80px;
+}
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-repeat: no-repeat; 
+    background-position: center;
+    background-attachment: fixed; 
+    background-size: cover;
+    height: 90vh;
+}
+
+.nav-bar{
+    width: 100%;
+    height: 90px;
+    color:black;
+    font-size: 1.5em;
+    font-weight: bold;
+    background-color: white;
+    border-bottom: 5px solid orange;
+    position: fixed;
+    display: flex;
+}
+
+.topright-navbar{
+    position: relative;
+    flex: right;
+    display: flex;
+    float: right;
+    align-items: center;
+    padding: 10px;
+    margin-left: auto;
+}
+
+.topright-navbar button{
+    margin-right: 20px;
+    font-size: 0.9em;
+    background-color: orange;
+    width: 150px;
+    height: 40px;
+    border-radius: 20px;
+    border: 0px;
+}
+
+.topright-navbar button:hover{
+    font-weight: bold;
+}
+
+.topleft-navbar{
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+
+.topleft-navbar span{
+    margin-left: 20px;
+}
+
+.userprofile{
+    height: 75px;
+    width: 75px;
+}
+
+.logo{
+    height: 75px;
+    width: 75px;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.login-box{
+    width: 800px;
+    height : 450px;
+    background-color: white;
+    border-radius: 20px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    backdrop-filter: blur(15px);
+}
+
+.login-box-picture{
+    padding: 10px;
+    margin-right: 80px;
+    width: 350px;
+    height: 450px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    background-repeat: no-repeat; 
+    background-position: center;
+    background-size: cover;
+}
+.login-box-picture {
+    font-size: 1.5em;
+    color: white;
+}
+.login-box-picture .word{
+    margin-top: 100%;
+    font-size: 1.2em;
+    color: white;
+}
+.login-box-picture .word1{
+    margin-top: 2%;
+    font-size: 0.6em;
+    color: white;
+    text-align: center;
+}
+.input-box{
+    position: relative;
+    width: 310px;
+    margin: 35px 0;
+    border-bottom: 2px solid orange;
+}
+
+footer{
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    position: relative;
+
+}
+footer div{
+    background-color: white;
+    padding: 50px;
+}
+
+.input-box label {
+    position: absolute;
+    left : 5px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: black;
+    pointer-events: none;
+    font-weight: bold;
+}
+
+.input-box input{
+    width: 100%;
+    height: 50px;;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1.5em;
+    color: black;
+    padding: 0px 35px 0 5px;
+}
+
+.input-box .icon{
+    position: absolute;
+    right: 8px;
+    bottom: 12px;
+}
+
+.remember-forgot{
+    margin: 15px 0px 20px;
+    font-size: 1em;
+    color: orange;
+    display: flex;
+    justify-content: space-between;
+}
+
+.remember-forgot label input{
+    margin-right: 3px;
+}
+
+.remember-forgot a{
+    color: black;
+    text-decoration: none;
+}
+
+.remember-forgot a:hover{
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+
+
+.login-link {
+    font-size: 1.1em;
+    color: orange;
+    text-align: center;
+    margin: 25px 0 10px;   
+}
+
+.login-link button{
+    font-size: 0.9em;
+    border: 0px;
+    background-color: white;
+}
+
+.login-link a{
+    text-decoration: none;
+    color: black;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+@media (max-width: 800px){
+    .login-box{
+        width: 50vh;
+        height: 50vh;
+        justify-content: center;
+    }
+    .login-box-picture{
+        display: none;
+    }
+    .nav-bar button{
+        display: none;
+    }
+}
+
+.submit_button {
+    width: 100%;
+    height: 40px;
+    background: orange;
+    border-radius: 40px;
+    cursor: pointer;
+    border: 0px;
+    font-size: 0.9em;
+}
+
+.submit_button:hover{
+    font-weight: bold;    
+}

@@ -1,0 +1,95 @@
+.place-form-box{
+    width: 120vh;
+    height: 80%;
+    background: transparent;
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 20px;
+    margin: 20px 10px;
+    text-align: center;
+    overflow: auto;
+}
+
+.place-form-box label{
+    display: inline-block;
+    width: 200px;
+    font-size: 1.5em;
+    color: white;
+}
+
+.place-form-box input {
+    font-size: 1.5em;
+    width: 400px;
+    height: 40px;
+    padding: 0px 20px;
+    border-radius: 20px;
+    border: 0px;
+    text-align: center;
+    margin: 20px 20px;
+}
+
+.place-form-box select{
+    font-size: 1.5em;
+    width: 400px;
+    height: 40px;
+    padding: 0px 20px;
+    border-radius: 20px;
+    border: 0px;
+    margin: 20px 20px;
+    text-align: center;
+}
+
+.calender{
+    width: 80vh;
+    height: 200px;
+    overflow: auto;
+    background-color: orange;
+    border-radius: 20px;
+    margin: auto;
+}
+
+.comment label{
+    margin: 20px 20px;
+    display: flex;
+}
+.comment textarea{
+    font-size: 1.3em;
+    width: 80vh;
+    height: 200px;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.place-form-box button{
+    width: 170px;
+    height: 40px;
+    margin: 10px 0px;
+    font-size: 1.3em;
+    background-color: orange;
+    border: 0px;
+    border-radius: 20px;
+}
+
+.place-form-box button:hover{
+    font-weight: bold;
+}
+
+.side-button{
+    width: 20vh;
+    height: 80%;
+    padding: 20px;
+    margin: 20px 10px;
+}
+
+.side-button button{
+    font-size: 1.1em;
+    width: 170px;
+    height: 40px;
+    background-color: orange;
+    border: 0px;
+    border-radius: 20px;
+}
+
+.side-button button:hover{
+    font-weight: bold;
+}

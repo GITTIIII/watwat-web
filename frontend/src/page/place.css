@@ -1,0 +1,121 @@
+.page-active{
+    border-bottom: 2px solid orange;
+}
+
+.menu-navbar{
+    display: flex;
+    margin: auto;
+    width: auto;
+}
+
+.menu-navbar a{
+    display: flex;
+    margin: 0px 20px;
+    font-size: 0.8em;
+    text-decoration: none;
+    color: black;
+    padding: 5px;
+}
+
+.menu-navbar a:hover {
+    border-bottom: 2px solid black;
+}
+
+.place-middle-box{
+    width: 160vh;
+    height: 90%;
+    display: block;
+    overflow: hidden;
+    position: relative;
+}
+
+.place-top-middle-box{
+    display: flex;
+    width: 100%;
+    height: auto;
+    align-items: center;
+    padding: 10px;
+}
+
+.place-top-middle-box .icon{
+    width: 35px;
+    height: auto;
+}
+
+.place-top-middle-box .icon:hover{
+    color: white;
+}
+
+.place-word{
+    color: white;
+    width: 170px;
+    font-size: 1.2em;
+    margin-right: auto;
+}
+
+.place-result-middle-box{
+    width: 100%;
+    background: transparent;
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    height: 100%;
+    overflow:auto;
+}
+
+.temple{
+    display: flex;
+    margin: 20px;
+    width: 97%;
+    height: 30%;
+    background-color: rgb(255, 251, 251);
+    align-items: center;
+    border-radius: 20px;
+    justify-content: center;
+   
+}
+.temple img{
+    width: 100px;
+    margin: 0px 20px;
+    float: left;
+}
+
+.temple button{
+    font-size: 1.3em;
+    background-color: orange;
+    border: 0px;
+    width: 90px;
+    height: 70px;
+    border-radius: 20px;
+    margin: 0px 20px;
+    float: right;
+}
+
+.temple button:hover{
+    font-weight: bold;
+}
+
+.infomation{
+    display: block;
+    width: 1000px;
+    font-weight: bold;
+    margin: 0px auto;
+}
+
+.top-info{
+    display: flex;
+    text-align: center;
+}
+
+
+.top-info div{
+   margin: 10px auto;
+}
+
+.bottom-info{
+    display: flex;
+    text-align: center;
+}
+
+.bottom-info div{
+    margin: 10px auto;
+}
