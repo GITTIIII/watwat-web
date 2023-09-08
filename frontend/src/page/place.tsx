@@ -85,7 +85,9 @@ const Place = () => {
                   </div>
                 </div>
               </div>
-              <Link to="/place"><button>ยกเลิก</button></Link>
+              <Link to="/place">
+                <button>ยกเลิก</button>
+              </Link>
             </div>
           </div>
         </div>

@@ -29,13 +29,14 @@ main{
 .nav-bar{
     width: 100%;
     height: 90px;
-    color:black;
     font-size: 1.5em;
     font-weight: bold;
     background-color: white;
     border-bottom: 5px solid orange;
     position: fixed;
     display: flex;
+    justify-content: space-between;
+    z-index: 999;
 }
 
 .topright-navbar{
@@ -45,7 +46,6 @@ main{
     float: right;
     align-items: center;
     padding: 10px;
-    margin-left: auto;
 }
 
 .topright-navbar button{
@@ -134,7 +134,6 @@ footer{
     width: 100%;
     height: 100px;
     text-align: center;
-    position: relative;
 
 }
 footer div{
