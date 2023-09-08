@@ -3,6 +3,7 @@ import "./login.css";
 import { faLock, faUser } from "@fortawesome/free-solid-svg-icons"; //for icon
 import { Link } from "react-router-dom";
 import NavbarNotLogin from "../component/navbar-not-login";
+import { Footer } from "antd/es/layout/layout";
 
 const Login = () => {
   return (
@@ -56,12 +57,7 @@ const Login = () => {
         </div>
       </main>
       <footer>
-        <div>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil quas
-          ipsam fugit maiores quaerat numquam ut corrupti blanditiis recusandae
-          vel quam perferendis nemo, magnam vitae quisquam cum animi dolor
-          placeat!
-        </div>
+        <Footer/>
       </footer>
     </>
   );

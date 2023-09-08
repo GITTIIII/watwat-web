@@ -7,6 +7,7 @@ import "./mainweb.css";
 import "./place-form.css";
 import { Calendar } from "antd";
 import NavbarMain from "../component/navbar-main";
+import Footer from "../component/footer";
 const Placeform = () => {
   return (
     <>
@@ -65,12 +66,7 @@ const Placeform = () => {
         </div>
       </main>
       <footer>
-        <div>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil quas
-          ipsam fugit maiores quaerat numquam ut corrupti blanditiis recusandae
-          vel quam perferendis nemo, magnam vitae quisquam cum animi dolor
-          placeat!
-        </div>
+        <Footer/>
       </footer>
     </>
   );

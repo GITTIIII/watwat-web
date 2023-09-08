@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import "./mainweb.css";
 import "./login.css";
 import Navbar from "../component/navbar-not-login";
+import Footer from "../component/footer";
 const MainWeb = () => {
   return (
     <>
@@ -24,12 +25,7 @@ const MainWeb = () => {
         <div className="show-result-box"></div>
       </main>
       <footer>
-        <div>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil quas
-          ipsam fugit maiores quaerat numquam ut corrupti blanditiis recusandae
-          vel quam perferendis nemo, magnam vitae quisquam cum animi dolor
-          placeat!
-        </div>
+        <Footer/>
       </footer>
     </>
   );

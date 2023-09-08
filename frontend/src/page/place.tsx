@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import "./place.css";
 import "./login.css";
 import NavbarMain from "../component/navbar-main";
+import Footer from "../component/footer";
 const Place = () => {
   return (
     <>
@@ -74,12 +75,7 @@ const Place = () => {
         </div>
       </main>
       <footer>
-        <div>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil quas
-          ipsam fugit maiores quaerat numquam ut corrupti blanditiis recusandae
-          vel quam perferendis nemo, magnam vitae quisquam cum animi dolor
-          placeat!
-        </div>
+        <Footer/>
       </footer>
     </>
   );
