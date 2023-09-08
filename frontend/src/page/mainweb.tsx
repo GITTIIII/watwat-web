@@ -3,22 +3,12 @@ import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons"; //for ico
 import { Link } from "react-router-dom";
 import "./mainweb.css";
 import "./login.css";
+import Navbar from "../component/navbar-not-login";
 const MainWeb = () => {
   return (
     <>
       <header>
-        <div className="nav-bar">
-          <div className="topleft-navbar">
-            <img src="image/logo.png" className="logo" />
-            <span>Wat Wat</span>
-          </div>
-          <div className="topright-navbar">
-            <Link to="/login">
-              <button>ออกจากระบบ</button>
-            </Link>
-            <img src="image/logo.png" className="userprofile" />
-          </div>
-        </div>
+        <Navbar />
       </header>
       <main style={{ backgroundImage: "url(/image/temple.jpg)" }}>
         <div className="middle-box">

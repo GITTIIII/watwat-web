@@ -3,31 +3,12 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons"; //for icon
 import { Link } from "react-router-dom";
 import "./place.css";
 import "./login.css";
+import NavbarMain from "../component/navbar-main";
 const Place = () => {
   return (
     <>
       <header>
-        <div className="nav-bar">
-          <div className="topleft-navbar">
-            <img src="image/logo.png" className="logo" />
-            <span>Wat Wat</span>
-          </div>
-          <div className="menu-navbar">
-            <Link to="/">หน้าหลัก</Link>
-            <Link to="">ขอจัดกิจกรรม</Link>
-            <Link to="/place" className="page-active">
-              ขอใช้สถานที่
-            </Link>
-            <Link to="">ยืม/คืนสิ่งของ</Link>
-            <Link to="">บริจาค</Link>
-          </div>
-          <div className="topright-navbar">
-            <Link to="/login">
-              <button>ออกจากระบบ</button>
-            </Link>
-            <img src="image/logo.png" className="userprofile" />
-          </div>
-        </div>
+        <NavbarMain/>
       </header>
       <main style={{ backgroundImage: "url(/image/temple.jpg)" }}>
         <div className="place-middle-box">

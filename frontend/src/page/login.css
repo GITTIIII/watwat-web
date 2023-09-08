@@ -13,8 +13,9 @@
 }
 
 header{
-    height: 80px;
+    height: 90px;
 }
+
 main{
     display: flex;
     justify-content: center;
@@ -26,65 +27,6 @@ main{
     height: 90vh;
 }
 
-.nav-bar{
-    width: 100%;
-    height: 90px;
-    font-size: 1.5em;
-    font-weight: bold;
-    background-color: white;
-    border-bottom: 5px solid orange;
-    position: fixed;
-    display: flex;
-    justify-content: space-between;
-    z-index: 999;
-}
-
-.topright-navbar{
-    position: relative;
-    flex: right;
-    display: flex;
-    float: right;
-    align-items: center;
-    padding: 10px;
-}
-
-.topright-navbar button{
-    margin-right: 20px;
-    font-size: 0.9em;
-    background-color: orange;
-    width: 150px;
-    height: 40px;
-    border-radius: 20px;
-    border: 0px;
-}
-
-.topright-navbar button:hover{
-    font-weight: bold;
-}
-
-.topleft-navbar{
-    position: relative;
-    display: flex;
-    align-items: center;
-    padding: 10px;
-}
-
-
-.topleft-navbar span{
-    margin-left: 20px;
-}
-
-.userprofile{
-    height: 75px;
-    width: 75px;
-}
-
-.logo{
-    height: 75px;
-    width: 75px;
-    border-radius: 50%;
-    pointer-events: none;
-}
 
 .login-box{
     width: 800px;

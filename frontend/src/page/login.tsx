@@ -2,25 +2,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./login.css";
 import { faLock, faUser } from "@fortawesome/free-solid-svg-icons"; //for icon
 import { Link } from "react-router-dom";
+import NavbarNotLogin from "../component/navbar-not-login";
 
 const Login = () => {
   return (
     <>
       <header>
-        <div className="nav-bar">
-          <div className="topleft-navbar">
-            <img src="image/logo.png" className="logo" />
-            <span>Wat Wat</span>
-          </div>
-          <div className="topright-navbar">
-            <button>
-              <Link to="/register">
-                <button>สมัครสมาชิก</button>
-              </Link>
-            </button>
-            <img src="image/logo.png" className="userprofile" />
-          </div>
-        </div>
+        <NavbarNotLogin />
       </header>
       <main style={{ backgroundImage: "url(/image/monk_login.png)" }}>
         <div className="login-box">
