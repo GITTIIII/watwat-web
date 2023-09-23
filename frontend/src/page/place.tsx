@@ -26,7 +26,7 @@ const Place = () => {
             <div className="temple">
               <img src="image/jandang.jpg" />
               <div className="infomation">
-                <div className="top-info">
+                
                   <div>
                     วันที่
                     <br />
@@ -45,12 +45,12 @@ const Place = () => {
                     รออนุมัติ
                     <br />
                   </div>
-                </div>
-                <div className="bottom-info">
+                
+                
                   <div>
                     จัดงาน
                     <br />
-                    งายศพ
+                    งานศพ
                     <br />
                   </div>
                   <div>
@@ -65,7 +65,7 @@ const Place = () => {
                     012-345-678
                     <br />
                   </div>
-                </div>
+            
               </div>
               <Link to="/place">
                 <button>ยกเลิก</button>

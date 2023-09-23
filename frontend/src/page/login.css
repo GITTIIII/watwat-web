@@ -146,16 +146,13 @@ main{
     font-weight: bold;
 }
 
-@media (max-width: 800px){
+@media (max-width: 800px ){
     .login-box{
-        width: 50vh;
-        height: 50vh;
+        width: 60vh;
+        height: 70vh;
         justify-content: center;
     }
     .login-box-picture{
-        display: none;
-    }
-    .nav-bar button{
         display: none;
     }
 }

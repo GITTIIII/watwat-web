@@ -73,7 +73,11 @@
 }
 
 .infomation{
-    display: block;
+    display: grid;
+    padding: 10px;
+    grid-template-columns: auto auto auto;
+    column-gap: 100px;
+    row-gap: 15px;
     width: 1000px;
     font-weight: bold;
     margin: 0px auto;

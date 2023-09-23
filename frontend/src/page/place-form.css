@@ -1,61 +1,73 @@
 .place-form-box{
-    width: 120vh;
     height: 80%;
+    width: 80%;
     background: transparent;
     backdrop-filter: blur(15px);
-    border-radius: 20px;
+    border-radius: 10px;
     padding: 20px;
     margin: 20px 10px;
     text-align: center;
     overflow: auto;
 }
 
+.place-top-form{
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 10px;
+    margin: 20px;
+}
+.place-buttom-form{
+    display: block;
+}
 .place-form-box label{
-    display: inline-block;
+    display: block;
+    margin: auto;
     width: 200px;
-    font-size: 1.5em;
+    font-size: 1em;
     color: white;
 }
 
 .place-form-box input {
-    font-size: 1.5em;
-    width: 400px;
+    font-size: 1em;
+    width: 250px;
     height: 40px;
     padding: 0px 20px;
-    border-radius: 20px;
+    border-radius: 10px;
     border: 0px;
     text-align: center;
     margin: 20px 20px;
 }
 
 .place-form-box select{
-    font-size: 1.5em;
-    width: 400px;
+    font-size: 1em;
+    width: 250px;
     height: 40px;
     padding: 0px 20px;
-    border-radius: 20px;
+    border-radius: 10px;
     border: 0px;
-    margin: 20px 20px;
     text-align: center;
+    margin: 20px 20px;
 }
 
 .calender{
-    width: 80vh;
+    width: 50%;
     height: 200px;
     overflow: auto;
     background-color: orange;
     border-radius: 20px;
     margin: auto;
+    display: block;
 }
 
 .comment label{
-    margin: 20px 20px;
+    margin: 20px 100px;
     display: flex;
+    
 }
 .comment textarea{
     font-size: 1.3em;
-    width: 80vh;
-    height: 200px;
+    width: 65%;
+    height: 150px;
     border-radius: 20px;
     padding: 10px;
 }
@@ -67,7 +79,7 @@
     font-size: 1.3em;
     background-color: orange;
     border: 0px;
-    border-radius: 20px;
+    border-radius: 15px;
 }
 
 .place-form-box button:hover{
@@ -75,7 +87,7 @@
 }
 
 .side-button{
-    width: 20vh;
+    width: 15%;
     height: 80%;
     padding: 20px;
     margin: 20px 10px;
@@ -87,7 +99,7 @@
     height: 40px;
     background-color: orange;
     border: 0px;
-    border-radius: 20px;
+    border-radius: 15px;
 }
 
 .side-button button:hover{

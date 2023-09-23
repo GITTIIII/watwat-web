@@ -21,6 +21,8 @@ const Placeform = () => {
           </Link>
         </div>
         <div className="place-form-box">
+        <div className="place-top-form">
+
           <div className="name-input">
             <label>ชื่อผู้ขอใช้</label>
             <input type="text" />
@@ -53,12 +55,15 @@ const Placeform = () => {
               <option>งานศพ</option>
             </select>
           </div>
-          <div className="calender">
-            <label>ปฏิทิน</label>
-          </div>
-          <div className="comment">
-            <label>หมายเหตุ:</label>
-            <textarea></textarea>
+        </div>
+          <div className="place-buttom-form">
+            <div className="calender">
+              <label>ปฏิทิน</label>
+            </div>
+            <div className="comment">
+              <label>หมายเหตุ:</label>
+              <textarea></textarea>
+            </div>
           </div>
           <Link to="/place">
             <button>ส่งการร้องขอ</button>
