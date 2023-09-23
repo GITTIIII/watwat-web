@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import './navbar.css'
 
-const NavbarNotLogin = () =>{
+const NavbarLogin = () =>{
   return (
     <div className="nav-bar">
           <div className="topleft-navbar">
@@ -21,4 +21,4 @@ const NavbarNotLogin = () =>{
   )
 }
 
-export default NavbarNotLogin;
+export default NavbarLogin;

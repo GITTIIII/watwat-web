@@ -3,13 +3,14 @@ import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons"; //for ico
 import { Link } from "react-router-dom";
 import "./mainweb.css";
 import "./login.css";
-import Navbar from "../component/navbar-not-login";
+import Navbar from "../component/navbar-login";
 import Footer from "../component/footer";
+import NavbarMain from "../component/navbar-main";
 const MainWeb = () => {
   return (
     <>
       <header>
-        <Navbar />
+        <NavbarMain/>
       </header>
       <main style={{ backgroundImage: "url(/image/temple.jpg)" }}>
         <div className="middle-box">
