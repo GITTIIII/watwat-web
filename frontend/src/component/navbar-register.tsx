@@ -11,7 +11,7 @@ const NavbarRegister = () =>{
           </div>
           <div className="topright-navbar">
             <button>
-              <Link to="/register">
+              <Link to="/login">
                 <button>เข้าสู่ระบบ</button>
               </Link>
             </button>
