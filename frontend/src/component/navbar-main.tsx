@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import "./navbar.css"
+import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const NavbarMain = () => {
   return (
@@ -19,10 +21,12 @@ const NavbarMain = () => {
             <Link to="">บริจาค</Link>
           </div>
           <div className="topright-navbar">
-            <Link to="/login">
-              <button>ออกจากระบบ</button>
-            </Link>
             <img src="image/logo.png" className="userprofile" />
+            <FontAwesomeIcon icon={faBars} className="icon"/>
+            <div className="topright-navbar-menu">
+              <Link to="/">สมัคร Wat Creator</Link>
+              <Link to="/login">ออกจากระบบ</Link>
+            </div>
           </div>
         </div>
   )

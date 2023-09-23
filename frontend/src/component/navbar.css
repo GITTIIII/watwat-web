@@ -1,7 +1,11 @@
+header{
+    width: 100%;
+    height: 10vh;
+}
 .nav-bar{
     width: 100%;
-    height: 90px;
-    font-size: 1.5em;
+    height: 10vh;
+    font-size: 2.5vh;
     font-weight: bold;
     background-color: white;
     border-bottom: 5px solid orange;
@@ -10,32 +14,7 @@
     justify-content: space-between;
     align-items: center;
     z-index: 999;
-    padding: 0px 10px;
-}
-
-.topright-navbar{
-    position: relative;
-    flex: right;
-    display: flex;
-    float: right;
-    align-items: center;
-    padding: 10px;
-}
-
-.topright-navbar button{
-    margin-right: 20px;
-    font-size: 0.9em;
-    background-color: orange;
-    width: 150px;
-    height: 40px;
-    border-radius: 15px;
-    border: 0px;
-    justify-items: center;
-    align-items: center;
-}
-
-.topright-navbar button:hover{
-    font-weight: bold;
+    padding: 0px 1%;
 }
 
 .topleft-navbar{
@@ -50,22 +29,6 @@
     margin-left: 20px;
 }
 
-.userprofile{
-    height: 75px;
-    width: 75px;
-}
-
-.logo{
-    height: 75px;
-    width: 75px;
-    border-radius: 50%;
-    pointer-events: none;
-}
-
-.page-active{
-    border-bottom: 2px solid orange;
-}
-
 .menu-navbar{
     display: flex;
     margin: auto;
@@ -75,7 +38,7 @@
 .menu-navbar a{
     display: flex;
     margin: 0px 20px;
-    font-size: 0.8em;
+    font-size: 2vh;
     text-decoration: none;
     color: black;
     padding: 5px;
@@ -85,8 +48,64 @@
     border-bottom: 2px solid black;
 }
 
-  @media (max-width: 1200px) {
-    .nav-bar{
-        font-size: 1.2em;
+.topright-navbar{
+    position: relative;
+    display: flex;
+    align-items: center;
+    float: right;
+    padding: 10px;
+}
+
+.topright-navbar button{
+    margin-right: 20px;
+    font-size: 2vh;
+    background-color: orange;
+    width: 100%;
+    height: 4vh;
+    border-radius: 15px;
+    border: 0px;
+    justify-items: center;
+    align-items: center;
+    
+}
+
+.topright-navbar button:hover{
+    font-weight: bold;
+}
+
+.topright-navbar .icon{
+    width: 3vh;
+    height: auto;
+    margin-left: 20px;
+}
+
+.topright-navbar-menu{
+    display: none;
+}
+
+.topright-navbar.icon:hover a{
+    display: block;
+}
+
+.userprofile{
+    height: 7vh;
+    width: 7vh;
+}
+
+.logo{
+    height: 7vh;
+    width: 7vh;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.page-active{
+    border-bottom: 2px solid orange;
+}
+
+
+@media only screen and (max-width: 500px) {
+    .nav-bar button{
+      display: none;
     }
   }
