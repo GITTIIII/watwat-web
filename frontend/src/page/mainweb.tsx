@@ -3,10 +3,10 @@ import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons"; //for ico
 import { Link } from "react-router-dom";
 import "./mainweb.css";
 import "./login.css";
-import Navbar from "../component/navbar-login";
 import Footer from "../component/footer";
 import NavbarMain from "../component/navbar-main";
 const MainWeb = () => {
+  
   return (
     <>
       <header>
@@ -18,12 +18,14 @@ const MainWeb = () => {
           <div className="search-bar">
             <FontAwesomeIcon icon={faMagnifyingGlass} className="icon" />
             <input type="text" placeholder="ค้นหาวัด" />
-            <Link to="/place">
-              <button className="search-button">ค้นหา</button>
-            </Link>
+              <button className="search-button" >
+                  ค้นหา
+              </button>
           </div>
         </div>
-        <div className="show-result-box"></div>
+        <div className="show-result-box">
+
+        </div>
       </main>
       <footer>
         <Footer/>

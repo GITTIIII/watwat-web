@@ -2,7 +2,7 @@ header{
     width: 100%;
     height: 10vh;
 }
-.nav-bar{
+.navbar{
     width: 100%;
     height: 10vh;
     font-size: 2.5vh;
@@ -17,13 +17,20 @@ header{
     padding: 0px 1%;
 }
 
+.left-icon{
+    width: 2.5vh;
+    height: auto;
+    margin: 0px 20px;
+    display: none;
+    color: orange;
+}
+
 .topleft-navbar{
-    position: relative;
+    height: 100%;
     display: flex;
     align-items: center;
     padding: 10px;
 }
-
 
 .topleft-navbar span{
     margin-left: 20px;
@@ -57,7 +64,7 @@ header{
 }
 
 .topright-navbar button{
-    margin-right: 20px;
+    margin-right: 10px;
     font-size: 2vh;
     background-color: orange;
     width: 100%;
@@ -74,17 +81,50 @@ header{
 }
 
 .topright-navbar .icon{
-    width: 3vh;
+    width: 2.5vh;
     height: auto;
     margin-left: 20px;
 }
 
-.topright-navbar-menu{
-    display: none;
+.right-menu{
+    margin: 20px 0px ;
+    position: absolute;
+    right: 0;
+    width: max-content;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14);
+    background-color: white;
 }
 
-.topright-navbar.icon:hover a{
-    display: block;
+.left-menu{
+    margin: 20px 0px ;
+    position: absolute;
+    left: 0;
+    width: max-content;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14);
+    background-color: white;
+}
+
+.left-menu a,.right-menu a {
+    text-decoration: none;
+    color: black;
+    font-weight: normal;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    padding: 8px 12px;
+}
+  
+li:hover {
+    background-color: rgba(0, 0, 0, 0.14);
+    cursor: pointer;
 }
 
 .userprofile{
@@ -104,8 +144,19 @@ header{
 }
 
 
-@media only screen and (max-width: 500px) {
-    .nav-bar button{
+@media only screen and (max-width: 1200px) {
+    .navbar button{
+        display: none;
+      }
+
+    .menu-navbar {
       display: none;
     }
-  }
+
+    .topleft-navbar{
+        margin: auto;
+    }
+    .navbar .left-icon{
+        display: block;
+    }
+}

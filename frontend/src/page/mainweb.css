@@ -3,9 +3,9 @@
   }
 
 .middle-box{
-    width: auto;
+    width: 80vh;
     height: auto;
-    font-size: 3em;
+    font-size: 4vh;
     background-color: transparent;
     backdrop-filter: blur(15px);
     text-align: center;
@@ -14,52 +14,49 @@
 }
 
 .middle-box div{
-    margin: 20px;
+    margin: 2vh;
     color: white;
 }
+
+.search-bar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .search-bar input{
-    font-size: 0.5em;
-    width: 50vh;
-    padding: 20px;
+    font-size: 2vh;
+    width: auto;
+    height: auto;
+    padding: 10px;
     border-radius: 20px;
     border: 0px;
     margin: 10px;
 }
 
 .search-bar input:valid{
-    width: 50vh;
+    width: 50%;
     transition: .5s;
 }
 .search-bar input:focus{
-    width: 100vh;
+    width: 100%;
     transition: .5s;
 }
 
 .search-bar button{
     font-size: 0.5em;
-    width: 100px;
-    height: 8vh;
-    padding: auto;
+    width: 8vh;
+    height: 4.5vh;
     border: 0px;
     background-color: orange;
-    border-radius: 15px;
+    border-radius: 10px;
 }
 
 .search-bar button:hover{
     font-weight: bold;
-    color: orange;
-    background-color: white;
-    border: 3px solid orange;
-}
-
-.search-bar button:active{
-    font-weight: bold;
-    color: black;
-    background-color: white;
-    border: 3px solid black;
 }
 
 .search-bar .icon{
-    width: auto;
-    height: 6vh;
+    width: 4vh;
+    height: auto;
 }

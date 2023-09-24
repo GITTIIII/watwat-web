@@ -4,7 +4,7 @@ import './navbar.css'
 
 const NavbarLogin = () =>{
   return (
-    <div className="nav-bar">
+    <div className="navbar">
           <div className="topleft-navbar">
             <img src="image/logo.png" className="logo" />
             <span>Wat Wat</span>
@@ -15,7 +15,6 @@ const NavbarLogin = () =>{
                 <button>สมัครสมาชิก</button>
               </Link>
             </button>
-            <img src="image/logo.png" className="userprofile" />
           </div>
         </div>
   )

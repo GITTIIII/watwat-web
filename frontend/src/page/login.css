@@ -12,10 +12,6 @@
     color:orange;
 }
 
-header{
-    height: 90px;
-}
-
 main{
     display: flex;
     justify-content: center;
@@ -36,7 +32,6 @@ main{
     display: flex;
     justify-content: left;
     align-items: center;
-    backdrop-filter: blur(15px);
 }
 
 .login-box-picture{
@@ -67,7 +62,7 @@ main{
 }
 .input-box{
     position: relative;
-    width: 310px;
+    width: 100%;
     margin: 35px 0;
     border-bottom: 2px solid orange;
 }
@@ -148,8 +143,8 @@ main{
 
 @media (max-width: 800px ){
     .login-box{
-        width: 60vh;
-        height: 70vh;
+        width: 40vh;
+        height: 50vh;
         justify-content: center;
     }
     .login-box-picture{
