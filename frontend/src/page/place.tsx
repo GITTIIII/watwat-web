@@ -3,13 +3,13 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons"; //for icon
 import { Link } from "react-router-dom";
 import "./place.css";
 import "./login.css";
-import NavbarMain from "../component/navbar-main";
+import NavbarPlace from "../component/navbar-place";
 import Footer from "../component/footer";
 const Place = () => {
   return (
     <>
       <header>
-        <NavbarMain/>
+        <NavbarPlace/>
       </header>
       <main style={{ backgroundImage: "url(/image/temple.jpg)" }}>
         <div className="place-middle-box">

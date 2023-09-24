@@ -4,7 +4,7 @@ import "./navbar.css";
 import { faBars, faCaretDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const NavbarMain = () => {
+const NavbarPlace = () => {
   const [sidemenuclick, setSideMenuClick] = React.useState(false);
   const [click, setClick] = React.useState(false);
   const dropdownMenu = () => {
@@ -21,9 +21,9 @@ const NavbarMain = () => {
           {sidemenuclick ? (
           <div className="left-menu">
             <ul>
-              <li><Link to="/" className="page-active">หน้าหลัก</Link></li>
+              <li><Link to="/">หน้าหลัก</Link></li>
               <li><Link to="">ขอจัดกิจกรรม</Link></li>
-              <li><Link to="/place">ขอใช้สถานที่</Link></li>
+              <li><Link to="/place" className="page-active">ขอใช้สถานที่</Link></li>
               <li><Link to="">ยืม/คืนสิ่งของ</Link></li>
               <li><Link to="">บริจาค</Link></li>  
             </ul>
@@ -35,9 +35,9 @@ const NavbarMain = () => {
         <span>Wat Wat</span>
       </div>
         <div className="menu-navbar">
-          <Link to="/" className="page-active">หน้าหลัก</Link>
+          <Link to="/">หน้าหลัก</Link>
           <Link to="">ขอจัดกิจกรรม</Link>
-          <Link to="/place">
+          <Link to="/place" className="page-active">
             ขอใช้สถานที่
           </Link>
           <Link to="">ยืม/คืนสิ่งของ</Link>
@@ -61,4 +61,4 @@ const NavbarMain = () => {
   );
 };
 
-export default NavbarMain;
+export default NavbarPlace;
