@@ -153,10 +153,8 @@ li:hover {
       display: none;
     }
 
-    .topleft-navbar{
-        margin: auto;
-    }
     .navbar .left-icon{
         display: block;
     }
+
 }

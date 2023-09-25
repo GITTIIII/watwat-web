@@ -11,4 +11,5 @@ footer div{
     justify-content: center;
     align-items: center;
     overflow: auto;
+    font-size: 0.8em;
 }

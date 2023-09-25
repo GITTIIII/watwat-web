@@ -2,7 +2,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons"; //for icon
 import { Link } from "react-router-dom";
 import "./place.css";
-import "./login.css";
 import NavbarPlace from "../component/navbar-place";
 import Footer from "../component/footer";
 const Place = () => {

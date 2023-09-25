@@ -2,15 +2,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons"; //for icon
 import { Link } from "react-router-dom";
 import "./mainweb.css";
-import "./login.css";
 import Footer from "../component/footer";
-import NavbarMain from "../component/navbar-main";
+import NavbarSearch from "../component/navbar-search";
 const MainWeb = () => {
   
   return (
     <>
       <header>
-        <NavbarMain/>
+        <NavbarSearch/>
       </header>
       <main style={{ backgroundImage: "url(/image/temple.jpg)" }}>
         <div className="middle-box">
@@ -18,8 +17,8 @@ const MainWeb = () => {
           <div className="search-bar">
             <FontAwesomeIcon icon={faMagnifyingGlass} className="icon" />
             <input type="text" placeholder="ค้นหาวัด" />
-              <button className="search-button" >
-                  ค้นหา
+              <button className="search-button">
+                  <Link to="/place">ค้นหา</Link>
               </button>
           </div>
         </div>

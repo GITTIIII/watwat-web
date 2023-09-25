@@ -2,6 +2,7 @@
     display: none; 
   }
 
+
 .middle-box{
     width: 80vh;
     height: auto;
@@ -10,7 +11,8 @@
     backdrop-filter: blur(15px);
     text-align: center;
     border-radius: 20px;
-    display: block;
+    display: flex;
+    flex-direction: column;
 }
 
 .middle-box div{
@@ -59,4 +61,14 @@
 .search-bar .icon{
     width: 4vh;
     height: auto;
+}
+
+.show-result-box{
+    width: 130vh;
+    height: 800px;
+    background-color: transparent;
+    display: flex;
+    margin: 20px 0px;
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
 }
