@@ -1,12 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import './navbar.css'
+import '../css/navbar.css'
+import Logo from './logo'
 
 const NavbarRegister = () =>{
   return (
     <div className="navbar">
           <div className="topleft-navbar">
-            <img src="image/logo.png" className="logo" />
+            <Logo/>
             <span>Wat Wat</span>
           </div>
           <div className="topright-navbar">

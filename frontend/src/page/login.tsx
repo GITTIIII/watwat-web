@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import "./login.css";
+import "../css/login.css";
 import { faLock, faUser } from "@fortawesome/free-solid-svg-icons"; //for icon
 import { Link } from "react-router-dom";
 import NavbarLogin from "../component/navbar-login";

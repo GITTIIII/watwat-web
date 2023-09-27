@@ -17,12 +17,16 @@ header{
     padding: 0px 1%;
 }
 
-.left-icon{
+.left-icon,.right-icon{
     width: 2.5vh;
     height: auto;
-    margin: 0px 20px;
-    display: none;
+    margin: 0px 10px;
     color: orange;
+    display:none;
+}
+
+.right-icon{
+    display:block;
 }
 
 .topleft-navbar{
@@ -86,6 +90,7 @@ header{
     margin-left: 20px;
 }
 
+
 .right-menu{
     margin: 20px 0px ;
     position: absolute;
@@ -94,6 +99,7 @@ header{
     border: 1px solid rgba(0, 0, 0, 0.04);
     box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14);
     background-color: white;
+    display: none;
 }
 
 .left-menu{
@@ -104,6 +110,7 @@ header{
     border: 1px solid rgba(0, 0, 0, 0.04);
     box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14);
     background-color: white;
+    display: none;
 }
 
 .left-menu a,.right-menu a {

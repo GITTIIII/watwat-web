@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons"; //for icon
 import { Link } from "react-router-dom";
-import "./place-form.css";
+import "../css/place-form.css";
 import { Calendar } from "antd";
 import NavbarMain from "../component/navbar-main";
 import Footer from "../component/footer";

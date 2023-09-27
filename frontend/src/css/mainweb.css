@@ -4,7 +4,7 @@
 
 
 .middle-box{
-    width: 80vh;
+    width: 50%;
     height: auto;
     font-size: 4vh;
     background-color: transparent;
@@ -40,6 +40,7 @@
     width: 50%;
     transition: .5s;
 }
+
 .search-bar input:focus{
     width: 100%;
     transition: .5s;
@@ -47,11 +48,15 @@
 
 .search-bar button{
     font-size: 0.5em;
-    width: 8vh;
-    height: 4.5vh;
+    width: 7vh;
+    height: 5vh;
     border: 0px;
     background-color: orange;
     border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    justify-items: center;
+    align-items: center;
 }
 
 .search-bar button:hover{
@@ -67,8 +72,14 @@
     width: 130vh;
     height: 800px;
     background-color: transparent;
-    display: flex;
+    display: none;
     margin: 20px 0px;
     backdrop-filter: blur(15px);
     border-radius: 20px;
+}
+
+@media (max-width: 900px) {
+    .middle-box{
+        width: auto;
+    }
 }

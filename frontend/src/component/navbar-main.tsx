@@ -1,9 +1,10 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
-import "./navbar.css";
+import '../css/navbar.css'
 import { faBars, faCaretDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
+import Logo from "./logo";
+import UserProfile from "./userprofile";
 const NavbarMain = () => {
   const [sidemenuclick, setSideMenuClick] = React.useState(false);
   const [click, setClick] = React.useState(false);
@@ -31,22 +32,20 @@ const NavbarMain = () => {
           ):null}
         </div>
       <div className="topleft-navbar">
-        <img src="image/logo.png" className="logo" />
+        <Logo/>
         <span>Wat Wat</span>
       </div>
         <div className="menu-navbar">
           <Link to="/" className="page-active">หน้าหลัก</Link>
           <Link to="">ขอจัดกิจกรรม</Link>
-          <Link to="/place">
-            ขอใช้สถานที่
-          </Link>
+          <Link to="/place">ขอใช้สถานที่</Link>
           <Link to="">ยืม/คืนสิ่งของ</Link>
           <Link to="">บริจาค</Link>
         </div>
       <div className="topright-navbar">
-        <img src="image/no-profile.png" className="userprofile" />
+        <UserProfile/>
         <div className="topright-navbar-menu">
-          <FontAwesomeIcon icon={faCaretDown} className="icon" onClick={dropdownMenu}/>
+          <FontAwesomeIcon icon={faCaretDown} className="right-icon" onClick={dropdownMenu}/>
           {click ? (
             <div className="right-menu">
               <ul>

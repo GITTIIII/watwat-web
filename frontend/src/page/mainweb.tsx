@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons"; //for icon
 import { Link } from "react-router-dom";
-import "./mainweb.css";
+import "../css/mainweb.css";
 import Footer from "../component/footer";
 import NavbarSearch from "../component/navbar-search";
 const MainWeb = () => {
@@ -23,7 +23,7 @@ const MainWeb = () => {
           </div>
         </div>
         <div className="show-result-box">
-
+          
         </div>
       </main>
       <footer>
