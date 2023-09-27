@@ -6,21 +6,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Logo from "./logo";
 import UserProfile from "./userprofile";
 const NavbarMain = () => {
-  const [sidemenuclick, setSideMenuClick] = React.useState(false);
   const [click, setClick] = React.useState(false);
-  const dropdownMenu = () => {
-    setClick(!click);
-  };
 
-  const sideMenu = () => {
-    setSideMenuClick(!sidemenuclick);
-  };
   return (
     <div className="navbar">
         <div className="side-menu">
-          <FontAwesomeIcon icon={faBars} className="left-icon" onClick={sideMenu}/>
-          {sidemenuclick ? (
-          <div className="left-menu">
+          <FontAwesomeIcon icon={faBars} className="left-icon" onClick={()=>{setClick(!click)}}/>
+          <div className={`left-menu ${click? 'active' : 'inactive'}`}>
             <ul>
               <li><Link to="/" className="page-active">หน้าหลัก</Link></li>
               <li><Link to="">ขอจัดกิจกรรม</Link></li>
@@ -29,7 +21,6 @@ const NavbarMain = () => {
               <li><Link to="">บริจาค</Link></li>  
             </ul>
           </div>
-          ):null}
         </div>
       <div className="topleft-navbar">
         <Logo/>
@@ -45,9 +36,9 @@ const NavbarMain = () => {
       <div className="topright-navbar">
         <UserProfile/>
         <div className="topright-navbar-menu">
-          <FontAwesomeIcon icon={faCaretDown} className="right-icon" onClick={dropdownMenu}/>
+          <FontAwesomeIcon icon={faCaretDown} className="right-icon" onClick={()=>{setClick(!click)}}/>
           {click ? (
-            <div className="right-menu">
+            <div className={`right-menu ${click? 'active' : 'inactive'}`}>
               <ul>
                 <li><Link to="/">สมัคร Wat Creator</Link></li>
                 <li><Link to="/login">ออกจากระบบ</Link></li>
