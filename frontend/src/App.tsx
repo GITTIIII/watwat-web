@@ -2,8 +2,6 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-  Link,
-  BrowserRouter,
 } from "react-router-dom";
 import Login from "./page/login";
 import Register from "./page/register";

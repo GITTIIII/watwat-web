@@ -7,11 +7,8 @@ import Logo from "./logo";
 import UserProfile from "./userprofile";
 
 const NavbarSearch = () => {
-  const [click, setClick] = React.useState(false);
-  const dropdownMenu = () => {
-    setClick(!click);
-  };
 
+  
   return (
     <div className="navbar">
       <div className="topleft-navbar">
@@ -21,8 +18,8 @@ const NavbarSearch = () => {
       <div className="topright-navbar">
         <UserProfile/>
         <div className="topright-navbar-menu">
-          <FontAwesomeIcon icon={faCaretDown} className="right-icon" onClick={dropdownMenu}/>
-          {click ? (
+          <FontAwesomeIcon icon={faCaretDown} className="right-icon" />
+         
             <div className="right-menu">
               <ul>
                 <li>
@@ -33,7 +30,7 @@ const NavbarSearch = () => {
                 </li>
               </ul>
             </div>
-          ) : null}
+          
         </div>
       </div>
     </div>
