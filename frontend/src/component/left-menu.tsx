@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import '../css/navbar.css'
 function LeftMenu(){
     return(
+      <>
         <div className="left-menu">
             <ul>
               <li>
@@ -20,8 +21,9 @@ function LeftMenu(){
                 <Link to="">บริจาค</Link>
               </li>
             </ul>
-          </div>
-    )
-}
+        </div>
+      </>
+    );
+};
 
 export default LeftMenu;

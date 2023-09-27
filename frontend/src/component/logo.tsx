@@ -1,6 +1,8 @@
 function Logo(){
     return (
-        <img src='./image/logo.png' className="logo" alt="logo"/>
+        <>
+            <img src='./image/logo.png' className="logo" alt="logo"/>
+        </>
     )
 }
 

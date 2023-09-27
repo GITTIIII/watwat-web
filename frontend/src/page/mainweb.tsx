@@ -4,12 +4,13 @@ import { Link } from "react-router-dom";
 import "../css/mainweb.css";
 import Footer from "../component/footer";
 import NavbarSearch from "../component/navbar-search";
+import NavbarMain from "../component/navbar-main";
 const MainWeb = () => {
   
   return (
     <>
       <header>
-        <NavbarSearch/>
+        <NavbarMain/>
       </header>
       <main style={{ backgroundImage: "url(/image/temple.jpg)" }}>
         <div className="middle-box">

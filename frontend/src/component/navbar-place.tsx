@@ -5,7 +5,7 @@ import Logo from "./logo";
 import UserProfile from "./userprofile";
 import LeftMenu from "./left-menu";
 import RightMenu from "./right-menu";
-import MenuItem from "antd/es/menu/MenuItem";
+import MenuItem from "./menu-item";
 import React from "react";
 
 function NavbarPlace(){
@@ -13,25 +13,27 @@ function NavbarPlace(){
   const [Rclick, setRClick] = React.useState(false);
 
   return (
-    <div className="navbar">
-      <div className="side-menu">
-        <FontAwesomeIcon icon={faBars} className="left-icon" onClick={() => setLClick(!Lclick)}/>
-        {Lclick && <LeftMenu/>}
-      </div>
-      <div className="topleft-navbar">
-        <Logo />
-        <span>Wat Wat</span>
-      </div>
-      <MenuItem/>
-      <div className="topright-navbar">
-        <UserProfile />
-        <div className={`topright-navbar-menu ${Rclick ? "active":""}`}>
-          <FontAwesomeIcon icon={faCaretDown} className="right-icon" onClick={() => setRClick(!Rclick)}/>
-            {Rclick && <RightMenu/>}
+    <>
+      <div className="navbar">
+        <div className="side-menu">
+          <FontAwesomeIcon icon={faBars} className="left-icon" onClick={() => setLClick(!Lclick)}/>
+          {Lclick && <LeftMenu/>}
+        </div>
+        <div className="topleft-navbar">
+          <Logo/>
+          <span>Wat Wat</span>
+        </div>
+        <MenuItem/>
+        <div className="topright-navbar">
+          <UserProfile />
+          <div className={`topright-navbar-menu ${Rclick ? "active":""}`}>
+            <FontAwesomeIcon icon={faCaretDown} className="right-icon" onClick={() => setRClick(!Rclick)}/>
+              {Rclick && <RightMenu/>}
+          </div>
         </div>
       </div>
-    </div>
-  );
-};
+    </>
+  )
+}
 
 export default NavbarPlace;

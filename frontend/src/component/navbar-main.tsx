@@ -7,29 +7,32 @@ import React from "react";
 import LeftMenu from "./left-menu";
 import RightMenu from "./right-menu";
 import MenuItem from "./menu-item";
+
 function NavbarMain(){
   const [Lclick, setLClick] = React.useState(false);
   const [Rclick, setRClick] = React.useState(false);
 
   return (
-    <div className="navbar">
-      <div className="side-menu">
-        <FontAwesomeIcon icon={faBars} className="left-icon" onClick={() => setLClick(!Lclick)}/>
-        {Lclick && <LeftMenu/>}
-      </div>
-      <div className="topleft-navbar">
-        <Logo />
-        <span>Wat Wat</span>
-      </div>
-      <MenuItem props="/main"/>
-      <div className="topright-navbar">
-        <UserProfile />
-        <div className={`topright-navbar-menu ${Rclick ? "active":""}`}>
-          <FontAwesomeIcon icon={faCaretDown} className="right-icon" onClick={() => setRClick(!Rclick)}/>
-          {Rclick && <RightMenu/>}
+    <>
+      <div className="navbar">
+        <div className="side-menu">
+          <FontAwesomeIcon icon={faBars} className="left-icon" onClick={() => setLClick(!Lclick)}/>
+          {Lclick && <LeftMenu/>}
+        </div>
+        <div className="topleft-navbar">
+          <Logo />
+          <span>Wat Wat</span>
+        </div>
+        <MenuItem />
+        <div className="topright-navbar">
+          <UserProfile />
+          <div className={`topright-navbar-menu ${Rclick ? "active":""}`}>
+            <FontAwesomeIcon icon={faCaretDown} className="right-icon" onClick={() => setRClick(!Rclick)}/>
+            {Rclick && <RightMenu/>}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -55,6 +55,11 @@ header{
     text-decoration: none;
     color: black;
     padding: 5px;
+    font-weight: bold;
+}
+
+.menu-navbar a.active{
+    border-bottom: 2px solid orange;
 }
 
 .menu-navbar a:hover {
@@ -137,10 +142,6 @@ li:hover {
     width: 7vh;
     border-radius: 50%;
     pointer-events: none;
-}
-
-.page-active{
-    border-bottom: 2px solid orange;
 }
 
 
