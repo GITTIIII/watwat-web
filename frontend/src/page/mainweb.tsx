@@ -1,9 +1,10 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass, faPlay } from "@fortawesome/free-solid-svg-icons"; //for icon
+import { faForwardFast, faMagnifyingGlass, faPlay } from "@fortawesome/free-solid-svg-icons"; //for icon
 import "../css/mainweb.css";
 import Footer from "../component/footer";
 import NavbarSearch from "../component/navbar-search";
 import React from "react";
+import { Link } from "react-router-dom";
 const MainWeb = () => {
   const [searchclick,setSearchClick] = React.useState(false)
 
@@ -24,9 +25,24 @@ const MainWeb = () => {
           </div>
         </div>
         {searchclick && <div className="show-result-box">
-          <div className="wat-box">
             <div className="wat">
-              
+              <div>image</div>
+              <div>วัดโคกอีเเร้ง</div>
+              <div>
+                กิจกรรม
+                <div>
+                  งานศพ นาคพล ณ สุรนารี
+                </div>
+              </div>
+              <div>
+                ที่ตั้ง
+                <div>
+                123/45 บ้านโคกอีเเร้ง ต.หนองหูเห่า อ.เมือง จ.นครราชสีมา
+                </div>
+              </div>
+              <button>
+                  <Link to="/place">button</Link>
+              </button>
             </div>
             <div className="wat">
               
@@ -40,8 +56,9 @@ const MainWeb = () => {
             <div className="wat">
               
             </div>
-          </div>
-          <div className="pagination">
+          </div> }
+          {searchclick && <div className="pagination">
+              <FontAwesomeIcon icon={faForwardFast} rotation={180} className="icon"/>
               <FontAwesomeIcon icon={faPlay} rotation={180} className="icon"/>
               <div className="page-select">1</div>
               <div>2</div>
@@ -49,8 +66,9 @@ const MainWeb = () => {
               <div>4</div>
               <div>5</div>
               <FontAwesomeIcon icon={faPlay} className="icon"/>
-          </div>
-        </div>}
+              <FontAwesomeIcon icon={faForwardFast} className="icon"/>
+          </div>}
+
       </main>
       <footer>
         <Footer/>

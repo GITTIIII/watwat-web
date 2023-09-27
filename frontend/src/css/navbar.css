@@ -26,6 +26,7 @@ header{
 }
 
 .right-icon{
+    width: 1vh;
     display:block;
     transform: rotateZ(90deg);
     transition: .5s;
