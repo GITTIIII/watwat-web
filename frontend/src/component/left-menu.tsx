@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import '../css/navbar.css'
 function LeftMenu(){
     return(
@@ -6,19 +6,19 @@ function LeftMenu(){
         <div className="left-menu">
             <ul>
               <li>
-                <Link to="/" className="page-active">หน้าหลัก</Link>
+                <NavLink to="/" >หน้าหลัก</NavLink>
               </li>
               <li>
-                <Link to="">ขอจัดกิจกรรม</Link>
+                <NavLink to="">ขอจัดกิจกรรม</NavLink>
               </li>
               <li>
-                <Link to="/place">ขอใช้สถานที่</Link>
+                <NavLink to="/place">ขอใช้สถานที่</NavLink>
               </li>
               <li>
-                <Link to="">ยืม/คืนสิ่งของ</Link>
+                <NavLink to="">ยืม/คืนสิ่งของ</NavLink>
               </li>
               <li>
-                <Link to="">บริจาค</Link>
+                <NavLink to="">บริจาค</NavLink>
               </li>
             </ul>
         </div>
