@@ -7,11 +7,6 @@
     
 }
 
-
-.icon{
-    color:orange;
-}
-
 main{
     display: flex;
     flex-direction: column;

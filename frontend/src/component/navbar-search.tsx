@@ -17,7 +17,7 @@ function NavbarSearch(){
       </div>
       <div className="topright-navbar">
         <UserProfile/>
-        <div className="topright-navbar-menu">
+        <div className={`topright-navbar-menu ${Rclick ? "active":""}`}>
           <FontAwesomeIcon icon={faCaretDown} className="right-icon" onClick={() => setRClick(!Rclick)}/>
           {Rclick && <RightMenu/>}
         </div>

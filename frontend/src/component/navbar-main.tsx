@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import "../css/navbar.css";
 import { faBars, faCaretDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -8,7 +7,6 @@ import React from "react";
 import LeftMenu from "./left-menu";
 import RightMenu from "./right-menu";
 import MenuItem from "./menu-item";
-
 function NavbarMain(){
   const [Lclick, setLClick] = React.useState(false);
   const [Rclick, setRClick] = React.useState(false);
@@ -23,10 +21,10 @@ function NavbarMain(){
         <Logo />
         <span>Wat Wat</span>
       </div>
-      <MenuItem text="/main"/>
+      <MenuItem props="/main"/>
       <div className="topright-navbar">
         <UserProfile />
-        <div className="topright-navbar-menu">
+        <div className={`topright-navbar-menu ${Rclick ? "active":""}`}>
           <FontAwesomeIcon icon={faCaretDown} className="right-icon" onClick={() => setRClick(!Rclick)}/>
           {Rclick && <RightMenu/>}
         </div>
