@@ -9,16 +9,16 @@ function LeftMenu(){
                 <NavLink to="/" >หน้าหลัก</NavLink>
               </li>
               <li>
-                <NavLink to="">ขอจัดกิจกรรม</NavLink>
+                <NavLink to="/event">ขอจัดกิจกรรม</NavLink>
               </li>
               <li>
                 <NavLink to="/place">ขอใช้สถานที่</NavLink>
               </li>
               <li>
-                <NavLink to="">ยืม/คืนสิ่งของ</NavLink>
+                <NavLink to="/item">ยืม/คืนสิ่งของ</NavLink>
               </li>
               <li>
-                <NavLink to="">บริจาค</NavLink>
+                <NavLink to="/donate">บริจาค</NavLink>
               </li>
             </ul>
         </div>

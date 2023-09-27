@@ -1,5 +1,5 @@
 import '../css/navbar.css'
-import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
+import { faCaretDown, faGear } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Logo from "./logo";
 import UserProfile from "./userprofile";
@@ -19,7 +19,7 @@ function NavbarSearch(){
         <div className="topright-navbar">
           <UserProfile/>
           <div className={`topright-navbar-menu ${Rclick ? "active":""}`}>
-            <FontAwesomeIcon icon={faCaretDown} className="right-icon" onClick={() => setRClick(!Rclick)}/>
+            <FontAwesomeIcon icon={faGear} className="right-icon" onClick={() => setRClick(!Rclick)}/>
             {Rclick && <RightMenu/>}
           </div>
         </div>

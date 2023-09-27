@@ -7,10 +7,10 @@ function MenuItem() {
     <>
       <div className="menu-navbar">
         <NavLink to="/" >หน้าหลัก</NavLink>
-        <NavLink to="">ขอจัดกิจกรรม</NavLink>
+        <NavLink to="/event">ขอจัดกิจกรรม</NavLink>
         <NavLink to="/place">ขอใช้สถานที่</NavLink>
-        <NavLink to="">ยืม/คืนสิ่งของ</NavLink>
-        <NavLink to="">บริจาค</NavLink>
+        <NavLink to="/item">ยืม/คืนสิ่งของ</NavLink>
+        <NavLink to="/donate">บริจาค</NavLink>
       </div>
     </>
   );

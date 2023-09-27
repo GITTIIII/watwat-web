@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 function RightMenu() {
   return (
@@ -6,10 +6,10 @@ function RightMenu() {
       <div className="right-menu">
         <ul>
           <li>
-            <Link to="/">สมัคร Wat Creator</Link>
+            <NavLink to="/">สมัคร Wat Creator</NavLink>
           </li>
           <li>
-            <Link to="/login">ออกจากระบบ</Link>
+            <NavLink to="/login">ออกจากระบบ</NavLink>
           </li>
         </ul>
       </div>

@@ -8,7 +8,9 @@ import Register from "./page/register";
 import MainWeb from "./page/mainweb";
 import Place from "./page/place"; 
 import Placeform from "./page/place-form";
-
+import Event from "./page/event";
+import Item from "./page/item";
+import Donate from "./page/donate";
 const App = () => {
   return (
     <>
@@ -19,6 +21,9 @@ const App = () => {
           <Route path="/register" element={<Register />} />
           <Route path="/place" element={<Place />} />
           <Route path="/placeform" element={<Placeform />} />
+          <Route path="/event" element={<Event />} />
+          <Route path="/item" element={<Item />} />
+          <Route path="/donate" element={<Donate />} />
         </Routes>
       </Router>
     </>

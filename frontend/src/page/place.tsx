@@ -2,13 +2,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons"; //for icon
 import { Link } from "react-router-dom";
 import "../css/place.css";
-import NavbarPlace from "../component/navbar-place";
+import NavbarMain from "../component/navbar-main";
 import Footer from "../component/footer";
 const Place = () => {
   return (
     <>
       <header>
-        <NavbarPlace/>
+        <NavbarMain/>
       </header>
       <main style={{ backgroundImage: "url(/image/temple.jpg)" }}>
         <div className="place-middle-box">

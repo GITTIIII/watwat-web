@@ -1,5 +1,5 @@
 import "../css/navbar.css";
-import { faBars, faCaretDown } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faCaretDown, faGear } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Logo from "./logo";
 import UserProfile from "./userprofile";
@@ -15,7 +15,7 @@ function NavbarMain(){
   return (
     <>
       <div className="navbar">
-        <div className="side-menu">
+        <div className="topleft-navbar-menu">
           <FontAwesomeIcon icon={faBars} className="left-icon" onClick={() => setLClick(!Lclick)}/>
           {Lclick && <LeftMenu/>}
         </div>
@@ -27,7 +27,7 @@ function NavbarMain(){
         <div className="topright-navbar">
           <UserProfile />
           <div className={`topright-navbar-menu ${Rclick ? "active":""}`}>
-            <FontAwesomeIcon icon={faCaretDown} className="right-icon" onClick={() => setRClick(!Rclick)}/>
+            <FontAwesomeIcon icon={faGear} className="right-icon" onClick={() => setRClick(!Rclick)}/>
             {Rclick && <RightMenu/>}
           </div>
         </div>
