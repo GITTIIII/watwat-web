@@ -20,7 +20,7 @@ header{
 .left-icon,.right-icon{
     width: 3vh;
     height: auto;
-    margin: 0px 20px;
+    margin: 0px 25px;
     color: orange;
     display:none;
 }
