@@ -5,63 +5,30 @@ import { faBars, faCaretDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Logo from "./logo";
 import UserProfile from "./userprofile";
+import LeftMenu from "./left-menu";
+import RightMenu from "./right-menu";
+import MenuItem from "antd/es/menu/MenuItem";
 
-const NavbarPlace = () => {
- 
+function NavbarPlace(){
+  const [Lclick, setLClick] = React.useState(false);
+  const [Rclick, setRClick] = React.useState(false);
 
   return (
     <div className="navbar">
       <div className="side-menu">
-        <FontAwesomeIcon icon={faBars} className="left-icon" />
-        <div className="left-menu">
-          <ul>
-            <li>
-              <Link to="/">หน้าหลัก</Link>
-            </li>
-            <li>
-              <Link to="">ขอจัดกิจกรรม</Link>
-            </li>
-            <li>
-              <Link to="/place" className="page-active">
-                ขอใช้สถานที่
-              </Link>
-            </li>
-            <li>
-              <Link to="">ยืม/คืนสิ่งของ</Link>
-            </li>
-            <li>
-              <Link to="">บริจาค</Link>
-            </li>
-          </ul>
-        </div>
+        <FontAwesomeIcon icon={faBars} className="left-icon" onClick={() => setLClick(!Lclick)}/>
+        {Lclick && <LeftMenu/>}
       </div>
       <div className="topleft-navbar">
         <Logo />
         <span>Wat Wat</span>
       </div>
-      <div className="menu-navbar">
-        <Link to="/">หน้าหลัก</Link>
-        <Link to="">ขอจัดกิจกรรม</Link>
-        <Link to="/place" className="page-active">
-          ขอใช้สถานที่
-        </Link>
-        <Link to="">ยืม/คืนสิ่งของ</Link>
-        <Link to="">บริจาค</Link>
-      </div>
+      <MenuItem/>
       <div className="topright-navbar">
         <UserProfile />
         <div className="topright-navbar-menu">
-          <FontAwesomeIcon icon={faCaretDown} className="right-icon"/>
-            <div className="right-menu">
-              <ul>
-                <li>
-                  <Link to="/">สมัคร Wat Creator</Link>
-                </li>
-                <li>
-                  <Link to="/login">ออกจากระบบ</Link>
-                </li>
-              </ul>
-            </div>
+          <FontAwesomeIcon icon={faCaretDown} className="right-icon" onClick={() => setRClick(!Rclick)}/>
+            {Rclick && <RightMenu/>}
         </div>
       </div>
     </div>

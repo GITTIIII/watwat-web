@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import '../css/navbar.css'
 import Logo from './logo'
 
-const NavbarRegister = () =>{
+function NavbarRegister(){
   return (
     <div className="navbar">
           <div className="topleft-navbar">
@@ -20,5 +20,4 @@ const NavbarRegister = () =>{
         </div>
   )
 }
-
 export default NavbarRegister;

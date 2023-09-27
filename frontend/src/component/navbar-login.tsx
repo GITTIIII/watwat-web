@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import '../css/navbar.css'
 import Logo from './logo';
 
-const NavbarLogin = () =>{
+function NavbarLogin(){
   return (
     <div className="navbar">
           <div className="topleft-navbar">

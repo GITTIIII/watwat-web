@@ -1,14 +1,14 @@
-import * as React from "react";
-import { Link } from "react-router-dom";
 import '../css/navbar.css'
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Logo from "./logo";
 import UserProfile from "./userprofile";
+import RightMenu from "./right-menu";
+import React from 'react';
 
-const NavbarSearch = () => {
+function NavbarSearch(){
+  const [Rclick,setRClick] = React.useState(false);
 
-  
   return (
     <div className="navbar">
       <div className="topleft-navbar">
@@ -18,19 +18,8 @@ const NavbarSearch = () => {
       <div className="topright-navbar">
         <UserProfile/>
         <div className="topright-navbar-menu">
-          <FontAwesomeIcon icon={faCaretDown} className="right-icon" />
-         
-            <div className="right-menu">
-              <ul>
-                <li>
-                  <Link to="/">สมัคร Wat Creator</Link>
-                </li>
-                <li>
-                  <Link to="/login">ออกจากระบบ</Link>
-                </li>
-              </ul>
-            </div>
-          
+          <FontAwesomeIcon icon={faCaretDown} className="right-icon" onClick={() => setRClick(!Rclick)}/>
+          {Rclick && <RightMenu/>}
         </div>
       </div>
     </div>

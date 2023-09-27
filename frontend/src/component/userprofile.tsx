@@ -1,4 +1,4 @@
-const UserProfile = () =>{
+function UserProfile(){
     return(
         <>
             <img src='./image/no_profile.png'className="userprofile" alt="userprofile"/>
