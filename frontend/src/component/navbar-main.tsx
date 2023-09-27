@@ -1,5 +1,5 @@
 import "../css/navbar.css";
-import { faBars, faCaretDown, faEllipsisVertical, faGear } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faEllipsisVertical } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Logo from "./logo";
 import UserProfile from "./userprofile";
