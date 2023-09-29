@@ -3,15 +3,15 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import Login from "./page/login";
-import Register from "./page/register";
-import MainWeb from "./page/mainweb";
-import Place from "./page/place"; 
-import Placeform from "./page/place-form";
-import Event from "./page/event";
-import Item from "./page/item";
+import Login from "./page/user/login";
+import Register from "./page/user/register";
+import MainWeb from "./page/user/mainweb";
+import Place from "./page/user/place"; 
+import Placeform from "./page/user/place-form";
+import Event from "./page/user/event";
+import Item from "./page/user/item";
 import Donate from "./page/user/donate";
-import Wat from "./page/wat";
+import Wat from "./page/user/wat";
 const App = () => {
   return (
     <>

@@ -1,9 +1,9 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import "../css/login.css";
+import "../../css/login.css";
 import { faKey, faUser ,faEnvelope } from "@fortawesome/free-solid-svg-icons"; //for icon
 import { Link } from "react-router-dom";
-import Footer from "../component/footer";
-import NavbarRegister from "../component/navbar-register";
+import Footer from "../../component/footer";
+import NavbarRegister from "../../component/navbar-register";
 const Register = () => {
   return (
     <>

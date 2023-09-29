@@ -123,7 +123,7 @@
 
 @media (max-width: 950px ){
     .login-box{
-        width: 40vh;
+        width: max-content;
         height: 60vh;
         justify-content: center;
     }

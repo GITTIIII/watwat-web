@@ -1,8 +1,8 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faForwardFast, faMagnifyingGlass, faPlay } from "@fortawesome/free-solid-svg-icons"; //for icon
-import "../css/mainweb.css";
-import Footer from "../component/footer";
-import NavbarSearch from "../component/navbar-search";
+import "../../css/mainweb.css";
+import Footer from "../../component/footer";
+import NavbarSearch from "../../component/navbar-search";
 import React from "react";
 import { Link } from "react-router-dom";
 const MainWeb = () => {

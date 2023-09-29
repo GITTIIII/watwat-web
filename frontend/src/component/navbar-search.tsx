@@ -4,10 +4,26 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Logo from "./logo";
 import UserProfile from "./userprofile";
 import RightMenu from "./right-menu";
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 
 function NavbarSearch(){
   const [Rclick,setRClick] = React.useState(false);
+
+  const menuRef = useRef<HTMLDivElement | null>(null);
+
+useEffect(() => {
+  const closeMenu = (e:any) => {
+    console.log(e);
+    if (menuRef.current && !menuRef.current.contains(e.target)) {
+      setRClick(false);
+      console.log(menuRef.current);
+    }
+  };
+
+  document.addEventListener("mousedown", closeMenu);
+
+  return () => document.removeEventListener("mousedown", closeMenu);
+}, []);
 
   return (
     <>
@@ -18,8 +34,8 @@ function NavbarSearch(){
         </div>
         <div className="topright-navbar">
           <UserProfile/>
-          <div className={`topright-navbar-menu ${Rclick ? "active":""}`}>
-            <FontAwesomeIcon icon={faEllipsisVertical} className="right-icon" onClick={() => setRClick(!Rclick)}/>
+          <div className={`topright-navbar-menu ${Rclick ? "active":""}`} onClick={() => setRClick(!Rclick)} ref={menuRef}>
+            <FontAwesomeIcon icon={faEllipsisVertical} className="right-icon" />
             {Rclick && <RightMenu/>}
           </div>
         </div>

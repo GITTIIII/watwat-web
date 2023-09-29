@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import "../css/place-form.css";
-import NavbarMain from "../component/navbar-main";
-import Footer from "../component/footer";
+import "../../css/place-form.css";
+import NavbarMain from "../../component/navbar-main";
+import Footer from "../../component/footer";
 const Placeform = () => {
   return (
     <>

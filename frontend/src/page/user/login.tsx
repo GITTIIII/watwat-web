@@ -1,9 +1,9 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import "../css/login.css";
+import "../../css/login.css";
 import { faLock, faUser } from "@fortawesome/free-solid-svg-icons"; //for icon
 import { Link } from "react-router-dom";
-import NavbarLogin from "../component/navbar-login";
-import Footer from "../component/footer";
+import NavbarLogin from "../../component/navbar-login";
+import Footer from "../../component/footer";
 
 const Login = () => {
   return (
