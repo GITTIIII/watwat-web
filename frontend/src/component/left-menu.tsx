@@ -3,7 +3,7 @@ import '../css/navbar.css'
 function LeftMenu(){
     return(
       <>
-        <div className="left-menu">
+        <div className="left-menu" >
             <ul>
               <li>
                 <NavLink to="/" >หน้าหลัก</NavLink>

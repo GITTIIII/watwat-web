@@ -12,29 +12,30 @@ function NavbarMain(){
   const [Lclick, setLClick] = React.useState(false);
   const [Rclick, setRClick] = React.useState(false);
 
-  //const menuRef = useRef(null);
+  const menuRef = useRef<HTMLDivElement | null>(null);
 
-  // useEffect(() => {
-  //   document.addEventListener("mousedown", handler, true);
+useEffect(() => {
+  const closeMenu = (e:any) => {
+    console.log(e);
+    if (menuRef.current && !menuRef.current.contains(e.target)) {
+      setLClick(false);
+      setRClick(false);
+      console.log(menuRef.current);
+    }
+  };
 
-    
-  // }, []);
+  document.addEventListener("mousedown", closeMenu);
 
-  // const handler = (e) => {
-  //   if(!menuRef.current.contains(e.target)){
-  //     console.log("Click")
-  //   }
-  //   else{
+  return () => document.removeEventListener("mousedown", closeMenu);
+}, []);
 
-  //   }
-  // }
 
   return (
     <>
       <div className="navbar">
-        <div className="topleft-navbar-menu" >
-          <FontAwesomeIcon icon={faBars} className="left-icon" onClick={() => setLClick(!Lclick)}/>
-          {Lclick && <LeftMenu/>}
+        <div className="topleft-navbar-menu" onClick={() => setLClick(!Lclick)} ref={menuRef}>
+          <FontAwesomeIcon icon={faBars} className="left-icon"  />
+          {Lclick && <LeftMenu />}
         </div>
         <div className="topleft-navbar">
           <Logo />
@@ -43,8 +44,8 @@ function NavbarMain(){
         <MenuItem />
         <div className="topright-navbar">
           <UserProfile />
-          <div className={`topright-navbar-menu ${Rclick ? "active":""}`} >
-            <FontAwesomeIcon icon={faEllipsisVertical} className="right-icon" onClick={() => setRClick(!Rclick)}/>
+          <div className={`topright-navbar-menu ${Rclick ? "active":""}`}  onClick={() => setRClick(!Rclick)} ref={menuRef}>
+            <FontAwesomeIcon icon={faEllipsisVertical} className="right-icon" />
             {Rclick && <RightMenu/>}
           </div>
         </div>
