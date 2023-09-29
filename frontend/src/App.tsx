@@ -10,7 +10,7 @@ import Place from "./page/place";
 import Placeform from "./page/place-form";
 import Event from "./page/event";
 import Item from "./page/item";
-import Donate from "./page/donate";
+import Donate from "./page/user/donate";
 import Wat from "./page/wat";
 const App = () => {
   return (
