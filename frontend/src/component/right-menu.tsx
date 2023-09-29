@@ -9,7 +9,7 @@ function RightMenu() {
             <NavLink to="/">สมัคร Wat Creator</NavLink>
           </li>
           <li>
-            <NavLink to="/login">ออกจากระบบ</NavLink>
+            <NavLink to="/">ออกจากระบบ</NavLink>
           </li>
         </ul>
       </div>

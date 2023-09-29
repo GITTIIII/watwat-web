@@ -13,14 +13,9 @@ const Login = () => {
       </header>
       <main style={{ backgroundImage: "url(/image/monk_login.png)" }}>
         <div className="login-box">
-          <div
-            className="login-box-picture"
-            style={{ backgroundImage: "url(/image/monk_login.png)" }}
-          >
+          <div className="login-box-picture" style={{ backgroundImage: "url(/image/monk_login.png)" }}>
             <div className="word">ยินดีต้อนรับ พุทธศาสนิกชน สู่ Wat Wat</div>
-            <div className="word1">
-              " วันที่ดีที่สุด คือวันที่ได้ทำความดี และสะสมบุญ "
-            </div>
+            <div className="word1">" วันที่ดีที่สุด คือวันที่ได้ทำความดี และสะสมบุญ "</div>
           </div>
           <form action="">
             <div className="input-box">
@@ -44,7 +39,7 @@ const Login = () => {
               </label>
               <Link to="/">ลืมรหัสผ่าน?</Link>
             </div>
-            <Link to="/">
+            <Link to="/main">
               <button type="submit" className="submit_button">
                 เข้าสู่ระบบ
               </button>

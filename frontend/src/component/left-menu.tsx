@@ -6,7 +6,7 @@ function LeftMenu(){
         <div className="left-menu" >
             <ul>
               <li>
-                <NavLink to="/" >หน้าหลัก</NavLink>
+                <NavLink to="/wat" >หน้าหลัก</NavLink>
               </li>
               <li>
                 <NavLink to="/event">ขอจัดกิจกรรม</NavLink>

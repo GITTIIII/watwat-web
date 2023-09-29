@@ -43,10 +43,10 @@ const Register = () => {
                         <input type="password" required />
                         <label>รหัสผ่าน</label>
                     </div>
-                    <Link to="/login"><button type="submit" className="submit_button">สร้างบัญชีใหม่</button></Link>
+                    <Link to="/"><button type="submit" className="submit_button">สร้างบัญชีใหม่</button></Link>
                     <div className="login-link">
                         <span>มีบัญชีเเล้ว </span> 
-                        <Link to="/login">เข้าสู่ระบบ</Link>
+                        <Link to="/">เข้าสู่ระบบ</Link>
                     </div>
                 </form>
             </div>

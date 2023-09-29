@@ -13,7 +13,7 @@ function NavbarRegister() {
         </div>
         <div className="topright-navbar">
           <button>
-            <Link to="/login">
+            <Link to="/">
               <button>เข้าสู่ระบบ</button>
             </Link>
           </button>
