@@ -11,6 +11,7 @@ import Placeform from "./page/place-form";
 import Event from "./page/event";
 import Item from "./page/item";
 import Donate from "./page/donate";
+import Wat from "./page/wat";
 const App = () => {
   return (
     <>
@@ -24,6 +25,7 @@ const App = () => {
           <Route path="/event" element={<Event />} />
           <Route path="/item" element={<Item />} />
           <Route path="/donate" element={<Donate />} />
+          <Route path="/wat" element={<Wat />} />
         </Routes>
       </Router>
     </>

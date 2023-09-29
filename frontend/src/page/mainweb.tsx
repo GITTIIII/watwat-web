@@ -41,7 +41,7 @@ const MainWeb = () => {
                 </div>
               </div>
               <button>
-                  <Link to="/place">button</Link>
+                  <Link to="/wat">button</Link>
               </button>
             </div>
             <div className="wat">

@@ -6,7 +6,7 @@ function MenuItem() {
   return (
     <>
       <div className="menu-navbar">
-        <NavLink to="/" >หน้าหลัก</NavLink>
+        <NavLink to="/wat" >หน้าหลัก</NavLink>
         <NavLink to="/event">ขอจัดกิจกรรม</NavLink>
         <NavLink to="/place">ขอใช้สถานที่</NavLink>
         <NavLink to="/item">ยืม/คืนสิ่งของ</NavLink>
