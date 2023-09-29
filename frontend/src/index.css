@@ -21,3 +21,25 @@ a{
 .icon{
   color: orange;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Sarabun&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Sarabun;
+    
+}
+
+main{
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-repeat: no-repeat; 
+    background-position: center;
+    background-attachment: fixed; 
+    background-size: cover;
+    height: 90vh;
+}
