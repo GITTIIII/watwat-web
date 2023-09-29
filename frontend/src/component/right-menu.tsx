@@ -6,7 +6,7 @@ function RightMenu() {
       <div className="right-menu">
         <ul>
           <li>
-            <NavLink to="/">สมัคร Wat Creator</NavLink>
+            <NavLink to="/wat">สมัคร Wat Creator</NavLink>
           </li>
           <li>
             <NavLink to="/">ออกจากระบบ</NavLink>

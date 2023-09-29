@@ -22,12 +22,12 @@ a{
   color: orange;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Sarabun&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Thasadith:wght@700&display=swap');
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Sarabun;
+    font-family: Thasadith;
     
 }
 

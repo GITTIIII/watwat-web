@@ -4,8 +4,7 @@ header{
 }
 .navbar{
     width: 100%;
-    height: 10vh;
-    font-size: 2.5vh;
+    height: 12vh;
     font-weight: bold;
     background-color: white;
     border-bottom: 5px solid orange;
@@ -33,6 +32,7 @@ header{
 }
 
 .topleft-navbar{
+    font-size: 3vh;
     position: relative;
     display: flex;
     align-items: center;
@@ -51,26 +51,31 @@ header{
 
 .menu-navbar a{
     display: flex;
-    margin: 0px 20px;
-    font-size: 2vh;
+    margin: 0px ;   
+    font-size: 2.5vh;
     text-decoration: none;
     color: black;
-    padding: 5px;
+    padding: 15px;
     width: auto;
+    height: 12vh;
     font-weight: bold;
     border-bottom: 2px solid rgba(0, 0, 0, 0);
+    align-items: center;
 }
 
-.menu-navbar a.active, .left-menu a.active{
-    border-bottom: 2px solid orange;
+.menu-navbar a.active{
+    border-top: 2px solid orange;
 }
 
 .menu-navbar a:hover {
     width: auto;
-    border-bottom: 2px solid rgb(0, 0, 0);
-    transition: .5s;
+    border-top: 2px solid rgb(0, 0, 0);
+    color: orange;
 }
 
+.left-menu a.active{
+    border-bottom: 2px solid orange;
+}
 .topright-navbar{
     position: relative;
     display: flex;

@@ -1,10 +1,10 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons"; //for icon
 import { Link } from "react-router-dom";
-import "../../css/place.css";
-import NavbarMain from "../../component/navbar-main";
-import Footer from "../../component/footer";
-const Item = () => {
+import "../../../css/place.css";
+import NavbarMain from "../../../component/navbar-main";
+import Footer from "../../../component/footer";
+const Donate = () => {
   return (
     <>
       <header>
@@ -20,4 +20,4 @@ const Item = () => {
   );
 };
 
-export default Item;
+export default Donate;
