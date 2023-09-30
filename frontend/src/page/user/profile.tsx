@@ -1,18 +1,19 @@
 import Footer from "../../component/footer";
-import "../../css/userProfile.css";
 import NavbarMain from "../../component/navbar-main";
-import { Form } from "react-router-dom";
+import "../../css/profile.css"
 
-const UserProfile = () => {
+
+const Profile = () => {
   return (
     <>
       <header>
         <NavbarMain/>
       </header>
       <main style={{ backgroundImage: "url(/image/temple.jpg)" }}>
+        <div className="middle-box">
         <div className="profile"></div>
           <div className="info">
-            <Form>
+            <div className="userInfo">
               <input type="text" />
               <input type="text" />
               <input type="text" />
@@ -20,8 +21,9 @@ const UserProfile = () => {
               <input type="text" />
               <input type="text" />
               <input type="text" />
-            </Form>
+            </div>
           </div>
+        </div>
       </main>
       <footer>
         <Footer/>
@@ -30,4 +32,4 @@ const UserProfile = () => {
   );
 };
 
-export default UserProfile;
+export default Profile;

@@ -11,7 +11,7 @@ import Event from "./page/user/eventRequest/eventRequest";
 import Item from "./page/user/item/item";
 import Donate from "./page/user/donate/donate";
 import Search from "./page/user/search";
-import UserProfile from "./page/user/userProfile";
+import Profile from "./page/user/profile";
 import Main from "./page/user/main/mainWat";
 const App = () => {
   return (
@@ -27,7 +27,7 @@ const App = () => {
           <Route path="/item" element={<Item />} />
           <Route path="/donate" element={<Donate />} />
           <Route path="/main" element={<Main />} />
-          <Route path="/userProfile" element={<UserProfile/>}/>
+          <Route path="/profile" element={<Profile/>}/>
         </Routes>
       </Router>
       </>
