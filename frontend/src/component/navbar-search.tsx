@@ -2,9 +2,10 @@ import '../css/navbar.css'
 import {  faEllipsisVertical } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Logo from "./logo";
-import UserProfile from "./userprofile";
+import UserProfile from "./useImage";
 import RightMenu from "./right-menu";
 import React, { useEffect, useRef } from 'react';
+import UserImage from './useImage';
 
 function NavbarSearch(){
   const [Rclick,setRClick] = React.useState(false);
@@ -33,7 +34,7 @@ useEffect(() => {
           <span>Wat Wat</span>
         </div>
         <div className="topright-navbar">
-          <UserProfile/>
+          <UserImage/>
           <div className={`topright-navbar-menu ${Rclick ? "active":""}`} onClick={() => setRClick(!Rclick)} ref={menuRef}>
             <FontAwesomeIcon icon={faEllipsisVertical} className="right-icon" />
             {Rclick && <RightMenu/>}

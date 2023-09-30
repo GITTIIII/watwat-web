@@ -1,12 +1,14 @@
 import "../css/navbar.css";
-import { faBars, faEllipsisVertical } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faEllipsisVertical, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Logo from "./logo";
-import UserProfile from "./userprofile";
+import UserProfile from "./useImage";
 import React,{useEffect, useRef} from "react";
 import LeftMenu from "./left-menu";
 import RightMenu from "./right-menu";
 import MenuItem from "./menu-item";
+import { Link } from "react-router-dom";
+import UserImage from "./useImage";
 
 function NavbarMain(){
   const [Lclick, setLClick] = React.useState(false);
@@ -43,7 +45,12 @@ useEffect(() => {
         </div>
         <MenuItem />
         <div className="topright-navbar">
-          <UserProfile />
+          <button>
+            <Link to="/search">
+              <FontAwesomeIcon icon={faMagnifyingGlass} />ค้นหา
+            </Link>
+          </button>
+          <UserImage />
           <div className={`topright-navbar-menu ${Rclick ? "active":""}`}  onClick={() => setRClick(!Rclick)} ref={menuRef}>
             <FontAwesomeIcon icon={faEllipsisVertical} className="right-icon" />
             {Rclick && <RightMenu/>}

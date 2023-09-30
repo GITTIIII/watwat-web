@@ -1,4 +1,4 @@
-function UserProfile(){
+function UserImage(){
     return(
         <>
             <img src='./image/no_profile.png'className="userprofile" alt="userprofile"/>
@@ -6,4 +6,4 @@ function UserProfile(){
     );
 };
 
-export default UserProfile;
+export default UserImage;

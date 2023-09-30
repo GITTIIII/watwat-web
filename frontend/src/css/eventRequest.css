@@ -1,17 +1,21 @@
-
+form{
+    overflow: auto;
+}
 .icon.plusHosts{
     width: 25px;
     height: 25px;
     background-color: #ffff;
 }
 .warpper {
-    display: block;
+    
     background-color: black;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
-    overflow: auto;
+    height: 90vh;
+    overflow: hidden;
+    
 }
 .heandcontantcreate {
     font-size: 18px;
@@ -79,16 +83,7 @@
 #eventType:active,#eventType:focus,.nameEvent:active,.nameEvent:focus {
     outline: none;
 }
-/* #eventType:focus option:hover {
-    background-color: #D9D9D9;
-    color: #d90202;
-    Replace with your desired background color 
-} */
-/* .eventRequestHistory {
-    width: 100%;
-    overflow: scroll;
-    height: 83%;
-} */
+
 
 .plusHost{
     display: flex;
@@ -100,7 +95,7 @@
     margin: 0 35px 55px 35px ;
     padding: 30px;
     width: 93%;
-    height: auto;
+    
     border-radius: 10px;
     display: block;
     grid-gap: 20px;

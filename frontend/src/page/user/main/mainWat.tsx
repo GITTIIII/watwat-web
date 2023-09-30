@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import "../../../css/place.css";
 import NavbarMain from "../../../component/navbar-main";
 import Footer from "../../../component/footer";
-const Wat = () => {
+const Main = () => {
   return (
     <>
       <header>
@@ -20,4 +20,4 @@ const Wat = () => {
   );
 };
 
-export default Wat;
+export default Main;

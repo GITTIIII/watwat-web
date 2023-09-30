@@ -10,7 +10,7 @@ const Placeform = () => {
       </header>
       <main style={{ backgroundImage: "url(/image/temple.jpg)" }}>
         <div className="side-button">
-          <Link to="/place">
+          <Link to="/placeRequest">
             <button>ย้อนกลับ</button>
           </Link>
         </div>
@@ -59,7 +59,7 @@ const Placeform = () => {
               <textarea></textarea>
             </div>
           </div>
-          <Link to="/place">
+          <Link to="/placeRequest">
             <button>ส่งการร้องขอ</button>
           </Link>
         </div>

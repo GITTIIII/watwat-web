@@ -5,7 +5,8 @@ import Footer from "../../component/footer";
 import NavbarSearch from "../../component/navbar-search";
 import React from "react";
 import { Link } from "react-router-dom";
-const MainWeb = () => {
+
+const Search = () => {
   const [searchclick,setSearchClick] = React.useState(false)
 
   return (
@@ -41,7 +42,7 @@ const MainWeb = () => {
                 </div>
               </div>
               <button>
-                  <Link to="/wat">button</Link>
+                  <Link to="/main">button</Link>
               </button>
             </div>
             <div className="wat">
@@ -77,4 +78,4 @@ const MainWeb = () => {
   );
 };
 
-export default MainWeb;
+export default Search;
