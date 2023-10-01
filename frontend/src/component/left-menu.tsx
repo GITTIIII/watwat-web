@@ -1,7 +1,7 @@
-import { Link, NavLink } from "react-router-dom";
 import '../css/navbar.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { NavLink } from 'react-router-dom';
 function LeftMenu(){
     return(
       <>
