@@ -1,18 +1,16 @@
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-} from "react-router-dom";
-import Login from "./page/user/login";
-import Register from "./page/user/register";
-import Place from "./page/user/place/place"; 
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Login from "./page/login";
+import Register from "./page/register";
+import Place from "./page/user/place";
 import Placeform from "./page/user/place/place-form";
-import Event from "./page/user/eventRequest/eventRequest";
-import Item from "./page/user/item/item";
-import Donate from "./page/user/donate/donate";
+import Event from "./page/user/eventRequest";
+import Item from "./page/user/item";
+import Donate from "./page/user/donate";
 import Search from "./page/user/search";
 import Profile from "./page/user/profile";
-import Main from "./page/user/main/mainWat";
+import Main from "./page/user/mainWat";
+import RegisWatCreator from "./page/user/regis-watCreator";
+
 const App = () => {
   return (
     <>
@@ -27,10 +25,11 @@ const App = () => {
           <Route path="/item" element={<Item />} />
           <Route path="/donate" element={<Donate />} />
           <Route path="/main" element={<Main />} />
-          <Route path="/profile" element={<Profile/>}/>
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/regisWatCreator" element={<RegisWatCreator />} />
         </Routes>
       </Router>
-      </>
+    </>
   );
 };
 

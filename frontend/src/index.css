@@ -28,12 +28,12 @@ a{
     padding: 0;
     box-sizing: border-box;
     font-family: Sarabun;
-    
 }
 
 main{
     overflow: auto;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     background-repeat: no-repeat; 

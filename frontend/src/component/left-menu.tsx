@@ -1,25 +1,33 @@
 import { Link, NavLink } from "react-router-dom";
 import '../css/navbar.css'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 function LeftMenu(){
     return(
       <>
         <div className="left-menu" >
             <ul>
-              <li>
-                <NavLink to="/main" >หน้าหลัก</NavLink>
-              </li>
-              <li>
-                <NavLink to="/eventRequest">ขอจัดกิจกรรม</NavLink>
-              </li>
-              <li>
-                <NavLink to="/placeRequest">ขอใช้สถานที่</NavLink>
-              </li>
-              <li>
-                <NavLink to="/item">ยืม/คืนสิ่งของ</NavLink>
-              </li>
-              <li>
-                <NavLink to="/donate">บริจาค</NavLink>
-              </li>
+                <NavLink to="/search" >
+                <li>
+                  <FontAwesomeIcon icon={faMagnifyingGlass} />
+                  ค้นหา</li>
+                </NavLink>
+                <NavLink to="/main" >
+                  <li>หน้าหลัก</li>
+                </NavLink>
+                <NavLink to="/eventRequest">
+                  <li>ขอจัดกิจกรรม</li>
+                </NavLink>
+                <NavLink to="/placeRequest">
+                  <li>ขอใช้สถานที่</li>
+                </NavLink>
+                <NavLink to="/item">
+                  <li>ยืม/คืนสิ่งของ</li>
+                </NavLink>
+                <NavLink to="/donate">
+                  <li>บริจาค</li>
+                </NavLink>
+              
             </ul>
         </div>
       </>

@@ -9,7 +9,7 @@
 }
 
 .login-box form{
-    margin: 0px 50px;
+    margin: 50px;
     font-size: 2vh;
 }
 
@@ -27,10 +27,8 @@
     flex-direction: column;
 }
 
-.login-box div{
-    margin-top: auto;
-}
 .login-box-picture .word{
+    margin-top: auto;
     font-size: 2vh;
 }
 
@@ -103,6 +101,7 @@
     font-size: 2vh;
     color: orange;
     text-align: center;   
+    padding: 10px;
 }
 
 .login-link button{
@@ -139,7 +138,7 @@
     border-radius: 40px;
     cursor: pointer;
     border: 0px;
-    font-size: 0.9em;
+    font-size: 2vh;
     padding: 10px;
     margin-bottom: 20px;
 }

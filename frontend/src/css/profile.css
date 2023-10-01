@@ -1,15 +1,58 @@
-main{
-    flex-direction: column;
-}
-
 .profile{
     width: 100%;
-    height: 80px;
-    background-color: black;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile img{
+    margin-bottom: 20px;
+    width: 10rem;
+}
+.profile input{
+    width: 10rem;
 }
 
 .userInfo{
     display: grid;
     grid-template-columns: auto auto;
-    
+    margin: 20px 0px;
+    gap: 20px;
+}
+
+.userInfo div{
+    display: flex;
+    flex-direction: column;
+    font-size: 2vh;
+    color: white;
+    margin: 0px 20px;
+}
+
+.userInfo div input{
+    margin-top: 10px;
+    text-align: center;
+    font-size: 2vh;
+    padding: 10px;
+    border-radius: 10px;
+    border: 0px;
+}
+
+.info{
+    display: grid;
+    grid-template-columns: auto auto;
+    margin: 20px 0px;
+    justify-content: center;
+}
+
+.profile-button{
+    display: flex;
+    margin-left: auto;
+}
+
+.profile-button a{
+    width: max-content;
+    height: auto;
+    border: 10px;
+    margin-right: 10px;
 }

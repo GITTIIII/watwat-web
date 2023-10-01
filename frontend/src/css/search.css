@@ -2,7 +2,6 @@
     display: none; 
   }
 
-
 .middle-box{
     width: 50%;
     height: auto;
@@ -30,7 +29,7 @@
 }
 
 .search-bar input{
-    font-size: 3vh;
+    font-size: 2vh;
     width: auto;
     height: auto;
     padding: 10px;
@@ -55,7 +54,7 @@
 }
 
 .search-bar button{
-    font-size: 3vh;
+    font-size: 2vh;
     width: auto;
     height: auto;
     border: 0px;

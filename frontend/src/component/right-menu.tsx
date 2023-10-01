@@ -5,15 +5,15 @@ function RightMenu() {
     <>
       <div className="right-menu">
         <ul>
-          <li>
-            <NavLink to="/profile">โปรไฟล์</NavLink>
-          </li>
-          <li>
-            <NavLink to="/watCreator">สมัคร Wat Creator</NavLink>
-          </li>
-          <li>
-            <NavLink to="/">ออกจากระบบ</NavLink>
-          </li>
+          <NavLink to="/profile">
+            <li>โปรไฟล์</li>
+          </NavLink>
+          <NavLink to="/regisWatCreator">
+            <li>สมัคร Wat Creator</li>
+          </NavLink>
+          <NavLink to="/">
+            <li>ออกจากระบบ</li>
+          </NavLink>
         </ul>
       </div>
     </>

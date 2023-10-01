@@ -1,9 +1,9 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import "../../css/login.css";
+import "../css/login.css";
 import { faLock, faUser } from "@fortawesome/free-solid-svg-icons"; //for icon
 import { Link } from "react-router-dom";
-import NavbarLogin from "../../component/navbar-login";
-import Footer from "../../component/footer";
+import NavbarLogin from "../component/navbar-login";
+import Footer from "../component/footer";
 
 const Login = () => {
   return (
@@ -13,9 +13,14 @@ const Login = () => {
       </header>
       <main style={{ backgroundImage: "url(/image/monk_login.png)" }}>
         <div className="login-box">
-          <div className="login-box-picture" style={{ backgroundImage: "url(/image/monk_login.png)" }}>
+          <div
+            className="login-box-picture"
+            style={{ backgroundImage: "url(/image/monk_login.png)" }}
+          >
             <div className="word">ยินดีต้อนรับ พุทธศาสนิกชน สู่ Wat Wat</div>
-            <div className="word1">" วันที่ดีที่สุด คือวันที่ได้ทำความดี และสะสมบุญ "</div>
+            <div className="word1">
+              " วันที่ดีที่สุด คือวันที่ได้ทำความดี และสะสมบุญ "
+            </div>
           </div>
           <form action="">
             <div className="input-box">
@@ -39,7 +44,7 @@ const Login = () => {
               </label>
               <Link to="/">ลืมรหัสผ่าน?</Link>
             </div>
-            <Link to="/main">
+            <Link to="/search">
               <button type="submit" className="submit_button">
                 เข้าสู่ระบบ
               </button>
@@ -52,7 +57,7 @@ const Login = () => {
         </div>
       </main>
       <footer>
-        <Footer/>
+        <Footer />
       </footer>
     </>
   );

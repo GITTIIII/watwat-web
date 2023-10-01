@@ -23,7 +23,7 @@ const Place = () => {
           </div>
           <div className="place-result-middle-box">
             <div className="temple">
-              <img src="./image/jandang.jpg" alt="picture"/>
+              <img src="./image/jandang.jpg" alt=""/>
               <div className="infomation">
                 
                   <div>

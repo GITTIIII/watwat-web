@@ -1,10 +1,7 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus } from "@fortawesome/free-solid-svg-icons"; //for icon
-import { Link } from "react-router-dom";
 import "../../../css/place.css";
 import NavbarMain from "../../../component/navbar-main";
 import Footer from "../../../component/footer";
-const Donate = () => {
+const Item = () => {
   return (
     <>
       <header>
@@ -20,4 +17,4 @@ const Donate = () => {
   );
 };
 
-export default Donate;
+export default Item;

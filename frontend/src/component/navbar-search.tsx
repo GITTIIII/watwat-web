@@ -1,48 +1,52 @@
-import '../css/navbar.css'
-import {  faEllipsisVertical } from "@fortawesome/free-solid-svg-icons";
+import "../css/navbar.css";
+import { faEllipsisVertical } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Logo from "./logo";
-import UserProfile from "./useImage";
+import UserProfile from "./userImage";
 import RightMenu from "./right-menu";
-import React, { useEffect, useRef } from 'react';
-import UserImage from './useImage';
+import React, { useEffect, useRef } from "react";
+import UserImage from "./userImage";
 
-function NavbarSearch(){
-  const [Rclick,setRClick] = React.useState(false);
+function NavbarSearch() {
+  const [Rclick, setRClick] = React.useState(false);
 
   const menuRef = useRef<HTMLDivElement | null>(null);
 
-useEffect(() => {
-  const closeMenu = (e:any) => {
-    console.log(e);
-    if (menuRef.current && !menuRef.current.contains(e.target)) {
-      setRClick(false);
-      console.log(menuRef.current);
-    }
-  };
+  useEffect(() => {
+    const closeMenu = (e: any) => {
+      console.log(e);
+      if (menuRef.current && !menuRef.current.contains(e.target)) {
+        setRClick(false);
+        console.log(menuRef.current);
+      }
+    };
 
-  document.addEventListener("mousedown", closeMenu);
+    document.addEventListener("mousedown", closeMenu);
 
-  return () => document.removeEventListener("mousedown", closeMenu);
-}, []);
+    return () => document.removeEventListener("mousedown", closeMenu);
+  }, []);
 
   return (
     <>
       <div className="navbar">
         <div className="topleft-navbar">
-          <Logo/>
+          <Logo />
           <span>Wat Wat</span>
         </div>
         <div className="topright-navbar">
-          <UserImage/>
-          <div className={`topright-navbar-menu ${Rclick ? "active":""}`} onClick={() => setRClick(!Rclick)} ref={menuRef}>
+          <UserImage />
+          <div
+            className={`topright-navbar-menu ${Rclick ? "active" : ""}`}
+            onClick={() => setRClick(!Rclick)}
+            ref={menuRef}
+          >
             <FontAwesomeIcon icon={faEllipsisVertical} className="right-icon" />
-            {Rclick && <RightMenu/>}
+            {Rclick && <RightMenu />}
           </div>
         </div>
       </div>
     </>
   );
-};
+}
 
 export default NavbarSearch;
