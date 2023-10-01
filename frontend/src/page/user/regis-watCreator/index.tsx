@@ -1,14 +1,10 @@
 import "../../../css/regis-watCreator.css";
-import NavbarMain from "../../../component/navbar-main";
-import Footer from "../../../component/footer";
+
 import { Link } from "react-router-dom";
 const RegisWatCreator = () => {
   return (
     <>
-      <header>
-        <NavbarMain/>
-      </header>
-      <main style={{ backgroundImage: "url(/image/temple.jpg)" }}>
+      
       <div className="regis-wat-cretor-middle-box">
         <div className="picture">
           <div className="watlogo">
@@ -57,10 +53,7 @@ const RegisWatCreator = () => {
           </button>
         </Link>
       </div>
-      </main>
-      <footer>
-        <Footer/>
-      </footer>
+     
     </>
   );
 };

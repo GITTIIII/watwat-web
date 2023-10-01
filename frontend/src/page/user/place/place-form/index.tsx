@@ -1,14 +1,9 @@
 import { Link } from "react-router-dom";
 import "../../../../css/place-form.css";
-import NavbarMain from "../../../../component/navbar-main";
-import Footer from "../../../../component/footer";
 const Placeform = () => {
   return (
     <>
-      <header>
-        <NavbarMain />
-      </header>
-      <main style={{ backgroundImage: "url(/image/temple.jpg)" }}>
+     
         <div className="place-form-box">
           <div className="side-button">
             <Link to="/placeRequest">
@@ -64,10 +59,7 @@ const Placeform = () => {
         <Link to="/placeRequest">
               <button type="submit" className="submit_button">ส่งการร้องขอ</button>
         </Link>
-      </main>
-      <footer>
-        <Footer />
-      </footer>
+    
     </>
   );
 };

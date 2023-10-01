@@ -5,8 +5,6 @@ import {
   faPlay,
 } from "@fortawesome/free-solid-svg-icons"; //for icon
 import "../../../css/search.css";
-import Footer from "../../../component/footer";
-import NavbarSearch from "../../../component/navbar-search";
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -15,10 +13,6 @@ const Search = () => {
 
   return (
     <>
-      <header>
-        <NavbarSearch />
-      </header>
-      <main style={{ backgroundImage: "url(/image/temple.jpg)" }}>
         <div className={`middle-box ${searchclick ? "active" : ""}`}>
           <span>WAT WAT "ยินดีต้อนรับ"</span>
           <div className="search-bar">
@@ -76,10 +70,6 @@ const Search = () => {
             <FontAwesomeIcon icon={faForwardFast} className="icon" />
           </div>
         )}
-      </main>
-      <footer>
-        <Footer />
-      </footer>
     </>
   );
 };

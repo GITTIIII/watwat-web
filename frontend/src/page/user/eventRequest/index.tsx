@@ -1,15 +1,9 @@
 import { Link } from "react-router-dom";
 import "../../../css/eventRequest.css";
-import NavbarMain from "../../../component/navbar-main";
-import Footer from "../../../component/footer";
 const Event = () => {
   return (
     <>
-      <header>
-        <NavbarMain/>
-      </header>
-      <main style={{ backgroundImage: "url(/image/temple.jpg)" }}>
-          
+               
         <div className='warpper'>
           <div className="heandcontantcreate">
             <div className="heandpage title">ขอจัดกิจกรรม</div>
@@ -100,10 +94,7 @@ const Event = () => {
           </form>
         </div>
     
-      </main>
-      <footer>
-        <Footer/>
-      </footer>
+      
     </>
   );
 };

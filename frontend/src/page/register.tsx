@@ -2,15 +2,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../css/login.css";
 import { faKey, faUser, faEnvelope } from "@fortawesome/free-solid-svg-icons"; //for icon
 import { Link } from "react-router-dom";
-import Footer from "../component/footer";
-import NavbarRegister from "../component/navbar-register";
 const Register = () => {
   return (
-    <>
-      <header>
-        <NavbarRegister />
-      </header>
-      <main style={{ backgroundImage: "url(/image/monk_login.png)" }}>
+    <> 
         <div className="login-box">
           <div
             className="login-box-picture"
@@ -54,10 +48,6 @@ const Register = () => {
             </div>
           </form>
         </div>
-      </main>
-      <footer>
-        <Footer />
-      </footer>
     </>
   );
 };
