@@ -8,7 +8,7 @@ const Profile = () => {
      
         <div className="middle-box">
           <div className="profile">
-            <img src="./image/senku.png" alt=""/>
+            <img src="/image/senku.png" alt=""/>
             <input type="file" />
           </div>
           <div className="info">

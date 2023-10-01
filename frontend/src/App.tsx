@@ -1,18 +1,18 @@
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from "react-router-dom";
 import Login from "./page/login";
 import Register from "./page/register";
+import Search from "./page/user/search";
+import Main from "./page/user/mainWat";
+import Event from "./page/user/eventRequest";
 import Place from "./page/user/place";
 import Placeform from "./page/user/place/place-form";
-import Event from "./page/user/eventRequest";
 import Item from "./page/user/item";
 import Donate from "./page/user/donate";
-import Search from "./page/user/search";
 import Profile from "./page/user/profile";
 import RegisWatCreator from "./page/user/regis-watCreator";
 import UserLayout from "./layouts/userLayout"
 import LoginLayout from "./layouts/loginLayout";
 import AdminLayout from "./layouts/adminLayout";
-import Main from "./page/user/mainWat";
 import CreatorLayout from "./layouts/creatorLayout";
 import SearchLayout from "./layouts/searchLayout";
 

@@ -5,6 +5,7 @@ import Logo from "./logo";
 import RightMenu from "./right-menu";
 import React, { useEffect, useRef } from "react";
 import UserImage from "./userImage";
+import { Link } from "react-router-dom";
 
 function NavbarSearch() {
   const [Rclick, setRClick] = React.useState(false);
@@ -28,10 +29,12 @@ function NavbarSearch() {
   return (
     <>
       <div className="navbar">
-        <div className="topleft-navbar">
-          <Logo />
-          <span>Wat Wat</span>
-        </div>
+        <Link to="/search">
+          <div className="topleft-navbar">
+            <Logo />
+            <span>Wat Wat</span>
+          </div>
+        </Link>
         <div className="topright-navbar">
           <UserImage />
           <div

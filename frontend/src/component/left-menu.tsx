@@ -27,7 +27,6 @@ function LeftMenu(){
                 <NavLink to="/donate">
                   <li>บริจาค</li>
                 </NavLink>
-              
             </ul>
         </div>
       </>
