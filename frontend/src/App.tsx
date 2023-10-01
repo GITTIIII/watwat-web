@@ -13,6 +13,7 @@ import UserLayout from "./layouts/userLayout"
 import LoginLayout from "./layouts/loginLayout";
 import AdminLayout from "./layouts/adminLayout";
 import Main from "./page/user/mainWat";
+import CreatorLayout from "./layouts/creatorLayout";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -33,6 +34,9 @@ const router = createBrowserRouter(
           <Route path="/regisWatCreator" element={<RegisWatCreator />} />
       </Route>
       <Route path="/admin" element={<AdminLayout/>}>
+        
+      </Route>
+      <Route path="/creator" element={<CreatorLayout/>}>
         
       </Route>
     </>
