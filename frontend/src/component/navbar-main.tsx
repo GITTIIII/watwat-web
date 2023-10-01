@@ -2,7 +2,6 @@ import "../css/navbar.css";
 import { faEllipsisVertical } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Logo from "./logo";
-import UserProfile from "./userImage";
 import RightMenu from "./right-menu";
 import React, { useEffect, useRef } from "react";
 import UserImage from "./userImage";

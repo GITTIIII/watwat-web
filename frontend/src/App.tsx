@@ -14,6 +14,7 @@ import LoginLayout from "./layouts/loginLayout";
 import AdminLayout from "./layouts/adminLayout";
 import Main from "./page/user/mainWat";
 import CreatorLayout from "./layouts/creatorLayout";
+import SearchLayout from "./layouts/searchLayout";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -22,16 +23,18 @@ const router = createBrowserRouter(
         <Route index element={<Login/>}/>
         <Route path="/register" element={<Register/>}/>
       </Route>
+      <Route path="" element={<SearchLayout/>}>
+        <Route path="/search" element={<Search />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/regisWatCreator" element={<RegisWatCreator />} />
+      </Route>
       <Route path="" element={<UserLayout/>}>
-          <Route path="/search" element={<Search />} />
           <Route path="/main" element={<Main />} />
           <Route path="/eventRequest" element={<Event />} />
           <Route path="/placeRequest" element={<Place />} />
           <Route path="/placeform" element={<Placeform />} />
           <Route path="/item" element={<Item />} />
           <Route path="/donate" element={<Donate />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/regisWatCreator" element={<RegisWatCreator />} />
       </Route>
       <Route path="/admin" element={<AdminLayout/>}>
         
