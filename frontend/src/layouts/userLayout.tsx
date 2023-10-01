@@ -1,13 +1,13 @@
 import { Outlet } from 'react-router-dom'
 import Footer from '../component/footer'
-import NavbarMain from '../component/navbar-main'
+import NavbarUser from '../component/navbar-user'
 
 export default function UserLayout() {
 
   return (
     <>
         <header>
-            <NavbarMain />
+            <NavbarUser />
         </header>
         <main style={{ backgroundImage: "url(/image/temple.jpg)" }}>
             <Outlet/>
