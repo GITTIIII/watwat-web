@@ -2,61 +2,37 @@ import "../css/login.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faKey, faUser, faEnvelope } from "@fortawesome/free-solid-svg-icons"; //for icon
 import { Link, Navigate } from "react-router-dom";
-import { useRef, useState, useEffect} from "react"
-import axios from "../api/axios";
+import { useState} from "react"
 
-const REGISTER_URL = '/'
 
 const Register = () => {
-  const userRef = useRef(null);
-  const emailRef = useRef(null);
-  const errRef = useRef(null);
+    const [success, setSuccess] = useState(false);
+    const [state, setState] = useState({
+      username:"",
+      email: "",
+      password: ""
+    });
 
-  const [user, setUser] = useState("");
-  const [pass, setPass] = useState("");
-  const [email, setEmail] = useState("");
-  const [errMsg, setErrMsg] = useState("");
-  const [success, setSuccess] = useState(false);
+    const handleInputChange = (e:any) => {
+      const { name, value } = e.target;
+      setState((prevProps) => ({
+        ...prevProps,
+        [name]: value
+      }));
+    };
 
-  useEffect(() => {
-    // userRef.current.focus();
-  }, []);
-
-  useEffect(() => {
-    setErrMsg("");
-  }, [user, pass, email]);
-
-  const handleSubmit = async (e:any) => {
-    e.preventDafault();
-    try{
-      const response = await axios.post(REGISTER_URL,
-        JSON.stringify({user, pass ,email}),
-        {
-          headers: {'Content-Type' : 'application/json'},
-          withCredentials: true
-        }
-      );
-      console.log(response.data);
-      console.log(response.accessToken);
-      console.log(JSON.stringify(response));
-      setSuccess(true);
-    } catch (err){
-      if (!err?.response){
-        setErrMsg('No Server Response');
-      } else if(err.response?.status === 409){
-        setErrMsg('Username Taken');
-      } else {
-        setErrMsg('Registration Failed');
-      }
-      errRef.current.focus();
+    const handleSubmit  = (e:any) => {
+        e.preventDefault();
+        console.log(state);
+        setSuccess(true);
     }
-  }
+
+  
 
   return (
     <> 
         {success ? <Navigate to="/"/>:( 
         <section className="login-box">
-          <p  className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
           <div className="login-box-picture" style={{ backgroundImage: "url(/image/monk_login.png)" }}>
             <div className="word">ยินดีต้อนรับ พุทธศาสนิกชน สู่ Wat Wat</div>
             <div className="word1">" วันที่ดีที่สุด คือวันที่ได้ทำความดี และสะสมบุญ "</div>
@@ -69,10 +45,10 @@ const Register = () => {
               <input 
                 type="text" 
                 id="username"
-                ref={userRef}
-                autoComplete="off"
-                onChange={(e) => setUser(e.target.value)}          
+                value={state.username}
+                autoComplete="off" 
                 required 
+                onChange = {(e) => handleInputChange(e)}
               />
             </div>
 
@@ -82,10 +58,10 @@ const Register = () => {
               <input 
                 type="text" 
                 id="email"
-                ref={emailRef}
+                value={state.email}
                 autoComplete="off"
-                onChange={(e) => setEmail(e.target.value)}               
                 required 
+                onChange = {(e) => handleInputChange(e)}
               />
             </div>
 
@@ -95,8 +71,9 @@ const Register = () => {
               <input 
                 type="password" 
                 id="password"
-                onChange={(e) => setPass(e.target.value)}
+                value={state.password}
                 required 
+                onChange = {(e) => handleInputChange(e)}
               />
             </div>
 

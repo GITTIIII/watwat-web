@@ -16,7 +16,7 @@ import AdminLayout from "./layouts/adminLayout";
 import CreatorLayout from "./layouts/creatorLayout";
 import SearchLayout from "./layouts/searchLayout";
 
-const router = createBrowserRouter(
+const router = createBrowserRouter(  
   createRoutesFromElements(
     <>
       <Route path="/" element={<LoginLayout/>}>
@@ -47,6 +47,7 @@ const router = createBrowserRouter(
 )
 
 function App () {
+  
   return (
     <RouterProvider router={router}/>
   );
