@@ -2,36 +2,33 @@ import "../css/login.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faKey, faUser, faEnvelope } from "@fortawesome/free-solid-svg-icons"; //for icon
 import { Link, Navigate } from "react-router-dom";
-import { useState} from "react"
+import { useState } from "react"
 
 
 const Register = () => {
-    const [success, setSuccess] = useState(false);
-    const [state, setState] = useState({
-      username:"",
-      email: "",
-      password: ""
+    const [success, setSuccess] = useState({});
+    const [errors, setErrors] = useState({});
+    const [values, setValues] = useState({
+      username:'',
+      email: '',
+      password: ''
     });
 
-    const handleInputChange = (e:any) => {
-      const { name, value } = e.target;
-      setState((prevProps) => ({
-        ...prevProps,
-        [name]: value
-      }));
+
+    const handleInput = (e:any) => {
+      setValues(prev => ({...prev, [e.target.name]: [e.target.value]}))
     };
 
     const handleSubmit  = (e:any) => {
         e.preventDefault();
-        console.log(state);
-        setSuccess(true);
+        console.log(values);
+        setSuccess(false);
     }
 
   
 
   return (
     <> 
-        {success ? <Navigate to="/"/>:( 
         <section className="login-box">
           <div className="login-box-picture" style={{ backgroundImage: "url(/image/monk_login.png)" }}>
             <div className="word">ยินดีต้อนรับ พุทธศาสนิกชน สู่ Wat Wat</div>
@@ -44,11 +41,10 @@ const Register = () => {
               <label htmlFor="username">ชื่อผู้ใช้</label>
               <input 
                 type="text" 
-                id="username"
-                value={state.username}
+                name="username"
+                onChange = {handleInput}
                 autoComplete="off" 
                 required 
-                onChange = {(e) => handleInputChange(e)}
               />
             </div>
 
@@ -57,11 +53,10 @@ const Register = () => {
               <label htmlFor="email">อีเมล</label>
               <input 
                 type="text" 
-                id="email"
-                value={state.email}
+                name="email"
+                onChange = {handleInput}
                 autoComplete="off"
                 required 
-                onChange = {(e) => handleInputChange(e)}
               />
             </div>
 
@@ -70,10 +65,9 @@ const Register = () => {
               <label htmlFor="password">รหัสผ่าน</label>
               <input 
                 type="password" 
-                id="password"
-                value={state.password}
+                name="password"
+                onChange = {handleInput}
                 required 
-                onChange = {(e) => handleInputChange(e)}
               />
             </div>
 
@@ -87,7 +81,7 @@ const Register = () => {
             </div>
 
           </form>
-        </section>)}
+        </section>
     </>
   );
 };

@@ -32,7 +32,7 @@ const Login = () => {
 
   return (
     <>
-        {success ?  <Navigate to="/search"/> : (
+        
         <section className="login-box">
           <p  className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
           <div className="login-box-picture" style={{ backgroundImage: "url(/image/monk_login.png)" }}>
@@ -84,7 +84,7 @@ const Login = () => {
             </div>
 
           </form>
-        </section>)}
+        </section>
     </>
   );
 };
