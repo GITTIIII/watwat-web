@@ -1,72 +1,92 @@
 import "../css/login.css";
+import { Form, message } from 'antd'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faKey, faUser, faEnvelope } from "@fortawesome/free-solid-svg-icons"; //for icon
-import { Link, Navigate } from "react-router-dom";
-import { useState } from "react"
-
+import { Link, useNavigate } from "react-router-dom";
+import { MemberInterface } from "../interfaces/IMember";
+import { CreateMember } from "../services/https";
+import { useState } from "react";
 
 const Register = () => {
-    const [success, setSuccess] = useState({});
-    const [errors, setErrors] = useState({});
-    const [values, setValues] = useState({
-      username:'',
-      email: '',
-      password: ''
-    });
+    let navigate = useNavigate();
+    const [messageApi, contextHolder] = message.useMessage();
+    const [input, setInput] = useState({
+      Username: '',
+      Email: '',
+      Password: '',
+    })
 
-
-    const handleInput = (e:any) => {
-      setValues(prev => ({...prev, [e.target.name]: [e.target.value]}))
-    };
-
-    const handleSubmit  = (e:any) => {
-        e.preventDefault();
-        console.log(values);
-        setSuccess(false);
+    const handleInput  = (e:any) => {
+      setInput({
+        ...input,[e.target.name]: e.target.value
+      });
     }
 
-  
+    const handleSubmit  = async (values: MemberInterface) => {
+      values.Username = input.Username
+      values.Password = input.Password
+      values.Email = input.Email
+      values.Doc_Path = ""
+      values.Avatar = "picture"
+      values.RoleID = 1
+      
+      let res = await CreateMember(values);
+      if (res.status) {
+      messageApi.open({
+        type: "success",
+        content: "บันทึกข้อมูลสำเร็จ",
+      });
+      setTimeout(function () {
+        navigate("/");
+      }, 2000);
+    } else {
+      messageApi.open({
+        type: "error",
+        content: "บันทึกข้อมูลไม่สำเร็จ",
+      });
+    }
+    }
 
   return (
     <> 
         <section className="login-box">
+          {contextHolder}
           <div className="login-box-picture" style={{ backgroundImage: "url(/image/monk_login.png)" }}>
             <div className="word">ยินดีต้อนรับ พุทธศาสนิกชน สู่ Wat Wat</div>
             <div className="word1">" วันที่ดีที่สุด คือวันที่ได้ทำความดี และสะสมบุญ "</div>
           </div>
-          <form onSubmit={handleSubmit}>
+
+          <Form onFinish={handleSubmit} autoComplete="off">
             
             <div className="input-box">
               <span className="icon"><FontAwesomeIcon icon={faUser} /></span>
-              <label htmlFor="username">ชื่อผู้ใช้</label>
+              <label>ชื่อผู้ใช้</label>
               <input 
                 type="text" 
-                name="username"
-                onChange = {handleInput}
-                autoComplete="off" 
+                name="Username"
+                onChange={handleInput}
                 required 
               />
             </div>
 
             <div className="input-box">
               <span className="icon"><FontAwesomeIcon icon={faEnvelope} /></span>
-              <label htmlFor="email">อีเมล</label>
+              <label>อีเมล</label>
               <input 
                 type="text" 
-                name="email"
-                onChange = {handleInput}
-                autoComplete="off"
+                name="Email"
+                onChange={handleInput}
                 required 
               />
             </div>
 
             <div className="input-box">
               <span className="icon"><FontAwesomeIcon icon={faKey} /></span>
-              <label htmlFor="password">รหัสผ่าน</label>
+              <label>รหัสผ่าน</label>
               <input 
                 type="password" 
-                name="password"
-                onChange = {handleInput}
+                name="Password"
+                onChange={handleInput}
                 required 
               />
             </div>
@@ -80,7 +100,8 @@ const Register = () => {
               <Link to="/">เข้าสู่ระบบ</Link>
             </div>
 
-          </form>
+          </Form>
+
         </section>
     </>
   );

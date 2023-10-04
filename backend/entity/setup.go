@@ -11,7 +11,7 @@ func DB() *gorm.DB {
 	return db
 }
 
-func SetupDatabease(){
+func SetupDatabase(){
 	database, err := gorm.Open(sqlite.Open("watwat.db"), &gorm.Config{})
 	if err != nil {
 		panic("Failed to connect database")
