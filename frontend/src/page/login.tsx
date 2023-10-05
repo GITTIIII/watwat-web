@@ -4,7 +4,7 @@ import { faLock, faUser } from "@fortawesome/free-solid-svg-icons"; //for icon
 import { Link, useNavigate } from "react-router-dom";
 import monk_login from '../assets/monk_login.png'
 import { Form, message } from "antd";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { GetMember } from "../services/https/member";
 
 
