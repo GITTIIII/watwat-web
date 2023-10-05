@@ -22,9 +22,7 @@ const Login = () => {
 
   const onFinish = async () => {    
     const members = await GetMember();
-    console.log(input.Username);
-    console.log(input.Password);
-
+    
     const matchingMember = members.find((member: { Username: string; Password: string; }) => member.Username === input.Username[0] && member.Password === input.Password[0]);
 
     if (matchingMember) {
