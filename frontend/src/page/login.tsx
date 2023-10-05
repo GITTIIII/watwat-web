@@ -1,54 +1,60 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../css/login.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLock, faUser } from "@fortawesome/free-solid-svg-icons"; //for icon
-import { Link } from "react-router-dom";
-import {useRef, useState, useEffect} from 'react'
+import { Link, useNavigate } from "react-router-dom";
 import monk_login from '../assets/monk_login.png'
+import { Form, message } from "antd";
+import { useEffect, useState } from "react";
+import { MemberLogin } from "../services/https/member"
 
 const Login = () => {
-  const userRef = useRef(null);
+  let navigate = useNavigate();
+  const [messageApi, contextHolder] = message.useMessage();
+  const [input, setInput] = useState({
+    Username: '',
+    Password: '',
+  });
 
-  const [user, setUser] = useState("");
-  const [pass, setPass] = useState("");
-  const [errMsg, setErrMsg] = useState("");
-
-  useEffect(() => {
-    //userRef.current.focus();
-  },[])
-
-  useEffect(() => {
-    setErrMsg("");
-  }, [user, pass])
-
-
-  const handleSubmit = async (e:any) => {
-    e.preventDafault();
-    console.log(user, pass);
-    setUser("");
-    setPass("");
+  const handleInput = (e:any) =>{
+    setInput({...input,[e.target.name] : [e.target.value]});
   }
+
+  const onFinish = async () => {    
+    const res = await MemberLogin(input.Username, input.Password);
+    console.log(res)
+      // messageApi.open({
+      //   type: "success",
+      //   content: "ล็อกอินสำเร็จ",
+      // });
+      // setTimeout(function () {
+      //   navigate("/search");
+      // }, 2000);
+  
+      // messageApi.open({
+      //   type: "error",
+      //   content: "ควย",
+      // });
+    
+  };
 
   return (
     <>
         <section className="login-box">
-          <p  className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
+          {contextHolder}
           <div className="login-box-picture" style={{ backgroundImage: `url(${monk_login})` }}>
             <div className="word">ยินดีต้อนรับ พุทธศาสนิกชน สู่ Wat Wat</div>
             <div className="word1">" วันที่ดีที่สุด คือวันที่ได้ทำความดี และสะสมบุญ "</div>
           </div>
 
-          <form onSubmit={handleSubmit}>
+          <Form onFinish={onFinish} autoComplete="off">
 
             <div className="input-box">
               <span className="icon"><FontAwesomeIcon icon={faUser} /></span>
               <label htmlFor="username">ชื่อผู้ใช้</label>
               <input 
                 type="text" 
-                id="username"
-                ref={userRef} 
-                autoComplete="off"
-                onChange={(e) => setUser(e.target.value)}
-                value={user}
+                name="Username"
+                onChange={handleInput}
                 required
               />
             </div>
@@ -58,9 +64,8 @@ const Login = () => {
               <label htmlFor="password">รหัสผ่าน</label>
               <input 
                 type="password" 
-                id="password"
-                onChange={(e) => setPass(e.target.value)}
-                value={pass}
+                name="Password"
+                onChange={handleInput}
                 required
               />
             </div>
@@ -81,7 +86,7 @@ const Login = () => {
               <Link to="/register">สมัครสมาชิก</Link>
             </div>
 
-          </form>
+          </Form>
         </section>
     </>
   );

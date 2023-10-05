@@ -7,6 +7,17 @@ import (
 	"github.com/GITTIIII/watwat-web/entity"
 )
 
+func MemberLogin(c *gin.Context) {
+	var member entity.Member
+	username := c.Param("username")
+	password := c.Param("password")
+	if err := entity.DB().Raw("SELECT username,password FROM members WHERE username = ? AND password = ?", username, password).Find(&member).Error; err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+	c.JSON(http.StatusOK, gin.H{"data": member})
+}
+
 // POST /member
 func CreateMember(c *gin.Context) {
 	var member entity.Member

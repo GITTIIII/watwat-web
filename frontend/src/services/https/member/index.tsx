@@ -2,6 +2,24 @@ import { MembersInterface } from "../../../interfaces/IMember";
 
 const apiUrl = "http://localhost:8080";
 
+async function MemberLogin(username: string | undefined, password: string | undefined) {
+  const requestOptions = {
+    method: "GET",
+  };
+
+  let res = await fetch(`${apiUrl}/members/${username}/${password}`, requestOptions)
+    .then((response) => response.json())
+    .then((res) => {
+      if (res.data) {
+        return res.data;
+      } else {
+        return false;
+      }
+    });
+
+  return res;
+}
+
 async function GetMember() {
   const requestOptions = {
     method: "GET",
@@ -121,6 +139,7 @@ async function GetRole() {
 }
 
 export {
+  MemberLogin,
   GetMember,
   GetMemberById,
   CreateMember,

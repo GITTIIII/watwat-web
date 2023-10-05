@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom";
 
 import "../../../css/profile.css";
-
+import senku from "../../../assets/senku.png"
 const Profile = () => {
   return (
     <>
      
         <div className="middle-box">
           <div className="profile">
-            <img src="/image/senku.png" alt=""/>
+            <img src={senku} alt=""/>
             <input type="file" />
           </div>
           <div className="info">
