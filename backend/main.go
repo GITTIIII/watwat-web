@@ -11,13 +11,13 @@ func main() {
 	r := gin.Default()
 	r.Use(CORSMiddleware())
 	// Member Routes
-	r.GET("/member", controller.ListMember)
-	r.GET("/member/:id", controller.GetMember)
-	r.POST("/member", controller.CreateMember)
-	r.PATCH("/member", controller.UpdateMember)
-	r.DELETE("/member/:id", controller.DeleteMember)
+	r.GET("/members", controller.ListMember)
+	r.GET("/members/:id", controller.GetMember)
+	r.POST("/members", controller.CreateMember)
+	r.PATCH("/members", controller.UpdateMember)
+	r.DELETE("/members/:id", controller.DeleteMember)
 	// Role Routes
-	r.GET("/role", controller.ListRole)
+	r.GET("/roles", controller.ListRole)
 	// Run the server
 	r.Run()
 }

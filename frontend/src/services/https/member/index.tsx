@@ -10,7 +10,7 @@ async function GetMember() {
     },
   };
 
-  let res = await fetch(`${apiUrl}/member`, requestOptions)
+  let res = await fetch(`${apiUrl}/members`, requestOptions)
     .then((response) => response.json())
     .then((res) => {
       if (res.data) {
@@ -28,7 +28,7 @@ async function GetMemberById(id: Number | undefined) {
     method: "GET",
   };
 
-  let res = await fetch(`${apiUrl}/member/${id}`, requestOptions)
+  let res = await fetch(`${apiUrl}/members/${id}`, requestOptions)
     .then((response) => response.json())
     .then((res) => {
       if (res.data) {
@@ -48,7 +48,7 @@ async function CreateMember(data: MembersInterface) {
     body: JSON.stringify(data),
   };
 
-  let res = await fetch(`${apiUrl}/member`, requestOptions)
+  let res = await fetch(`${apiUrl}/members`, requestOptions)
     .then((response) => response.json())
     .then((res) => {
       if (res.data) {
@@ -68,7 +68,7 @@ async function UpdateMember(data: MembersInterface) {
     body: JSON.stringify(data),
   };
 
-  let res = await fetch(`${apiUrl}/member`, requestOptions)
+  let res = await fetch(`${apiUrl}/members`, requestOptions)
     .then((response) => response.json())
     .then((res) => {
       if (res.data) {
@@ -86,7 +86,7 @@ async function DeleteMemberByID(id: Number | undefined) {
     method: "DELETE",
   };
 
-  let res = await fetch(`${apiUrl}/member/${id}`, requestOptions)
+  let res = await fetch(`${apiUrl}/members/${id}`, requestOptions)
     .then((response) => response.json())
     .then((res) => {
       if (res.data) {
@@ -107,7 +107,7 @@ async function GetRole() {
     },
   };
 
-  let res = await fetch(`${apiUrl}/role`, requestOptions)
+  let res = await fetch(`${apiUrl}/roles`, requestOptions)
     .then((response) => response.json())
     .then((res) => {
       if (res.data) {
