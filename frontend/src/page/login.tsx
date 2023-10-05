@@ -5,14 +5,15 @@ import { Link, useNavigate } from "react-router-dom";
 import monk_login from '../assets/monk_login.png'
 import { Form, message } from "antd";
 import { useEffect, useState } from "react";
-import { MemberLogin } from "../services/https/member"
+import { GetMember } from "../services/https/member";
+
 
 const Login = () => {
   let navigate = useNavigate();
   const [messageApi, contextHolder] = message.useMessage();
   const [input, setInput] = useState({
-    Username: '',
-    Password: '',
+    Username: "",
+    Password: "",
   });
 
   const handleInput = (e:any) =>{
@@ -20,21 +21,27 @@ const Login = () => {
   }
 
   const onFinish = async () => {    
-    const res = await MemberLogin(input.Username, input.Password);
-    console.log(res)
-      // messageApi.open({
-      //   type: "success",
-      //   content: "ล็อกอินสำเร็จ",
-      // });
-      // setTimeout(function () {
-      //   navigate("/search");
-      // }, 2000);
-  
-      // messageApi.open({
-      //   type: "error",
-      //   content: "ควย",
-      // });
-    
+    const members = await GetMember();
+    console.log(input.Username);
+    console.log(input.Password);
+
+    const matchingMember = members.find((member: { Username: string; Password: string; }) => member.Username === input.Username[0] && member.Password === input.Password[0]);
+
+    if (matchingMember) {
+      messageApi.open({
+        type: "success",
+        content: "ล็อกอินสำเร็จ",
+      });
+
+      setTimeout(function () {
+        navigate("/search");
+      }, 2000);
+    } else {
+      messageApi.open({
+        type: "error",
+        content: "ควย",
+      });
+    }
   };
 
   return (

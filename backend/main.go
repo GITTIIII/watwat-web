@@ -13,7 +13,6 @@ func main() {
 	// Member Routes
 	r.GET("/members", controller.ListMember)
 	r.GET("/members/:id", controller.GetMember)
-	r.GET("/members/:username/:password", controller.MemberLogin)
 	r.POST("/members", controller.CreateMember)
 	r.PATCH("/members", controller.UpdateMember)
 	r.DELETE("/members/:id", controller.DeleteMember)
