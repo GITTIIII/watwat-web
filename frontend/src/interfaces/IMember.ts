@@ -1,6 +1,6 @@
-import { RoleInterface } from "./IRole";
+import { RolesInterface } from "./IRole";
 
-export interface MemberInterface {
+export interface MembersInterface {
     ID?: number;
     Username?: string;
     Password?: string;
@@ -8,6 +8,6 @@ export interface MemberInterface {
     Doc_Path?: string;
     Avatar?:	 string;
     RoleID?:   number;
-    Role?:     RoleInterface;
+    Role?:     RolesInterface;
   }
   

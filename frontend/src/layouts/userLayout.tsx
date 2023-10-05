@@ -1,6 +1,7 @@
 import { Outlet } from 'react-router-dom'
 import Footer from '../component/footer'
 import NavbarUser from '../component/navbar-user'
+import temple from '../assets/temple.jpg'
 
 export default function UserLayout() {
 
@@ -9,7 +10,7 @@ export default function UserLayout() {
         <header>
             <NavbarUser />
         </header>
-        <main style={{ backgroundImage: "url(/image/temple.jpg)" }}>
+        <main style={{ backgroundImage: `url(${temple})` }}>
             <Outlet/>
         </main>
         <footer>

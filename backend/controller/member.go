@@ -10,10 +10,16 @@ import (
 // POST /member
 func CreateMember(c *gin.Context) {
 	var member entity.Member
-
+	var role entity.Role
+	
 	// bind เข้าตัวแปร member
 	if err := c.ShouldBindJSON(&member); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+
+	if tx := entity.DB().Where("id = ?", member.RoleID).First(&role); tx.RowsAffected == 0 {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "gender not found"})
 		return
 	}
 
@@ -25,6 +31,7 @@ func CreateMember(c *gin.Context) {
 		Doc_Path : member.Doc_Path,
 		Avatar : member.Avatar,
 		RoleID : member.RoleID,
+		Role:    role,
 	}
 
 	// บันทึก
@@ -40,7 +47,7 @@ func CreateMember(c *gin.Context) {
 func GetMember(c *gin.Context) {
 	var member entity.Member
 	id := c.Param("id")
-	if err := entity.DB().Raw("SELECT * FROM members WHERE id = ?", id).Find(&member).Error; err != nil {
+	if err := entity.DB().Preload("Role").Raw("SELECT * FROM members WHERE id = ?", id).Find(&member).Error; err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
@@ -50,7 +57,7 @@ func GetMember(c *gin.Context) {
 // GET /member
 func ListMember(c *gin.Context) {
 	var member []entity.Member
-	if err := entity.DB().Raw("SELECT * FROM members").Find(&member).Error; err != nil {
+	if err := entity.DB().Preload("Role").Raw("SELECT * FROM members").Find(&member).Error; err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}

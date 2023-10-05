@@ -1,7 +1,9 @@
+import no_profile from '../assets/no_profile.png'
+
 function UserImage(){
     return(
         <>
-            <img src='./image/no_profile.png'className="userprofile" alt="userprofile"/>
+            <img src={no_profile} className="userprofile" alt="userprofile"/>
         </>
     );
 };

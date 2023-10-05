@@ -10,7 +10,7 @@ import (
 // GET /role
 func ListRole(c *gin.Context) {
 	var role []entity.Role
-	if err := entity.DB().Raw("SELECT * FROM role").Scan(&role).Error; err != nil {
+	if err := entity.DB().Raw("SELECT * FROM roles").Scan(&role).Error; err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}

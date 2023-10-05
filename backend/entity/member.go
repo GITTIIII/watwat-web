@@ -9,8 +9,8 @@ type Member struct {
 	Username string `gorm:"uniqueIndex"`
 	Password string
 	Email    string `gorm:"uniqueIndex"`
-	Doc_Path string `gorm:"uniqueIndex"`
-	Avatar	 string `gorm:"uniqueIndex"`
+	Doc_Path string 
+	Avatar	 string 
 	
 	RoleID   *uint
 	Role Role `gorm:"foreignKey:RoleID"`

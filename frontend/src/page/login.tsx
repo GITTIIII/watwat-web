@@ -3,7 +3,7 @@ import "../css/login.css";
 import { faLock, faUser } from "@fortawesome/free-solid-svg-icons"; //for icon
 import { Link } from "react-router-dom";
 import {useRef, useState, useEffect} from 'react'
-
+import monk_login from '../assets/monk_login.png'
 
 const Login = () => {
   const userRef = useRef(null);
@@ -32,10 +32,11 @@ const Login = () => {
     <>
         <section className="login-box">
           <p  className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
-          <div className="login-box-picture" style={{ backgroundImage: "url(/image/monk_login.png)" }}>
+          <div className="login-box-picture" style={{ backgroundImage: `url(${monk_login})` }}>
             <div className="word">ยินดีต้อนรับ พุทธศาสนิกชน สู่ Wat Wat</div>
             <div className="word1">" วันที่ดีที่สุด คือวันที่ได้ทำความดี และสะสมบุญ "</div>
           </div>
+
           <form onSubmit={handleSubmit}>
 
             <div className="input-box">

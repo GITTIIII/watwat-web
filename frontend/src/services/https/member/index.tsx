@@ -1,4 +1,4 @@
-import { MemberInterface } from "../../interfaces/IMember";
+import { MembersInterface } from "../../../interfaces/IMember";
 
 const apiUrl = "http://localhost:8080";
 
@@ -25,7 +25,7 @@ async function GetMember() {
 
 async function GetMemberById(id: Number | undefined) {
   const requestOptions = {
-    method: "GET"
+    method: "GET",
   };
 
   let res = await fetch(`${apiUrl}/member/${id}`, requestOptions)
@@ -41,7 +41,7 @@ async function GetMemberById(id: Number | undefined) {
   return res;
 }
 
-async function CreateMember(data: MemberInterface) {
+async function CreateMember(data: MembersInterface) {
   const requestOptions = {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -61,7 +61,7 @@ async function CreateMember(data: MemberInterface) {
   return res;
 }
 
-async function UpdateMember(data: MemberInterface) {
+async function UpdateMember(data: MembersInterface) {
   const requestOptions = {
     method: "PATCH",
     headers: { "Content-Type": "application/json" },
@@ -83,7 +83,7 @@ async function UpdateMember(data: MemberInterface) {
 
 async function DeleteMemberByID(id: Number | undefined) {
   const requestOptions = {
-    method: "DELETE"
+    method: "DELETE",
   };
 
   let res = await fetch(`${apiUrl}/member/${id}`, requestOptions)
@@ -99,8 +99,26 @@ async function DeleteMemberByID(id: Number | undefined) {
   return res;
 }
 
+async function GetRole() {
+  const requestOptions = {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
 
+  let res = await fetch(`${apiUrl}/role`, requestOptions)
+    .then((response) => response.json())
+    .then((res) => {
+      if (res.data) {
+        return res.data;
+      } else {
+        return false;
+      }
+    });
 
+  return res;
+}
 
 export {
   GetMember,
@@ -108,4 +126,5 @@ export {
   CreateMember,
   UpdateMember,
   DeleteMemberByID,
+  GetRole
 };
