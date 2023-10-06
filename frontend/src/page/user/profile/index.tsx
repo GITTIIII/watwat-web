@@ -18,24 +18,12 @@ const Profile = () => {
                 <input type="text" />
               </div>
               <div>
-                ที่อยู่
-                <input type="text" />
-              </div>
-              <div>
                 อีเมล
-                <input type="text" />
+                <input type="email" />
               </div>
               <div>
-                เบอร์ติดต่อ
-                <input type="text" />
-              </div>
-              <div>
-                เพศ
-                <input type="select" />
-              </div>
-              <div>
-                วัน/เดือน/ปี เกิด
-                <input type="date" />
+                รหัสผ่าน
+                <input type="password" />
               </div>
             </div>
           </div>

@@ -8,7 +8,7 @@ type Wat struct {
 	Abbot       string
 	Description string
 	Address     string
-	Postcode    int
+	Postcode    string
 	Province    string
 	District    string
 	Subdistrict string

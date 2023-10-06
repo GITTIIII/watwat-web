@@ -15,6 +15,7 @@ import LoginLayout from "./layouts/loginLayout";
 import AdminLayout from "./layouts/adminLayout";
 import CreatorLayout from "./layouts/creatorLayout";
 import SearchLayout from "./layouts/searchLayout";
+import General from "./page/creator/general";
 
 const router = createBrowserRouter(  
   createRoutesFromElements(
@@ -39,8 +40,8 @@ const router = createBrowserRouter(
       <Route path="/admin" element={<AdminLayout/>}>
         
       </Route>
-      <Route path="/creator" element={<CreatorLayout/>}>
-        
+      <Route path="" element={<CreatorLayout/>}>
+        <Route path="/general" element={<General />} />
       </Route>
     </>
   )

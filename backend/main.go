@@ -10,14 +10,24 @@ func main() {
 	entity.SetupDatabase()
 	r := gin.Default()
 	r.Use(CORSMiddleware())
+
 	// Member Routes
 	r.GET("/members", controller.ListMember)
 	r.GET("/members/:id", controller.GetMember)
 	r.POST("/members", controller.CreateMember)
 	r.PATCH("/members", controller.UpdateMember)
 	r.DELETE("/members/:id", controller.DeleteMember)
+
 	// Role Routes
 	r.GET("/roles", controller.ListRole)
+
+	// Wat Routes
+	r.GET("/wats", controller.ListWat)
+	r.GET("/wats/:id", controller.GetWat)
+	r.POST("/wats", controller.CreateWat)
+	r.PATCH("/wats", controller.UpdateWat)
+	r.DELETE("/wats/:id", controller.DeleteWat)
+	
 	// Run the server
 	r.Run()
 }

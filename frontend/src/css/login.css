@@ -1,6 +1,6 @@
 .login-box{
     width: max-content;
-    height : 65vh;
+    height : max-content;
     background-color: white;
     border-radius: 20px;
     display: flex;
@@ -10,7 +10,7 @@
 
 .login-box form{
     margin: 50px;
-    font-size: 15px;
+    font-size: 2vh;
 }
 
 .login-box-picture{
@@ -123,7 +123,7 @@
 @media (max-width: 950px ){
     .login-box{
         width: max-content;
-        height: 60vh;
+        height: max-content;
         justify-content: center;
     }
     .login-box-picture{
