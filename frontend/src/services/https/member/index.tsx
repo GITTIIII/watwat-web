@@ -28,7 +28,25 @@ async function GetMemberById(id: Number | undefined) {
     method: "GET",
   };
 
-  let res = await fetch(`${apiUrl}/members/${id}`, requestOptions)
+  let res = await fetch(`${apiUrl}/members/byId/${id}`, requestOptions)
+    .then((response) => response.json())
+    .then((res) => {
+      if (res.data) {
+        return res.data;
+      } else {
+        return false;
+      }
+    });
+
+  return res;
+}
+
+async function GetMemberByUsername(username: string | undefined) {
+  const requestOptions = {
+    method: "GET",
+  };
+
+  let res = await fetch(`${apiUrl}/members/byUsername/${username}`, requestOptions)
     .then((response) => response.json())
     .then((res) => {
       if (res.data) {
@@ -123,6 +141,7 @@ async function GetRole() {
 export {
   GetMember,
   GetMemberById,
+  GetMemberByUsername,
   CreateMember,
   UpdateMember,
   DeleteMemberByID,

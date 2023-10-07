@@ -16,6 +16,7 @@ import AdminLayout from "./layouts/adminLayout";
 import CreatorLayout from "./layouts/creatorLayout";
 import SearchLayout from "./layouts/searchLayout";
 import General from "./page/creator/general";
+import ItemPage from "./page/user/item";
 
 const router = createBrowserRouter(  
   createRoutesFromElements(
@@ -34,7 +35,7 @@ const router = createBrowserRouter(
           <Route path="/eventRequest" element={<Event />} />
           <Route path="/placeRequest" element={<Place />} />
           <Route path="/placeform" element={<Placeform />} />
-          <Route path="/item" element={<Item />} />
+          <Route path="/item" element={<ItemPage />} />
           <Route path="/donate" element={<Donate />} />
       </Route>
       <Route path="/admin" element={<AdminLayout/>}>

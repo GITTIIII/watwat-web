@@ -1,11 +1,17 @@
-import { Link } from "react-router-dom";
-
 import "../../../css/profile.css";
+import { Link } from "react-router-dom";
 import senku from "../../../assets/senku.png"
+import Cookies from "js-cookie";
+import { GetMemberByUsername } from "../../../services/https/member";
+
+
+
 const Profile = () => {
+  const username = Cookies.get('username');
+  const members = GetMemberByUsername(username);
+  console.log(members)
   return (
     <>
-     
         <div className="middle-box">
           <div className="profile">
             <img src={senku} alt=""/>
@@ -24,6 +30,10 @@ const Profile = () => {
               <div>
                 รหัสผ่าน
                 <input type="password" />
+              </div>
+              <div>
+                สถานะผู้ใช้
+                <input type="text" />
               </div>
             </div>
           </div>
