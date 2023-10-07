@@ -6,7 +6,6 @@ import Main from "./page/user/mainWat";
 import Event from "./page/user/eventRequest";
 import Place from "./page/user/place";
 import Placeform from "./page/user/place/place-form";
-import Item from "./page/user/item";
 import Donate from "./page/user/donate";
 import Profile from "./page/user/profile";
 import RegisWatCreator from "./page/user/regis-watCreator";

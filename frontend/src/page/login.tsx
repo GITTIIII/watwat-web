@@ -4,7 +4,7 @@ import { faLock, faUser } from "@fortawesome/free-solid-svg-icons"; //for icon
 import { Link, useNavigate } from "react-router-dom";
 import monk_login from '../assets/monk_login.png'
 import { Form, message } from "antd";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { GetMemberByUsername } from "../services/https/member";
 import Cookies from "js-cookie";
 
@@ -23,7 +23,7 @@ const Login = () => {
 
   
 
-  const onFinish = async () => {    
+  const handleSubmit = async () => {    
     const members = await GetMemberByUsername(input.Username[0]);    
     
     if (input.Username[0] === members.Username && input.Password[0] === members.Password) {
@@ -54,7 +54,7 @@ const Login = () => {
             <div className="word1">" วันที่ดีที่สุด คือวันที่ได้ทำความดี และสะสมบุญ "</div>
           </div>
 
-          <Form onFinish={onFinish} >
+          <Form onFinish={handleSubmit} >
 
             <div className="input-box">
               <span className="icon"><FontAwesomeIcon icon={faUser} /></span>

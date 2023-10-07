@@ -1,13 +1,13 @@
-import React, { useState, ChangeEvent, FormEvent } from "react";
+import { useState } from "react";
 import FormInput from "../../component/formInput";
 import { WatsInterface } from "../../interfaces/IWat";
 import { Form, message } from "antd";
-import { useNavigate } from "react-router-dom";
+//import { useNavigate } from "react-router-dom";
 import { CreateWat } from "../../services/https/wat";
 
 const General = () => {
-    let navigate = useNavigate();
-  const [messageApi, contextHolder] = message.useMessage();
+    //let navigate = useNavigate();
+    const [messageApi, contextHolder] = message.useMessage();
 
   const [value, setValue] = useState({
     Name: "",

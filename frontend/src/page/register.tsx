@@ -6,7 +6,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { MembersInterface } from "../interfaces/IMember";
 import { CreateMember } from "../services/https/member";
 import { useState } from "react";
-import no_profile from "../assets/no_profile.png"
 import monk_login from "../assets/monk_login.png"
 
 const Register = () => {
@@ -30,7 +29,7 @@ const Register = () => {
     values.Password = input.Password;
     values.Email = input.Email;
     values.Doc_Path = "";
-    values.Avatar = no_profile;
+    values.Avatar = "";
     values.RoleID = 1;
 
     let res = await CreateMember(values);
