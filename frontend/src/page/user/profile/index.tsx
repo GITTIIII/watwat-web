@@ -90,7 +90,7 @@ const Profile = () => {
 
     let res = await UpdateMember(values);
     if (res.status) {
-      Cookies.set('username', input.Username[0], { expires: 7 });
+      Cookies.set('username', values.Username, { expires: 7 });
       messageApi.open({
         type: "success",
         content: "บันทึกข้อมูลสำเร็จ",
