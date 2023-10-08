@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { CreateWat } from "../../services/https/wat";
 
 const General = () => {
-    let navigate = useNavigate();
+  let navigate = useNavigate();
   const [messageApi, contextHolder] = message.useMessage();
 
   const [value, setValue] = useState({
@@ -79,25 +79,25 @@ const General = () => {
     },
   ];
 
-  const handleSubmit = async (values : WatsInterface) => {
-    values.Name = value.Name
-    values.Abbot = value.Abbot
-    values.Description = value.Description
-    values.Address = value.Address
-    values.Postcode = value.Postcode
-    values.Province = value.Province
-    values.District = value.District
-    values.Subdistrict = value.Subdistrict
-    values.MemberID = 0
+  const handleSubmit = async (values: WatsInterface) => {
+    values.Name = value.Name;
+    values.Abbot = value.Abbot;
+    values.Description = value.Description;
+    values.Address = value.Address;
+    values.Postcode = value.Postcode;
+    values.Province = value.Province;
+    values.District = value.District;
+    values.Subdistrict = value.Subdistrict;
+    values.MemberID = 0;
     let res = await CreateWat(values);
     if (res.status) {
       messageApi.open({
         type: "success",
         content: "บันทึกข้อมูลสำเร็จ",
       });
-    //   setTimeout(function () {
-    //     navigate("/");
-    //   }, 2000);
+      //   setTimeout(function () {
+      //     navigate("/");
+      //   }, 2000);
     } else {
       messageApi.open({
         type: "error",
@@ -106,14 +106,14 @@ const General = () => {
     }
   };
 
-  const onChange = (e:any) => {
+  const onChange = (e: any) => {
     setValue({ ...value, [e.target.name]: e.target.value });
   };
 
   console.log(value);
   return (
     <div className="general">
-        {contextHolder}
+      {contextHolder}
       <Form onFinish={handleSubmit}>
         {inputs.map((input) => (
           <FormInput key={input.id} {...input} onChange={onChange} />
