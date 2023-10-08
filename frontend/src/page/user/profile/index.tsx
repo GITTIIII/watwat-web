@@ -11,14 +11,15 @@ const Profile = () => {
   let navigate = useNavigate();
   const [messageApi, contextHolder] = message.useMessage();
   const username = Cookies.get("username");
-  const [ID, setID] = useState('');
-  const [Username, setUsername] = useState('');
-  const [Password, setPassword] = useState('');
-  const [Email, setEmail] = useState('');
-  const [Doc_Path, setDoc_Path] = useState('');
-  const [Avatar, setAvatar] = useState('');
-  const [Role, setRole] = useState('')
-  const [RoleID, setRoleID] = useState('')
+  
+  const [ID, setID] = useState("");
+  const [Username, setUsername] = useState("");
+  const [Password, setPassword] = useState("");
+  const [Email, setEmail] = useState("");
+  const [Doc_Path, setDoc_Path] = useState("");
+  const [Avatar, setAvatar] = useState("");
+  const [Role, setRole] = useState("")
+  const [RoleID, setRoleID] = useState("")
 
   useEffect(() => { 
     const getInfo = async () => {    
@@ -35,11 +36,21 @@ const Profile = () => {
       else{
         setAvatar(members.Avatar);
       }
-      setRole(members.Role.Rolename);
+
+      setRole(members.Role.RoleName);
       setRoleID(members.RoleID);
     }
     getInfo()
   },[username])
+
+  console.log(ID)
+  console.log(Username)
+  console.log(Password)
+  console.log(Email)
+  console.log(Doc_Path)
+  console.log(Avatar)
+  console.log(Role)
+  console.log(RoleID)
 
   const [input, setInput] = useState({
     Username: "",
@@ -47,41 +58,39 @@ const Profile = () => {
     Password: "",
   });
   
-  console.log(input.Username)
-  console.log(input.Password)
-  console.log(input.Email)
-
   const handleInput = (e:any) =>{
     setInput({...input,[e.target.name] : [e.target.value]});
   }
 
   const handleSubmit = async (values: MembersInterface) => {  
     values.ID = parseInt(ID);
-    if(input.Username[0] === ""){
+    if(input.Username === ""){
       values.Username = Username
     }
     else{
-      values.Username = input.Username[0]
+      values.Username = input.Username
     }
-    if(input.Password[0] === ""){
+    if(input.Password === ""){
       values.Password = Password
     }
     else{
-      values.Password = input.Password[0]
+      values.Password = input.Password
     }
-    if(input.Email[0] === ""){
+    if(input.Email === ""){
       values.Email = Email
     }
     else{
-      values.Email = input.Email[0]
+      values.Email = input.Email
     }
     values.Doc_Path = Doc_Path;
     values.Avatar =	 "";
     values.RoleID =  parseInt(RoleID);
 
+    console.log(values)
+
     let res = await UpdateMember(values);
     if (res.status) {
-      Cookies.set('username', input.Username[0], { expires: 7 });
+      Cookies.set('username', values.Username, { expires: 7 });
       messageApi.open({
         type: "success",
         content: "บันทึกข้อมูลสำเร็จ",
