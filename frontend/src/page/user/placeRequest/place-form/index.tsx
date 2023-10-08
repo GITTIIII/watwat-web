@@ -28,6 +28,18 @@ const Placeform = () => {
                 <label>วันสิ้นสุด</label>
                 <input type="date" />
               </div>
+              <div className="start-date-input">
+                <label>เวลาเริ่มต้น</label>
+                <input type="time" />
+              </div>
+              <div className="end-date-input">
+                <label>เวลาสิ้นสุด</label>
+                <input 
+                type="time" 
+                min="00:00"
+                max="18:00"
+                />
+              </div>
               <div className="place-input">
                 <label>สถานที่</label>
                 <select>

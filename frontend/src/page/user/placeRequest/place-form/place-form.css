@@ -1,6 +1,6 @@
 .place-form-box{
-    height: 80%;
-    width: 80%;
+    height: 75vh;
+    width: 85%;
     background: transparent;
     backdrop-filter: blur(15px);
     border-radius: 10px;

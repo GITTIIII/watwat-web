@@ -15,6 +15,7 @@ import EventRequest from "./page/user/eventRequest";
 import CreateEventRequest from "./page/user/eventRequest/createEventRequest";
 import ItemRequest from "./page/user/itemRequest";
 import PlaceRequest from "./page/user/placeRequest";
+import Placeform from "./page/user/placeRequest/place-form";
 import Donate from "./page/user/donate";
 
 //creater ส่วน แจ้งใช้งานเอง
@@ -47,10 +48,10 @@ const router = createBrowserRouter(
       </Route>
 
       <Route path="" element={<SearchLayout />}>
-        // <Route path="/search" element={<Search />} />
-        // <Route path="/profile" element={<Profile />} />
-        // <Route path="/regisWatCreator" element={<RegisWatCreator />} />
-        //{" "}
+        <Route path="/search" element={<Search />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/regisWatCreator" element={<RegisWatCreator />} />
+        {" "}
       </Route>
 
       <Route path="" element={<UserLayout />}>
@@ -58,6 +59,7 @@ const router = createBrowserRouter(
         <Route path="/eventRequest" element={<EventRequest />} />
         <Route path="/itemRequest" element={<ItemRequest />} />
         <Route path="/placeRequest" element={<PlaceRequest />} />
+        <Route path="/placeForm" element={<Placeform />} />
         <Route path="/donate" element={<Donate />} />
         <Route
           path="/eventRequest/createEventRequest"
