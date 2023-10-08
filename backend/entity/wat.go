@@ -21,4 +21,5 @@ type Wat struct {
 	Monks   []Monk   `gorm:"foreignKeyID:WatID"`
 	Donates []Donate `gorm:"foreignKeyID:WatID"`
 	AccountWat []AccountWat `gorm:"foreignKeyID:WatID"`
+	Requests []Request `gorm:"foreignKeyID:WatID"`
 }

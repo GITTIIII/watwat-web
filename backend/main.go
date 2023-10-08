@@ -29,6 +29,18 @@ func main() {
 	r.PATCH("/wats", controller.UpdateWat)
 	r.DELETE("/wats/:id", controller.DeleteWat)
 	
+	// Events Routes
+	r.GET("/events", controller.ListEvents)
+	r.GET("/events/:id", controller.GetEvent)
+	r.POST("/eventRequests", controller.CreateEventRequest)
+	r.PATCH("/events", controller.UpdateEvent)
+	r.DELETE("/events/:id", controller.DeleteEvent)
+	// Gender Routes
+	r.GET("/eventTypes", controller.ListEventTypes)
+	// Status Routes
+	r.GET("/statuses", controller.ListEventTypes)
+	r.GET("/status/:id", controller.GetStatus)
+	
 	// Run the server
 	r.Run()
 }

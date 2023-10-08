@@ -15,6 +15,5 @@ type Member struct {
 	RoleID   *uint
 	Role Role `gorm:"foreignKey:RoleID"`
 
-	MemberRequests []MemberRequest `gorm:"foreignKey:MemberID"`
 	Donates []Donate `gorm:"foreignKey:MemberID"`
 }

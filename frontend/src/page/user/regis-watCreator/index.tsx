@@ -1,4 +1,4 @@
-import "../../../css/regis-watCreator.css";
+import "./regis-watCreator.css";
 
 import { Link } from "react-router-dom";
 const RegisWatCreator = () => {

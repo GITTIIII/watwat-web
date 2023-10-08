@@ -1,21 +1,20 @@
 package entity
 
 import (
-	"time"
 	"gorm.io/gorm"
 )
 
 type Event struct {
 	gorm.Model
-	EventName   string
+	EventName string
 	DateBegin   string
-	TimeOfBegin time.Time
+	TimeOfBegin string
 	DateEnd     string
-	TimeOfEnd   time.Time
-	OutPlace 	string
-	UserTel     int64
+	TimeOfEnd   string
+	OutPlace    string
+	UserTel     string
 	Description string
-
+	
 	EventID      *uint
 	ParentEvent *Event `gorm:"foreignKey:EventID"`
 
@@ -25,8 +24,8 @@ type Event struct {
 	StatusID *uint
 	Status   Status `gorm:"foreignKey:StatusID"`
 
-	ChildEvents []Event `gorm:"foreignKey:EventID"`
-	Hosts []Host `gorm:"foreignKey:EventID"`
-	Requests []Request `gorm:"foreignKey:EventID"`
-	PlaceUses []PlaceUse `gorm:"foreignKey:EventID"`
+	ChildEvents []Event    `gorm:"foreignKey:EventID"`
+	Hosts       []Host     `gorm:"foreignKey:EventID"`
+	Requests    []Request  `gorm:"foreignKey:EventID"`
+	PlaceUses   []PlaceUse `gorm:"foreignKey:EventID"`
 }
