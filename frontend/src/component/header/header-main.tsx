@@ -7,7 +7,7 @@ import React, { useEffect, useRef } from "react";
 import UserImage from "../userImage/userImage";
 import { Link } from "react-router-dom";
 
-function NavbarSearch() {
+function HeaderSearch() {
   const [Rclick, setRClick] = React.useState(false);
 
   const menuRef = useRef<HTMLDivElement | null>(null);
@@ -51,4 +51,4 @@ function NavbarSearch() {
   );
 }
 
-export default NavbarSearch;
+export default HeaderSearch;

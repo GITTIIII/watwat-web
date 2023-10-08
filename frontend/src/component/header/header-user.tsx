@@ -9,11 +9,11 @@ import Logo from "../logo/logo";
 import React, { useEffect, useRef } from "react";
 import LeftMenu from "../left-menu/left-menu";
 import RightMenu from "../right-menu/right-menu";
-import MenuItem from "../menu-item/menu-item";
+import NavbarUser from "../navbar/navbar-user";
 import { Link } from "react-router-dom";
 import UserImage from "../userImage/userImage";
 
-function NavbarUser() {
+function HeaderUser() {
   const [Lclick, setLClick] = React.useState(false);
   const [Rclick, setRClick] = React.useState(false);
 
@@ -51,7 +51,7 @@ function NavbarUser() {
           <Logo />
           <span>Wat Wat</span>
         </div>
-        <MenuItem />
+        <NavbarUser />
         <div className="topright-navbar">
           <button>
             <Link to="/search">
@@ -73,4 +73,4 @@ function NavbarUser() {
   );
 }
 
-export default NavbarUser;
+export default HeaderUser;

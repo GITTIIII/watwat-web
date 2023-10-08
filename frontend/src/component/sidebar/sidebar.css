@@ -1,5 +1,5 @@
 
-.nav-menu {
+.side-menu {
     background-color: #ffffff;
     width: 100%;
     height: 100%;
@@ -8,14 +8,14 @@
     font-size: 16px;
 }
 
-.nav-menu-items {
+.side-menu-items {
     width: 100%;
     /* min-width: 200px; */
     padding: 0;
     margin: 0;
 }
 
-.nav-text {
+.side-text {
     height: 60px;
     width: 100%;
 }
@@ -29,7 +29,7 @@
     background-color: #082032;
     color: #ffffff;
 }
-.nav-text a {
+.side-text a {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -40,13 +40,13 @@
     height: 100%;
 }
 
-.nav-text a:hover {
+.side-text a:hover {
     transition: 350ms;
     background-color: #D9D9D9;
     font-size: 18px;
 }
 
-.nav-text a.active{
+.side-text a.active{
     background-color: #D9D9D9;
     box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
 }

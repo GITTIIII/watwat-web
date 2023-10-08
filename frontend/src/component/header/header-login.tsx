@@ -1,7 +1,7 @@
 import "./header.css";
 import Logo from "../logo/logo";
 
-function NavbarLogin() {
+function HeaderLogin() {
   return (
     <>
       <div className="navbar">
@@ -14,4 +14,4 @@ function NavbarLogin() {
   );
 };
 
-export default NavbarLogin;
+export default HeaderLogin;
