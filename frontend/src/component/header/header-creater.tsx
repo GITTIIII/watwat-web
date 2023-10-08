@@ -1,4 +1,4 @@
-import "./navbar.css";
+import "./header.css";
 import {
   faBars,
   faEllipsisVertical,
@@ -9,11 +9,10 @@ import Logo from "../logo/logo";
 import React, { useEffect, useRef } from "react";
 import LeftMenu from "../left-menu/left-menu";
 import RightMenu from "../right-menu/right-menu";
-import MenuItem from "../menu-item/menu-item";
 import { Link } from "react-router-dom";
 import UserImage from "../userImage/userImage";
-
-function NavbarUser() {
+import NavbarCreater from "../navbar/navbarCreater";
+function HeaderCreator() {
   const [Lclick, setLClick] = React.useState(false);
   const [Rclick, setRClick] = React.useState(false);
 
@@ -51,7 +50,7 @@ function NavbarUser() {
           <Logo />
           <span>Wat Wat</span>
         </div>
-        <MenuItem />
+        <NavbarCreater />
         <div className="topright-navbar">
           <button>
             <Link to="/search">
@@ -73,4 +72,4 @@ function NavbarUser() {
   );
 }
 
-export default NavbarUser;
+export default HeaderCreator;

@@ -1,8 +1,8 @@
 import {NavLink } from "react-router-dom";
-import "../header/navbar.css";
+import "../header/header.css";
 
 
-function MenuItem() {
+function NavbarUser() {
   return (
     <>
       <div className="menu-navbar">
@@ -16,4 +16,4 @@ function MenuItem() {
   );
 };
 
-export default MenuItem;
+export default NavbarUser;

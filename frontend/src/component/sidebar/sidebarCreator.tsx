@@ -2,11 +2,11 @@ import React from 'react'
 import {Link,NavLink,} from "react-router-dom";
 
 import { SidebarData } from './sidebarData';
-import './css/sidebar.css';
-export default function SidebarCreater() {
+import './sidebar.css';
+export default function SidebarCreator() {
   return (
-    <nav className={'nav-menu'}>
-      <ul className='nav-menu-items'>
+    <nav className={'side-menu'}>
+      <ul className='side-menu-items'>
         <li className='head-item'><span>เมนู</span></li>
             {SidebarData.map((item, index) => {
               return (

@@ -1,20 +1,25 @@
 import { Outlet } from "react-router-dom";
 import Footer from "../component/footer/footer";
-import NavbarUser from "../component/header/navbar-user";
-import temple from "../assets/temple.jpg"
+import HeaderCreator from "../component/header/header-creater";
+import temple from "../assets/temple.jpg";
+import SidebarCreator from "../component/sidebar/sidebarCreator";
 export default function CreatorLayout() {
   return (
     <>
-    <header>
-            <NavbarUser />
-        </header>
-        <main style={{ backgroundImage: `url(${temple})` }}>
-          
-            <Outlet/>
+      <header>
+        <HeaderCreator />
+      </header>
+      <div className="warpperAddEvent">
+        <div className="sidebarCreater">
+          <SidebarCreator/>
+        </div>
+        <main className="contantAddEvent addEvent">
+          <Outlet />
         </main>
-        <footer>
-            <Footer/>
-        </footer>
+      </div>
+      <footer>
+        <Footer />
+      </footer>
     </>
-  )
+  );
 }

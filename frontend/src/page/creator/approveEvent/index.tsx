@@ -5,11 +5,11 @@ Routes,
 Route,
 Link,
 } from "react-router-dom";
-function RequsetEvent() {
+function ApproveEvent() {
   return (
     <div className='warpperAddEvent'>
     </div>
   );
 }
 
-export default RequsetEvent;
+export default ApproveEvent;

@@ -26,7 +26,7 @@ import AddItemLoan from "./page/creator/addItemLoan";
 import CreateWatData from "./page/creator/createWatData";
 
 //creater ส่วน Approve
-import RequsetEvent from "./page/creator/approveEvent";
+import ApproveEvent from "./page/creator/approveEvent";
 import EventDetails from "./page/creator/approveEvent/eventDetails.tsx";
 
 //Layout
@@ -59,13 +59,11 @@ const router = createBrowserRouter(
         <Route path="/itemRequest" element={<ItemRequest />} />
         <Route path="/placeRequest" element={<PlaceRequest />} />
         <Route path="/donate" element={<Donate />} />
-        <Route
-          path="/eventRequest/createEventRequest"
-          element={<CreateEventRequest />}
-        />
+        <Route path="/eventRequest/createEventRequest" element={<CreateEventRequest />}/>
       </Route>
 
       <Route path="" element={<AdminLayout />}></Route>
+
       <Route path="" element={<CreatorLayout />}>
         <Route path="/maincreater" element={<MainCreater />} />
         <Route path="/addEvent" element={<AddEvent />} />
@@ -73,6 +71,9 @@ const router = createBrowserRouter(
         <Route path="/addItemLoan" element={<AddItemLoan />} />
         <Route path="/addPlaceUse" element={<AddPlaceUse />} />
         <Route path="/createWatData" element={<CreateWatData />} />
+
+        <Route path="/approveEvent" element={<ApproveEvent />} />
+        <Route path="/approveEvent/eventDetails" element={<EventDetails />} />
       </Route>
     </>
   )
