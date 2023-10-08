@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom'
-import Footer from '../component/footer'
-import NavbarSearch from '../component/navbar-main'
+import Footer from '../component/footer/footer'
+import NavbarSearch from '../component/navbar/navbar-main'
 import temple from '../assets/temple.jpg'
 export default function SearchLayout() {
 

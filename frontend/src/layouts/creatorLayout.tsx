@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
-import Footer from "../component/footer";
-import NavbarUser from "../component/navbar-user";
+import Footer from "../component/footer/footer";
+import NavbarUser from "../component/navbar/navbar-user";
 import temple from "../assets/temple.jpg"
 export default function CreatorLayout() {
   return (

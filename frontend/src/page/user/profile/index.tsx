@@ -1,4 +1,4 @@
-import "../../../css/profile.css";
+import "./profile.css";
 import { Link, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import { GetMemberByUsername, UpdateMember } from "../../../services/https/member";
@@ -28,6 +28,7 @@ const Profile = () => {
       setPassword(members.Password);
       setEmail(members.Email);
       setDoc_Path(members.Doc_Path);
+
       if(members.Avatar === ""){
         setAvatar(no_profile);
       }
@@ -56,15 +57,31 @@ const Profile = () => {
 
   const handleSubmit = async (values: MembersInterface) => {  
     values.ID = parseInt(ID);
-    values.Username = input.Username[0]
-    values.Password = input.Password[0] 
-    values.Email = input.Email[0] 
+    if(input.Username[0] === ""){
+      values.Username = Username
+    }
+    else{
+      values.Username = input.Username[0]
+    }
+    if(input.Password[0] === ""){
+      values.Password = Password
+    }
+    else{
+      values.Password = input.Password[0]
+    }
+    if(input.Email[0] === ""){
+      values.Email = Email
+    }
+    else{
+      values.Email = input.Email[0]
+    }
     values.Doc_Path = Doc_Path;
     values.Avatar =	 "";
     values.RoleID =  parseInt(RoleID);
 
     let res = await UpdateMember(values);
     if (res.status) {
+      Cookies.set('username', input.Username[0], { expires: 7 });
       messageApi.open({
         type: "success",
         content: "บันทึกข้อมูลสำเร็จ",

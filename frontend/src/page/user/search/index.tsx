@@ -4,7 +4,7 @@ import {
   faMagnifyingGlass,
   faPlay,
 } from "@fortawesome/free-solid-svg-icons"; //for icon
-import "../../../css/search.css";
+import "./search.css";
 import React from "react";
 import { Link } from "react-router-dom";
 

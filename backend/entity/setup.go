@@ -29,7 +29,6 @@ func SetupDatabase(){
 		&ItemLoan{},
 		&ItemLoanItem{},
 		&Member{},
-		&MemberRequest{},
 		&Monk{},
 		&Place{},
 		&PlaceUse{},
@@ -37,6 +36,44 @@ func SetupDatabase(){
 		&Request{},
 		&Role{},
 		&Status{},
+		&Wat{},
 	)
 	db = database
+
+	// EventType Data
+	eventType := []EventType{
+		{EventTypeName: "บวช"},
+		{EventTypeName: "เพวส"},
+		{EventTypeName: "บุญ"},
+		{EventTypeName: "ศพ"},
+		{EventTypeName: "กฐิน"},
+	}
+
+	for _, eventType := range eventType {
+		db.Create(&eventType) // Assuming 'db' is your GORM database instance
+	}
+	statuses := []Status{
+		{StatusName: "รออนุมัติ"},
+		{StatusName: "อนุมัติ"},
+		{StatusName: "ไม่อนุมัติ"},
+		{StatusName: "รอจัดงาน"},
+		{StatusName: "จัดงานแล้ว"},
+	}
+
+	for _, statuses := range statuses {
+		db.Create(&statuses) // Assuming 'db' is your GORM database instance
+	}
+
+	Role := []Role{
+		{RoleName: "user"},
+		{RoleName: "creator"},
+		{RoleName: "admin"},
+	}
+
+	for _, Role := range Role {
+		db.Create(&Role) // Assuming 'db' is your GORM database instance
+	}
+
+	
+
 }

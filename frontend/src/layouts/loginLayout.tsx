@@ -1,7 +1,7 @@
 import React from 'react'
-import NavbarLogin from '../component/navbar-login'
+import NavbarLogin from '../component/navbar/navbar-login'
 import { Outlet } from 'react-router-dom'
-import Footer from '../component/footer'
+import Footer from '../component/footer/footer'
 import monk_login from '../assets/monk_login.png'
 export default function LoginLayout() {
 
