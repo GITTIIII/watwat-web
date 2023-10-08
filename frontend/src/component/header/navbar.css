@@ -47,7 +47,7 @@
 
 .menu-navbar a{
     display: flex; 
-    font-size: 2vh;
+    font-size: 1.8vh;
     text-decoration: none;
     color: black;
     margin: 0px 15px;
@@ -65,6 +65,8 @@
     color: rgba(0, 0, 0, 0.469);
     cursor: pointer;
 }
+
+
 
 .left-menu a.active li, .right-menu a.active li{
     background-color: orange;
