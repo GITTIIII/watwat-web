@@ -1,4 +1,4 @@
-import "./navbar.css";
+import "./header.css";
 import { faEllipsisVertical } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Logo from "../logo/logo";

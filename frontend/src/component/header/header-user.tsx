@@ -1,4 +1,4 @@
-import "./navbar.css";
+import "./header.css";
 import {
   faBars,
   faEllipsisVertical,
