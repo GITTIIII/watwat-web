@@ -44,10 +44,21 @@ func CreateMember(c *gin.Context) {
 }
 
 // GET /member/:id
-func GetMember(c *gin.Context) {
+func GetMemberById(c *gin.Context) {
 	var member entity.Member
 	id := c.Param("id")
 	if err := entity.DB().Preload("Role").Raw("SELECT * FROM members WHERE id = ?", id).Find(&member).Error; err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+	c.JSON(http.StatusOK, gin.H{"data": member})
+}
+
+// GET /member/:username
+func GetMemberByUsername(c *gin.Context) {
+	var member entity.Member
+	username := c.Param("username")
+	if err := entity.DB().Preload("Role").Raw("SELECT * FROM members WHERE username = ?", username).Find(&member).Error; err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}

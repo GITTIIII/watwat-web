@@ -2,7 +2,7 @@
   "git.ignoreLimitWarning": true,
   "workbench.activityBar.iconClickBehavior": "toggle",
   "workbench.activityBar.visible": true,
-  "workbench.colorTheme": "Noctis High Contrast",
+  "workbench.colorTheme": "Noctis High Contrast No Italic No Bold",
   "workbench.iconTheme": "vs-seti",
   "workbench.preferredDarkColorTheme": "Default High Contrast",
   "workbench.sideBar.location": "left",

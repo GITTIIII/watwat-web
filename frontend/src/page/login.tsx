@@ -5,12 +5,13 @@ import { Link, useNavigate } from "react-router-dom";
 import monk_login from '../assets/monk_login.png'
 import { Form, message } from "antd";
 import { useState } from "react";
-import { GetMember } from "../services/https/member";
-
+import { GetMemberByUsername } from "../services/https/member";
+import Cookies from "js-cookie";
 
 const Login = () => {
   let navigate = useNavigate();
   const [messageApi, contextHolder] = message.useMessage();
+  
   const [input, setInput] = useState({
     Username: "",
     Password: "",
@@ -20,25 +21,26 @@ const Login = () => {
     setInput({...input,[e.target.name] : [e.target.value]});
   }
 
-  const onFinish = async () => {    
-    const members = await GetMember();
-    
-    const matchingMember = members.find((member: { Username: string; Password: string; }) => member.Username === input.Username[0] && member.Password === input.Password[0]);
+  
 
-    if (matchingMember) {
-      
+  const handleSubmit = async () => {    
+    const members = await GetMemberByUsername(input.Username[0]);    
+    
+    if (input.Username[0] === members.Username && input.Password[0] === members.Password) {
+      Cookies.set('username', input.Username[0], { expires: 7 });
+
       messageApi.open({
         type: "success",
-        content: "ล็อกอินสำเร็จ",
+        content: "ล็อกอินเสร็จสิ้น",
       });
-
       setTimeout(function () {
         navigate("/search");
       }, 2000);
-    } else {
+    } 
+    else {
       messageApi.open({
         type: "error",
-        content: "ควย",
+        content: "ล็อกอินไม่สำเร็จ",
       });
     }
   };
@@ -52,11 +54,11 @@ const Login = () => {
             <div className="word1">" วันที่ดีที่สุด คือวันที่ได้ทำความดี และสะสมบุญ "</div>
           </div>
 
-          <Form onFinish={onFinish} autoComplete="off">
+          <Form onFinish={handleSubmit} >
 
             <div className="input-box">
               <span className="icon"><FontAwesomeIcon icon={faUser} /></span>
-              <label htmlFor="username">ชื่อผู้ใช้</label>
+              <label>ชื่อผู้ใช้</label>
               <input 
                 type="text" 
                 name="Username"
@@ -67,7 +69,7 @@ const Login = () => {
 
             <div className="input-box">
               <span className="icon"><FontAwesomeIcon icon={faLock} /></span>
-              <label htmlFor="password">รหัสผ่าน</label>
+              <label>รหัสผ่าน</label>
               <input 
                 type="password" 
                 name="Password"

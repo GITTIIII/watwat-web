@@ -16,6 +16,7 @@
     "antd": "^5.9.4",
     "axios": "^1.5.1",
     "babel-plugin-macros": "^3.1.0",
+    "js-cookie": "^3.0.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.16.0",
@@ -46,5 +47,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/js-cookie": "^3.0.4"
   }
 }

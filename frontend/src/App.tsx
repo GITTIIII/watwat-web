@@ -6,7 +6,6 @@ import Main from "./page/user/mainWat";
 import Event from "./page/user/eventRequest";
 import Place from "./page/user/place";
 import Placeform from "./page/user/place/place-form";
-import Item from "./page/user/item";
 import Donate from "./page/user/donate";
 import Profile from "./page/user/profile";
 import RegisWatCreator from "./page/user/regis-watCreator";
@@ -16,6 +15,7 @@ import AdminLayout from "./layouts/adminLayout";
 import CreatorLayout from "./layouts/creatorLayout";
 import SearchLayout from "./layouts/searchLayout";
 import General from "./page/creator/general";
+import ItemPage from "./page/user/item";
 
 const router = createBrowserRouter(  
   createRoutesFromElements(
@@ -34,7 +34,7 @@ const router = createBrowserRouter(
           <Route path="/eventRequest" element={<Event />} />
           <Route path="/placeRequest" element={<Place />} />
           <Route path="/placeform" element={<Placeform />} />
-          <Route path="/item" element={<Item />} />
+          <Route path="/item" element={<ItemPage />} />
           <Route path="/donate" element={<Donate />} />
       </Route>
       <Route path="/admin" element={<AdminLayout/>}>
