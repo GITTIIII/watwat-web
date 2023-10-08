@@ -1,0 +1,24 @@
+.warpperAddEvent {
+    background-color: #ffff;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100vh;
+}
+
+.sidebarCreater {
+    width: 15%;
+    height: 100%;
+    background-color: white;
+}
+
+.contantAddEvent {
+    background-color: white;
+    margin: 20px;
+    width: 85%;
+}
+
+.contantAddEvent.addEvent {
+    margin: 0;
+    width: 85%;
+}

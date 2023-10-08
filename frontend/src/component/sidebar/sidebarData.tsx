@@ -4,21 +4,21 @@ export const SidebarData = [
   {
     title: 'คำขอจัดกิจกรรม',
     path: '/requsetEvent',
-    cName: 'nav-text'
+    cName: 'side-text'
   },
   {
     title: 'คำขอจัดใช้สถานที่',
     path: '/reports',
-    cName: 'nav-text'
+    cName: 'side-text'
   },
   {
     title: 'คำขอยืม/คืนสิ่งของ',
     path: '/products',
-    cName: 'nav-text'
+    cName: 'side-text'
   },
   {
     title: 'ข้อมูลการบริจาค',
     path: '/team',
-    cName: 'nav-text'
+    cName: 'side-text'
   }
 ];
