@@ -35,21 +35,11 @@ const Profile = () => {
         setAvatar(members.Avatar);
       }
       setRole(members.Role.Rolename);
-      setRoleID(members.Role.ID);
+      setRoleID(members.RoleID);
     }
     getInfo()
   },[username])
 
-  console.log(ID)
-  console.log(Username)
-  console.log(Password)
-  console.log(Email)
-  console.log(Avatar)
-  console.log(Role)
-  console.log(RoleID)
-
-  
-  
   const [input, setInput] = useState({
     Username: "",
     Email: "",
@@ -64,11 +54,11 @@ const Profile = () => {
     setInput({...input,[e.target.name] : [e.target.value]});
   }
 
-  const handleSubmit = async (values: MembersInterface) => {    
+  const handleSubmit = async (values: MembersInterface) => {  
     values.ID = parseInt(ID);
-    values.Username = input.Username
-    values.Password = input.Password 
-    values.Email = input.Email 
+    values.Username = input.Username[0]
+    values.Password = input.Password[0] 
+    values.Email = input.Email[0] 
     values.Doc_Path = Doc_Path;
     values.Avatar =	 "";
     values.RoleID =  parseInt(RoleID);
@@ -89,7 +79,7 @@ const Profile = () => {
       });
     }
   }
-  console.log(input)
+
   return (
     <>
         <Form className="middle-box" onFinish={handleSubmit}>
@@ -103,7 +93,8 @@ const Profile = () => {
 
               <div>
                 ชื่อผู้ใช้
-                <input type="text" 
+                <input 
+                type="text" 
                 placeholder={Username} 
                 onChange={handleInput}
                 name="Username"
@@ -112,7 +103,8 @@ const Profile = () => {
 
               <div>
                 อีเมล
-                <input type="email" 
+                <input 
+                type="email" 
                 placeholder={Email} 
                 onChange={handleInput}
                 name="Email"
