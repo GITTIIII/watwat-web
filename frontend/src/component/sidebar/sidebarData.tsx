@@ -3,7 +3,7 @@ import React from 'react';
 export const SidebarData = [
   {
     title: 'คำขอจัดกิจกรรม',
-    path: '/requsetEvent',
+    path: '/approveEvent',
     cName: 'side-text'
   },
   {

@@ -75,6 +75,9 @@ const router = createBrowserRouter(
         <Route path="/addItemLoan" element={<AddItemLoan />} />
         <Route path="/addPlaceUse" element={<AddPlaceUse />} />
         <Route path="/createWatData" element={<CreateWatData />} />
+
+        <Route path="/approveEvent" element={<RequsetEvent />} />
+        <Route path="/approveEvent/eventDetails" element={<EventDetails />} />
       </Route>
     </>
   )
