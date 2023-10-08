@@ -11,7 +11,6 @@ function NavbarLogin() {
         </div>
       </div>
     </>
-    
   );
 };
 
