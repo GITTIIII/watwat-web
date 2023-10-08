@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-
+import '../header/header.css'
 function RightMenu() {
   return (
     <>

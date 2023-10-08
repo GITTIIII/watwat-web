@@ -2,7 +2,6 @@ package entity
 
 import (
 	"gorm.io/gorm"
-
 )
 
 type Place struct {

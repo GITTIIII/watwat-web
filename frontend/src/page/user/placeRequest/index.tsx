@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import "./place.css";
 
 const Place = () => {
+  
   return (
     <>
       

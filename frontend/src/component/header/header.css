@@ -105,6 +105,19 @@
     transition: .5s;
 }
 
+.right-menu ul ,.left-menu ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.right-menu li ,.left-menu li{
+    padding: 8px 12px;
+}
+  
+.right-menu li:hover ,.left-menu li:hover{
+    background-color: rgba(0, 0, 0, 0.14);
+    cursor: pointer;
+}
 
 .right-menu{
     position: absolute;

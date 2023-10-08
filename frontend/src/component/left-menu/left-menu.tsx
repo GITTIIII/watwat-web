@@ -21,7 +21,7 @@ function LeftMenu(){
                 <NavLink to="/placeRequest">
                   <li>ขอใช้สถานที่</li>
                 </NavLink>
-                <NavLink to="/item">
+                <NavLink to="/itemRequest">
                   <li>ยืม/คืนสิ่งของ</li>
                 </NavLink>
                 <NavLink to="/donate">

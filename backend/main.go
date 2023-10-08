@@ -35,8 +35,17 @@ func main() {
 	r.POST("/eventRequests", controller.CreateEventRequest)
 	r.PATCH("/events", controller.UpdateEvent)
 	r.DELETE("/events/:id", controller.DeleteEvent)
+
+	// Places Routes
+	r.GET("/places", controller.ListPlace)
+	r.GET("/places/:id", controller.GetPlaceById)
+	r.POST("/places", controller.CreatePlace)
+	r.PATCH("/places", controller.UpdatePlace)
+	r.DELETE("/places/:id", controller.DeletePlace)
+
 	// Gender Routes
 	r.GET("/eventTypes", controller.ListEventTypes)
+
 	// Status Routes
 	r.GET("/statuses", controller.ListEventTypes)
 	r.GET("/status/:id", controller.GetStatus)
