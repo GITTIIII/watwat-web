@@ -1,8 +1,9 @@
 import './createEventRequest.css';
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { Form, message, } from "antd";
-// import { IoIosAdd } from "react-icons/io";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-solid-svg-icons"; //for icon
 import SubmitButton from '../../../../component/submitButton/submitButton';
 import { EventRequestsInterface } from "../../../../interfaces/IEventRequest";
 import { EventTypesInterface } from '../../../../interfaces/IEventType'; 
@@ -116,7 +117,7 @@ function CreateEventRequest() {
         <div className="heandcontantcreate">
           <div className="heandpage title">ขอจัดกิจกรรม</div>
           <div className='heandpage eventRequest'>
-            <Link to="../EventRequest">กิจกรรมที่แจ้งขอจัด</Link>
+            <NavLink to="../EventRequest">กิจกรรมที่แจ้งขอจัด</NavLink>
           </div>
           <div className="formNameEvent">
             <input type="text"
@@ -124,7 +125,7 @@ function CreateEventRequest() {
               placeholder='กรอกชื่อกิจกรรม'
               name="EventName"
               onChange={handleInput}
-            // required 
+              required 
             />
 
             <select
@@ -133,7 +134,7 @@ function CreateEventRequest() {
               name="EventTypeID"
               value={input.EventTypeID} // Set the selected value based on the state
               onChange={handleInput}
-            // required 
+              required 
             >
               {eventTypes.map((item) => (
                 <option value={item.ID} key={item.EventTypeName}>
@@ -144,14 +145,10 @@ function CreateEventRequest() {
           </div>
         </div>
         <div className="dataEvent">
-          <div className="data hosts"
-          // name="basic"
-          // onFinish={handleSubmitHost}
-          // autoComplete="off"
-          >
+          <div className="data hosts">
             <div className='plusHost'>
               <label htmlFor="">รายนาม-เจ้าภาพ</label>
-              {/* <IoIosAdd className='icon plusHosts' /> */}
+              <FontAwesomeIcon icon={faPlus}  className='iconplusHosts' />
             </div>
             <input
               type="text"
@@ -160,7 +157,7 @@ function CreateEventRequest() {
               placeholder='1.'
               name="HostName"
               onChange={handleInput}
-            // required 
+              required 
             />
             {/* <input 
                 type="text" 

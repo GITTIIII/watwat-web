@@ -53,9 +53,7 @@ const Login = () => {
             <div className="word">ยินดีต้อนรับ พุทธศาสนิกชน สู่ Wat Wat</div>
             <div className="word1">" วันที่ดีที่สุด คือวันที่ได้ทำความดี และสะสมบุญ "</div>
           </div>
-
           <Form onFinish={handleSubmit} >
-
             <div className="input-box">
               <span className="icon"><FontAwesomeIcon icon={faUser} /></span>
               <label>ชื่อผู้ใช้</label>
@@ -66,7 +64,6 @@ const Login = () => {
                 required
               />
             </div>
-
             <div className="input-box">
               <span className="icon"><FontAwesomeIcon icon={faLock} /></span>
               <label>รหัสผ่าน</label>
@@ -77,8 +74,6 @@ const Login = () => {
                 required
               />
             </div>
-
-
             <div className="remember-forgot">
               <label>
                 <input type="checkbox" />

@@ -56,7 +56,6 @@ function NavbarUser() {
           <button>
             <Link to="/search">
               <FontAwesomeIcon icon={faMagnifyingGlass} />
-              ค้นหา
             </Link>
           </button>
           <UserImage />
