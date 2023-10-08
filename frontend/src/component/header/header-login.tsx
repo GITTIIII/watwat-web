@@ -1,4 +1,4 @@
-import "./navbar.css";
+import "./header.css";
 import Logo from "../logo/logo";
 
 function NavbarLogin() {

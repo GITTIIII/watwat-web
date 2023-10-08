@@ -1,4 +1,4 @@
-import '../header/navbar.css'
+import '../header/header.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { NavLink } from 'react-router-dom';
