@@ -6,7 +6,7 @@ import (
 
 type Place struct {
 	gorm.Model
-	PlaceName  string `gorm:"uniqueIndex"`
+	Name  string `gorm:"uniqueIndex"`
 
 	StatusID *uint
 	Status   Status `gorm:"foreignKey:StatusID"`
