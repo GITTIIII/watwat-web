@@ -6,7 +6,7 @@ import { WatsInterface } from "./IWat";
 export interface RequestInterface {
     ID?: number;
     Note?: string | null;
-    UpdateAt?: string;
+    UpdatedAt?: string;
     DateTimeOfApproved?: string;
     EventID?: number | null;
     Event?: EventRequestsInterface | null;
@@ -15,5 +15,5 @@ export interface RequestInterface {
     StatusID?: number | null;
     Status?: StatusesInterface | null;
     WatID?: number ;
-    Wat?: WatsInterface ;
+    Wat?: WatsInterface;
 }

@@ -80,7 +80,7 @@
 
 .requestEvent-item {
     display: grid;
-    grid-template-columns: 1fr 0.7fr 1fr 1fr 0.5fr 0.6fr 0.5fr;
+    grid-template-columns: 0.5fr 0.5fr 1.5fr 0.8fr 0.6fr 0.6fr 0.8fr;
     gap: 10px;
     text-align: center;
 }
@@ -88,6 +88,8 @@
 .title-name {
     border: 3px solid #D9D9D9;
     border-radius: 5px;
+    padding: 10px 0;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 }
 
 .requestEvent-itemtr {

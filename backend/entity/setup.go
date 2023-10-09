@@ -75,4 +75,30 @@ func SetupDatabase(){
 		db.Create(&Role) // Assuming 'db' is your GORM database instance
 	}
 
+	Wat := []Wat{
+		{Name:        "Location 1",
+		Abbot:       "Abbot 1",
+		Description: "Description 1",
+		Address:     "Address 1",
+		Postcode:    "12345",
+		Province:    "Province 1",
+		District:    "District 1",
+		Subdistrict: "Subdistrict 1",
+		},
+		{Name:        "Location 2",
+		Abbot:       "Abbot 2",
+		Description: "Description 2",
+		Address:     "Address 2",
+		Postcode:    "67890",
+		Province:    "Province 2",
+		District:    "District 2",
+		Subdistrict: "Subdistrict 2",
+		},
+		
+	}
+
+	for _, Wat := range Wat {
+		db.Create(&Wat) // Assuming 'db' is your GORM database instance
+	}
+
 }

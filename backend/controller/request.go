@@ -10,10 +10,10 @@ import (
 
 // GET /events
 func ListRequersts(c *gin.Context) {
-	var events []entity.Event
-	if err := entity.DB().Raw("SELECT * FROM events").Scan(&events).Error; err != nil {
+	var requests []entity.Request
+	if err := entity.DB().Raw("SELECT * FROM requests").Scan(&requests).Error; err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
-	c.JSON(http.StatusOK, gin.H{"data": events})
+	c.JSON(http.StatusOK, gin.H{"data": requests})
 }
