@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import "./place.css";
 
 const Place = () => {
+  
   return (
     <>
       
@@ -13,7 +14,7 @@ const Place = () => {
               <h3>วัดโคกอีเเร้ง</h3>
               <h5>รายการขอใช้สถานที่</h5>
             </div>
-            <Link to="/placeform">
+            <Link to="/placeForm">
               <FontAwesomeIcon icon={faPlus} className="icon" />
             </Link>
           </div>

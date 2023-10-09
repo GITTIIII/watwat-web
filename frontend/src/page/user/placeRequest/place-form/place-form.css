@@ -1,6 +1,6 @@
 .place-form-box{
-    height: 80%;
-    width: 80%;
+    height: 75vh;
+    width: 85%;
     background: transparent;
     backdrop-filter: blur(15px);
     border-radius: 10px;
@@ -21,7 +21,7 @@
     display: block;
     margin: auto;
     width: 200px;
-    font-size: 1em;
+    font-size: 1.2em;
     color: white;
 }
 
@@ -59,9 +59,8 @@
 }
 
 .comment label{
-    margin: 20px 100px;
+    margin-right: 70%;
     display: flex;
-    
 }
 .comment textarea{
     font-size: 1.3em;
@@ -89,4 +88,8 @@
 
 .side-button button:hover{
     font-weight: bold;
+}
+
+.place-form-button .submit_button{
+    width: max-content;
 }

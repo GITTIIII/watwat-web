@@ -53,11 +53,12 @@ func SetupDatabase(){
 		db.Create(&eventType) // Assuming 'db' is your GORM database instance
 	}
 	statuses := []Status{
-		{StatusName: "รออนุมัติ"},
 		{StatusName: "อนุมัติ"},
 		{StatusName: "ไม่อนุมัติ"},
+		{StatusName: "รออนุมัติ"},
 		{StatusName: "รอจัดงาน"},
 		{StatusName: "จัดงานแล้ว"},
+		{StatusName: "ว่าง"},
 	}
 
 	for _, statuses := range statuses {

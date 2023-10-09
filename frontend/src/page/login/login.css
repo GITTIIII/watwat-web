@@ -141,6 +141,7 @@
     font-size: 2vh;
     padding: 10px;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 .submit_button:hover{

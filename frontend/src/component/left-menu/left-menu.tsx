@@ -1,4 +1,4 @@
-import '../header/navbar.css'
+import '../header/header.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { NavLink } from 'react-router-dom';
@@ -21,7 +21,7 @@ function LeftMenu(){
                 <NavLink to="/placeRequest">
                   <li>ขอใช้สถานที่</li>
                 </NavLink>
-                <NavLink to="/item">
+                <NavLink to="/itemRequest">
                   <li>ยืม/คืนสิ่งของ</li>
                 </NavLink>
                 <NavLink to="/donate">
