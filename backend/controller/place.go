@@ -3,8 +3,8 @@ package controller
 import (
 	"net/http"
 
-	"github.com/gin-gonic/gin"
 	"github.com/GITTIIII/watwat-web/entity"
+	"github.com/gin-gonic/gin"
 )
 
 // POST /place
@@ -31,7 +31,7 @@ func CreatePlace(c *gin.Context) {
 
 	// สร้าง Place
 	p := entity.Place{
-		PlaceName: place.PlaceName,
+		Name: place.Name,
 		StatusID : place.StatusID,
 		Status:    status,
 		WatID : place.WatID,

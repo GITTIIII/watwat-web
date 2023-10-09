@@ -1,16 +1,13 @@
 package entity
 
-import (
-	"time"
+import "gorm.io/gorm"
 
-	"gorm.io/gorm"
-)
 
 type Monk struct {
 	gorm.Model
 	Name string `gorm:"uniqueIndex"`
 	Rank string
-	Dob  time.Time
+	Birthday string
 
 	WatID *uint
 	Wat   Wat `gorm:"foreignKeyID:WatID"`

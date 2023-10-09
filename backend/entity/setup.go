@@ -18,7 +18,6 @@ func SetupDatabase(){
 	}
 
 	database.AutoMigrate(
-		&AccountWat{},
 		&Donate{},
 		&DonateType{},
 		&Donate{},
