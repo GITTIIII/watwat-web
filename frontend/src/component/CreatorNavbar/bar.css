@@ -1,0 +1,62 @@
+.navbar {
+  display: flex;
+  flex-direction: row;
+  height: 4rem;
+  background-color: white;
+  font-size: 16px;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 5px solid black;
+}
+
+.navbar a {
+  padding: 15px;
+  text-decoration: none;
+  color: black;
+  align-items: center;
+}
+
+.navbar a:hover {
+  /* border-top: solid rgb(255, 200, 0); */
+  color: rgb(255, 200, 0);
+}
+
+.navbar .active {
+  border-top: solid rgb(255, 200, 0);
+  color: rgb(255, 200, 0);
+}
+
+.sidebar-text {
+  width: 200px;
+  background-color: rgb(46, 43, 66);
+  color: white;
+  text-align: center;
+  padding: 20px;
+  border-radius: 0;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 15rem;
+  height: 100vh;
+  background-color: white;
+  font-size: 16px;
+  float: left;
+}
+
+.sidebar a {
+  display: flex;
+  padding-block: 20px;
+  background-color: white;
+  justify-content: center;
+  text-decoration: none;
+  color: black;
+}
+
+.sidebar a:hover {
+  background-color: rgb(164, 164, 164);
+}
+.sidebar .active {
+  background-color: rgb(164, 164, 164);
+}

@@ -1,0 +1,43 @@
+.general {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  width: 400px;
+  height: 700px;
+  justify-content: center;
+  align-items: center;
+}
+
+.general input {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  text-align: center;
+}
+
+.general textarea {
+  display: flex;
+  width: 200px;
+  height: 50px;
+}
+
+.general select {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+}
+
+.general button {
+  display: flex;
+  width: 100px;
+  height: 30px;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  cursor: pointer;
+}
+
+.general button:hover {
+  background-color: #f9d11f;
+}

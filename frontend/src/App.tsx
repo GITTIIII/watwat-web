@@ -23,7 +23,7 @@ import AddEvent from "./page/creator/addEvent";
 import CreateEvent from "./page/creator/addEvent/createEvent";
 import AddPlaceUse from "./page/creator/addPlaceUse";
 import AddItemLoan from "./page/creator/addItemLoan";
-import CreateWatData from "./page/creator/createWatData";
+import CreateWatData from "./page/creator/createWatData/general";
 
 //creater ส่วน Approve
 import RequsetEvent from "./page/creator/approveEvent";
