@@ -111,11 +111,13 @@ function UpdateEventRequest() {
   
   const getEventRequestById = async () => {
     let res = await GetEventById(Number(id));
+    console.log(res);
+    console.log("res");
     if (res) {
       setEventRequest(res);
       //set form ข้อมูลเริ่มของผู่้ใช้ที่เราแก้ไข
       form.setFieldsValue({ 
-        EventName: res.FirstName ,
+        EventName: res.EventName ,
         // LastName : res.LastName ,
         // GenderID: res.GenderID,
         // Email: res.Email,
@@ -128,16 +130,20 @@ function UpdateEventRequest() {
     getEventType();
     getEventRequestById();
   }, []);
+
+  console.log(input);
+  console.log("res1");
   return (
     <>
       {contextHolder}
       <Form
         name="basic"
         onFinish={handleSubmit}
+        form={form}
         autoComplete="off"
         className='warpper' >
         <div className="heandcontantcreate">
-          <div className="heandpage title">ขอจัดกิจกรรม</div>
+          <div className="heandpage title">แก้ไขกิจกรรม</div>
           <div className='heandpage eventRequest'>
             <NavLink to="../EventRequest">กิจกรรมที่แจ้งขอจัด</NavLink>
           </div>

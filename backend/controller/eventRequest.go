@@ -3,10 +3,11 @@ package controller
 import (
 	"net/http"
 
-	"github.com/gin-gonic/gin"
 	"github.com/GITTIIII/watwat-web/entity"
+	"github.com/gin-gonic/gin"
 )
 type eventPayload struct {
+	ID			*uint
 	EventName   string
 	DateBegin   string
 	TimeOfBegin string
@@ -103,7 +104,7 @@ func CreateEventRequest(c *gin.Context) {
 		return
 	}
 
-	c.JSON(http.StatusOK, gin.H{"data": gin.H{"event": event, "host": host}})
+	c.JSON(http.StatusOK, gin.H{"data": gin.H{"event": event, "host": host, "request": request}})
 }
 
 // GET /event/:id
@@ -130,6 +131,11 @@ func ListEvents(c *gin.Context) {
 // DELETE /events/:id
 func DeleteEvent(c *gin.Context) {
 	id := c.Param("id")
+
+	if tx := entity.DB().Exec("DELETE FROM hosts WHERE event_id = ?", id); tx.RowsAffected == 0 {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "event_id not found"})
+		return
+	}
 	if tx := entity.DB().Exec("DELETE FROM events WHERE id = ?", id); tx.RowsAffected == 0 {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "event not found"})
 		return
@@ -139,20 +145,58 @@ func DeleteEvent(c *gin.Context) {
 
 // PATCH /events
 func UpdateEventRequests(c *gin.Context) {
-	var event entity.Event
-	if err := c.ShouldBindJSON(&event); err != nil {
+	var data eventPayload
+	var eventType entity.EventType
+	var eventMain entity.Event
+	var status entity.Status
+	var result entity.Event
+	if err := c.ShouldBindJSON(&data); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
 
-	if tx := entity.DB().Where("id = ?", event.ID).First(&event); tx.RowsAffected == 0 {
+	if tx := entity.DB().Where("id = ?", data.ID).First(&result); tx.RowsAffected == 0 {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "event not found"})
 		return
 	}
 
-	if err := entity.DB().Save(&event).Error; err != nil {
+	// ค้นหา eventType ด้วย id ใช้สร้าง Event
+	if tx := entity.DB().Where("id = ?", data.EventTypeID).First(&eventType); tx.RowsAffected == 0 {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "eventType not found"})
+		return
+	}
+
+	// ค้นหา eventMain ด้วย id ใช้สร้าง Event
+	if data.EventID != nil {
+		if tx := entity.DB().Where("id = ?", *data.EventID).First(&eventMain); tx.RowsAffected == 0 {
+			c.JSON(http.StatusBadRequest, gin.H{"error": "eventMain not found"})
+			return
+		}
+	}
+
+	// ค้นหา status ด้วย id // ใช้สร้าง Event Request
+	if tx := entity.DB().Where("id = ?", data.StatusID).First(&status); tx.RowsAffected == 0 {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "status not found"})
+		return
+	}
+
+	eventNew := entity.Event{
+		EventName:   data.EventName,
+		DateBegin:   data.DateBegin,
+		TimeOfBegin: data.TimeOfBegin,
+		DateEnd:     data.DateEnd,
+		TimeOfEnd:   data.TimeOfEnd,
+		OutPlace:    data.OutPlace,
+		UserTel:     data.UserTel,
+		Description: data.Description,
+		EventID:     data.EventID,
+		EventType:   eventType,
+		Status:      status,
+	}
+	if err := entity.DB().Save(&eventNew).Error; err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
-	c.JSON(http.StatusOK, gin.H{"data": event})
+
+	c.JSON(http.StatusOK, gin.H{"data": gin.H{"eventNew": eventNew}})
 }

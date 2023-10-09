@@ -52,7 +52,7 @@ func main() {
 
 	// Requests Routes
 	r.GET("/requests", controller.ListRequersts)
-	
+	r.DELETE("/requests/:id", controller.DeleteRequest)
 	// Run the server
 	r.Run()
 }

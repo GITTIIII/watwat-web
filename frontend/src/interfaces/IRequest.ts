@@ -8,7 +8,7 @@ export interface RequestInterface {
     Note?: string | null;
     UpdatedAt?: string;
     DateTimeOfApproved?: string;
-    EventID?: number | null;
+    EventID?: number ;
     Event?: EventRequestsInterface | null;
     PlaceUseID?: number | null;
     ItemLoanID?: number | null;
