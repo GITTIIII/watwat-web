@@ -5,7 +5,6 @@ import { Form, message } from "antd";
 import { CreateWat } from "../../../../services/https/wat";
 import { useNavigate } from "react-router";
 import "./index.css";
-import CreateWatSidebar from "../../../../component/CreatorNavbar/CreateWatSidebar";
 
 const General = () => {
   let navigate = useNavigate();
@@ -58,7 +57,7 @@ const General = () => {
   console.log(value);
   return (
     <>
-      {/* <CreateWatSidebar /> */}
+     
       <div className="general">
         {contextHolder}
         <Form onFinish={handleSubmit}>
