@@ -5,22 +5,16 @@ import temple from "../assets/temple.jpg";
 
 import SidebarCreater from "../component/sidebar/sidebarCreater";
 import HeaderCreator from "../component/header/header-creator";
-import "./creatorLayout.css";
 
 export default function CreatorLayout() {
   return (
     <>
-      <main>
+      <header>
         <HeaderCreator />
-      </main>
-      <div className="warpperAddEvent">
-        <div className="sidebarCreater">
-          <SidebarCreater></SidebarCreater>
-        </div>
+      </header>
         <div className="contantAddEvent addEvent">
           <Outlet />
         </div>
-      </div>
       <footer>
         <Footer />
       </footer>
