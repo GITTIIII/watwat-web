@@ -33,8 +33,8 @@ func main() {
 	r.GET("/events", controller.ListEvents)
 	r.GET("/events/:id", controller.GetEvent)
 	r.POST("/eventRequests", controller.CreateEventRequest)
-	r.PATCH("/events", controller.UpdateEvent)
-	r.DELETE("/events/:id", controller.DeleteEvent)
+	r.PATCH("/eventRequests", controller.UpdateEventRequests)
+	r.DELETE("/eventRequests/:id", controller.DeleteEvent)
 
 	// Places Routes
 	r.GET("/places", controller.ListPlace)

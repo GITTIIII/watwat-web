@@ -13,6 +13,7 @@ import Search from "./page/user/search";
 import MainUser from "./page/user/main";
 import EventRequest from "./page/user/eventRequest";
 import CreateEventRequest from "./page/user/eventRequest/createEventRequest";
+import UpdateEventRequest from "./page/user/eventRequest/editEventRequest";
 import ItemRequest from "./page/user/itemRequest";
 import PlaceRequest from "./page/user/placeRequest";
 import Placeform from "./page/user/placeRequest/place-form";
@@ -61,10 +62,8 @@ const router = createBrowserRouter(
         <Route path="/placeRequest" element={<PlaceRequest />} />
         <Route path="/placeForm" element={<Placeform />} />
         <Route path="/donate" element={<Donate />} />
-        <Route
-          path="/eventRequest/createEventRequest"
-          element={<CreateEventRequest />}
-        />
+        <Route path="/eventRequest/createEventRequest" element={<CreateEventRequest />}/>
+        <Route path="/eventRequest/edit/:id" element={<UpdateEventRequest />}/>
       </Route>
 
       <Route path="" element={<AdminLayout />}></Route>

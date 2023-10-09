@@ -138,7 +138,7 @@ func DeleteEvent(c *gin.Context) {
 }
 
 // PATCH /events
-func UpdateEvent(c *gin.Context) {
+func UpdateEventRequests(c *gin.Context) {
 	var event entity.Event
 	if err := c.ShouldBindJSON(&event); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})

@@ -30,7 +30,8 @@
 .btn {
     border-radius: 10px;
     padding: 5px 10px;
-    font-size: 12px;
+    font-size: 10px;
+    border: none;
 }
 
 .btn.edit {
