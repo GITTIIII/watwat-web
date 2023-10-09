@@ -25,7 +25,6 @@ type eventPayload struct {
 	HostName    string
 
 	// ใช้สร้าง Request
-	DateOfRequest 	string
 	MemberID   		*uint
 	WatID 			*uint
 }
@@ -93,7 +92,6 @@ func CreateEventRequest(c *gin.Context) {
 	}
 
 	request := entity.Request{
-		DateTimeOfRequest: 	data.DateOfRequest,
 		MemberID:   	data.MemberID,
 		WatID: 			data.WatID,
 		EventID:     	&event.ID,

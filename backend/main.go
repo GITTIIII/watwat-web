@@ -49,6 +49,9 @@ func main() {
 	// Status Routes
 	r.GET("/statuses", controller.ListEventTypes)
 	r.GET("/status/:id", controller.GetStatus)
+
+	// Requests Routes
+	r.GET("/requests", controller.ListRequersts)
 	
 	// Run the server
 	r.Run()

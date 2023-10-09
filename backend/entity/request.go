@@ -9,7 +9,6 @@ import (
 type Request struct {
 	gorm.Model
 	Note  string 
-	DateTimeOfRequest string
 	DateTimeOfApproved string
 
 	EventID   *uint

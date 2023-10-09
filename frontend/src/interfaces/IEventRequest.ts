@@ -22,7 +22,6 @@ export interface EventRequestsInterface {
   HostName?: string;
   
   //ใช้สร้าง Request
-  DateTimeOfRequest?: string;
   MemberID?: number;
 	WatID?: number;
 }

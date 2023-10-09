@@ -75,6 +75,4 @@ func SetupDatabase(){
 		db.Create(&Role) // Assuming 'db' is your GORM database instance
 	}
 
-	
-
 }

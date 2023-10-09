@@ -26,7 +26,6 @@ function CreateEventRequest() {
     EventTypeID: 1,
     StatusID: 1,
     HostName: '',
-    DateTimeOfRequest: '',
     MemberID: 1,
     WatID: 1,
   })
@@ -73,7 +72,6 @@ function CreateEventRequest() {
 
     values.HostName = input.HostName
 
-    values.DateTimeOfRequest = input.DateTimeOfRequest
     values.MemberID = input.MemberID
     values.WatID = input.WatID
 
