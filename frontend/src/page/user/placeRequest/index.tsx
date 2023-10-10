@@ -9,6 +9,7 @@ const Place = () => {
     <>
       
         <div className="place-middle-box">
+          
           <div className="place-top-middle-box">
             <div className="place-word">
               <h3>วัดโคกอีเเร้ง</h3>
