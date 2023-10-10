@@ -61,9 +61,9 @@ func SetupDatabase() {
 		{StatusName: "กำลังจัดงาน"},
 		{StatusName: "จัดงานเสร็จสิ้น"},
 		//placeUse
-		{StatusName: "รอใช้สถานนที่"},
-		{StatusName: "กำใช้สถานนที่"},
-		{StatusName: "ใช้สถานเสร็จสิ้น"},
+		{StatusName: "รอใช้สถานที่"},
+		{StatusName: "กำลังใช้สถานที่"},
+		{StatusName: "ใช้สถานที่เสร็จสิ้น"},
 		//placeUse
 		{StatusName: "รอยืมสิ่งของ"},
 		{StatusName: "ยังไม่คืนแล้ว"}, //เมื่อยืมแล้ว

@@ -43,6 +43,13 @@ func main() {
 	r.PATCH("/places", controller.UpdatePlace)
 	r.DELETE("/places/:id", controller.DeletePlace)
 
+	// PlacesUses Routes
+	r.GET("/placeUses", controller.ListPlaceUse)
+	r.GET("/placeUses/byId/:id", controller.GetPlaceUseById)
+	r.POST("/placeUses", controller.CreatePlaceUse)
+	r.PATCH("/placeUses", controller.UpdatePlaceUse)
+	r.DELETE("/placeUses/:id", controller.DeletePlaceUse)
+
 	// Gender Routes
 	r.GET("/eventTypes", controller.ListEventTypes)
 
