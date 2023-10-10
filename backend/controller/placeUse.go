@@ -71,7 +71,7 @@ func GetPlaceUseById(c *gin.Context) {
 // GET /placeUse
 func ListPlaceUse(c *gin.Context) {
 	var placeUse []entity.PlaceUse
-	if err := entity.DB().Preload("Event", "Status").Raw("SELECT * FROM place_uses").Find(&placeUse).Error; err != nil {
+	if err := entity.DB().Preload("Event").Preload("Status").Raw("SELECT * FROM place_uses").Find(&placeUse).Error; err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}

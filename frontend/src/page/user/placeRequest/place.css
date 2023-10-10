@@ -16,6 +16,7 @@
 }
 
 .place-top-middle-box .icon{
+    float: right;
     width: 4vh;
     height: auto;
 }
@@ -24,65 +25,46 @@
     color: rgb(255, 180, 42);
 }
 
-.place-word{
-    color: white;
-    width: auto;
-    font-size: 2.5vh;
-    margin-right: auto;
-}
-
 .place-result-middle-box{
     width: auto;
     height: 75vh;
-    background: transparent;
+    background: rgba(255, 255, 255, 0.609);
     backdrop-filter: blur(15px);
     border-radius: 20px;
     overflow:auto;
-}
-
-.temple{
+    padding: 20px;
     display: flex;
-    margin: 20px;
-    height: 15vh;
-    margin: 15px;
-    background-color: rgb(255, 251, 251);
-    align-items: center;
-    border-radius: 20px;
-    justify-content: center;
-   
-}
-.temple img{
-    width: 10vh;
-    margin: 0px 20px;
-    float: left;
-}
-
-.temple button{
-    font-size: 2vh;
-    background-color: orange;
-    border: 0px;
-    width: 12vh;
-    height: 6vh;
-    border-radius: 20px;
-    margin: 0px 20px;
-    float: right;
-}
-
-.temple button:hover{
-    font-weight: bold;
+    flex-direction: column;
 }
 
 .infomation{
     display: grid;
     padding: 10px;
     grid-template-columns: auto auto auto;
-    column-gap: 10px;
-    row-gap: 10px;
+    gap: 20px;
     width: 100%;
-    font-weight: bold;
     text-align: center;
     font-size: 2vh;
+    background-color: white;
+    border-radius: 20px;
+    margin: 20px 0px;
 }
+
+.place-result-middle-box .info-button{
+    grid-area: 3/2;
+    margin: auto;
+    display: flex;
+}
+
+.place-result-middle-box button{
+    width: max-content;
+    margin: 10px;
+}
+
+.place-result-middle-box button:hover{
+    font-weight: bold;
+}
+
 
 @media (max-width:1000px){
     .temple{

@@ -1,42 +1,67 @@
-import React, { useState, ChangeEvent, FormEvent } from "react";
-import "./index.css";
+import React, { useState } from "react";
 import SidebarCreatorWatData from "../../../../component/sidebar/sidebarCreatorWatData";
+import { Form, message } from "antd";
+import { ItemsInterface } from "../../../../interfaces/IItem";
+import { CreateItem } from "../../../../services/https/item";
+import "./index.css";
 const CreatorItem = () => {
-  const [values, setValues] = useState({
-    itemName: "",
-    amount: "",
+  const [messageApi, contextHolder] = message.useMessage();
+  const [value, setValue] = useState({
+    Name: "",
+    Amount: "",
   });
 
-  const handleSubmit = (e: FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = async (values: ItemsInterface) => {
+    values.Name = value.Name;
+    values.Amount = parseInt(value.Amount);
+    values.WatID = 1;
+    values.StatusID = 1;
+
+
+    let res = await CreateItem(values);
+    if (res.status) {
+      messageApi.open({
+        type: "success",
+        content: "บันทึกข้อมูลสำเร็จ",
+      });
+      //   setTimeout(function () {
+      //     navigate("/");
+      //   }, 2000);
+    } else {
+      messageApi.open({
+        type: "error",
+        content: "บันทึกข้อมูลไม่สำเร็จ",
+      });
+    }
   };
 
-  const onChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setValues({ ...values, [e.target.name]: e.target.value });
+  const onChange = (e: any) => {
+    setValue({ ...value, [e.target.name]: e.target.value });
   };
 
-  console.log(values);
+  console.log(value);
   return (
     <>
       <SidebarCreatorWatData />
       <div className="item">
-        <form onSubmit={handleSubmit}>
+        {contextHolder}
+        <Form onFinish={handleSubmit}>
           <label>กรอกชื่อสิ่งของ</label>
           <input
-            name="itemName"
+            name="ItemName"
             type="text"
             placeholder="กรอกชื่อสิ่งของ"
             onChange={onChange}
           />
           <label>กรอกจำนวน</label>
           <input
-            name="amount"
+            name="Amount"
             type="text"
             placeholder="กรอกจำนวน"
             onChange={onChange}
           />
-          <button>ยืนยัน</button>
-        </form>
+          <button type="submit">ยืนยัน</button>
+        </Form>
       </div>
     </>
   );

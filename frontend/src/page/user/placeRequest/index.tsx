@@ -1,77 +1,49 @@
+import "./place.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons"; //for icon
 import { Link } from "react-router-dom";
-import "./place.css";
+import { PlaceUsesInterface } from "../../../interfaces/IPlaceUse";
+import { useEffect, useState } from "react";
+import { ListPlaceUse } from "../../../services/https/placeUse"
 
 const Place = () => {
-  
+    const [placeUse, setPlaceUse] = useState<PlaceUsesInterface[]>([])
+
+    async function getPlaceUse() {
+      setPlaceUse(await ListPlaceUse())
+  }
+
+  useEffect(() => {
+    getPlaceUse()
+}, [])
+
   return (
     <>
       
         <div className="place-middle-box">
-          
+
           <div className="place-top-middle-box">
-            <div className="place-word">
-              <h3>วัดโคกอีเเร้ง</h3>
-              <h5>รายการขอใช้สถานที่</h5>
-            </div>
             <Link to="/placeForm">
               <FontAwesomeIcon icon={faPlus} className="icon" />
             </Link>
           </div>
           <div className="place-result-middle-box">
-            <div className="temple">
-              <img src="./image/jandang.jpg" alt=""/>
-              <div className="infomation">
-                
-                  <div>
-                    วันที่
-                    <br />
-                    วว-ดด-ปป ถึง วว-ดด-ปป
-                    <br />
-                  </div>
-                  <div>
-                    ชื่อผู้ขอใช้
-                    <br />
-                    นายพล ตุงตัง
-                    <br />
-                  </div>
-                  <div>
-                    สถานะ
-                    <br />
-                    รออนุมัติ
-                    <br />
-                  </div>
-                
-                
-                  <div>
-                    จัดงาน
-                    <br />
-                    งานศพ
-                    <br />
-                  </div>
-                  <div>
-                    สถานที่
-                    <br />
-                    ศาลาวัด
-                    <br />
-                  </div>
-                  <div>
-                    เบอร์โทร
-                    <br />
-                    012-345-678
-                    <br />
-                  </div>
-            
+            {placeUse.map((item, index) => (
+              <div key={index} className="infomation">
+                <div>ชื่อ: {item.UserRequestName}</div>
+                <div>วันเริ่มต้น: {item.DateBegin}</div>
+                <div>เวลาเริ่มต้น: {item.TimeOfBegin}</div>
+                <div>เบอร์โทร: {item.UserTel}</div>
+                <div>วันสิ้นสุด: {item.DateEnd}</div>
+                <div>เวลาสิ้นสุด: {item.TimeOfEnd}</div>
+                <div className="info-button">  
+                  <button className="submit_button">ยกเลิก</button>
+                  <button className="submit_button">ดูรายละเอียด</button>
+                </div>
               </div>
-              <button>
-              <Link to="/place">
-                ยกเลิก
-              </Link>
-              </button>
+            ))}
             </div>
           </div>
-        </div>
      
     </>
   );
