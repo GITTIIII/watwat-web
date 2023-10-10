@@ -17,7 +17,6 @@ const CreatorItem = () => {
     values.WatID = 1;
     values.StatusID = 1;
 
-
     let res = await CreateItem(values);
     if (res.status) {
       messageApi.open({
@@ -48,7 +47,7 @@ const CreatorItem = () => {
         <Form onFinish={handleSubmit}>
           <label>กรอกชื่อสิ่งของ</label>
           <input
-            name="ItemName"
+            name="Name"
             type="text"
             placeholder="กรอกชื่อสิ่งของ"
             onChange={onChange}
