@@ -42,6 +42,20 @@ func main() {
 	r.POST("/places", controller.CreatePlace)
 	r.PATCH("/places", controller.UpdatePlace)
 	r.DELETE("/places/:id", controller.DeletePlace)
+	
+	// Monks Routes
+	r.GET("/monks", controller.ListMonk)
+	r.GET("/monks/:id", controller.GetMonkById)
+	r.POST("/monks", controller.CreateMonk)
+	r.PATCH("/monks", controller.UpdateMonk)
+	r.DELETE("/monks/:id", controller.DeleteMonk)
+	
+	// Items Routes
+	r.GET("/items", controller.ListItem)
+	r.GET("/items/:id", controller.GetItemById)
+	r.POST("/items", controller.CreateItem)
+	r.PATCH("/items", controller.UpdateItem)
+	r.DELETE("/items/:id", controller.DeleteItem)
 
 	// PlacesUses Routes
 	r.GET("/placeUses", controller.ListPlaceUse)

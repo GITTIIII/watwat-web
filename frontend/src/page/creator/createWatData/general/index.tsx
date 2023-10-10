@@ -1,14 +1,13 @@
 import { useState } from "react";
-import { WatsInterface } from "../../../../interfaces/IWat";
-import { Form, message } from "antd";
-//import { useNavigate } from "react-router-dom";
-import { CreateWat } from "../../../../services/https/wat";
-import { useNavigate } from "react-router";
-import "./index.css";
 import SidebarCreatorWatData from "../../../../component/sidebar/sidebarCreatorWatData";
+import { Form, message } from "antd";
+// import { useNavigate } from "react-router";
+import { WatsInterface } from "../../../../interfaces/IWat";
+import { CreateWat } from "../../../../services/https/wat";
+import "./index.css";
 
 const CreatorGeneral = () => {
-  let navigate = useNavigate();
+  // let navigate = useNavigate();
   const [messageApi, contextHolder] = message.useMessage();
 
   const [value, setValue] = useState({
@@ -32,8 +31,7 @@ const CreatorGeneral = () => {
     values.District = value.District;
     values.Subdistrict = value.Subdistrict;
     values.MemberID = 0;
-    console.log(value.Province);
-    console.log(values);
+
     let res = await CreateWat(values);
     if (res.status) {
       messageApi.open({

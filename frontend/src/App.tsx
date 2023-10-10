@@ -74,7 +74,10 @@ const router = createBrowserRouter(
         
       </Route>
 
-      <Route path="" element={<AdminLayout />}></Route>
+      <Route path="" element={<AdminLayout />}>
+
+      </Route>
+      
       <Route path="" element={<CreatorLayout />}>
         <Route path="/maincreater" element={<MainCreater />} />
         <Route path="/addEvent" element={<AddEvent />} />
