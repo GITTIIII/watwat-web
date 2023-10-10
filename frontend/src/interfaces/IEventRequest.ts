@@ -23,5 +23,6 @@ export interface EventRequestsInterface {
   
   //ใช้สร้าง Request
   MemberID?: number;
-	WatID?: number;
+  WatID?: number;
+  // StatusRequestID?: number;
 }

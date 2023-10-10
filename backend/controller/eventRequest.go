@@ -28,6 +28,7 @@ type eventPayload struct {
 	// ใช้สร้าง Request
 	MemberID   		*uint
 	WatID 			*uint
+	// StatusRequestID *uint
 }
 
 // POST /Events
@@ -149,24 +150,25 @@ func UpdateEventRequests(c *gin.Context) {
 	var eventType entity.EventType
 	var eventMain entity.Event
 	var status entity.Status
-	var result entity.Event
+	var existingEvent entity.Event // Added a variable to hold the existing event
+
 	if err := c.ShouldBindJSON(&data); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
 
-	if tx := entity.DB().Where("id = ?", data.ID).First(&result); tx.RowsAffected == 0 {
+	if tx := entity.DB().Where("id = ?", data.ID).First(&existingEvent); tx.RowsAffected == 0 {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "event not found"})
 		return
 	}
 
-	// ค้นหา eventType ด้วย id ใช้สร้าง Event
+	// ค้นหา eventType ด้วย id ใช้Update Event
 	if tx := entity.DB().Where("id = ?", data.EventTypeID).First(&eventType); tx.RowsAffected == 0 {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "eventType not found"})
 		return
 	}
 
-	// ค้นหา eventMain ด้วย id ใช้สร้าง Event
+	// ค้นหา eventMain ด้วย id ใช้Update Event
 	if data.EventID != nil {
 		if tx := entity.DB().Where("id = ?", *data.EventID).First(&eventMain); tx.RowsAffected == 0 {
 			c.JSON(http.StatusBadRequest, gin.H{"error": "eventMain not found"})
@@ -174,29 +176,63 @@ func UpdateEventRequests(c *gin.Context) {
 		}
 	}
 
-	// ค้นหา status ด้วย id // ใช้สร้าง Event Request
+	// ค้นหา status ด้วย id // ใช้Update Event Request
 	if tx := entity.DB().Where("id = ?", data.StatusID).First(&status); tx.RowsAffected == 0 {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "status not found"})
 		return
 	}
 
-	eventNew := entity.Event{
-		EventName:   data.EventName,
-		DateBegin:   data.DateBegin,
-		TimeOfBegin: data.TimeOfBegin,
-		DateEnd:     data.DateEnd,
-		TimeOfEnd:   data.TimeOfEnd,
-		OutPlace:    data.OutPlace,
-		UserTel:     data.UserTel,
-		Description: data.Description,
-		EventID:     data.EventID,
-		EventType:   eventType,
-		Status:      status,
-	}
-	if err := entity.DB().Save(&eventNew).Error; err != nil {
+	// Update the fields of the existing event with the new data
+	existingEvent.EventName = data.EventName
+	existingEvent.DateBegin = data.DateBegin
+	existingEvent.TimeOfBegin = data.TimeOfBegin
+	existingEvent.DateEnd = data.DateEnd
+	existingEvent.TimeOfEnd = data.TimeOfEnd
+	existingEvent.OutPlace = data.OutPlace
+	existingEvent.UserTel = data.UserTel
+	existingEvent.Description = data.Description
+	existingEvent.EventID = data.EventID
+	existingEvent.EventType = eventType
+	existingEvent.Status = status
+
+	// Save the updated event back to the database
+	if err := entity.DB().Save(&existingEvent).Error; err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
 
-	c.JSON(http.StatusOK, gin.H{"data": gin.H{"eventNew": eventNew}})
+	var existingRequest entity.Request // Added a variable to hold the existing event
+
+	if tx := entity.DB().Where("id = ?", data.ID).First(&existingRequest); tx.RowsAffected == 0 {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "event not found"})
+		return
+	}
+
+	// Update the fields of the existing Request with the new data เพื่อ ให้ status รออนุมัติใหม่ และร้องขอจัดไปใหม่
+	existingRequest.Status = status
+
+	// Save the updated event back to the database
+	if err := entity.DB().Save(&existingRequest).Error; err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+
+	var existingHost entity.Host // Added a variable to hold the existing event
+
+	if tx := entity.DB().Where("id = ?", data.ID).First(&existingHost); tx.RowsAffected == 0 {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "event not found"})
+		return
+	}
+
+	// Update the fields of the existing Request with the new data เพื่อ ให้ status รออนุมัติใหม่ และร้องขอจัดไปใหม่
+	existingHost.HostName = data.HostName
+
+	// Save the updated event back to the database
+	if err := entity.DB().Save(&existingHost).Error; err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+
+
+	c.JSON(http.StatusOK, gin.H{"data": gin.H{"eventUpdated": existingEvent, "RequestUpdated": existingRequest, "HostUpdated": existingHost}})
 }
