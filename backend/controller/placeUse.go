@@ -60,7 +60,7 @@ func CreatePlaceUse(c *gin.Context) {
 func GetPlaceUseById(c *gin.Context) {
 	var placeUse entity.PlaceUse
 	id := c.Param("id")
-	if err := entity.DB().Preload("Event").Preload("EventType").Preload("Status").Raw("SELECT * FROM place_uses WHERE id = ?", id).Find(&placeUse).Error; err != nil {
+	if err := entity.DB().Preload("Event").Preload("Status").Raw("SELECT * FROM place_uses WHERE id = ?", id).Find(&placeUse).Error; err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
@@ -71,7 +71,7 @@ func GetPlaceUseById(c *gin.Context) {
 // GET /placeUse
 func ListPlaceUse(c *gin.Context) {
 	var placeUse []entity.PlaceUse
-	if err := entity.DB().Preload("Role").Raw("SELECT * FROM place_uses").Find(&placeUse).Error; err != nil {
+	if err := entity.DB().Preload("Event").Preload("Status").Raw("SELECT * FROM place_uses").Find(&placeUse).Error; err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
