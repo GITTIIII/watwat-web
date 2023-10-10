@@ -115,7 +115,7 @@ function DetailEvent() {
           ))}
           <div>
             <div className="filterPage">
-              <div className="filter">
+              <div className="filterdetail">
                 <div className="filter-item back">
                   <Link to="../eventRequest">
                     <span>ย้อนกลับ</span>

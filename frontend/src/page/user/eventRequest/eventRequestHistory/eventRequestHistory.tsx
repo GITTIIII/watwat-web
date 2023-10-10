@@ -10,19 +10,15 @@ import { StatusesInterface } from "../../../../interfaces/IStatus";
 import { WatsInterface } from "../../../../interfaces/IWat";
 import { GetWat } from "../../../../services/https/wat";
 
-function EventRequestHistory() {
+interface EventRequestHistoryProps {
+  data: RequestInterface[];
+  } 
+
+function EventRequestHistory({ data }: EventRequestHistoryProps) {
   const navigate = useNavigate();
   const [wats, setWats] = useState<WatsInterface[]>([]);
   const [messageApi, contextHolder] = message.useMessage();
-  const [eventRequersts, setRequest] = useState<RequestInterface[]>([]);
   const [status, setStatus] = useState<StatusesInterface[]>([]);
-  const geteventRequersts = async () => {
-    let res = await GetRequests();
-    if (!Array.isArray(res)) {
-      res = [res];
-    }
-    setRequest(res);
-  };
   const getStatus = async () => {
     let res = await GetStatuses();
     if (!Array.isArray(res)) {
@@ -91,17 +87,15 @@ function EventRequestHistory() {
     setOpen(false);
   };
   useEffect(() => {
-    geteventRequersts();
     getStatus();
     getWats();
   }, []);
    
-  console.log(wats[2]);
-  console.log("wats");
+
   return (
     <>
       {contextHolder}
-      {eventRequersts.map((e, index) => (
+      {data.map((e, index) => (
         <div className="requestEvent-item data" key={index}>
           <div className="dataColounm">
             <div className="dataItem">

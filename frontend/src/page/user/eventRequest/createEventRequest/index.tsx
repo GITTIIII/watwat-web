@@ -130,7 +130,7 @@ function CreateEventRequest() {
               id="eventType"
               className='selects'
               name="EventTypeID"
-              value={input.EventTypeID} // Set the selected value based on the state
+              value={input.EventTypeID} 
               onChange={handleInput}
               required 
             >
