@@ -32,7 +32,8 @@ const Placeform = () => {
     values.TimeOfEnd = input.TimeOfEnd;
     values.UserTel = input.UserTel;
     values.Description = input.Description;
-    
+    values.EventID = 0
+    values.StatusID = 6
 
     let res = await CreatePlaceUse(values);
     if (res.status) {

@@ -11,7 +11,6 @@ import (
 func CreatePlaceUse(c *gin.Context) {
 	var placeUse entity.PlaceUse
 	var event entity.Event
-	var eventType entity.EventType
 	var status entity.Status
 
 	// bind เข้าตัวแปร placeUse
@@ -25,10 +24,6 @@ func CreatePlaceUse(c *gin.Context) {
 		return
 	}
 
-	if tx := entity.DB().Where("id = ?", placeUse.EventTypeID).First(&eventType); tx.RowsAffected == 0 {
-		c.JSON(http.StatusBadRequest, gin.H{"error": "gender not found"})
-		return
-	}
 
 	if tx := entity.DB().Where("id = ?", placeUse.StatusID).First(&status); tx.RowsAffected == 0 {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "gender not found"})
@@ -47,9 +42,6 @@ func CreatePlaceUse(c *gin.Context) {
 
 		EventID: placeUse.EventID,
 		Event:    event,
-		
-		EventTypeID: placeUse.EventTypeID,
-		EventType:    eventType,
 		
 		StatusID: placeUse.StatusID,
 		Status:    status,

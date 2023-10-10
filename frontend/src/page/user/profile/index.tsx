@@ -11,7 +11,6 @@ const Profile = () => {
   let navigate = useNavigate();
   const [messageApi, contextHolder] = message.useMessage();
   const username = Cookies.get("username");
-  
   const [ID, setID] = useState("");
   const [Username, setUsername] = useState("");
   const [Password, setPassword] = useState("");

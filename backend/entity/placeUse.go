@@ -19,9 +19,6 @@ type PlaceUse struct {
 	EventID *uint
 	Event   Event `gorm:"foreignKey:EventID"`
 
-	EventTypeID *uint
-	EventType   EventType `gorm:"foreignKey:EventTypeID"`
-
 	StatusID *uint
 	Status   Status `gorm:"foreignKey:StatusID"`
 

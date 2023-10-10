@@ -1,6 +1,6 @@
 import React from "react";
 import "./eventRequest.css";
-import EventRequestHistory from "../../../component/eventRequestHistory/eventRequestHistory";
+import EventRequestHistory from "./eventRequestHistory/eventRequestHistory";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 function EventRequest() {
@@ -30,9 +30,6 @@ function EventRequest() {
                 </div>
                 <div className="title-name">
                   <span>สถานะคำขอ</span>
-                </div>
-                <div className="title-name">
-                  <span>สถานะการจัดงาน</span>
                 </div>
                 <div className="title-name">
                   <span>ตัวเลือก</span>

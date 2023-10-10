@@ -1,5 +1,4 @@
 import { EventRequestsInterface } from "./IEventRequest";
-import { EventTypesInterface } from "./IEventType";
 import { StatusesInterface } from "./IStatus";
 
 export interface PlaceUsesInterface {
@@ -13,10 +12,8 @@ export interface PlaceUsesInterface {
     Description?: string;
 
     EventID?: number;
-    EventTypeID?: number;
     StatusID?: number;
 
     Event?:     EventRequestsInterface;
-    EventType?:     EventTypesInterface;
     Status?:     StatusesInterface;
 }

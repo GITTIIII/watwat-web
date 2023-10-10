@@ -22,10 +22,7 @@ async function GetRequests() {
 
   return res;
 }
-//GetplaceUse =>../services/https/placeUse"
-//GetItemloan => ../services/https/Itemloan"
-//GetEvent => ../services/https/event"
-//GetStatus => ../services/https/status"
+
 async function DeleteRequestByID(id: Number | undefined) {
   const requestOptions = {
     method: "DELETE"

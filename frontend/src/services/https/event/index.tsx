@@ -50,7 +50,7 @@ async function DeleteEventByID(id: Number | undefined) {
     method: "DELETE",
   };
 
-  let res = await fetch(`${apiUrl}/events/${id}`, requestOptions)
+  let res = await fetch(`${apiUrl}/eventRequests/${id}`, requestOptions)
     .then((response) => response.json())
     .then((res) => {
       if (res.data) {
@@ -101,14 +101,14 @@ async function CreateEvent(data: EventRequestsInterface) {
   return res;
 }
 
-async function UpdateEvent(data: EventRequestsInterface) {
+async function UpdateEventRequests(data: EventRequestsInterface) {
   const requestOptions = {
     method: "PATCH",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
   };
 
-  let res = await fetch(`${apiUrl}/events`, requestOptions)
+  let res = await fetch(`${apiUrl}/eventRequests`, requestOptions)
     .then((response) => response.json())
     .then((res) => {
       if (res.data) {
@@ -128,4 +128,5 @@ export {
   CreateEvent,
   DeleteEventByID,
   UpdateEvent,
+  UpdateEventRequests,
 };

@@ -17,3 +17,13 @@ func ListRequersts(c *gin.Context) {
 	}
 	c.JSON(http.StatusOK, gin.H{"data": requests})
 }
+
+// DELETE /events/:id
+func DeleteRequest(c *gin.Context) {
+	id := c.Param("id")
+	if tx := entity.DB().Exec("DELETE FROM requests WHERE id = ?", id); tx.RowsAffected == 0 {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "event not found"})
+		return
+	}
+	c.JSON(http.StatusOK, gin.H{"data": id})
+}
