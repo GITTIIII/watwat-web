@@ -1,5 +1,6 @@
 import React, { useState, ChangeEvent, FormEvent } from "react";
 import "./index.css";
+import SidebarCreatorWatData from "../../../../component/sidebar/sidebarCreatorWatData";
 
 const CreatorPlace = () => {
   const [values, setValues] = useState({
@@ -16,6 +17,7 @@ const CreatorPlace = () => {
   console.log(values);
   return (
     <>
+      <SidebarCreatorWatData />
       <div className="place">
         <form onSubmit={handleSubmit}>
           <label>กรอกชื่อสถานที่</label>

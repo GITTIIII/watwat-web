@@ -1,5 +1,6 @@
 import React, { useState, ChangeEvent, FormEvent } from "react";
 import "./index.css";
+import SidebarCreatorWatData from "../../../../component/sidebar/sidebarCreatorWatData";
 const CreatorItem = () => {
   const [values, setValues] = useState({
     itemName: "",
@@ -17,6 +18,7 @@ const CreatorItem = () => {
   console.log(values);
   return (
     <>
+      <SidebarCreatorWatData />
       <div className="item">
         <form onSubmit={handleSubmit}>
           <label>กรอกชื่อสิ่งของ</label>
