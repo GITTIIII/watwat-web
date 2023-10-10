@@ -65,8 +65,8 @@ const router = createBrowserRouter(
         <Route path="/main" element={<MainUser />} />
         <Route path="/eventRequest" element={<EventRequest />} />
         <Route path="/eventRequest/createEventRequest" element={<CreateEventRequest />} />
-        <Route path="/eventRequest/detailEvent" element={<DetailEvent/>} />
-        <Route path="/eventRequest/edit/:id" element={<UpdateEventRequest />}/>
+        <Route path="/eventRequest/edit/:id" element={<UpdateEventRequest />} />
+        <Route path="/eventRequest/detail/:id" element={<DetailEvent/>}/>
         <Route path="/itemRequest" element={<ItemRequest />} />
         <Route path="/placeRequest" element={<PlaceRequest />} />
         <Route path="/placeForm" element={<Placeform />} />

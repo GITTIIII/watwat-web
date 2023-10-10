@@ -42,6 +42,13 @@ func main() {
 	r.POST("/places", controller.CreatePlace)
 	r.PATCH("/places", controller.UpdatePlace)
 	r.DELETE("/places/:id", controller.DeletePlace)
+	
+	// Monks Routes
+	r.GET("/monks", controller.ListMonk)
+	r.GET("/monks/:id", controller.GetMonkById)
+	r.POST("/monks", controller.CreateMonk)
+	r.PATCH("/monks", controller.UpdateMonk)
+	r.DELETE("/monks/:id", controller.DeleteMonk)
 
 	// PlacesUses Routes
 	r.GET("/placeUses", controller.ListPlaceUse)
@@ -59,6 +66,7 @@ func main() {
 
 	// Requests Routes
 	r.GET("/requests", controller.ListRequersts)
+	r.GET("/requests/:id", controller.GetRequestByEventID)
 	r.DELETE("/requests/:id", controller.DeleteRequest)
 	// Run the server
 	r.Run()
