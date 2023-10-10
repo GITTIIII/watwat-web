@@ -22,7 +22,6 @@ async function GetWat() {
   
     return res;
   }
-  
   async function GetWatById(id: Number | undefined) {
     const requestOptions = {
       method: "GET",
