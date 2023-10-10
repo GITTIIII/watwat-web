@@ -1,26 +1,42 @@
 import React, { useState, useEffect } from "react";
 import "./eventRequestHistory.css";
-import {  message, Modal } from "antd";
+import { message, Modal } from "antd";
 import { Link, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
-import { EventRequestsInterface } from "../../../../interfaces/IEventRequest";
-import { DeleteEventByID, GetEvents } from "../../../../services/https/event";
+import { DeleteEventByID } from "../../../../services/https/event";
 import { GetStatusById, GetStatuses } from "../../../../services/https/status";
 import { RequestInterface } from "../../../../interfaces/IRequest";
-import { DeleteRequestByID, GetRequests } from "../../../../services/https/request";
+import {
+  DeleteRequestByID,
+  GetRequests,
+} from "../../../../services/https/request";
+import { StatusesInterface } from "../../../../interfaces/IStatus";
 function EventRequestHistory() {
   const navigate = useNavigate();
   const [event, setEvents] = useState<RequestInterface[]>([]);
-
   const [messageApi, contextHolder] = message.useMessage();
   const [eventRequersts, setRequest] = useState<RequestInterface[]>([]);
-  // const [evetStatus, setEventStatus] = useState();
+  const [Status, setStatus] = useState<StatusesInterface[]>([]);
   const geteventRequersts = async () => {
     let res = await GetRequests();
     if (!Array.isArray(res)) {
       res = [res];
     }
     setRequest(res);
+  };
+  const getStatus = async () => {
+    let res = await GetStatuses();
+    if (!Array.isArray(res)) {
+      res = [res];
+    }
+    setStatus(res);
+  };
+  const getStatusNameById = (id: number | undefined) => {
+    if (id === undefined) {
+      return "Unknown Status"; // Provide a default value when StatusID is undefined
+    }
+    const statusObject = Status.find((status) => status.ID === id-1);
+    return statusObject ? statusObject.StatusName : "Unknown Status";
   };
   // Model
   const [open, setOpen] = useState(false);
@@ -63,11 +79,14 @@ function EventRequestHistory() {
   };
   useEffect(() => {
     geteventRequersts();
+    getStatus();
   }, []);
+  console.log(Status[0]);
+  console.log("Status");
   return (
     <>
       {contextHolder}
-      {eventRequersts.map((e, index, array) => (
+      {eventRequersts.map((e, index) => (
         <div className="requestEvent-item data" key={index}>
           <div className="dataColounm">
             <div className="dataItem">
@@ -93,7 +112,7 @@ function EventRequestHistory() {
           </div>
           <div className="dataColounm">
             <div className="dataItem">
-              <span>{e.StatusID}</span>
+              <span>{getStatusNameById(e.StatusID)}</span>
             </div>
           </div>
           <div className="dataColounm">

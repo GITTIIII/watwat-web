@@ -12,7 +12,7 @@ export interface RequestInterface {
     Event?: EventRequestsInterface | null;
     PlaceUseID?: number | null;
     ItemLoanID?: number | null;
-    StatusID?: number | null;
+    StatusID?: number ;
     Status?: StatusesInterface | null;
     WatID?: number ;
     Wat?: WatsInterface;

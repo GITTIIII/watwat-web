@@ -127,6 +127,5 @@ export {
   GetEventTypes,
   CreateEvent,
   DeleteEventByID,
-  UpdateEvent,
   UpdateEventRequests,
 };

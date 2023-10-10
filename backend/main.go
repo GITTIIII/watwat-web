@@ -47,8 +47,8 @@ func main() {
 	r.GET("/eventTypes", controller.ListEventTypes)
 
 	// Status Routes
-	r.GET("/statuses", controller.ListEventTypes)
-	r.GET("/status/:id", controller.GetStatus)
+	r.GET("/statuses", controller.ListStatus)
+	r.GET("/status/:id", controller.GetStatusByID)
 
 	// Requests Routes
 	r.GET("/requests", controller.ListRequersts)
