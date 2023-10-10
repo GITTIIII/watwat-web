@@ -52,6 +52,7 @@ func main() {
 
 	// Requests Routes
 	r.GET("/requests", controller.ListRequersts)
+	r.GET("/requests/:id", controller.GetRequestByEventID)
 	r.DELETE("/requests/:id", controller.DeleteRequest)
 	// Run the server
 	r.Run()

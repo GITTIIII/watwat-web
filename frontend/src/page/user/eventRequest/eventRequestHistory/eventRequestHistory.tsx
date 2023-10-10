@@ -95,6 +95,7 @@ function EventRequestHistory() {
     getStatus();
     getWats();
   }, []);
+   
   console.log(wats[2]);
   console.log("wats");
   return (
@@ -119,9 +120,12 @@ function EventRequestHistory() {
           </div>
           <div className="dataColounm">
             <div className="dataItem">
-              <Link to="./eventUserDetails">
+              <button
+                className="btndata"
+                onClick={() => navigate(`/eventRequest/detail/${e.EventID}`)}
+              >
                 <span>คลิกเพื่อดูข้อมูล</span>
-              </Link>
+              </button>
             </div>
           </div>
           <div className="dataColounm">

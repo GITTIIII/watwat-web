@@ -1,9 +1,3 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=Prompt&family=Sarabun:wght@100;200&family=Sriracha&display=swap');
-
-* {
-    box-sizing: border-box;
-    font-family: 'Prompt', 'Sarabun';
-} */
 
 .warpper{
     display: block;
@@ -96,13 +90,13 @@
    height: 100%;
 }
 
-.filterPage {
+.filterPage.request {
     height: 5vh;
     display: flex;
     justify-content: space-between;
 }
 
-.filter {
+.filter.request {
     display: flex;
     flex-direction: row;
     gap: 10px;
@@ -110,7 +104,7 @@
     margin-top: 10px;
 }
 
-.filter-item {
+.filter-item.request {
     width: 100px;
     background-color: #F0A500;
     border-radius: 10px;
@@ -119,11 +113,11 @@
     color: #ffff;
 }
 
-.filter-item a {
+.filter-item.request a {
     width: 100px;
 }
 
-.filter-item.all {
+.filter-item.allrequest {
     background-color: #ffff;
     color: #000;
     border: 1px solid #000;

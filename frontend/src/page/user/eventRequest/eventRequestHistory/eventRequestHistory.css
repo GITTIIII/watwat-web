@@ -5,10 +5,15 @@
     border-bottom: 1px solid black;
     padding: 5px;
 }
-.dataItem a{
+.btndata{
     color:#F0A500;
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
 }
-.dataItem a:hover {
+.btndata:hover {
     color: #334756;
 }
 .dataItemfridt{
