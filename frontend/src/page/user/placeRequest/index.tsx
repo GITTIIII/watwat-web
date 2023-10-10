@@ -36,10 +36,7 @@ const Place = () => {
                 <div>เบอร์โทร: {item.UserTel}</div>
                 <div>วันสิ้นสุด: {item.DateEnd}</div>
                 <div>เวลาสิ้นสุด: {item.TimeOfEnd}</div>
-                <div className="info-button">  
-                  <button className="submit_button">ยกเลิก</button>
-                  <button className="submit_button">ดูรายละเอียด</button>
-                </div>
+                <button className="submit_button">ยกเลิก</button>
               </div>
             ))}
             </div>

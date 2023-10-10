@@ -1,6 +1,6 @@
 .place-middle-box{
     width: 90%;
-    height: 90%;
+    height: 95%;
     display: block;
     overflow: hidden;
     position: relative;
@@ -13,10 +13,10 @@
     height: auto;
     align-items: center;
     padding: 10px;
+    justify-content: right;
 }
 
 .place-top-middle-box .icon{
-    float: right;
     width: 4vh;
     height: auto;
 }
@@ -40,8 +40,8 @@
 .infomation{
     display: grid;
     padding: 10px;
-    grid-template-columns: auto auto auto;
-    gap: 20px;
+    grid-template-columns: 33.33% 33.33% 33.33%;
+    row-gap: 20px;
     width: 100%;
     text-align: center;
     font-size: 2vh;
@@ -50,15 +50,15 @@
     margin: 20px 0px;
 }
 
-.place-result-middle-box .info-button{
-    grid-area: 3/2;
-    margin: auto;
-    display: flex;
+.infomation div{
+    justify-content: center;
 }
-
 .place-result-middle-box button{
     width: max-content;
     margin: 10px;
+    grid-area: 3/2;
+    margin: auto;
+    display: flex;
 }
 
 .place-result-middle-box button:hover{
