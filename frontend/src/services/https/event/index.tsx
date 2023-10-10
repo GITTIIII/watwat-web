@@ -47,7 +47,7 @@ async function GetEventTypes() {
 
 async function DeleteEventByID(id: Number | undefined) {
   const requestOptions = {
-    method: "DELETE"
+    method: "DELETE",
   };
 
   let res = await fetch(`${apiUrl}/events/${id}`, requestOptions)
@@ -65,7 +65,7 @@ async function DeleteEventByID(id: Number | undefined) {
 
 async function GetEventById(id: Number | undefined) {
   const requestOptions = {
-    method: "GET"
+    method: "GET",
   };
 
   let res = await fetch(`${apiUrl}/events/${id}`, requestOptions)
@@ -80,7 +80,6 @@ async function GetEventById(id: Number | undefined) {
 
   return res;
 }
-
 
 async function CreateEvent(data: EventRequestsInterface) {
   const requestOptions = {
@@ -128,5 +127,5 @@ export {
   GetEventTypes,
   CreateEvent,
   DeleteEventByID,
-  UpdateEvent
+  UpdateEvent,
 };

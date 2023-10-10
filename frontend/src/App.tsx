@@ -24,7 +24,13 @@ import AddEvent from "./page/creator/addEvent";
 import CreateEvent from "./page/creator/addEvent/createEvent";
 import AddPlaceUse from "./page/creator/addPlaceUse";
 import AddItemLoan from "./page/creator/addItemLoan";
-import CreateWatData from "./page/creator/createWatData/general";
+
+//creator ส่วนเพิ่มข้อมูล
+import CreatorGeneral from "./page/creator/createWatData/general";
+import CreatorMonk from "./page/creator/createWatData/monk";
+import CreatorPlace from "./page/creator/createWatData/place";
+import CreatorItem from "./page/creator/createWatData/item";
+import CreatorDonate from "./page/creator/createWatData/donate";
 
 //creater ส่วน Approve
 import RequsetEvent from "./page/creator/approveEvent";
@@ -50,8 +56,7 @@ const router = createBrowserRouter(
       <Route path="" element={<SearchLayout />}>
         <Route path="/search" element={<Search />} />
         <Route path="/profile" element={<Profile />} />
-        <Route path="/regisWatCreator" element={<RegisWatCreator />} />
-        {" "}
+        <Route path="/regisWatCreator" element={<RegisWatCreator />} />{" "}
       </Route>
 
       <Route path="" element={<UserLayout />}>
@@ -74,7 +79,11 @@ const router = createBrowserRouter(
         <Route path="/addEvent/createEvent" element={<CreateEvent />} />
         <Route path="/addItemLoan" element={<AddItemLoan />} />
         <Route path="/addPlaceUse" element={<AddPlaceUse />} />
-        <Route path="/ceratrWatData" element={<CreateWatData />} />
+        <Route path="/creatorGeneral" element={<CreatorGeneral />} />
+        <Route path="/creatorMonk" element={<CreatorMonk />} />
+        <Route path="/creatorPlace" element={<CreatorPlace />} />
+        <Route path="/creatorItem" element={<CreatorItem />} />
+        <Route path="/creatorDonate" element={<CreatorDonate />} />
 
         <Route path="/approveEvent" element={<RequsetEvent />} />
         <Route path="/approveEvent/eventDetails" element={<EventDetails />} />

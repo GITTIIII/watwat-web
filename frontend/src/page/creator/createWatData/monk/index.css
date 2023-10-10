@@ -1,0 +1,52 @@
+.monk {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+
+.monk label {
+  display: flex;
+}
+
+.monk button {
+  width: 100%;
+  height: 40px;
+  border: none;
+  margin: 10px 0px;
+  background-color: rgb(210, 162, 255);
+}
+/* .monk-grid-container {
+    display: grid;
+    grid-template-columns: 20vw 20vw 20vw;
+    column-gap: 10px;
+    justify-content: center;
+    justify-items: center;
+    padding: 10px;
+    margin: 10px 30px;
+    background-color: rgb(190, 190, 190);
+    border-radius: 10px;
+  }
+  
+  .monk-grid-container input {
+    width: 20vw;
+    height: 20px;
+  }
+  
+  .monk-show-data {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    column-gap: 1%;
+    justify-content: center;
+    border: solid yellow;
+  }
+  
+  .monk-show-data div {
+    display: grid;
+    row-gap: 3vh;
+  }
+  .monk-show-data div div {
+    display: grid;
+    text-align: center;
+    padding: 2vh 2vw;
+    border: solid;
+  } */

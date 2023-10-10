@@ -5,8 +5,9 @@ import { Form, message } from "antd";
 import { CreateWat } from "../../../../services/https/wat";
 import { useNavigate } from "react-router";
 import "./index.css";
+import SidebarCreatorWatData from "../../../../component/sidebar/sidebarCreatorWatData";
 
-const General = () => {
+const CreatorGeneral = () => {
   let navigate = useNavigate();
   const [messageApi, contextHolder] = message.useMessage();
 
@@ -57,7 +58,7 @@ const General = () => {
   console.log(value);
   return (
     <>
-     
+      <SidebarCreatorWatData />
       <div className="general">
         {contextHolder}
         <Form onFinish={handleSubmit}>
@@ -148,4 +149,4 @@ const General = () => {
   );
 };
 
-export default General;
+export default CreatorGeneral;
