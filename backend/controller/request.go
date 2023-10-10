@@ -27,3 +27,14 @@ func DeleteRequest(c *gin.Context) {
 	}
 	c.JSON(http.StatusOK, gin.H{"data": id})
 }
+
+// GET /request/:id
+func GetRequestByEventID(c *gin.Context) {
+	var request entity.Request
+	id := c.Param("id")
+	if err := entity.DB().Raw("SELECT * FROM requests WHERE event_id = ?", id).Scan(&request).Error; err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+	c.JSON(http.StatusOK, gin.H{"data": request})
+}

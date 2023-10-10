@@ -39,13 +39,13 @@ function EventRequest() {
               <EventRequestHistory />
             </div>
           </div>
-          <div className="filterPage">
-                <div className="filter">
-                  <div className="filter-item all">
+          <div className="filterPage request">
+                <div className="filter request">
+                  <div className="filter-item allrequest">
                     <span>ทั้งหมด</span>
                   </div>
-                  <select className="filter-item"></select>
-                  <select className="filter-item"></select>
+                  <select className="filter-item request"></select>
+                  <select className="filter-item request"></select>
                 </div>
                 <div className="paganav">เลื่อนหน้า</div>
               </div>

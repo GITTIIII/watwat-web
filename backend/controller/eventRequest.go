@@ -233,6 +233,5 @@ func UpdateEventRequests(c *gin.Context) {
 		return
 	}
 
-
 	c.JSON(http.StatusOK, gin.H{"data": gin.H{"eventUpdated": existingEvent, "RequestUpdated": existingRequest, "HostUpdated": existingHost}})
 }

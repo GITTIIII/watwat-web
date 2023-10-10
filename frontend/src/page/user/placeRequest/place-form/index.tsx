@@ -32,9 +32,10 @@ const Placeform = () => {
     values.TimeOfEnd = input.TimeOfEnd;
     values.UserTel = input.UserTel;
     values.Description = input.Description;
-    values.EventID = 0
-    values.StatusID = 6
+    values.EventID = 1
+    values.StatusID = 1
 
+    console.log(values)
     let res = await CreatePlaceUse(values);
     if (res.status) {
       messageApi.open({
@@ -153,13 +154,13 @@ const Placeform = () => {
                 </div>
               </div>
 
+              <div className="place-form-button">
+                <button type="submit" className="submit_button">ส่งการร้องขอ</button>
+              </div>
             </Form>
           </div>
         </div>
         
-        <div className="place-form-button">
-          <button type="submit" className="submit_button">ส่งการร้องขอ</button>
-        </div>
     
     </>
   );

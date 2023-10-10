@@ -1,26 +1,55 @@
 import React, { useState, useEffect } from "react";
 import "./eventRequestHistory.css";
-import {  message, Modal } from "antd";
+import { message, Modal } from "antd";
 import { Link, useNavigate } from "react-router-dom";
-import Cookies from "js-cookie";
-import { EventRequestsInterface } from "../../../../interfaces/IEventRequest";
-import { DeleteEventByID, GetEvents } from "../../../../services/https/event";
-import { GetStatusById, GetStatuses } from "../../../../services/https/status";
+import { DeleteEventByID } from "../../../../services/https/event";
+import { GetStatuses } from "../../../../services/https/status";
 import { RequestInterface } from "../../../../interfaces/IRequest";
-import { DeleteRequestByID, GetRequests } from "../../../../services/https/request";
+import {DeleteRequestByID, GetRequests,} from "../../../../services/https/request";
+import { StatusesInterface } from "../../../../interfaces/IStatus";
+import { WatsInterface } from "../../../../interfaces/IWat";
+import { GetWat } from "../../../../services/https/wat";
+
 function EventRequestHistory() {
   const navigate = useNavigate();
-  const [event, setEvents] = useState<RequestInterface[]>([]);
-
+  const [wats, setWats] = useState<WatsInterface[]>([]);
   const [messageApi, contextHolder] = message.useMessage();
   const [eventRequersts, setRequest] = useState<RequestInterface[]>([]);
-  // const [evetStatus, setEventStatus] = useState();
+  const [status, setStatus] = useState<StatusesInterface[]>([]);
   const geteventRequersts = async () => {
     let res = await GetRequests();
     if (!Array.isArray(res)) {
       res = [res];
     }
     setRequest(res);
+  };
+  const getStatus = async () => {
+    let res = await GetStatuses();
+    if (!Array.isArray(res)) {
+      res = [res];
+    }
+    setStatus(res);
+  };
+  const getWats = async () => {
+    let res = await GetWat();
+    if (!Array.isArray(res)) {
+      res = [res];
+    }
+    setWats(res);
+  };
+  const getStatusNameById = (id: number | undefined) => {
+    if (id === undefined) {
+      return "Unknown Status"; // Provide a default value when StatusID is undefined
+    }
+    const statusObject = status.find((status) => status.ID === id);
+    return statusObject ? statusObject.StatusName : "Unknown Status";
+  };
+  const getNameWatNameById = (id: number | undefined) => {
+    if (id === undefined) {
+      return "Unknown wat"; // Provide a default value when StatusID is undefined
+    }
+    const watObject = wats.find((wats) => wats.ID === id);
+    return watObject ? watObject.Name : "Unknown wat";
   };
   // Model
   const [open, setOpen] = useState(false);
@@ -30,7 +59,7 @@ function EventRequestHistory() {
   const [deleteRequestId, setDeleteRequestId] = useState<Number>();
 
   const showModal = (val: RequestInterface) => {
-    setModalText(`คุณต้องการลบคำขอกิจกรรมเลขที่คำขอ " ${val.ID} " หรือไม่ ?`);
+    setModalText(`คุณต้องการลบคำขอกิจกรรมเลขที่คำขอ " ${val.ID} " จากวัด "${getNameWatNameById(val.WatID)}" หรือไม่ ?`);
     setDeleteEventId(val.EventID);
     setDeleteRequestId(val.ID);
     setOpen(true);
@@ -63,11 +92,16 @@ function EventRequestHistory() {
   };
   useEffect(() => {
     geteventRequersts();
+    getStatus();
+    getWats();
   }, []);
+   
+  console.log(wats[2]);
+  console.log("wats");
   return (
     <>
       {contextHolder}
-      {eventRequersts.map((e, index, array) => (
+      {eventRequersts.map((e, index) => (
         <div className="requestEvent-item data" key={index}>
           <div className="dataColounm">
             <div className="dataItem">
@@ -81,19 +115,22 @@ function EventRequestHistory() {
           </div>
           <div className="dataColounm">
             <div className="dataItem">
-              <span>{e.WatID}</span>
+              <span>{getNameWatNameById(e.WatID)}</span>
             </div>
           </div>
           <div className="dataColounm">
             <div className="dataItem">
-              <Link to="./eventUserDetails">
+              <button
+                className="btndata"
+                onClick={() => navigate(`/eventRequest/detail/${e.EventID}`)}
+              >
                 <span>คลิกเพื่อดูข้อมูล</span>
-              </Link>
+              </button>
             </div>
           </div>
           <div className="dataColounm">
             <div className="dataItem">
-              <span>{e.StatusID}</span>
+              <span>{getStatusNameById(e.StatusID)}</span>
             </div>
           </div>
           <div className="dataColounm">

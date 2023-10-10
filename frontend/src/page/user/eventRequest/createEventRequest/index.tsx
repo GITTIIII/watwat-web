@@ -115,7 +115,7 @@ function CreateEventRequest() {
         <div className="heandcontantcreate">
           <div className="heandpage title">ขอจัดกิจกรรม</div>
           <div className='heandpage eventRequest'>
-            <NavLink to="../EventRequest">กิจกรรมที่แจ้งขอจัด</NavLink>
+            <NavLink to="../eventRequest">กิจกรรมที่แจ้งขอจัด</NavLink>
           </div>
           <div className="formNameEvent">
             <input type="text"
@@ -215,31 +215,18 @@ function CreateEventRequest() {
             </div>
           </div>
           <div className="data tel">
-            <label htmlFor="" className='item'>เบอร์โทรศัพท์</label>
+            <label htmlFor="" className='itemtal'>เบอร์โทรศัพท์</label>
             <input type="text" id="" placeholder='กรอกเบอร์โทร Ex.04444444444' className='item'
               name="UserTel"
               onChange={handleInput}
             // required
             />
           </div>
-          {/* <div className="data place">
-            <label htmlFor="">สถานที่จัดงาน (ในวัด)</label>
-            <label htmlFor="">เลขที่การจองสถานที่</label>
-            <label htmlFor=""></label>
-            <select name="eventType" id="place" className='selects' >
-                <option value="/">เลือกสถานที่</option>
-                <option value="merit">งานบุญ</option>
-                <option value="ordinationCeremony">งานบวช</option>
-                <option value="funeral">งานศพ</option>
-                <option value="other">อื่นๆ</option>
-              </select>
-              <input type="text" name="" id="" placeholder='เช่น. 1001' />
-              <IoIosAdd className='icon entertrainment'></IoIosAdd>
-            </div> */}
           <div className="placeOut">
             <label htmlFor="">สถานที่จัดงาน<span className='more'>(นอกวัด)</span></label>
-            <input type="text" id="" placeholder='กรอกที่ตั้ง เช่น 111/3 บ.สุรนารี ต.สุรนารี อ.เมืองนครราชสีมา จ.นครราชสีมา'
+            <input type="text" maxLength={150} id="" placeholder='กรอกที่ตั้ง เช่น 111/3 บ.สุรนารี ต.สุรนารี อ.เมืองนครราชสีมา จ.นครราชสีมา'
               name="OutPlace"
+              
               onChange={handleInput}
             />
           </div>
@@ -257,6 +244,7 @@ function CreateEventRequest() {
           <div className="data description">
             <label htmlFor="">คำอธิบายกิจกรรม</label>
             <textarea
+              maxLength={700}
               id="description"
               name="Description"
               onChange={handleInput}

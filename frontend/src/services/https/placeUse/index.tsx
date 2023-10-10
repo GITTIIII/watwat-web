@@ -2,7 +2,7 @@ import { PlaceUsesInterface } from "../../../interfaces/IPlaceUse";
 
 const apiUrl = "http://localhost:8080";
 
-async function GetPlaceUse() {
+async function ListPlaceUse() {
   const requestOptions = {
     method: "GET",
     headers: {
@@ -81,7 +81,7 @@ async function UpdatePlaceUse(data: PlaceUsesInterface) {
   return res;
 }
 
-async function DeletePlaceUseByID(id: Number | undefined) {
+async function DeletePlaceUse(id: Number | undefined) {
   const requestOptions = {
     method: "DELETE",
   };
@@ -100,9 +100,9 @@ async function DeletePlaceUseByID(id: Number | undefined) {
 }
 
 export {
-  GetPlaceUse,
+  ListPlaceUse,
   GetPlaceUseById,
   CreatePlaceUse,
-  DeletePlaceUseByID,
   UpdatePlaceUse,
+  DeletePlaceUse,
 };

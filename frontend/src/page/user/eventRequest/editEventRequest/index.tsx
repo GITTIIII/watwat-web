@@ -111,8 +111,6 @@ function UpdateEventRequest() {
   
   const getEventRequestById = async () => {
     let res = await GetEventById(Number(id));
-    console.log(res);
-    console.log("res");
     if (res) {
       setEventRequest(res);
       //set form ข้อมูลเริ่มของผู่้ใช้ที่เราแก้ไข

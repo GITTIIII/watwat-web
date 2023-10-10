@@ -11,7 +11,7 @@ func DB() *gorm.DB {
 	return db
 }
 
-func SetupDatabase(){
+func SetupDatabase() {
 	database, err := gorm.Open(sqlite.Open("watwat.db"), &gorm.Config{})
 	if err != nil {
 		panic("Failed to connect database")
@@ -52,11 +52,27 @@ func SetupDatabase(){
 		db.Create(&eventType) // Assuming 'db' is your GORM database instance
 	}
 	statuses := []Status{
+		//request
+		{StatusName: "รออนุมัติ"},
 		{StatusName: "อนุมัติ"},
 		{StatusName: "ไม่อนุมัติ"},
-		{StatusName: "รออนุมัติ"},
+		//event
 		{StatusName: "รอจัดงาน"},
-		{StatusName: "จัดงานแล้ว"},
+		{StatusName: "กำลังจัดงาน"},
+		{StatusName: "จัดงานเสร็จสิ้น"},
+		//placeUse
+		{StatusName: "รอใช้สถานที่"},
+		{StatusName: "กำลังใช้สถานที่"},
+		{StatusName: "ใช้สถานที่เสร็จสิ้น"},
+		//placeUse
+		{StatusName: "รอยืมสิ่งของ"},
+		{StatusName: "ยังไม่คืนแล้ว"}, //เมื่อยืมแล้ว
+		{StatusName: "คืนแล้ว"},
+		//item
+		{StatusName: "กำลังใช้งาน"},
+		{StatusName: "สามารถใช้งานได้"},
+		{StatusName: "ไม่สามารถใช้งานได้"},
+
 		{StatusName: "ว่าง"},
 	}
 
@@ -75,25 +91,24 @@ func SetupDatabase(){
 	}
 
 	Wat := []Wat{
-		{Name:        "Location 1",
-		Abbot:       "Abbot 1",
-		Description: "Description 1",
-		Address:     "Address 1",
-		Postcode:    "12345",
-		Province:    "Province 1",
-		District:    "District 1",
-		Subdistrict: "Subdistrict 1",
+		{Name: "Location 1",
+			Abbot:       "Abbot 1",
+			Description: "Description 1",
+			Address:     "Address 1",
+			Postcode:    "12345",
+			Province:    "Province 1",
+			District:    "District 1",
+			Subdistrict: "Subdistrict 1",
 		},
-		{Name:        "Location 2",
-		Abbot:       "Abbot 2",
-		Description: "Description 2",
-		Address:     "Address 2",
-		Postcode:    "67890",
-		Province:    "Province 2",
-		District:    "District 2",
-		Subdistrict: "Subdistrict 2",
+		{Name: "Location 2",
+			Abbot:       "Abbot 2",
+			Description: "Description 2",
+			Address:     "Address 2",
+			Postcode:    "67890",
+			Province:    "Province 2",
+			District:    "District 2",
+			Subdistrict: "Subdistrict 2",
 		},
-		
 	}
 
 	for _, Wat := range Wat {

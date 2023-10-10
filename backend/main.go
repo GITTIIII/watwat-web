@@ -50,15 +50,23 @@ func main() {
 	r.PATCH("/monks", controller.UpdateMonk)
 	r.DELETE("/monks/:id", controller.DeleteMonk)
 
+	// PlacesUses Routes
+	r.GET("/placeUses", controller.ListPlaceUse)
+	r.GET("/placeUses/byId/:id", controller.GetPlaceUseById)
+	r.POST("/placeUses", controller.CreatePlaceUse)
+	r.PATCH("/placeUses", controller.UpdatePlaceUse)
+	r.DELETE("/placeUses/:id", controller.DeletePlaceUse)
+
 	// Gender Routes
 	r.GET("/eventTypes", controller.ListEventTypes)
 
 	// Status Routes
-	r.GET("/statuses", controller.ListEventTypes)
-	r.GET("/status/:id", controller.GetStatus)
+	r.GET("/statuses", controller.ListStatus)
+	r.GET("/status/:id", controller.GetStatusByID)
 
 	// Requests Routes
 	r.GET("/requests", controller.ListRequersts)
+	r.GET("/requests/:id", controller.GetRequestByEventID)
 	r.DELETE("/requests/:id", controller.DeleteRequest)
 	// Run the server
 	r.Run()
