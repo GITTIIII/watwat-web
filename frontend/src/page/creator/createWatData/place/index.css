@@ -1,5 +1,5 @@
 .place {
-  display: flex;
+  display: grid;
   align-content: center;
   justify-content: center;
 }

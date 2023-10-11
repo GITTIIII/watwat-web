@@ -1,15 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import SidebarCreatorWatData from "../../../../component/sidebar/sidebarCreatorWatData";
 import { Form, message } from "antd";
 import { ItemsInterface } from "../../../../interfaces/IItem";
-import { CreateItem } from "../../../../services/https/item";
+import {
+  CreateItem,
+  GetItem,
+  DeleteItemByID,
+} from "../../../../services/https/item";
 import "./index.css";
+
 const CreatorItem = () => {
-  const [messageApi, contextHolder] = message.useMessage();
   const [value, setValue] = useState({
     Name: "",
     Amount: "",
   });
+  const [messageApi, contextHolder] = message.useMessage();
+  const [showItem, setShowItem] = useState<ItemsInterface[]>([]);
+
+  const onChange = (e: any) => {
+    setValue({ ...value, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = async (values: ItemsInterface) => {
     values.Name = value.Name;
@@ -23,9 +33,9 @@ const CreatorItem = () => {
         type: "success",
         content: "บันทึกข้อมูลสำเร็จ",
       });
-      //   setTimeout(function () {
-      //     navigate("/");
-      //   }, 2000);
+      setTimeout(function () {
+        window.location.reload();
+      }, 500);
     } else {
       messageApi.open({
         type: "error",
@@ -34,11 +44,35 @@ const CreatorItem = () => {
     }
   };
 
-  const onChange = (e: any) => {
-    setValue({ ...value, [e.target.name]: e.target.value });
+  const getItem = async () => {
+    let res = await GetItem();
+    if (res) {
+      setShowItem(res);
+    }
   };
 
-  console.log(value);
+  useEffect(() => {
+    getItem();
+  }, []);
+
+  const handleDelete = async (values: ItemsInterface) => {
+    let res = await DeleteItemByID(values.ID);
+    if (res) {
+      messageApi.open({
+        type: "success",
+        content: "ลบข้อมูลสำเร็จ",
+      });
+      setTimeout(function () {
+        window.location.reload();
+      }, 500);
+    } else {
+      messageApi.open({
+        type: "error",
+        content: "ลบข้อมูลไม่สำเร็จ",
+      });
+    }
+  };
+
   return (
     <>
       <SidebarCreatorWatData />
@@ -61,6 +95,29 @@ const CreatorItem = () => {
           />
           <button type="submit">ยืนยัน</button>
         </Form>
+        <div>
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Amount</th>
+              </tr>
+            </thead>
+            <tbody>
+              {showItem.map((data) => {
+                return (
+                  <tr key={data.ID}>
+                    <td>{data.ID}</td>
+                    <td>{data.Name}</td>
+                    <td>{data.Amount}</td>
+                    <button onClick={() => handleDelete(data)}>ลบ</button>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
       </div>
     </>
   );
