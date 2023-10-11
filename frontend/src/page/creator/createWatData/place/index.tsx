@@ -1,15 +1,24 @@
-import React, { useState } from "react";
-import { Form, message } from "antd";
+import React, { useState, useEffect } from "react";
 import SidebarCreatorWatData from "../../../../component/sidebar/sidebarCreatorWatData";
+import { Form, message } from "antd";
 import { PlacesInterface } from "../../../../interfaces/IPlace";
-import { CreatePlace } from "../../../../services/https/place";
+import {
+  CreatePlace,
+  GetPlace,
+  DeletePlaceByID,
+} from "../../../../services/https/place";
 import "./index.css";
 
 const CreatorPlace = () => {
-  const [messageApi, contextHolder] = message.useMessage();
   const [value, setValue] = useState({
     Name: "",
   });
+  const [messageApi, contextHolder] = message.useMessage();
+  const [showPlace, setShowPlace] = useState<PlacesInterface[]>([]);
+
+  const onChange = (e: any) => {
+    setValue({ ...value, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = async (values: PlacesInterface) => {
     values.Name = value.Name;
@@ -22,9 +31,9 @@ const CreatorPlace = () => {
         type: "success",
         content: "บันทึกข้อมูลสำเร็จ",
       });
-      //   setTimeout(function () {
-      //     navigate("/");
-      //   }, 2000);
+      setTimeout(function () {
+        window.location.reload();
+      }, 500);
     } else {
       messageApi.open({
         type: "error",
@@ -33,10 +42,34 @@ const CreatorPlace = () => {
     }
   };
 
-  const onChange = (e: any) => {
-    setValue({ ...value, [e.target.name]: e.target.value });
+  const getPlace = async () => {
+    let res = await GetPlace();
+    if (res) {
+      setShowPlace(res);
+    }
   };
-  console.log(value);
+
+  useEffect(() => {
+    getPlace();
+  }, []);
+
+  const handleDelete = async (values: PlacesInterface) => {
+    let res = await DeletePlaceByID(values.ID);
+    if (res) {
+      messageApi.open({
+        type: "success",
+        content: "ลบข้อมูลสำเร็จ",
+      });
+      setTimeout(function () {
+        window.location.reload();
+      }, 500);
+    } else {
+      messageApi.open({
+        type: "error",
+        content: "ลบข้อมูลไม่สำเร็จ",
+      });
+    }
+  };
 
   return (
     <>
@@ -53,6 +86,27 @@ const CreatorPlace = () => {
           />
           <button type="submit">ยืนยัน</button>
         </Form>
+        <div>
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+              </tr>
+            </thead>
+            <tbody>
+              {showPlace.map((data) => {
+                return (
+                  <tr key={data.ID}>
+                    <td>{data.ID}</td>
+                    <td>{data.Name}</td>
+                    <button onClick={() => handleDelete(data)}>ลบ</button>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
       </div>
     </>
   );
