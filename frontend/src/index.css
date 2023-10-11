@@ -21,6 +21,7 @@ a{
 .icon{
   color: orange;
 }
+
 /* Import FontAwesome CSS */
 @import "~@fortawesome/fontawesome-svg-core/styles.css";
 
@@ -50,10 +51,7 @@ main{
     height: 90vh;
 }
 
-footer{
-  width: 100%;
-  height: 25vh;
-}
+
 
 /* footer div{
   background-color: white;

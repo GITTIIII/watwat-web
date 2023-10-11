@@ -15,18 +15,19 @@ function Footer() {
       <div>SA_G04@sut.ac.th</div>
       <div className="iconall">
         <a href="https://github.com/BHU23">
-          <FontAwesomeIcon icon={faFacebook} className="icon 1" />
+          <FontAwesomeIcon icon={faFacebook} className="icon" />
         </a>
         <a href="https://github.com/BHU23">
-          <FontAwesomeIcon icon={faXTwitter} className="icon 2" />
+          <FontAwesomeIcon icon={faXTwitter} className="icon" />
         </a>
         <a href="https://github.com/BHU23">
-          <FontAwesomeIcon icon={faInstagram} className="icon 3" />
+          <FontAwesomeIcon icon={faInstagram} className="icon" />
         </a>
         <a href="https://github.com/BHU23">
-          <FontAwesomeIcon icon={faGithub} className="icon 4" />
+          <FontAwesomeIcon icon={faGithub} className="icon" />
         </a>
       </div>
+
     </footer>
   );
 }

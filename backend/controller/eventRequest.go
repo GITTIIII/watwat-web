@@ -1,13 +1,15 @@
 package controller
 
 import (
+	"fmt"
 	"net/http"
 
 	"github.com/GITTIIII/watwat-web/entity"
 	"github.com/gin-gonic/gin"
 )
+
 type eventPayload struct {
-	ID			*uint
+	ID          *uint
 	EventName   string
 	DateBegin   string
 	TimeOfBegin string
@@ -19,15 +21,15 @@ type eventPayload struct {
 	EventID     *uint
 	EventTypeID *uint
 
-	// ใช้สร้าง Event,Request
-	StatusID    *uint
+	// ใช้สร้าง Event, Request
+	StatusID *uint
 
 	// ใช้สร้าง Host
-	HostName    string
+	Hosts []string
 
 	// ใช้สร้าง Request
-	MemberID   		*uint
-	WatID 			*uint
+	MemberID *uint
+	WatID    *uint
 	// StatusRequestID *uint
 }
 
@@ -38,7 +40,7 @@ func CreateEventRequest(c *gin.Context) {
 	var eventMain entity.Event
 	var status entity.Status
 
-	// bind เข้าตัวแปร data ใช้สร้าง Event, Host, Request 
+	// bind เข้าตัวแปร data ใช้สร้าง Event, Host, Request
 	if err := c.ShouldBindJSON(&data); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
@@ -83,21 +85,24 @@ func CreateEventRequest(c *gin.Context) {
 		return
 	}
 
-	host := entity.Host{
-		HostName: data.HostName,
-		EventID:  &event.ID,
-	}
+	for i := 0; i < len(data.Hosts); i++ {
+		host := entity.Host{
+			HostName: data.Hosts[i],
+			EventID:  &event.ID,
+		}
 
-	if err := entity.DB().Create(&host).Error; err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
-		return
+		// Create the Host record.
+		if err := entity.DB().Create(&host).Error; err != nil {
+			c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+			return
+		}
 	}
 
 	request := entity.Request{
-		MemberID:   	data.MemberID,
-		WatID: 			data.WatID,
-		EventID:     	&event.ID,
-		Status:      	status,
+		MemberID: data.MemberID,
+		WatID:    data.WatID,
+		EventID:  &event.ID,
+		Status:   status,
 	}
 
 	if err := entity.DB().Create(&request).Error; err != nil {
@@ -105,7 +110,13 @@ func CreateEventRequest(c *gin.Context) {
 		return
 	}
 
-	c.JSON(http.StatusOK, gin.H{"data": gin.H{"event": event, "host": host, "request": request}})
+	var hosts []entity.Host
+	if err := entity.DB().Where("event_id = ?", event.ID).Find(&hosts).Error; err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+
+	c.JSON(http.StatusOK, gin.H{"data": gin.H{"event": event, "hosts": hosts, "request": request}})
 }
 
 // GET /event/:id
@@ -148,8 +159,8 @@ func DeleteEvent(c *gin.Context) {
 func UpdateEventRequests(c *gin.Context) {
 	var data eventPayload
 	var eventType entity.EventType
-	var eventMain entity.Event
 	var status entity.Status
+
 	var existingEvent entity.Event // Added a variable to hold the existing event
 
 	if err := c.ShouldBindJSON(&data); err != nil {
@@ -162,26 +173,18 @@ func UpdateEventRequests(c *gin.Context) {
 		return
 	}
 
-	// ค้นหา eventType ด้วย id ใช้Update Event
+	// ค้นหา eventType ด้วย id ใช้ Update Event
 	if tx := entity.DB().Where("id = ?", data.EventTypeID).First(&eventType); tx.RowsAffected == 0 {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "eventType not found"})
 		return
 	}
 
-	// ค้นหา eventMain ด้วย id ใช้Update Event
-	if data.EventID != nil {
-		if tx := entity.DB().Where("id = ?", *data.EventID).First(&eventMain); tx.RowsAffected == 0 {
-			c.JSON(http.StatusBadRequest, gin.H{"error": "eventMain not found"})
-			return
-		}
-	}
-
-	// ค้นหา status ด้วย id // ใช้Update Event Request
+	// ค้นหา status ด้วย id // ใช้ Update Event Request
 	if tx := entity.DB().Where("id = ?", data.StatusID).First(&status); tx.RowsAffected == 0 {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "status not found"})
 		return
 	}
-
+	fmt.Println(existingEvent.ID)
 	// Update the fields of the existing event with the new data
 	existingEvent.EventName = data.EventName
 	existingEvent.DateBegin = data.DateBegin
@@ -201,37 +204,41 @@ func UpdateEventRequests(c *gin.Context) {
 		return
 	}
 
-	var existingRequest entity.Request // Added a variable to hold the existing event
+	// var existingRequest entity.Request // Added a variable to hold the existing event
+	// //request Id
+	// if tx := entity.DB().Where("id = ?", data.ID).First(&existingRequest); tx.RowsAffected == 0 {
+	// 	c.JSON(http.StatusBadRequest, gin.H{"error": "event not found"})
+	// 	return
+	// }
 
-	if tx := entity.DB().Where("id = ?", data.ID).First(&existingRequest); tx.RowsAffected == 0 {
-		c.JSON(http.StatusBadRequest, gin.H{"error": "event not found"})
-		return
-	}
+	// // Update the fields of the existing Request with the new data เพื่อ ให้ status รออนุมัติใหม่ และร้องขอจัดไปใหม่
+	// existingRequest.Status = status
 
-	// Update the fields of the existing Request with the new data เพื่อ ให้ status รออนุมัติใหม่ และร้องขอจัดไปใหม่
-	existingRequest.Status = status
+	// // Save the updated event back to the database
+	// if err := entity.DB().Save(&existingRequest).Error; err != nil {
+	// 	c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+	// 	return
+	// }
 
-	// Save the updated event back to the database
-	if err := entity.DB().Save(&existingRequest).Error; err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
-		return
-	}
+	// var existingHost[] entity.Host // Added a variable to hold the existing event
+	// fmt.Println(data.Hosts)
+	// if tx := entity.DB().Where("id = ?", data.ID).First(&existingHost); tx.RowsAffected == 0 {
+	// 	c.JSON(http.StatusBadRequest, gin.H{"error": "event not found"})
+	// 	return
+	// }
 
-	var existingHost entity.Host // Added a variable to hold the existing event
+	// for i := 0; i < len(data.Hosts); i++ {
+	// 	existingHost[i].HostName = data.Hosts[i]
 
-	if tx := entity.DB().Where("id = ?", data.ID).First(&existingHost); tx.RowsAffected == 0 {
-		c.JSON(http.StatusBadRequest, gin.H{"error": "event not found"})
-		return
-	}
+	// 	// Save the updated event back to the database
+	// 	if err := entity.DB().Save(&existingHost[i]).Error; err != nil {
+	// 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+	// 		return
+	// 	}
+	// }
 
-	// Update the fields of the existing Request with the new data เพื่อ ให้ status รออนุมัติใหม่ และร้องขอจัดไปใหม่
-	existingHost.HostName = data.HostName
+	//delete Host
 
-	// Save the updated event back to the database
-	if err := entity.DB().Save(&existingHost).Error; err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
-		return
-	}
-
-	c.JSON(http.StatusOK, gin.H{"data": gin.H{"eventUpdated": existingEvent, "RequestUpdated": existingRequest, "HostUpdated": existingHost}})
+	// c.JSON(http.StatusOK, gin.H{"data": gin.H{"eventUpdated": existingEvent, "RequestUpdated": existingRequest}})
+	c.JSON(http.StatusOK, gin.H{"data": gin.H{"eventUpdated": existingEvent}})
 }
