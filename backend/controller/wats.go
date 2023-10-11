@@ -3,8 +3,8 @@ package controller
 import (
 	"net/http"
 
-	"github.com/gin-gonic/gin"
 	"github.com/GITTIIII/watwat-web/entity"
+	"github.com/gin-gonic/gin"
 )
 
 // POST /wat
@@ -19,7 +19,7 @@ func CreateWat(c *gin.Context) {
 	}
 
 	// if tx := entity.DB().Where("id = ?", wat.MemberID).First(&member); tx.RowsAffected == 0 {
-	// 	c.JSON(http.StatusBadRequest, gin.H{"error": "gender not found"})
+	// 	c.JSON(http.StatusBadRequest, gin.H{"error": "wat not found"})
 	// 	return
 	// }
 
@@ -71,7 +71,7 @@ func ListWat(c *gin.Context) {
 func DeleteWat(c *gin.Context) {
 	id := c.Param("id")
 	if tx := entity.DB().Exec("DELETE FROM wats WHERE id = ?", id); tx.RowsAffected == 0 {
-		c.JSON(http.StatusBadRequest, gin.H{"error": "user not found"})
+		c.JSON(http.StatusBadRequest, gin.H{"error": "wat not found"})
 		return
 	}
 	c.JSON(http.StatusOK, gin.H{"data": id})
@@ -88,7 +88,7 @@ func UpdateWat(c *gin.Context) {
 	}
 	// ค้นหา wat ด้วย id
 	if tx := entity.DB().Where("id = ?", wat.ID).First(&result); tx.RowsAffected == 0 {
-		c.JSON(http.StatusBadRequest, gin.H{"error": "member not found"})
+		c.JSON(http.StatusBadRequest, gin.H{"error": "wat not found"})
 		return
 	}
 

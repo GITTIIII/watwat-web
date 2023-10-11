@@ -4,18 +4,23 @@ import { Form, message } from "antd";
 import { MonksInterface } from "../../../../interfaces/IMonk";
 import {
   CreateMonk,
-  DeleteMonkByID,
   GetMonk,
+  DeleteMonkByID,
 } from "../../../../services/https/monk";
 import "./index.css";
+
 const CreatorMonk = () => {
-  const [vmonk, setVmonk] = useState<MonksInterface[]>([]);
-  const [messageApi, contextHolder] = message.useMessage();
   const [value, setValue] = useState({
     Name: "",
     Birthday: "",
     Rank: "",
   });
+  const [messageApi, contextHolder] = message.useMessage();
+  const [showMonk, setShowMonk] = useState<MonksInterface[]>([]);
+
+  const onChange = (e: any) => {
+    setValue({ ...value, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = async (values: MonksInterface) => {
     values.Name = value.Name;
@@ -40,6 +45,17 @@ const CreatorMonk = () => {
     }
   };
 
+  const getMonk = async () => {
+    let res = await GetMonk();
+    if (res) {
+      setShowMonk(res);
+    }
+  };
+
+  useEffect(() => {
+    getMonk();
+  }, []);
+
   const handleDelete = async (values: MonksInterface) => {
     let res = await DeleteMonkByID(values.ID);
     if (res) {
@@ -58,23 +74,6 @@ const CreatorMonk = () => {
     }
   };
 
-  const onChange = (e: any) => {
-    setValue({ ...value, [e.target.name]: e.target.value });
-  };
-
-  const getMonk = async () => {
-    let res = await GetMonk();
-    if (res) {
-      setVmonk(res);
-    }
-  };
-
-  useEffect(() => {
-    getMonk();
-  }, []);
-
-  //console.log(value);
-  // console.log(vmonk);
   return (
     <>
       <SidebarCreatorWatData />
@@ -115,7 +114,7 @@ const CreatorMonk = () => {
               </tr>
             </thead>
             <tbody>
-              {vmonk.map((data) => {
+              {showMonk.map((data) => {
                 return (
                   <tr key={data.ID}>
                     <td>{data.ID}</td>

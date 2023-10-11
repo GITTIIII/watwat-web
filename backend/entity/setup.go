@@ -39,80 +39,80 @@ func SetupDatabase() {
 	)
 	db = database
 
-	// // EventType Data
-	// eventType := []EventType{
-	// 	{EventTypeName: "บวช"},
-	// 	{EventTypeName: "เพวส"},
-	// 	{EventTypeName: "บุญ"},
-	// 	{EventTypeName: "ศพ"},
-	// 	{EventTypeName: "กฐิน"},
-	// }
+	// EventType Data
+	eventType := []EventType{
+		{EventTypeName: "บวช"},
+		{EventTypeName: "เพวส"},
+		{EventTypeName: "บุญ"},
+		{EventTypeName: "ศพ"},
+		{EventTypeName: "กฐิน"},
+	}
 
-	// for _, eventType := range eventType {
-	// 	db.Create(&eventType) // Assuming 'db' is your GORM database instance
-	// }
-	// statuses := []Status{
-	// 	//request
-	// 	{StatusName: "รออนุมัติ"},
-	// 	{StatusName: "อนุมัติ"},
-	// 	{StatusName: "ไม่อนุมัติ"},
-	// 	//event
-	// 	{StatusName: "รอจัดงาน"},
-	// 	{StatusName: "กำลังจัดงาน"},
-	// 	{StatusName: "จัดงานเสร็จสิ้น"},
-	// 	//placeUse
-	// 	{StatusName: "รอใช้สถานที่"},
-	// 	{StatusName: "กำลังใช้สถานที่"},
-	// 	{StatusName: "ใช้สถานที่เสร็จสิ้น"},
-	// 	//placeUse
-	// 	{StatusName: "รอยืมสิ่งของ"},
-	// 	{StatusName: "ยังไม่คืนแล้ว"}, //เมื่อยืมแล้ว
-	// 	{StatusName: "คืนแล้ว"},
-	// 	//item
-	// 	{StatusName: "กำลังใช้งาน"},
-	// 	{StatusName: "สามารถใช้งานได้"},
-	// 	{StatusName: "ไม่สามารถใช้งานได้"},
+	for _, eventType := range eventType {
+		db.Create(&eventType) // Assuming 'db' is your GORM database instance
+	}
+	statuses := []Status{
+		//request
+		{StatusName: "รออนุมัติ"},
+		{StatusName: "อนุมัติ"},
+		{StatusName: "ไม่อนุมัติ"},
+		//event
+		{StatusName: "รอจัดงาน"},
+		{StatusName: "กำลังจัดงาน"},
+		{StatusName: "จัดงานเสร็จสิ้น"},
+		//placeUse
+		{StatusName: "รอใช้สถานที่"},
+		{StatusName: "กำลังใช้สถานที่"},
+		{StatusName: "ใช้สถานที่เสร็จสิ้น"},
+		//placeUse
+		{StatusName: "รอยืมสิ่งของ"},
+		{StatusName: "ยังไม่คืนแล้ว"}, //เมื่อยืมแล้ว
+		{StatusName: "คืนแล้ว"},
+		//item
+		{StatusName: "กำลังใช้งาน"},
+		{StatusName: "สามารถใช้งานได้"},
+		{StatusName: "ไม่สามารถใช้งานได้"},
 
-	// 	{StatusName: "ว่าง"},
-	// }
+		{StatusName: "ว่าง"},
+	}
 
-	// for _, statuses := range statuses {
-	// 	db.Create(&statuses) // Assuming 'db' is your GORM database instance
-	// }
+	for _, statuses := range statuses {
+		db.Create(&statuses) // Assuming 'db' is your GORM database instance
+	}
 
-	// Role := []Role{
-	// 	{RoleName: "user"},
-	// 	{RoleName: "creator"},
-	// 	{RoleName: "admin"},
-	// }
+	Role := []Role{
+		{RoleName: "user"},
+		{RoleName: "creator"},
+		{RoleName: "admin"},
+	}
 
-	// for _, Role := range Role {
-	// 	db.Create(&Role) // Assuming 'db' is your GORM database instance
-	// }
+	for _, Role := range Role {
+		db.Create(&Role) // Assuming 'db' is your GORM database instance
+	}
 
-	// Wat := []Wat{
-	// 	{Name: "Location 1",
-	// 		Abbot:       "Abbot 1",
-	// 		Description: "Description 1",
-	// 		Address:     "Address 1",
-	// 		Postcode:    "12345",
-	// 		Province:    "Province 1",
-	// 		District:    "District 1",
-	// 		Subdistrict: "Subdistrict 1",
-	// 	},
-	// 	{Name: "Location 2",
-	// 		Abbot:       "Abbot 2",
-	// 		Description: "Description 2",
-	// 		Address:     "Address 2",
-	// 		Postcode:    "67890",
-	// 		Province:    "Province 2",
-	// 		District:    "District 2",
-	// 		Subdistrict: "Subdistrict 2",
-	// 	},
-	// }
+	Wat := []Wat{
+		{Name: "Location 1",
+			Abbot:       "Abbot 1",
+			Description: "Description 1",
+			Address:     "Address 1",
+			Postcode:    "12345",
+			Province:    "Province 1",
+			District:    "District 1",
+			Subdistrict: "Subdistrict 1",
+		},
+		{Name: "Location 2",
+			Abbot:       "Abbot 2",
+			Description: "Description 2",
+			Address:     "Address 2",
+			Postcode:    "67890",
+			Province:    "Province 2",
+			District:    "District 2",
+			Subdistrict: "Subdistrict 2",
+		},
+	}
 
-	// for _, Wat := range Wat {
-	// 	db.Create(&Wat) // Assuming 'db' is your GORM database instance
-	// }
+	for _, Wat := range Wat {
+		db.Create(&Wat) // Assuming 'db' is your GORM database instance
+	}
 
 }
