@@ -9,11 +9,12 @@ import { EventRequestsInterface } from "../../../../interfaces/IEventRequest";
 import { EventTypesInterface } from '../../../../interfaces/IEventType'; 
 import { GetEventById, GetEventTypes, UpdateEventRequests } from "../../../../services/https/event";
 import { CreateHost, DeleteHostByID } from '../../../../services/https/host';
+import { RequestInterface } from '../../../../interfaces/IRequest';
 
 function UpdateEventRequest() {
   let navigate = useNavigate();
   const [messageApi, contextHolder] = message.useMessage();
-  
+  const [Request, setRequest] = useState<RequestInterface>();
   const [eventRequest, setEventRequest] = useState<EventRequestsInterface>();
   const [eventTypes, setEventTypes] = useState<EventTypesInterface[]>([]);
   // รับข้อมูลจาก params
@@ -89,10 +90,12 @@ function UpdateEventRequest() {
     console.log(input.Hosts);
     console.log(values.Hosts);
     console.log("hoss");
-    let resDeleteHost = await DeleteHostByID(Number(id));
     let res = await UpdateEventRequests(values);
-    let resUpdateHoste = await CreateHost(values);
-    if (res.status ) {
+    // let resDeleteHost = await DeleteHostByID(Number(id));
+    // let resUpdateHoste = await CreateHost(values);
+    if (res.status) {
+      let resDeleteHost = await DeleteHostByID(Number(id));
+      let resUpdateHoste = await CreateHost(values);
       messageApi.open({
         type: "success",
         content: "แก้ไขข้อมูลสำเร็จ",
@@ -337,7 +340,7 @@ function UpdateEventRequest() {
               <label htmlFor="switch_right">ไม่ใช่</label>
             </div>
             <input
-              type="text"
+              type="number"
               id=""
               className="noEntertrainment"
               placeholder="เลขที่คำขอกิจกรรม"

@@ -66,11 +66,11 @@ function EventRequest() {
           </div>
           <div className="filterPage request">
             <div className="filter request">
-              <div className="filter-item allrequest">
+              {/* <div className="filter-item allrequest">
                 <span>ทั้งหมด</span>
               </div>
               <select className="filter-item request"></select>
-              <select className="filter-item request"></select>
+              <select className="filter-item request"></select> */}
             </div>
             <div className="paganav">
               {eventRequersts.length > itemsPerPage && (
