@@ -48,7 +48,7 @@ func CreateMonk(c *gin.Context) {
 
 // GET /place/:id
 func GetMonkById(c *gin.Context) {
-	var monk entity.Place
+	var monk entity.Monk
 	id := c.Param("id")
 	if err := entity.DB().Preload("Wat").Raw("SELECT * FROM monks WHERE id = ?", id).Find(&monk).Error; err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
@@ -59,7 +59,7 @@ func GetMonkById(c *gin.Context) {
 
 // GET /monk
 func ListMonk(c *gin.Context) {
-	var monk []entity.Place
+	var monk []entity.Monk
 	if err := entity.DB().Preload("Wat").Raw("SELECT * FROM monks").Find(&monk).Error; err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
@@ -71,7 +71,7 @@ func ListMonk(c *gin.Context) {
 func DeleteMonk(c *gin.Context) {
 	id := c.Param("id")
 	if tx := entity.DB().Exec("DELETE FROM monks WHERE id = ?", id); tx.RowsAffected == 0 {
-		c.JSON(http.StatusBadRequest, gin.H{"error": "user not found"})
+		c.JSON(http.StatusBadRequest, gin.H{"error": "monk not found"})
 		return
 	}
 	c.JSON(http.StatusOK, gin.H{"data": id})

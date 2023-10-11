@@ -1,10 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import SidebarCreatorWatData from "../../../../component/sidebar/sidebarCreatorWatData";
 import { Form, message } from "antd";
 import { MonksInterface } from "../../../../interfaces/IMonk";
-import { CreateMonk } from "../../../../services/https/monk";
+import {
+  CreateMonk,
+  DeleteMonkByID,
+  GetMonk,
+} from "../../../../services/https/monk";
 import "./index.css";
 const CreatorMonk = () => {
+  const [vmonk, setVmonk] = useState<MonksInterface[]>([]);
   const [messageApi, contextHolder] = message.useMessage();
   const [value, setValue] = useState({
     Name: "",
@@ -24,9 +29,9 @@ const CreatorMonk = () => {
         type: "success",
         content: "บันทึกข้อมูลสำเร็จ",
       });
-      //   setTimeout(function () {
-      //     navigate("/");
-      //   }, 2000);
+      setTimeout(function () {
+        window.location.reload();
+      }, 500);
     } else {
       messageApi.open({
         type: "error",
@@ -35,11 +40,41 @@ const CreatorMonk = () => {
     }
   };
 
+  const handleDelete = async (values: MonksInterface) => {
+    let res = await DeleteMonkByID(values.ID);
+    if (res) {
+      messageApi.open({
+        type: "success",
+        content: "ลบข้อมูลสำเร็จ",
+      });
+      setTimeout(function () {
+        window.location.reload();
+      }, 500);
+    } else {
+      messageApi.open({
+        type: "error",
+        content: "ลบข้อมูลไม่สำเร็จ",
+      });
+    }
+  };
+
   const onChange = (e: any) => {
     setValue({ ...value, [e.target.name]: e.target.value });
   };
 
-  console.log(value);
+  const getMonk = async () => {
+    let res = await GetMonk();
+    if (res) {
+      setVmonk(res);
+    }
+  };
+
+  useEffect(() => {
+    getMonk();
+  }, []);
+
+  //console.log(value);
+  // console.log(vmonk);
   return (
     <>
       <SidebarCreatorWatData />
@@ -69,6 +104,31 @@ const CreatorMonk = () => {
           />
           <button type="submit">ยืนยัน</button>
         </Form>
+        <div>
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Birthday</th>
+                <th>Rank</th>
+              </tr>
+            </thead>
+            <tbody>
+              {vmonk.map((data) => {
+                return (
+                  <tr key={data.ID}>
+                    <td>{data.ID}</td>
+                    <td>{data.Name}</td>
+                    <td>{data.Birthday}</td>
+                    <td>{data.Rank}</td>
+                    <button onClick={() => handleDelete(data)}>ลบ</button>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
       </div>
     </>
   );
