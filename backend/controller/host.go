@@ -80,7 +80,7 @@ func DeleteHost(c *gin.Context) {
 
 // GET /event/:id
 func GetHost(c *gin.Context) {
-	var host entity.Host
+	var host []entity.Host
 	id := c.Param("id")
 	if err := entity.DB().Raw("SELECT * FROM hosts WHERE event_id = ?", id).Scan(&host).Error; err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})

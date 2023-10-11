@@ -27,7 +27,10 @@ function Footer() {
           <FontAwesomeIcon icon={faGithub} className="icon" />
         </a>
       </div>
+<<<<<<< HEAD
+=======
 
+>>>>>>> 6784274a1ef5d3c510d056fb462c955f616e8aef
     </footer>
   );
 }

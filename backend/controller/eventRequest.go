@@ -75,7 +75,7 @@ func CreateEventRequest(c *gin.Context) {
 		OutPlace:    data.OutPlace,
 		UserTel:     data.UserTel,
 		Description: data.Description,
-		EventID:     data.EventID,
+		ParentEvent: &eventMain,
 		EventType:   eventType,
 		Status:      status,
 	}
@@ -160,6 +160,7 @@ func UpdateEventRequests(c *gin.Context) {
 	var data eventPayload
 	var eventType entity.EventType
 	var status entity.Status
+	var eventMain entity.Event
 
 	var existingEvent entity.Event // Added a variable to hold the existing event
 
@@ -171,6 +172,13 @@ func UpdateEventRequests(c *gin.Context) {
 	if tx := entity.DB().Where("id = ?", data.ID).First(&existingEvent); tx.RowsAffected == 0 {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "event not found"})
 		return
+	}
+	// ค้นหา eventMain ด้วย id ใช้สร้าง Event
+	if data.EventID != nil {
+		if tx := entity.DB().Where("id = ?", *data.EventID).First(&eventMain); tx.RowsAffected == 0 {
+			c.JSON(http.StatusBadRequest, gin.H{"error": "eventMain not found"})
+			return
+		}
 	}
 
 	// ค้นหา eventType ด้วย id ใช้ Update Event
@@ -194,7 +202,7 @@ func UpdateEventRequests(c *gin.Context) {
 	existingEvent.OutPlace = data.OutPlace
 	existingEvent.UserTel = data.UserTel
 	existingEvent.Description = data.Description
-	existingEvent.EventID = data.EventID
+	existingEvent.ParentEvent = &eventMain
 	existingEvent.EventType = eventType
 	existingEvent.Status = status
 
