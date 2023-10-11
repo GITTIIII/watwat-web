@@ -5,8 +5,8 @@ function Footer() {
   return (
     <footer>
         <div className="contact">CONTACT</div>
-        <div>111/3, Surswithee 1, Suranaree </div>
-        <div>Mueang Nakhon Ratchasima, Nakhon Ratchasima, 3000</div>
+        <div>111/3, Surawithee 1, Suranaree </div>
+        <div>Mueang Nakhon Ratchasima, Nakhon Ratchasima, 30000</div>
         <div>SA_G04@sut.ac.th</div>
         <div className="iconall">
           <a href=""><FontAwesomeIcon icon={faFacebook} className="icon 1"/></a>

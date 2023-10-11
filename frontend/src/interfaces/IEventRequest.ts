@@ -19,7 +19,7 @@ export interface EventRequestsInterface {
   Status?: StatusesInterface;
 
   //ใช้สร้าง Host
-  HostName?: string;
+  Hosts?: string[];
   
   //ใช้สร้าง Request
   MemberID?: number;

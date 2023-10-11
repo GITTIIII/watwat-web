@@ -5,11 +5,14 @@ import { GetEventById } from "../../../../services/https/event";
 import "./eventDetails.css";
 import { RequestInterface } from "../../../../interfaces/IRequest";
 import { GetRequestByEventId, } from "../../../../services/https/request";
+import { HostsInterface } from "../../../../interfaces/IHost";
+import { GetHostById } from "../../../../services/https/host";
 function DetailEvent() {
 
   let { id } = useParams();
   const [events, setEvent] = useState<EventRequestsInterface[]>([]);
   const [eventRequersts, setRequest] = useState<RequestInterface[]>([]);
+  const [host, setHost] = useState<HostsInterface[]>([]);
   const getEvent = async () => {
     let res = await GetEventById(Number(id));
     if (!Array.isArray(res)) {
@@ -25,9 +28,17 @@ function DetailEvent() {
     setRequest(res);
     return
   };
+  const gethosts = async () => {
+    let res = await GetHostById(Number(id));
+    if (!Array.isArray(res)) {
+      res = [res];
+    }
+    setHost(res);
+  };
   useEffect(() => {
     getEvent();
     geteventRequersts();
+    gethosts();
   }, []);
 
   console.log(events);
@@ -36,15 +47,17 @@ function DetailEvent() {
     <>
       <div className="warpperEvent details">
         <div className="contantEvent details">
-          {events.map((e, index) => (
+         
             <div>
               <div className="datatitle">
                 <span>รายละเอียดคำขอจัดกิจกรรม</span>
               </div>
               <div className="datatitle nameEvent">
-                <span>{e.EventName}</span>
+                {/* <span>{e.EventName}</span> */}
               </div>
-              <div className="requestEvent-detail">
+            <div className="requestEvent-detail">
+              {events.map((e, index) => (
+                 <div>
                 <div className="hostsName">
                   <div className="title-namedata">
                     <span>วันจัดงาน</span>
@@ -68,7 +81,7 @@ function DetailEvent() {
                 </div>
                 <div className="detail-data">
                   <span>{e.OutPlace}</span>
-                </div>
+                </div>  </div>))}
                 <div className="title-namedata">
                   <span>รายนามเจ้าภาพ</span>
                 </div>
@@ -97,12 +110,11 @@ function DetailEvent() {
                 </div>
                 <div className="detail-data">
                   <span>
-                    {e.Description} 
+                    {/* {e.Description}  */}
                   </span>
                 </div>
               </div>
             </div>
-          ))}
           {eventRequersts.map((e) => (
             <div className="formNote">
               <div className="note">
@@ -113,6 +125,9 @@ function DetailEvent() {
               </div>
             </div>
           ))}
+          {host.map((e) => (
+            <div></div>
+              ))}
           <div>
             <div className="filterPage">
               <div className="filterdetail">
