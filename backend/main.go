@@ -73,6 +73,7 @@ func main() {
 
 	// Requests Routes
 	r.GET("/requests", controller.ListRequersts)
+	r.GET("/requestsEvent", controller.GetRequestsEventNotNull)
 	r.GET("/requests/:id", controller.GetRequestByEventID)
 	r.DELETE("/requests/:id", controller.DeleteRequest)
 

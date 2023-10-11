@@ -10,11 +10,12 @@ import { EventTypesInterface } from '../../../../interfaces/IEventType';
 import { GetEventById, GetEventTypes, UpdateEventRequests } from "../../../../services/https/event";
 import { CreateHost, DeleteHostByID } from '../../../../services/https/host';
 import { RequestInterface } from '../../../../interfaces/IRequest';
+import { GetRequestByEventId } from '../../../../services/https/request';
 
 function UpdateEventRequest() {
   let navigate = useNavigate();
   const [messageApi, contextHolder] = message.useMessage();
-  const [Request, setRequest] = useState<RequestInterface>();
+  const [request, setRequest] = useState<RequestInterface>();
   const [eventRequest, setEventRequest] = useState<EventRequestsInterface>();
   const [eventTypes, setEventTypes] = useState<EventTypesInterface[]>([]);
   // รับข้อมูลจาก params
@@ -87,6 +88,8 @@ function UpdateEventRequest() {
 
     values.ID = eventRequest?.ID;
 
+    values.RequestID = request?.ID;
+
     console.log(input.Hosts);
     console.log(values.Hosts);
     console.log("hoss");
@@ -119,8 +122,13 @@ function UpdateEventRequest() {
       setEventTypes(res);
     }
   };
+  const getRequestById = async () => {
+    let res = await GetRequestByEventId(Number(id));
+    if (res) {
+      setRequest(res);
+    }
+  };
 
-  
   const getEventRequestById = async () => {
     let res = await GetEventById(Number(id));
     if (res) {
@@ -141,6 +149,7 @@ function UpdateEventRequest() {
   useEffect(() => {
     getEventType();
     getEventRequestById();
+    getRequestById();
   }, []);
 
   const [inputValue, setInputValue] = useState("");

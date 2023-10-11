@@ -22,6 +22,26 @@ async function GetRequests() {
 
   return res;
 }
+async function GetRequestsEventNotNull() {
+  const requestOptions = {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+
+  let res = await fetch(`${apiUrl}/requestsEvent`, requestOptions)
+    .then((response) => response.json())
+    .then((res) => {
+      if (res.data) {
+        return res.data;
+      } else {
+        return false;
+      }
+    });
+
+  return res;
+}
 async function GetRequestByID(id: Number | undefined) {
   const requestOptions = {
     method: "GET",
@@ -123,6 +143,8 @@ async function UpdateRequest(data: RequestInterface) {
 export {
   GetRequests,
   DeleteRequestByID,
+  GetRequestByID,
+  GetRequestsEventNotNull,
   GetRequestByEventId,
   CreateRequest,
   UpdateRequest,

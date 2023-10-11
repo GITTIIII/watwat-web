@@ -30,7 +30,8 @@ type eventPayload struct {
 	// ใช้สร้าง Request
 	MemberID *uint
 	WatID    *uint
-	// StatusRequestID *uint
+	//ใช้ update request
+  	RequestID  *uint
 }
 
 // POST /Events
@@ -212,21 +213,21 @@ func UpdateEventRequests(c *gin.Context) {
 		return
 	}
 
-	// var existingRequest entity.Request // Added a variable to hold the existing event
-	// //request Id
-	// if tx := entity.DB().Where("id = ?", data.ID).First(&existingRequest); tx.RowsAffected == 0 {
-	// 	c.JSON(http.StatusBadRequest, gin.H{"error": "event not found"})
-	// 	return
-	// }
+	var existingRequest entity.Request // Added a variable to hold the existing event
+	//request Id
+	if tx := entity.DB().Where("id = ?", data.RequestID).First(&existingRequest); tx.RowsAffected == 0 {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "event not found"})
+		return
+	}
 
-	// // Update the fields of the existing Request with the new data เพื่อ ให้ status รออนุมัติใหม่ และร้องขอจัดไปใหม่
-	// existingRequest.Status = status
+	// Update the fields of the existing Request with the new data เพื่อ ให้ status รออนุมัติใหม่ และร้องขอจัดไปใหม่
+	existingRequest.Status = status
 
-	// // Save the updated event back to the database
-	// if err := entity.DB().Save(&existingRequest).Error; err != nil {
-	// 	c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
-	// 	return
-	// }
+	// Save the updated event back to the database
+	if err := entity.DB().Save(&existingRequest).Error; err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
 
 	// var existingHost[] entity.Host // Added a variable to hold the existing event
 	// fmt.Println(data.Hosts)
