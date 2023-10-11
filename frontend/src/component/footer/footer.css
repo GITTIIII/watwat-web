@@ -17,6 +17,7 @@ footer{
     width: 100%; 
     font-size: 20px;   
 }
+
 .iconall {
     width: 100%;
     display: flex;
@@ -25,13 +26,14 @@ footer{
     margin-top: 2vh;
 }
 
-.icon {
+.iconall .icon{
     margin: 10px;
     width: 3vh;
     height: 3vh;
     color: #000;
 }
-.icon:hover{
+
+.iconall .icon:hover{
     cursor: pointer;
     color: #565656;
 }

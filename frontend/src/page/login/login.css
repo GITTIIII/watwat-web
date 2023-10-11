@@ -81,6 +81,11 @@
     justify-content: space-between;
 }
 
+.remember-forgot label{
+    font-size: 2vh;
+    color: orange;
+}
+
 .remember-forgot label input{
     margin-right: 3px;
 }
@@ -94,8 +99,6 @@
     text-decoration: underline;
     font-weight: bold;
 }
-
-
 
 .login-link {
     font-size: 2vh;
