@@ -1,14 +1,21 @@
-function Footer(){
+import './footer.css';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFacebook, faXTwitter,faInstagram,faGithub} from "@fortawesome/free-brands-svg-icons";
+function Footer() {
   return (
-    <>
-      <div>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil quas
-            ipsam fugit maiores quaerat numquam ut corrupti blanditiis recusandae
-            vel quam perferendis nemo, magnam vitae quisquam cum animi dolor
-            placeat!
-      </div>
-    </>
+    <footer>
+        <div className="contact">CONTACT</div>
+        <div>111/3, Surswithee 1, Suranaree </div>
+        <div>Mueang Nakhon Ratchasima, Nakhon Ratchasima, 3000</div>
+        <div>SA_G04@sut.ac.th</div>
+        <div className="iconall">
+          <a href=""><FontAwesomeIcon icon={faFacebook} className="icon 1"/></a>
+          <a href=""><FontAwesomeIcon icon={faXTwitter} className="icon 2"/></a>
+          <a href=""><FontAwesomeIcon icon={faInstagram} className="icon 3"/></a>
+          <a href="https://github.com/BHU23"><FontAwesomeIcon icon={faGithub} className="icon 4"/></a>
+        </div>
+    </footer>
   );
-};
+}
 
 export default Footer;
