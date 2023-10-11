@@ -64,26 +64,27 @@ const router = createBrowserRouter(
       <Route path="" element={<UserLayout />}>
         <Route path="/main" element={<MainUser />} />
         <Route path="/eventRequest" element={<EventRequest />} />
-        <Route path="/eventRequest/createEventRequest" element={<CreateEventRequest />} />
+        <Route
+          path="/eventRequest/createEventRequest"
+          element={<CreateEventRequest />}
+        />
         <Route path="/eventRequest/edit/:id" element={<UpdateEventRequest />} />
-        <Route path="/eventRequest/detail/:id" element={<DetailEvent/>}/>
+        <Route path="/eventRequest/detail/:id" element={<DetailEvent />} />
         <Route path="/itemRequest" element={<ItemRequest />} />
         <Route path="/placeRequest" element={<PlaceRequest />} />
         <Route path="/placeForm" element={<Placeform />} />
         <Route path="/donate" element={<Donate />} />
-        
       </Route>
 
-      <Route path="" element={<AdminLayout />}>
+      <Route path="" element={<AdminLayout />}></Route>
 
-      </Route>
-      
       <Route path="" element={<CreatorLayout />}>
         <Route path="/maincreater" element={<MainCreater />} />
         <Route path="/addEvent" element={<AddEvent />} />
         <Route path="/addEvent/createEvent" element={<CreateEvent />} />
         <Route path="/addItemLoan" element={<AddItemLoan />} />
         <Route path="/addPlaceUse" element={<AddPlaceUse />} />
+
         <Route path="/creatorGeneral" element={<CreatorGeneral />} />
         <Route path="/creatorMonk" element={<CreatorMonk />} />
         <Route path="/creatorPlace" element={<CreatorPlace />} />
