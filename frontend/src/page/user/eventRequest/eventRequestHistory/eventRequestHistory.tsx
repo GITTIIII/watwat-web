@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./eventRequestHistory.css";
-import { message, Modal } from "antd";
+import { Divider, message, Modal } from "antd";
 import { Link, useNavigate } from "react-router-dom";
 import { DeleteEventByID } from "../../../../services/https/event";
 import { GetStatuses } from "../../../../services/https/status";
@@ -15,6 +15,8 @@ interface EventRequestHistoryProps {
   } 
 
 function EventRequestHistory({ data }: EventRequestHistoryProps) {
+  console.log(data);
+  console.log("data");
   const navigate = useNavigate();
   const [wats, setWats] = useState<WatsInterface[]>([]);
   const [messageApi, contextHolder] = message.useMessage();
@@ -95,7 +97,8 @@ function EventRequestHistory({ data }: EventRequestHistoryProps) {
   return (
     <>
       {contextHolder}
-      {data.map((e, index) => (
+      {data[0] ? (
+      data.map((e, index) => (
         <div className="requestEvent-item data" key={index}>
           <div className="dataColounm">
             <div className="dataItem">
@@ -132,7 +135,7 @@ function EventRequestHistory({ data }: EventRequestHistoryProps) {
               <div className="request_edit">
                 <button
                   className="btn edit"
-                  onClick={() => navigate(`/eventRequest/edit/${e.ID}`)}
+                  onClick={() => navigate(`/eventRequest/edit/${e.EventID}`)}
                 >
                   แก้ไข
                 </button>
@@ -152,7 +155,9 @@ function EventRequestHistory({ data }: EventRequestHistoryProps) {
             </div>
           </div>
         </div>
-      ))}
+      ))) : (
+         <div></div>
+      )}
     </>
   );
 }
