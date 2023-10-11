@@ -1,13 +1,11 @@
 import { useState } from "react";
 import SidebarCreatorWatData from "../../../../component/sidebar/sidebarCreatorWatData";
 import { Form, message } from "antd";
-// import { useNavigate } from "react-router";
 import { WatsInterface } from "../../../../interfaces/IWat";
-import { CreateWat } from "../../../../services/https/wat";
+import { UpdateWat } from "../../../../services/https/wat";
 import "./index.css";
 
 const CreatorGeneral = () => {
-  // let navigate = useNavigate();
   const [messageApi, contextHolder] = message.useMessage();
 
   const [value, setValue] = useState({
@@ -21,7 +19,12 @@ const CreatorGeneral = () => {
     Subdistrict: "",
   });
 
+  const onChange = (e: any) => {
+    setValue({ ...value, [e.target.name]: e.target.value });
+  };
+
   const handleSubmit = async (values: WatsInterface) => {
+    values.ID = 1;
     values.Name = value.Name;
     values.Abbot = value.Abbot;
     values.Description = value.Description;
@@ -30,17 +33,17 @@ const CreatorGeneral = () => {
     values.Province = value.Province;
     values.District = value.District;
     values.Subdistrict = value.Subdistrict;
-    values.MemberID = 0;
+    values.MemberID = 1;
 
-    let res = await CreateWat(values);
+    let res = await UpdateWat(values);
     if (res.status) {
       messageApi.open({
         type: "success",
         content: "บันทึกข้อมูลสำเร็จ",
       });
-      //   setTimeout(function () {
-      //     navigate("/");
-      //   }, 2000);
+      setTimeout(function () {
+        window.location.reload();
+      }, 500);
     } else {
       messageApi.open({
         type: "error",
@@ -49,11 +52,6 @@ const CreatorGeneral = () => {
     }
   };
 
-  const onChange = (e: any) => {
-    setValue({ ...value, [e.target.name]: e.target.value });
-  };
-
-  console.log(value);
   return (
     <>
       <SidebarCreatorWatData />

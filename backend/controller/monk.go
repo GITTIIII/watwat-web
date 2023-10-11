@@ -88,7 +88,7 @@ func UpdateMonk(c *gin.Context) {
 	}
 	// ค้นหา member ด้วย id
 	if tx := entity.DB().Where("id = ?", monk.ID).First(&result); tx.RowsAffected == 0 {
-		c.JSON(http.StatusBadRequest, gin.H{"error": "member not found"})
+		c.JSON(http.StatusBadRequest, gin.H{"error": "monk not found"})
 		return
 	}
 

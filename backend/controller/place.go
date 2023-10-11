@@ -72,7 +72,7 @@ func ListPlace(c *gin.Context) {
 func DeletePlace(c *gin.Context) {
 	id := c.Param("id")
 	if tx := entity.DB().Exec("DELETE FROM places WHERE id = ?", id); tx.RowsAffected == 0 {
-		c.JSON(http.StatusBadRequest, gin.H{"error": "user not found"})
+		c.JSON(http.StatusBadRequest, gin.H{"error": "place not found"})
 		return
 	}
 	c.JSON(http.StatusOK, gin.H{"data": id})
@@ -87,9 +87,9 @@ func UpdatePlace(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
-	// ค้นหา member ด้วย id
+	// ค้นหา place ด้วย id
 	if tx := entity.DB().Where("id = ?", place.ID).First(&result); tx.RowsAffected == 0 {
-		c.JSON(http.StatusBadRequest, gin.H{"error": "member not found"})
+		c.JSON(http.StatusBadRequest, gin.H{"error": "place not found"})
 		return
 	}
 
