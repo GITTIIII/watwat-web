@@ -10,4 +10,3 @@ export interface MembersInterface {
     RoleID?:   number;
     Role?:     RolesInterface;
   }
-  

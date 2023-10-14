@@ -48,8 +48,10 @@ function HeaderCreator() {
           {Lclick && <LeftMenu />}
         </div>
         <div className="topleft-navbar">
-          <Logo />
-          <span>Wat Wat</span>
+          <Link to="/mainCreator" className="topleft-navbar">
+            <Logo />
+            <span>Wat Wat</span>
+          </Link>
         </div>
         <NavbarCreator />
         <div className="topright-navbar">

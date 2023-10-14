@@ -29,12 +29,17 @@ function HeaderSearch() {
   return (
     <>
       <div className="navbar">
-        <Link to="/search">
+       
           <div className="topleft-navbar">
+          <Link to="/search" className="topleft-navbar">
             <Logo />
             <span>Wat Wat</span>
+          </Link>
           </div>
-        </Link>
+        
+        <div className="horizontal-menu">
+
+        </div>
         <div className="topright-navbar">
           <UserImage />
           <div

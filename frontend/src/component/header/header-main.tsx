@@ -31,8 +31,10 @@ function HeaderSearch() {
       <div className="navbar">
         <Link to="/search">
           <div className="topleft-navbar">
+            <Link to="/search" className="topleft-navbar">
             <Logo />
             <span>Wat Wat</span>
+          </Link>
           </div>
         </Link>
         <div className="topright-navbar">
