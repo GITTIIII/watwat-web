@@ -4,7 +4,7 @@ import EventRequestHistory from "./eventRequestHistory/eventRequestHistory";
 import { Link } from "react-router-dom";
 import { Pagination } from "antd";
 import { RequestInterface } from "../../../interfaces/IRequest";
-import { GetRequests } from "../../../services/https/request";
+import { GetRequests, GetRequestsEventNotNull } from "../../../services/https/request";
 
 function EventRequest() {
   const [eventRequersts, setRequest] = useState<RequestInterface[]>([]);
@@ -19,7 +19,7 @@ function EventRequest() {
   };
 
   const geteventRequersts = async () => {
-    let res = await GetRequests();
+    let res = await GetRequestsEventNotNull();
     if (!Array.isArray(res)) {
       res = [res];
     }

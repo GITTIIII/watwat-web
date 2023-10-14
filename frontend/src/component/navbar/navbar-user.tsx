@@ -1,19 +1,19 @@
-import {NavLink } from "react-router-dom";
-import "../header/header.css";
-
-
-function NavbarUser() {
-  return (
-    <>
-      <div className="menu-navbar">
-        <NavLink to="/main" >หน้าหลัก</NavLink>
-        <NavLink to="/eventRequest">ขอจัดกิจกรรม</NavLink>
-        <NavLink to="/placeRequest">ขอใช้สถานที่</NavLink>
-        <NavLink to="/itemRequest">ยืม/คืนสิ่งของ</NavLink>
-        <NavLink to="/donate">บริจาค</NavLink>
-      </div>
-    </>
-  );
-};
-
-export default NavbarUser;
+import React from 'react'
+import './navbar.css';
+import {NavLink} from "react-router-dom";
+    
+export default function NavbarUser() {
+    return (
+        <>
+            <div className='horizontal-menu'>
+                <ul>
+                    <li className='manu-1'><NavLink to="./main"><span>หน้าหลัก</span></NavLink></li>
+                    <li className='manu-2'><NavLink to="./eventRequest"><span>ขอจัดกิจกรรม</span></NavLink></li>
+                    <li className='manu-3'><NavLink to="./placeRequest"><span>ขอใช้สถานที่</span></NavLink></li>
+                    <li className='manu-4'><NavLink to="./itemRequest"><span>ขอยืม/คืนสิ่งของ</span></NavLink></li>
+                    <li className='manu-5'><NavLink to="./donate"><span>บริจาค</span></NavLink></li>
+                </ul>
+            </div>
+        </>      
+  )
+}

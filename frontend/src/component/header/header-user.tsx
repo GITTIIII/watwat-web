@@ -48,8 +48,10 @@ function HeaderUser() {
           {Lclick && <LeftMenu />}
         </div>
         <div className="topleft-navbar">
-          <Logo />
-          <span>Wat Wat</span>
+          <Link to="/search" className="topleft-navbar">
+            <Logo />
+            <span>Wat Wat</span>
+          </Link>
         </div>
         <NavbarUser />
         <div className="topright-navbar">

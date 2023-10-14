@@ -24,5 +24,6 @@ export interface EventRequestsInterface {
   //ใช้สร้าง Request
   MemberID?: number;
   WatID?: number;
-  // StatusRequestID?: number;
+  //ใช้ update request
+  RequestID?: number;
 }

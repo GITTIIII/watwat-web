@@ -8,7 +8,7 @@ import (
 )
 
 
-// GET /events
+// GET /request
 func ListRequersts(c *gin.Context) {
 	var requests []entity.Request
 	if err := entity.DB().Raw("SELECT * FROM requests").Scan(&requests).Error; err != nil {
@@ -18,7 +18,17 @@ func ListRequersts(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"data": requests})
 }
 
-// DELETE /events/:id
+// GET /requestEventNotNull
+func GetRequestsEventNotNull(c *gin.Context) {
+	var requests []entity.Request
+	if err := entity.DB().Raw("SELECT * FROM requests WHERE event_id IS NOT NULL").Scan(&requests).Error; err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+	c.JSON(http.StatusOK, gin.H{"data": requests})
+}
+
+// DELETE /request/:id
 func DeleteRequest(c *gin.Context) {
 	id := c.Param("id")
 	if tx := entity.DB().Exec("DELETE FROM requests WHERE id = ?", id); tx.RowsAffected == 0 {
