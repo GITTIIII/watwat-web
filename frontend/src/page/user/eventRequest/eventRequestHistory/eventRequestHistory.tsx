@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./eventRequestHistory.css";
-import { Divider, message, Modal } from "antd";
-import { Link, useNavigate } from "react-router-dom";
+import { message, Modal } from "antd";
+import { useNavigate } from "react-router-dom";
 import { DeleteEventByID } from "../../../../services/https/event";
 import { GetStatuses } from "../../../../services/https/status";
 import { RequestInterface } from "../../../../interfaces/IRequest";

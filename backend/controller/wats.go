@@ -98,3 +98,15 @@ func UpdateWat(c *gin.Context) {
 	}
 	c.JSON(http.StatusOK, gin.H{"data": wat})
 }
+
+
+// GET /wat /name
+func SearchWat(c *gin.Context) {
+	var wat []entity.Wat
+	nameWat := c.Param("name")
+	if err := entity.DB().Raw("SELECT * FROM wats WHERE name LIKE ?", "%"+nameWat+"%").Find(&wat).Error; err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+	c.JSON(http.StatusOK, gin.H{"data": wat})
+}

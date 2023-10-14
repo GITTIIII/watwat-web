@@ -118,12 +118,28 @@ async function GetWat() {
   
     return res;
   }
+  async function GetWatByName(name: String | undefined) {
+    const requestOptions = {
+      method: "GET",
+    };
+    let res = await fetch(`${apiUrl}/watNames/${name}`, requestOptions)
+      .then((response) => response.json())
+      .then((res) => {
+        if (res.data) {
+          return res.data;
+        } else {
+          return false;
+        }
+      });
   
+    return res;
+  }
   export {
     GetWat,
     GetWatById,
     CreateWat,
     UpdateWat,
     DeleteWatByID,
-    GetMember
+    GetMember,
+    GetWatByName
   };

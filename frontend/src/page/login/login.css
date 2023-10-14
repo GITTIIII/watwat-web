@@ -42,17 +42,18 @@
     position: relative;
     width: 100%;
     margin: 35px 0;
-    border-bottom: 2px solid orange;
+    border-bottom: 2px solid #F0A500;
 }
 
 .input-box label {
     position: absolute;
     left : 5px;
+    top: -5px;
     transform: translateY(-50%);
     font-size: 2vh;
     color: black;
     pointer-events: none;
-    font-weight: bold;
+    
 }
 
 .input-box input{
@@ -61,7 +62,7 @@
     background: transparent;
     border: none;
     outline: none;
-    font-size: 1.5em;
+    font-size: 1em;
     margin: 10px 0px;
     color: black;
     padding: 0px 35px 0 5px;
@@ -76,14 +77,14 @@
 .remember-forgot{
     margin: 15px 0px 20px;
     font-size: 2vh;
-    color: orange;
+    color: #F0A500;
     display: flex;
     justify-content: space-between;
 }
 
 .remember-forgot label{
     font-size: 2vh;
-    color: orange;
+    color: #F0A500;
 }
 
 .remember-forgot label input{
@@ -102,7 +103,7 @@
 
 .login-link {
     font-size: 2vh;
-    color: orange;
+    color: rgb(0, 0, 0);
     text-align: center;   
     padding: 10px;
 }
@@ -115,7 +116,7 @@
 
 .login-link a{
     text-decoration: none;
-    color: black;
+    color: #F0A500;
 }
 
 .login-link a:hover {
@@ -137,7 +138,7 @@
 .submit_button {
     width: 100%;
     height: auto;
-    background: orange;
+    background: #F0A500;
     border-radius: 40px;
     cursor: pointer;
     border: 0px;
@@ -148,5 +149,7 @@
 }
 
 .submit_button:hover{
-    font-weight: bold;    
+    /* font-weight: bold; */
+    color: #fff;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
