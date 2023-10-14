@@ -41,6 +41,24 @@ async function GetPlaceUseById(id: Number | undefined) {
   return res;
 }
 
+async function GetRecentPlaceUse() {
+  const requestOptions = {
+    method: "GET",
+  };
+
+  let res = await fetch(`${apiUrl}/placeUse/recent`, requestOptions)
+    .then((response) => response.json())
+    .then((res) => {
+      if (res.data) {
+        return res.data;
+      } else {
+        return false;
+      }
+    });
+
+  return res;
+}
+
 async function CreatePlaceUse(data: PlaceUsesInterface) {
   const requestOptions = {
     method: "POST",
@@ -102,6 +120,7 @@ async function DeletePlaceUse(id: Number | undefined) {
 export {
   ListPlaceUse,
   GetPlaceUseById,
+  GetRecentPlaceUse,
   CreatePlaceUse,
   UpdatePlaceUse,
   DeletePlaceUse,

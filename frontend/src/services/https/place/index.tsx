@@ -23,6 +23,24 @@ async function GetPlace() {
   return res;
 }
 
+async function GetFreePlace() {
+  const requestOptions = {
+    method: "GET",
+  };
+
+  let res = await fetch(`${apiUrl}/places/freePlace`, requestOptions)
+    .then((response) => response.json())
+    .then((res) => {
+      if (res.data) {
+        return res.data;
+      } else {
+        return false;
+      }
+    });
+
+  return res;
+}
+
 async function GetPlaceById(id: Number | undefined) {
   const requestOptions = {
     method: "GET",
@@ -143,6 +161,7 @@ async function GetWat() {
 
 export {
   GetPlace,
+  GetFreePlace,
   GetPlaceById,
   CreatePlace,
   DeletePlaceByID,

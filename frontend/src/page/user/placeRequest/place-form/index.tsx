@@ -1,12 +1,23 @@
-import { Link, useNavigate } from "react-router-dom";
 import "./place-form.css";
+import { Link, useNavigate } from "react-router-dom";
 import { Form, message } from "antd";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { PlaceUsesInterface } from "../../../../interfaces/IPlaceUse";
 import { CreatePlaceUse } from "../../../../services/https/placeUse";
+import { PlaceUsePlacesInterface } from "../../../../interfaces/IPlaceUsePlace";
+import { CreatePlaceUsePlace } from "../../../../services/https/placeUsePlace";
+import { PlacesInterface } from "../../../../interfaces/IPlace";
+import { EventRequestsInterface } from "../../../../interfaces/IEventRequest";
+import { GetFreePlace } from "../../../../services/https/place";
+import { GetEvents } from "../../../../services/https/event";
+import { GetRecentPlaceUse } from "../../../../services/https/placeUse";
+
 const Placeform = () => {
   let navigate = useNavigate();
   const [messageApi, contextHolder] = message.useMessage();
+  const [place, setPlace] = useState<PlacesInterface[]>([])
+  const [event, setEvent] = useState<EventRequestsInterface[]>([])
+  const [placeUseID, setPlaceUseID] = useState<PlaceUsesInterface[]>([]);
   const [input, setInput] = useState({
     UserRequestName: "",
     DateBegin: "",
@@ -15,8 +26,30 @@ const Placeform = () => {
     TimeOfEnd: "",
     UserTel: "",
     Description: "",
+    Place: 0,
+    Event: 0,
   });
 
+  async function getFreePlace() {
+    setPlace(await GetFreePlace());
+  }
+
+  async function getEvent() {
+    setEvent(await GetEvents());
+  }
+
+  async function createPlaceUsePlace(IPlaceUsePlace: PlaceUsePlacesInterface) {
+    IPlaceUsePlace.PlaceID = input.Place
+    //IPlaceUsePlace.PlaceUseID = placeUseID
+  }
+
+  useEffect(() => { 
+    getFreePlace()
+    getEvent()
+  },[])
+
+  console.log(place)
+  console.log(event)
   const handleInput = (e: any) => {
     setInput({
       ...input,
@@ -24,20 +57,22 @@ const Placeform = () => {
     });
   };
 
-  const handleSubmit = async (values: PlaceUsesInterface) => {
-    values.UserRequestName = input.UserRequestName;
-    values.DateBegin = input.DateBegin;
-    values.TimeOfBegin = input.TimeOfBegin;
-    values.DateEnd = input.DateEnd;
-    values.TimeOfEnd = input.TimeOfEnd;
-    values.UserTel = input.UserTel;
-    values.Description = input.Description;
-    values.EventID = 1
-    values.StatusID = 1
 
-    console.log(values)
-    let res = await CreatePlaceUse(values);
+  const handleSubmit = async (IPlaceuse: PlaceUsesInterface) => {
+    IPlaceuse.UserRequestName = input.UserRequestName;
+    IPlaceuse.DateBegin = input.DateBegin;
+    IPlaceuse.TimeOfBegin = input.TimeOfBegin;
+    IPlaceuse.DateEnd = input.DateEnd;
+    IPlaceuse.TimeOfEnd = input.TimeOfEnd;
+    IPlaceuse.UserTel = input.UserTel;
+    IPlaceuse.Description = input.Description;
+    IPlaceuse.EventID = input.Event
+    IPlaceuse.StatusID = 1
+
+    console.log(IPlaceuse)
+    let res = await CreatePlaceUse(IPlaceuse);
     if (res.status) {
+      setPlaceUseID(await GetRecentPlaceUse())
       messageApi.open({
         type: "success",
         content: "บันทึกข้อมูลสำเร็จ",
@@ -127,18 +162,20 @@ const Placeform = () => {
                 <div className="place-input">
                   <label>สถานที่</label>
                   <select name="Place" onChange={handleInput} required>
-                    <option>-</option>
-                    <option>ศาลาวัด</option>
-                    <option>ศาลาวัด</option>
+                    <option value="none" selected disabled hidden>เลือกสถานที่</option>
+                    {place.map((item, index) => (
+                      <option key={index} value={item.ID}>{item.Name}</option>
+                    ))}
                   </select>
                 </div>
 
                 <div className="event-input">
                   <label>ต้องการจัดงานอะไร</label>
                   <select name="Event" onChange={handleInput} required>
-                    <option>-</option>
-                    <option>งานศพ</option>
-                    <option>งานศพ</option>
+                    <option value="none" selected disabled hidden>เลือกกิจกรรม</option>
+                    {event.map((item, index) => (
+                      <option key={index} value={item.ID}>{item.EventName}</option>
+                    ))}
                   </select>
                 </div>
 
