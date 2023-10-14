@@ -8,9 +8,15 @@ import SubmitButton from "../../../../component/submitButton/submitButton";
 import { EventRequestsInterface } from "../../../../interfaces/IEventRequest";
 import { EventTypesInterface } from "../../../../interfaces/IEventType";
 import { CreateEvent, GetEventTypes } from "../../../../services/https/event";
+import Cookies from "js-cookie";
 
 function CreateEventRequest() {
   let navigate = useNavigate();
+  const watID = Cookies.get("watID");
+  let getwatID = 0;
+  if (watID !== undefined) {
+    getwatID= parseInt(watID, 10);
+  } 
   const [messageApi, contextHolder] = message.useMessage();
   const [eventTypes, setEventTypes] = useState<EventTypesInterface[]>([]);
   const [input, setInput] = useState({
@@ -26,7 +32,7 @@ function CreateEventRequest() {
     EventTypeID: 1,
     StatusID: 1,
     MemberID: 1,
-    WatID: 1,
+    WatID: getwatID,
     Hosts: [""],
   });
 
@@ -117,6 +123,7 @@ function CreateEventRequest() {
     setInput({ ...input, Hosts: updatedHosts });
   };
   console.log(input.Hosts);
+  console.log(watID);
   return (
     <>
       {contextHolder}
