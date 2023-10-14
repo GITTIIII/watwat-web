@@ -8,7 +8,7 @@ import (
 type PlaceUse struct {
 	gorm.Model
 	UserRequestName string
-	DateBegin       string
+	DateBegin       string 
 	TimeOfBegin     string
 	DateEnd         string
 	TimeOfEnd       string
