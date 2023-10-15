@@ -72,7 +72,7 @@ const CreatorPlace = () => {
   };
 
   return (
-    <>
+    <div className="placePage">
       <SidebarCreatorWatData />
       <div className="place">
         {contextHolder}
@@ -108,7 +108,7 @@ const CreatorPlace = () => {
           </table>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
