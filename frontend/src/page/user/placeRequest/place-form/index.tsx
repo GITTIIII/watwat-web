@@ -59,6 +59,7 @@ const Placeform = () => {
       value.PlaceID = input.Place
       value.PlaceUseID = placeUseID
       await CreatePlaceUsePlace(value)
+      
   }
  
 
