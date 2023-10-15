@@ -86,9 +86,10 @@ func SetupDatabase() {
 		{RoleName: "admin"},
 	}
 
-	for _, Role := range Role {
-		db.Create(&Role) // Assuming 'db' is your GORM database instance
+	for _, roles := range Role {
+		db.Create(&roles) // Assuming 'db' is your GORM database instance
 	}
+
 
 	Wat := []Wat{
 		{Name: "Wat 1",
