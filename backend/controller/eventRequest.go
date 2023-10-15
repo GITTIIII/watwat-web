@@ -66,7 +66,6 @@ func CreateEventRequest(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "status not found"})
 		return
 	}
-
 	event := entity.Event{
 		EventName:   data.EventName,
 		DateBegin:   data.DateBegin,
@@ -76,7 +75,7 @@ func CreateEventRequest(c *gin.Context) {
 		OutPlace:    data.OutPlace,
 		UserTel:     data.UserTel,
 		Description: data.Description,
-		ParentEvent: &eventMain,
+		EventID:     data.EventID,
 		EventType:   eventType,
 		Status:      status,
 	}
@@ -203,7 +202,7 @@ func UpdateEventRequests(c *gin.Context) {
 	existingEvent.OutPlace = data.OutPlace
 	existingEvent.UserTel = data.UserTel
 	existingEvent.Description = data.Description
-	existingEvent.ParentEvent = &eventMain
+	existingEvent.EventID = data.EventID
 	existingEvent.EventType = eventType
 	existingEvent.Status = status
 

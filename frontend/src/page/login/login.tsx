@@ -28,6 +28,7 @@ const Login = () => {
     
     if (input.Username[0] === members.Username && input.Password[0] === members.Password) {
       Cookies.set('username', input.Username[0], { expires: 7 });
+      Cookies.set('memberID', `${ members.ID }`, { expires: 7 });
       messageApi.open({
         type: "success",
         content: "ล็อกอินเสร็จสิ้น",

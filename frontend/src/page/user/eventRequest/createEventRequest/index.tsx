@@ -15,8 +15,14 @@ function CreateEventRequest() {
   const watID = Cookies.get("watID");
   let getwatID = 0;
   if (watID !== undefined) {
-    getwatID= parseInt(watID, 10);
-  } 
+    getwatID = parseInt(watID, 10);
+  }
+  const memberID = Cookies.get("memberID");
+  let getMemberID = 0;
+  if (memberID !== undefined) {
+    getMemberID = parseInt(memberID, 10);
+  }
+
   const [messageApi, contextHolder] = message.useMessage();
   const [eventTypes, setEventTypes] = useState<EventTypesInterface[]>([]);
   const [input, setInput] = useState({
@@ -31,7 +37,7 @@ function CreateEventRequest() {
     EventID: null,
     EventTypeID: 1,
     StatusID: 1,
-    MemberID: 1,
+    MemberID: getMemberID,
     WatID: getwatID,
     Hosts: [""],
   });
@@ -65,13 +71,15 @@ function CreateEventRequest() {
     values.StatusID = input.StatusID;
 
     values.Hosts = input.Hosts;
-
+    console.log(input.MemberID);
     values.MemberID = input.MemberID;
     values.WatID = input.WatID;
 
     console.log(input.Hosts);
     console.log(values.Hosts);
     console.log("hoss");
+    console.log("getMemberID");
+    console.log(getMemberID);
 
     let res = await CreateEvent(values);
     if (res.status) {
@@ -156,6 +164,9 @@ function CreateEventRequest() {
               onChange={handleInput}
               required
             >
+              <option value="" disabled selected>
+                เลือกประเภท
+              </option>
               {eventTypes.map((item) => (
                 <option value={item.ID} key={item.EventTypeName}>
                   {item.EventTypeName}
@@ -176,7 +187,7 @@ function CreateEventRequest() {
             </div>
             <div className="hostinputLayout">
               {input.Hosts.map((field, index) => (
-                <div  key={index}>
+                <div key={index}>
                   <input
                     type="text"
                     value={field}
@@ -187,7 +198,7 @@ function CreateEventRequest() {
                 </div>
               ))}
               {isInputVisible ? (
-                <div >
+                <div>
                   <input
                     type="text"
                     value={inputValue}
@@ -219,14 +230,14 @@ function CreateEventRequest() {
                 id=""
                 name="DateBegin"
                 onChange={handleInput}
-                // required
+                required
               />
               <input
                 type="date"
                 id=""
                 name="DateEnd"
                 onChange={handleInput}
-                // required
+                required
               />
               <label htmlFor="">เวลาเริ่มกิจกรรม</label>
               <label htmlFor="">ถึง</label>
@@ -242,7 +253,7 @@ function CreateEventRequest() {
                 id=""
                 name="TimeOfEnd"
                 onChange={handleInput}
-                // required
+                required
               />
             </div>
           </div>
@@ -257,7 +268,7 @@ function CreateEventRequest() {
               className="item"
               name="UserTel"
               onChange={handleInput}
-              // required
+              required
             />
           </div>
           <div className="placeOut">

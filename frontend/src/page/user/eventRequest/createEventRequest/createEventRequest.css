@@ -98,17 +98,6 @@
     outline: none;
 }
 
-/* #eventType:focus option:hover {
-    background-color: #D9D9D9;
-    color: #d90202;
-    Replace with your desired background color 
-} */
-/* .eventRequestHistory {
-    width: 100%;
-    overflow: scroll;
-    height: 83%;
-} */
-
 .plusHost {
     display: flex;
     flex-direction: row;
@@ -297,6 +286,7 @@ span.more {
 .selects option {
     color: #334756;
     background: #ffff;
+    height: 500px;
 }
 
 select:hover {
