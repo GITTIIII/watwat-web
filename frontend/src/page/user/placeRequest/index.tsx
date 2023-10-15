@@ -39,6 +39,7 @@ const Place = () => {
       }
     }
 
+    
     useEffect(() => {
       getPlaceUse()
     }, [])
