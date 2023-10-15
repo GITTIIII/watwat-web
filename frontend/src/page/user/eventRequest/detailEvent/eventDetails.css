@@ -108,3 +108,7 @@
     border: 1px solid #000;
 
 }
+.statusEvent-data{
+    color: #F0A500;
+    padding-left: 10px;
+}

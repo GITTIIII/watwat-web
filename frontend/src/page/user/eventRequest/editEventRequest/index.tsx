@@ -4,7 +4,6 @@ import { Link, NavLink, useNavigate ,useParams} from "react-router-dom";
 import { Form, message, } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons"; //for icon
-import SubmitButton from '../../../../component/submitButton/submitButton';
 import { EventRequestsInterface } from "../../../../interfaces/IEventRequest";
 import { EventTypesInterface } from '../../../../interfaces/IEventType'; 
 import { GetEventById, GetEventTypes, UpdateEventRequests } from "../../../../services/https/event";
@@ -94,8 +93,6 @@ function UpdateEventRequest() {
     console.log(values.Hosts);
     console.log("hoss");
     let res = await UpdateEventRequests(values);
-    // let resDeleteHost = await DeleteHostByID(Number(id));
-    // let resUpdateHoste = await CreateHost(values);
     if (res.status) {
       let resDeleteHost = await DeleteHostByID(Number(id));
       let resUpdateHoste = await CreateHost(values);
@@ -174,12 +171,24 @@ function UpdateEventRequest() {
     setInput({ ...input, Hosts: updatedHosts });
   };
 
+  const [entertrainClick, setEntertrainClick] = useState(true);
+  const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const selectedValue = event.target.value;
+    console.log("selectedValue");
+    console.log(selectedValue);
+    if (selectedValue === "yes") {
+      setEntertrainClick(true);
+    } else if (selectedValue === "no") {
+      setEntertrainClick(false);
+    }
+    console.log(entertrainClick);
+  };
   console.log(input);
   console.log("res1");
   return (
     <>
       {contextHolder}
-      <Form
+       <Form
         name="basic"
         onFinish={handleSubmit}
         autoComplete="off"
@@ -208,6 +217,9 @@ function UpdateEventRequest() {
               onChange={handleInput}
               required
             >
+              <option value="" disabled selected>
+                เลือกประเภท
+              </option>
               {eventTypes.map((item) => (
                 <option value={item.ID} key={item.EventTypeName}>
                   {item.EventTypeName}
@@ -228,7 +240,7 @@ function UpdateEventRequest() {
             </div>
             <div className="hostinputLayout">
               {input.Hosts.map((field, index) => (
-                <div  key={index}>
+                <div key={index}>
                   <input
                     type="text"
                     value={field}
@@ -237,16 +249,19 @@ function UpdateEventRequest() {
                     required
                   />
                 </div>
+                
               ))}
               {isInputVisible ? (
-                <div >
+                <div>
                   <input
                     type="text"
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
+                    onClick={ handleSaveInput}
                     id="host1"
                     className="hostinput"
                     name="HostName"
+                    placeholder="ดับเบิล Click เพื่อกรอกข้อมูล"
                     required
                   />
                 </div>
@@ -271,14 +286,14 @@ function UpdateEventRequest() {
                 id=""
                 name="DateBegin"
                 onChange={handleInput}
-                // required
+                required
               />
               <input
                 type="date"
                 id=""
                 name="DateEnd"
                 onChange={handleInput}
-                // required
+                required
               />
               <label htmlFor="">เวลาเริ่มกิจกรรม</label>
               <label htmlFor="">ถึง</label>
@@ -287,14 +302,14 @@ function UpdateEventRequest() {
                 id=""
                 name="TimeOfBegin"
                 onChange={handleInput}
-                // required
+                required
               />
               <input
                 type="time"
                 id=""
                 name="TimeOfEnd"
                 onChange={handleInput}
-                // required
+                required
               />
             </div>
           </div>
@@ -309,7 +324,7 @@ function UpdateEventRequest() {
               className="item"
               name="UserTel"
               onChange={handleInput}
-              // required
+              required
             />
           </div>
           <div className="placeOut">
@@ -337,25 +352,31 @@ function UpdateEventRequest() {
                 type="radio"
                 id="switch_left"
                 name="switchToggle"
-                value=""
+                value="yes"
+                checked={entertrainClick}
+                onChange={handleRadioChange}
               />{" "}
               <label htmlFor="switch_left">ใช่</label>
               <input
                 type="radio"
                 id="switch_right"
                 name="switchToggle"
-                value=""
+                value="no"
+                onChange={handleRadioChange}
               />{" "}
               <label htmlFor="switch_right">ไม่ใช่</label>
-            </div>
-            <input
-              type="number"
-              id=""
-              className="noEntertrainment"
-              placeholder="เลขที่คำขอกิจกรรม"
-              name="EventID"
-              onChange={handleInput}
-            />
+            </div>  
+            {entertrainClick && (
+                <input
+                  type="number"
+                  id=""
+                  className="noEntertrainment"
+                  placeholder="เลขที่คำขอกิจกรรม"
+                  name="EventID"
+                  onChange={handleInput}
+                  required
+                />
+              )}
           </div>
           <div className="data description">
             <label htmlFor="">คำอธิบายกิจกรรม</label>
@@ -367,7 +388,7 @@ function UpdateEventRequest() {
             />
           </div>
           <div className="submitEventRequest">
-            <SubmitButton />
+            <input type="submit" value="ยืนยัน" id='submitEventRequest'/>
           </div>
         </div>
       </Form>

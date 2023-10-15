@@ -7,11 +7,15 @@ import { RequestInterface } from "../../../../interfaces/IRequest";
 import { GetRequestByEventId } from "../../../../services/https/request";
 import { HostsInterface } from "../../../../interfaces/IHost";
 import { GetHostById } from "../../../../services/https/host";
+import { GetStatusById, GetStatuses } from "../../../../services/https/status";
+import { StatusesInterface } from "../../../../interfaces/IStatus";
+import { eventNames } from "process";
 function DetailEvent() {
   let { id } = useParams();
   const [events, setEvent] = useState<EventRequestsInterface[]>([]);
   const [eventRequersts, setRequest] = useState<RequestInterface[]>([]);
   const [host, setHost] = useState<HostsInterface[]>([]);
+  const [status, setStatus] = useState<StatusesInterface[]>([]);
   const getEvent = async () => {
     let res = await GetEventById(Number(id));
     if (!Array.isArray(res)) {
@@ -34,13 +38,40 @@ function DetailEvent() {
     }
     setHost(res);
   };
+// const getStatus = async (statusId: number | undefined) => {
+//   if (statusId === undefined) {
+//     return "Status is undefined";
+//   } else {
+//     let res = await GetStatusById(statusId);
+//     if (res) {
+//       res = [res];
+//     }
+//     setStatus(res);
+//   }
+//   };
+  const getStatus = async () => {
+    let res = await GetStatuses();
+    if (!Array.isArray(res)) {
+      res = [res];
+    }
+    setStatus(res);
+  };
+   const getStatusNameById = (id: number | undefined) => {
+    if (id === undefined) {
+      return "Unknown Status"; // Provide a default value when StatusID is undefined
+    }
+    const statusObject = status.find((status) => status.ID === id);
+    return statusObject ? statusObject.StatusName : "Unknown Status";
+  };
   useEffect(() => {
     getEvent();
     geteventRequersts();
     gethosts();
+    getStatus();
   }, []);
-
-  console.log(events);
+  console.log(events[0]?.Status?.ID);
+  console.log(status);
+  console.log("status");
 
   return (
     <>
@@ -50,11 +81,14 @@ function DetailEvent() {
             <div className="datatitle">
               <span>รายละเอียดคำขอจัดกิจกรรม</span>
             </div>
-            {events.map((e, index) => (
-              <div className="datatitle nameEvent">
-                <span>{e.EventName}</span>
-              </div>
-            ))}
+            <div className="datatitle nameEvent" >
+              {events.map((e, index) => (
+                <div>
+                  <span>{e.EventName} :{e.StatusID} </span>
+                  <span className="statusEvent-data">{getStatusNameById(e.StatusID)}</span>
+                </div>
+              ))}
+            </div>
             <div className="requestEvent-detail">
               {events.map((e, index) => (
                 <div>
