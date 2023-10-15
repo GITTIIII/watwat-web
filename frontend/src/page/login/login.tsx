@@ -33,13 +33,13 @@ const Login = () => {
         type: "success",
         content: "ล็อกอินเสร็จสิ้น",
       });
-      if ( members.RoleID == 1) {
+      if ( members.RoleID === 1) {
         setTimeout(function () {
         navigate("/search");
       }, 2000);
-      } else if (members.RoleID == 2) {
+      } else if (members.RoleID === 2) {
          navigate("/mainCreater");
-      } else if (members.RoleID == 3) {
+      } else if (members.RoleID === 3) {
          navigate("/mainAdmin");
       }
     } 
