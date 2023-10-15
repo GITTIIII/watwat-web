@@ -15,8 +15,6 @@ interface EventRequestHistoryProps {
   } 
 
 function EventRequestHistory({ data }: EventRequestHistoryProps) {
-  console.log(data);
-  console.log("data");
   const navigate = useNavigate();
   const [wats, setWats] = useState<WatsInterface[]>([]);
   const [messageApi, contextHolder] = message.useMessage();

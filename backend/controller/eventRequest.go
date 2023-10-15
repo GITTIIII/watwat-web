@@ -31,7 +31,7 @@ type eventPayload struct {
 	MemberID *uint
 	WatID    *uint
 	//ใช้ update request
-  	RequestID  *uint
+	RequestID *uint
 }
 
 // POST /Events
