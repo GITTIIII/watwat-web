@@ -153,6 +153,7 @@ function CreateEventRequest() {
               placeholder="กรอกชื่อกิจกรรม"
               name="EventName"
               onChange={handleInput}
+              
               required
             />
 
