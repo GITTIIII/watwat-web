@@ -91,7 +91,7 @@ func SetupDatabase() {
 	}
 
 	Wat := []Wat{
-		{Name: "Location 1",
+		{Name: "Wat 1",
 			Abbot:       "Abbot 1",
 			Description: "Description 1",
 			Address:     "Address 1",
@@ -100,7 +100,7 @@ func SetupDatabase() {
 			District:    "District 1",
 			Subdistrict: "Subdistrict 1",
 		},
-		{Name: "Location 2",
+		{Name: "Wat 2",
 			Abbot:       "Abbot 2",
 			Description: "Description 2",
 			Address:     "Address 2",
