@@ -4,8 +4,8 @@ import "gorm.io/gorm"
 
 type Wat struct {
 	gorm.Model
-	Name        string
-	Abbot       string
+	Name        string 
+	Abbot       string `gorm:"uniqueIndex"`
 	Description string
 	Address     string
 	Postcode    string
