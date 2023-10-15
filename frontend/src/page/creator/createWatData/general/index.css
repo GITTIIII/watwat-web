@@ -1,6 +1,7 @@
 .generalPage {
   display: grid;
   grid-template-columns: 20% auto;
+  height: 90vh;
 }
 
 .general {
