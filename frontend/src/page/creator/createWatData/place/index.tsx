@@ -23,7 +23,7 @@ const CreatorPlace = () => {
   const handleSubmit = async (values: PlacesInterface) => {
     values.Name = value.Name;
     values.WatID = 1;
-    values.StatusID = 1;
+    values.StatusID = 16;
 
     let res = await CreatePlace(values);
     if (res.status) {

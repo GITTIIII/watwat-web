@@ -27,7 +27,7 @@ const Placeform = () => {
     UserTel: "",
     Description: "",
     Place: 0,
-    Event: 0,
+    Event: "",
   });
 
   async function getFreePlace() {
@@ -49,7 +49,7 @@ const Placeform = () => {
   },[])
 
   console.log(place)
-  console.log(event)
+  //console.log(event)
   const handleInput = (e: any) => {
     setInput({
       ...input,
@@ -66,17 +66,16 @@ const Placeform = () => {
     IPlaceuse.TimeOfEnd = input.TimeOfEnd;
     IPlaceuse.UserTel = input.UserTel;
     IPlaceuse.Description = input.Description;
-    IPlaceuse.EventID = input.Event
+    IPlaceuse.EventID = parseInt(input.Event)
     IPlaceuse.StatusID = 1
 
-    console.log(IPlaceuse)
     let res = await CreatePlaceUse(IPlaceuse);
     if (res.status) {
-      setPlaceUseID(await GetRecentPlaceUse())
       messageApi.open({
         type: "success",
         content: "บันทึกข้อมูลสำเร็จ",
       });
+      setPlaceUseID(await GetRecentPlaceUse())
       setTimeout(function () {
         navigate("/placeRequest");
       }, 2000);
@@ -175,6 +174,7 @@ const Placeform = () => {
                     <option value="none" selected disabled hidden>เลือกกิจกรรม</option>
                     {event.map((item, index) => (
                       <option key={index} value={item.ID}>{item.EventName}</option>
+                      
                     ))}
                   </select>
                 </div>
