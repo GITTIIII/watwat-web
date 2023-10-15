@@ -21,7 +21,7 @@ import Placeform from "./page/user/placeRequest/place-form";
 import Donate from "./page/user/donate";
 
 //creater ส่วน แจ้งใช้งานเอง
-import MainCreater from "./page/user/main";
+import MainCreater from "./page/creator/main";
 import AddEvent from "./page/creator/addEvent";
 import CreateEvent from "./page/creator/addEvent/createEvent";
 import AddPlaceUse from "./page/creator/addPlaceUse";
@@ -77,9 +77,10 @@ const router = createBrowserRouter(
       </Route>
 
       <Route path="" element={<AdminLayout />}></Route>
-
+        <Route path="/mainAdmin" element={<MainCreater />} />
+      
       <Route path="" element={<CreatorLayout />}>
-        <Route path="/maincreater" element={<MainCreater />} />
+        <Route path="/mainCreater" element={<MainCreater />} />
         <Route path="/addEvent" element={<AddEvent />} />
         <Route path="/addEvent/createEvent" element={<CreateEvent />} />
         <Route path="/addItemLoan" element={<AddItemLoan />} />
