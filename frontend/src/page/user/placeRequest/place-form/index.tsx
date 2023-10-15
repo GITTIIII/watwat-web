@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Form, message } from "antd";
 import { useEffect, useState } from "react";
 import { PlaceUsesInterface } from "../../../../interfaces/IPlaceUse";
-import { CreatePlaceUse } from "../../../../services/https/placeUse";
+import { CreatePlaceUse, ListPlaceUse } from "../../../../services/https/placeUse";
 import { PlaceUsePlacesInterface } from "../../../../interfaces/IPlaceUsePlace";
 import { CreatePlaceUsePlace } from "../../../../services/https/placeUsePlace";
 import { PlacesInterface } from "../../../../interfaces/IPlace";
@@ -17,7 +17,7 @@ const Placeform = () => {
   const [messageApi, contextHolder] = message.useMessage();
   const [place, setPlace] = useState<PlacesInterface[]>([])
   const [event, setEvent] = useState<EventRequestsInterface[]>([])
-  const [placeUseID, setPlaceUseID] = useState<PlaceUsesInterface[]>([]);
+  const [placeUse, setPlaceUse] = useState<PlaceUsesInterface[]>([]);
   const [input, setInput] = useState({
     UserRequestName: "",
     DateBegin: "",
@@ -37,19 +37,15 @@ const Placeform = () => {
   async function getEvent() {
     setEvent(await GetEvents());
   }
-
-  async function createPlaceUsePlace(IPlaceUsePlace: PlaceUsePlacesInterface) {
-    IPlaceUsePlace.PlaceID = input.Place
-    //IPlaceUsePlace.PlaceUseID = placeUseID
-  }
-
+  
   useEffect(() => { 
     getFreePlace()
     getEvent()
   },[])
 
   console.log(place)
-  //console.log(event)
+  // console.log(event)
+  console.log(placeUse)
   const handleInput = (e: any) => {
     setInput({
       ...input,
@@ -75,7 +71,6 @@ const Placeform = () => {
         type: "success",
         content: "บันทึกข้อมูลสำเร็จ",
       });
-      setPlaceUseID(await GetRecentPlaceUse())
       setTimeout(function () {
         navigate("/placeRequest");
       }, 2000);
@@ -161,7 +156,7 @@ const Placeform = () => {
                 <div className="place-input">
                   <label>สถานที่</label>
                   <select name="Place" onChange={handleInput} required>
-                    <option value="none" selected disabled hidden>เลือกสถานที่</option>
+                    <option value="none" hidden>เลือกสถานที่</option>
                     {place.map((item, index) => (
                       <option key={index} value={item.ID}>{item.Name}</option>
                     ))}
@@ -171,10 +166,9 @@ const Placeform = () => {
                 <div className="event-input">
                   <label>ต้องการจัดงานอะไร</label>
                   <select name="Event" onChange={handleInput} required>
-                    <option value="none" selected disabled hidden>เลือกกิจกรรม</option>
+                    <option value="none" hidden>เลือกกิจกรรม</option>
                     {event.map((item, index) => (
                       <option key={index} value={item.ID}>{item.EventName}</option>
-                      
                     ))}
                   </select>
                 </div>

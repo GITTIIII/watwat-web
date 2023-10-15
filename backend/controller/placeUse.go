@@ -69,7 +69,7 @@ func GetPlaceUseById(c *gin.Context) {
 
 func GetRecentPlaceUse(c *gin.Context) {
 	var placeUse entity.PlaceUse
-	if err := entity.DB().Preload("Event").Preload("Status").Raw("SELECT * FROM place_uses WHERE created_at = MAX(created_at)").Find(&placeUse).Error; err != nil {
+	if err := entity.DB().Preload("Event").Preload("Status").Raw("SELECT * FROM place_uses WHERE id = (SELECT COUNT(id) FROM place_uses)").Find(&placeUse).Error; err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
