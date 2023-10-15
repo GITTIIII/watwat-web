@@ -1,12 +1,13 @@
+.generalPage {
+  display: grid;
+  grid-template-columns: 20% auto;
+}
+
 .general {
-  display: flex;
-  flex-direction: column;
-  background-color: #ffffff;
-  width: 400px;
-  height: 700px;
+  display: grid;
+  grid-template-columns: auto auto;
   justify-items: center;
-  justify-content: center;
-  align-items: center;
+  margin-top: 20px;
 }
 
 .general input {
@@ -14,12 +15,15 @@
   justify-items: center;
   align-items: center;
   text-align: center;
+  width: 200px;
+  height: 30px;
 }
 
 .general textarea {
   display: flex;
+  text-align: center;
   width: 200px;
-  height: 50px;
+  height: 130px;
 }
 
 .general select {
@@ -29,17 +33,30 @@
   align-items: center;
 }
 
-.general button {
+.general select {
   display: flex;
-  width: 100px;
+  text-align: center;
+  width: 200px;
   height: 30px;
-  align-items: center;
-  justify-content: center;
-  justify-items: center;
-  cursor: pointer;
-  margin: 10px;
 }
 
-.general button:hover {
+.generalButton {
+  display: flex;
+  justify-content: end;
+}
+
+.generalButton button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  width: 100px;
+  height: 30px;
+  margin-top: 5%;
+  margin-right: 10%;
+}
+
+.generalButton button:hover {
+  border: none;
   background-color: #f9d11f;
 }

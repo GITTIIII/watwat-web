@@ -65,6 +65,7 @@
 .horizontal-menu li a:hover{
     cursor: pointer;
     border-top: none;
+    color: #334756;
 }
 .horizontal-menu li a.active{
     color: #F0A500;

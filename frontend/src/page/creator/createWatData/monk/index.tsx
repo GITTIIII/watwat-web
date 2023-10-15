@@ -75,7 +75,7 @@ const CreatorMonk = () => {
   };
 
   return (
-    <>
+    <div className="monkPage">
       <SidebarCreatorWatData />
       <div className="monk">
         {contextHolder}
@@ -129,7 +129,7 @@ const CreatorMonk = () => {
           </table>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

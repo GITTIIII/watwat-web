@@ -1,3 +1,8 @@
+.placePage {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
 .place {
   display: grid;
   align-content: center;

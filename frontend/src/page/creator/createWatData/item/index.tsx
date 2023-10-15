@@ -74,7 +74,7 @@ const CreatorItem = () => {
   };
 
   return (
-    <>
+    <div className="itemPage">
       <SidebarCreatorWatData />
       <div className="item">
         {contextHolder}
@@ -119,7 +119,7 @@ const CreatorItem = () => {
           </table>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

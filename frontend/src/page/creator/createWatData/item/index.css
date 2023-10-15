@@ -1,3 +1,8 @@
+.itemPage {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
 .item {
   display: grid;
   align-content: center;
