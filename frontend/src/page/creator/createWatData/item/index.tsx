@@ -76,26 +76,34 @@ const CreatorItem = () => {
   return (
     <div className="itemPage">
       <SidebarCreatorWatData />
-      <div className="item">
-        {contextHolder}
+      {contextHolder}
+      <div>
         <Form onFinish={handleSubmit}>
-          <label>กรอกชื่อสิ่งของ</label>
-          <input
-            name="Name"
-            type="text"
-            placeholder="กรอกชื่อสิ่งของ"
-            onChange={onChange}
-          />
-          <label>กรอกจำนวน</label>
-          <input
-            name="Amount"
-            type="text"
-            placeholder="กรอกจำนวน"
-            onChange={onChange}
-          />
-          <button type="submit">ยืนยัน</button>
+          <div className="item">
+            <div>
+              <label>กรอกชื่อสิ่งของ</label>
+              <input
+                name="Name"
+                type="text"
+                placeholder="กรอกชื่อสิ่งของ"
+                onChange={onChange}
+              />
+            </div>
+            <div>
+              <label>กรอกจำนวน</label>
+              <input
+                name="Amount"
+                type="text"
+                placeholder="กรอกจำนวน"
+                onChange={onChange}
+              />
+            </div>
+            <div className="itemButton">
+              <button type="submit">ยืนยัน</button>
+            </div>
+          </div>
         </Form>
-        <div>
+        <div className="itemTable">
           <table>
             <thead>
               <tr>

@@ -77,33 +77,45 @@ const CreatorMonk = () => {
   return (
     <div className="monkPage">
       <SidebarCreatorWatData />
-      <div className="monk">
-        {contextHolder}
+      {contextHolder}
+      <div>
         <Form onFinish={handleSubmit}>
-          <label>กรอกชื่อพระสงฆ์</label>
-          <input
-            name="Name"
-            type="text"
-            placeholder="กรอกชื่อพระสงฆ์"
-            onChange={onChange}
-          />
-          <label>วัน/เดือน/ปี เกิด</label>
-          <input
-            name="Birthday"
-            type="date"
-            placeholder="วัน/เดือน/ปี เกิด"
-            onChange={onChange}
-          />
-          <label>กรอกสมณศักดิ์</label>
-          <input
-            name="Rank"
-            type="text"
-            placeholder="กรอกสมณศักดิ์"
-            onChange={onChange}
-          />
-          <button type="submit">ยืนยัน</button>
+          <div className="monk">
+            <div className="monkTop">
+              <div>
+                <label>กรอกชื่อพระสงฆ์</label>
+                <input
+                  name="Name"
+                  type="text"
+                  placeholder="กรอกชื่อพระสงฆ์"
+                  onChange={onChange}
+                />
+              </div>
+              <div>
+                <label>วัน/เดือน/ปี เกิด</label>
+                <input
+                  name="Birthday"
+                  type="date"
+                  placeholder="วัน/เดือน/ปี เกิด"
+                  onChange={onChange}
+                />
+              </div>
+              <div>
+                <label>กรอกสมณศักดิ์</label>
+                <input
+                  name="Rank"
+                  type="text"
+                  placeholder="กรอกสมณศักดิ์"
+                  onChange={onChange}
+                />
+              </div>
+              <div className="monkButton">
+                <button type="submit">ยืนยัน</button>
+              </div>
+            </div>
+          </div>
         </Form>
-        <div>
+        <div className="monkTable">
           <table>
             <thead>
               <tr>

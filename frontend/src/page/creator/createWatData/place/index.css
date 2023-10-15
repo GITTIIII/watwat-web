@@ -1,22 +1,76 @@
 .placePage {
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: 20% auto;
 }
 
 .place {
   display: grid;
-  align-content: center;
+  grid-template-columns: 30% auto;
   justify-content: center;
+  margin: 5%;
 }
 
-.place label {
+.place input {
   display: flex;
+  text-align: center;
+  width: 90%;
+  height: 30px;
+}
+
+.placeButton {
+  display: flex;
+  align-items: end;
 }
 
 .place button {
-  width: 100%;
-  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  width: 100px;
+  height: 30px;
+  margin-top: 10%;
+}
+
+.placeButton button:hover {
   border: none;
-  margin: 10px 0px;
-  background-color: rgb(210, 162, 255);
+  background-color: #f9d11f;
+}
+
+.placeTable {
+  display: flex;
+  justify-content: center;
+  padding: 10%;
+}
+
+.placeTable th {
+  padding: 10px;
+  background-color: rgb(180, 180, 180);
+}
+
+.placeTable th:hover {
+  background-color: rgb(117, 117, 117);
+}
+
+.placeTable td {
+  padding: 10px;
+  background-color: rgb(223, 223, 223);
+}
+
+.placeTable td:hover {
+  background-color: rgb(175, 175, 175);
+}
+
+.placeTable button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffd900;
+  border: none;
+  width: 70px;
+  height: 42px;
+}
+
+.placeTable button:hover {
+  background-color: #ff5500;
 }
