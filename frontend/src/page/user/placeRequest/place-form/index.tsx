@@ -17,7 +17,7 @@ const Placeform = () => {
   const [messageApi, contextHolder] = message.useMessage();
   const [place, setPlace] = useState<PlacesInterface[]>([])
   const [event, setEvent] = useState<EventRequestsInterface[]>([])
-  const [placeUseID, setPlaceUseID] = useState<PlaceUsesInterface[]>([]);
+  const [placeUseID, setPlaceUseID] = useState()
   const [input, setInput] = useState({
     UserRequestName: "",
     DateBegin: "",
@@ -27,7 +27,7 @@ const Placeform = () => {
     UserTel: "",
     Description: "",
     Place: 0,
-    Event: 0,
+    Event: "",
   });
 
   async function getFreePlace() {
@@ -38,9 +38,9 @@ const Placeform = () => {
     setEvent(await GetEvents());
   }
 
-  async function createPlaceUsePlace(IPlaceUsePlace: PlaceUsePlacesInterface) {
-    IPlaceUsePlace.PlaceID = input.Place
-    //IPlaceUsePlace.PlaceUseID = placeUseID
+  async function getPlaceUse() {
+    const placeUse = await GetRecentPlaceUse();
+    setPlaceUseID(placeUse.ID)
   }
 
   useEffect(() => { 
@@ -48,8 +48,6 @@ const Placeform = () => {
     getEvent()
   },[])
 
-  console.log(place)
-  console.log(event)
   const handleInput = (e: any) => {
     setInput({
       ...input,
@@ -57,6 +55,12 @@ const Placeform = () => {
     });
   };
 
+  async function createPlaceUsePlace(value: PlaceUsePlacesInterface){
+      value.PlaceID = input.Place
+      value.PlaceUseID = placeUseID
+      await CreatePlaceUsePlace(value)
+  }
+ 
 
   const handleSubmit = async (IPlaceuse: PlaceUsesInterface) => {
     IPlaceuse.UserRequestName = input.UserRequestName;
@@ -66,17 +70,17 @@ const Placeform = () => {
     IPlaceuse.TimeOfEnd = input.TimeOfEnd;
     IPlaceuse.UserTel = input.UserTel;
     IPlaceuse.Description = input.Description;
-    IPlaceuse.EventID = input.Event
+    IPlaceuse.EventID = parseInt(input.Event)
     IPlaceuse.StatusID = 1
 
-    console.log(IPlaceuse)
     let res = await CreatePlaceUse(IPlaceuse);
     if (res.status) {
-      setPlaceUseID(await GetRecentPlaceUse())
       messageApi.open({
         type: "success",
         content: "บันทึกข้อมูลสำเร็จ",
       });
+      getPlaceUse()
+      //createPlaceUsePlace(PlaceUsePlacesInterface)
       setTimeout(function () {
         navigate("/placeRequest");
       }, 2000);
@@ -162,7 +166,7 @@ const Placeform = () => {
                 <div className="place-input">
                   <label>สถานที่</label>
                   <select name="Place" onChange={handleInput} required>
-                    <option value="none" selected disabled hidden>เลือกสถานที่</option>
+                    <option value="none" hidden>เลือกสถานที่</option>
                     {place.map((item, index) => (
                       <option key={index} value={item.ID}>{item.Name}</option>
                     ))}
@@ -172,7 +176,7 @@ const Placeform = () => {
                 <div className="event-input">
                   <label>ต้องการจัดงานอะไร</label>
                   <select name="Event" onChange={handleInput} required>
-                    <option value="none" selected disabled hidden>เลือกกิจกรรม</option>
+                    <option value="none" hidden>เลือกกิจกรรม</option>
                     {event.map((item, index) => (
                       <option key={index} value={item.ID}>{item.EventName}</option>
                     ))}

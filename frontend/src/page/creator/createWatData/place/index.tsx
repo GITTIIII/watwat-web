@@ -23,7 +23,7 @@ const CreatorPlace = () => {
   const handleSubmit = async (values: PlacesInterface) => {
     values.Name = value.Name;
     values.WatID = 1;
-    values.StatusID = 1;
+    values.StatusID = 16;
 
     let res = await CreatePlace(values);
     if (res.status) {
@@ -72,21 +72,27 @@ const CreatorPlace = () => {
   };
 
   return (
-    <>
+    <div className="placePage">
       <SidebarCreatorWatData />
-      <div className="place">
-        {contextHolder}
+      {contextHolder}
+      <div>
         <Form onFinish={handleSubmit}>
-          <label>กรอกชื่อสถานที่</label>
-          <input
-            name="Name"
-            type="text"
-            placeholder="กรอกชื่อสถานที่"
-            onChange={onChange}
-          />
-          <button type="submit">ยืนยัน</button>
+          <div className="place">
+            <div>
+              <label>กรอกชื่อสถานที่</label>
+              <input
+                name="Name"
+                type="text"
+                placeholder="กรอกชื่อสถานที่"
+                onChange={onChange}
+              />
+            </div>
+            <div className="placeButton">
+              <button type="submit">ยืนยัน</button>
+            </div>
+          </div>
         </Form>
-        <div>
+        <div className="placeTable">
           <table>
             <thead>
               <tr>
@@ -108,7 +114,7 @@ const CreatorPlace = () => {
           </table>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

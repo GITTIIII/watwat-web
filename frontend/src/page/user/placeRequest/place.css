@@ -56,7 +56,7 @@
 .place-result-middle-box button{
     width: max-content;
     margin: 10px;
-    grid-area: 3/2;
+    grid-area: 4/2;
     margin: auto;
     display: flex;
 }

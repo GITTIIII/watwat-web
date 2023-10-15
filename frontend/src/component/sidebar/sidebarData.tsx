@@ -44,9 +44,9 @@ export const SidebarData2 = [
     path: "/CreatorItem",
     cName: "side-text",
   },
-  {
-    title: "ข้อมูลบริจาค",
-    path: "/CreatorDonate",
-    cName: "side-text",
-  },
+  // {
+  //   title: "ข้อมูลบริจาค",
+  //   path: "/CreatorDonate",
+  //   cName: "side-text",
+  // },
 ];

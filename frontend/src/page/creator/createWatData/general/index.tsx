@@ -24,7 +24,7 @@ const CreatorGeneral = () => {
   };
 
   const handleSubmit = async (values: WatsInterface) => {
-    values.ID = 1;
+    values.ID = 2;
     values.Name = value.Name;
     values.Abbot = value.Abbot;
     values.Description = value.Description;
@@ -53,95 +53,99 @@ const CreatorGeneral = () => {
   };
 
   return (
-    <>
+    <div className="generalPage">
       <SidebarCreatorWatData />
-      <div className="general">
-        {contextHolder}
-        <Form onFinish={handleSubmit}>
-          <label>กรอกชื่อวัด</label>
-          <input
-            name="Name"
-            type="text"
-            placeholder="กรอกชื่อวัด"
-            onChange={onChange}
-          />
+      {contextHolder}
+      <Form onFinish={handleSubmit}>
+        <div className="general">
+          <div>
+            <label>กรอกชื่อวัด</label>
+            <input
+              name="Name"
+              type="text"
+              placeholder="กรอกชื่อวัด"
+              onChange={onChange}
+            />
 
-          <label>กรอกชื่อเจ้าอาวาส</label>
-          <input
-            name="Abbot"
-            type="text"
-            placeholder="กรอกชื่อเจ้าอาวาส"
-            onChange={onChange}
-          />
+            <label>กรอกชื่อเจ้าอาวาส</label>
+            <input
+              name="Abbot"
+              type="text"
+              placeholder="กรอกชื่อเจ้าอาวาส"
+              onChange={onChange}
+            />
 
-          <label>กรอกคำอธิบายวัด</label>
-          <textarea
-            name="Description"
-            placeholder="กรอกคำอธิบายวัด"
-            onChange={onChange}
-          />
+            <label>กรอกคำอธิบายวัด</label>
+            <textarea
+              name="Description"
+              placeholder="กรอกคำอธิบายวัด"
+              onChange={onChange}
+            />
+          </div>
+          <div>
+            <label>กรอกรายละเอียดที่อยู่</label>
+            <input
+              name="Address"
+              type="text"
+              placeholder="กรอกรายละเอียดที่อยู่"
+              onChange={onChange}
+            />
 
-          <label>กรอกรายละเอียดที่อยู่</label>
-          <input
-            name="Address"
-            type="text"
-            placeholder="กรอกรายละเอียดที่อยู่"
-            onChange={onChange}
-          />
+            <label>กรอกรหัสไปรษณีย์</label>
+            <input
+              name="Postcode"
+              type="text"
+              placeholder="กรอกรหัสไปรษณีย์"
+              onChange={onChange}
+            />
 
-          <label>กรอกรหัสไปรษณีย์</label>
-          <input
-            name="Postcode"
-            type="text"
-            placeholder="กรอกรหัสไปรษณีย์"
-            onChange={onChange}
-          />
+            <label>กรอกรหัสไปรษณีย์</label>
+            <select
+              name="Province"
+              placeholder="เลือกจังหวัด"
+              onChange={onChange}
+              required
+            >
+              <option value="none" selected disabled hidden>
+                ---เลือกจังหวัด---
+              </option>
+              <option value="นครราชสีมา">นครราชสีมา</option>
+            </select>
 
-          <label>กรอกรหัสไปรษณีย์</label>
-          <select
-            name="Province"
-            placeholder="เลือกจังหวัด"
-            onChange={onChange}
-            required
-          >
-            <option value="none" selected disabled hidden>
-              ---เลือกจังหวัด---
-            </option>
-            <option value="นครราชสีมา">นครราชสีมา</option>
-          </select>
+            <label>กรอกรหัสไปรษณีย์</label>
+            <select
+              name="District"
+              placeholder="เลือกอำเภอ"
+              onChange={onChange}
+              required
+            >
+              <option value="none" selected disabled hidden>
+                ---เลือกอำเภอ---
+              </option>
+              <option value="อำเภอ1">อำเภอ1</option>
+              <option value="อำเภอ2">อำเภอ2</option>
+            </select>
 
-          <label>กรอกรหัสไปรษณีย์</label>
-          <select
-            name="District"
-            placeholder="เลือกอำเภอ"
-            onChange={onChange}
-            required
-          >
-            <option value="none" selected disabled hidden>
-              ---เลือกอำเภอ---
-            </option>
-            <option value="อำเภอ1">อำเภอ1</option>
-            <option value="อำเภอ2">อำเภอ2</option>
-          </select>
-
-          <label>กรอกรหัสไปรษณีย์</label>
-          <select
-            name="Subdistrict"
-            placeholder="เลือกตำบล"
-            onChange={onChange}
-            required
-          >
-            <option value="none" selected disabled hidden>
-              ---เลือกตำบล---
-            </option>
-            <option value="ตำบล1">ตำบล1</option>
-            <option value="ตำบล2">ตำบล2</option>
-          </select>
-
+            <label>กรอกรหัสไปรษณีย์</label>
+            <select
+              name="Subdistrict"
+              placeholder="เลือกตำบล"
+              onChange={onChange}
+              required
+            >
+              <option value="none" selected disabled hidden>
+                ---เลือกตำบล---
+              </option>
+              <option value="ตำบล1">ตำบล1</option>
+              <option value="ตำบล2">ตำบล2</option>
+            </select>
+          </div>
+        </div>
+        <div className="generalButton">
           <button type="submit">ยืนยัน</button>
-        </Form>
-      </div>
-    </>
+        </div>
+      </Form>
+    </div>
   );
 };
 
