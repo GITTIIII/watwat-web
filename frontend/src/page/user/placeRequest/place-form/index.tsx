@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Form, message } from "antd";
 import { useEffect, useState } from "react";
 import { PlaceUsesInterface } from "../../../../interfaces/IPlaceUse";
-import { CreatePlaceUse, ListPlaceUse } from "../../../../services/https/placeUse";
+import { CreatePlaceUse } from "../../../../services/https/placeUse";
 import { PlaceUsePlacesInterface } from "../../../../interfaces/IPlaceUsePlace";
 import { CreatePlaceUsePlace } from "../../../../services/https/placeUsePlace";
 import { PlacesInterface } from "../../../../interfaces/IPlace";
@@ -17,7 +17,7 @@ const Placeform = () => {
   const [messageApi, contextHolder] = message.useMessage();
   const [place, setPlace] = useState<PlacesInterface[]>([])
   const [event, setEvent] = useState<EventRequestsInterface[]>([])
-  const [placeUse, setPlaceUse] = useState<PlaceUsesInterface[]>([]);
+  const [placeUseID, setPlaceUseID] = useState()
   const [input, setInput] = useState({
     UserRequestName: "",
     DateBegin: "",
@@ -37,15 +37,17 @@ const Placeform = () => {
   async function getEvent() {
     setEvent(await GetEvents());
   }
-  
+
+  async function getPlaceUse() {
+    const placeUse = await GetRecentPlaceUse();
+    setPlaceUseID(placeUse.ID)
+  }
+
   useEffect(() => { 
     getFreePlace()
     getEvent()
   },[])
 
-  console.log(place)
-  // console.log(event)
-  console.log(placeUse)
   const handleInput = (e: any) => {
     setInput({
       ...input,
@@ -53,6 +55,12 @@ const Placeform = () => {
     });
   };
 
+  async function createPlaceUsePlace(value: PlaceUsePlacesInterface){
+      value.PlaceID = input.Place
+      value.PlaceUseID = placeUseID
+      await CreatePlaceUsePlace(value)
+  }
+ 
 
   const handleSubmit = async (IPlaceuse: PlaceUsesInterface) => {
     IPlaceuse.UserRequestName = input.UserRequestName;
@@ -71,6 +79,8 @@ const Placeform = () => {
         type: "success",
         content: "บันทึกข้อมูลสำเร็จ",
       });
+      getPlaceUse()
+      //createPlaceUsePlace(PlaceUsePlacesInterface)
       setTimeout(function () {
         navigate("/placeRequest");
       }, 2000);
