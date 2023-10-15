@@ -134,7 +134,7 @@ function CreateEventRequest() {
         className="warpper"
       >
         <div className="heandcontantcreate">
-          <div className="heandpage title">ขอจัดกิจกรรมvnvn</div>
+          <div className="heandpage title">ขอจัดกิจกรรม</div>
           <div className="heandpage eventRequest">
             <NavLink to="../eventRequest">กิจกรรมที่แจ้งขอจัด</NavLink>
           </div>
