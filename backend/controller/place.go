@@ -47,6 +47,15 @@ func CreatePlace(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"data": p})
 }
 
+func GetFreePlace(c *gin.Context) {
+	var place []entity.Place
+	if err := entity.DB().Preload("Status").Preload("Wat").Raw("SELECT * FROM places WHERE status_id = (SELECT id FROM statuses WHERE status_name = 'ว่าง')").Find(&place).Error; err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+	c.JSON(http.StatusOK, gin.H{"data": place})
+}
+
 // GET /place/:id
 func GetPlaceById(c *gin.Context) {
 	var place entity.Place

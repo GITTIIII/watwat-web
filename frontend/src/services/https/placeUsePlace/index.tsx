@@ -1,8 +1,8 @@
-import { PlaceUsesInterface } from "../../../interfaces/IPlaceUse";
+import { PlaceUsePlacesInterface } from "../../../interfaces/IPlaceUsePlace";
 
 const apiUrl = "http://localhost:8080";
 
-async function ListPlaceUse() {
+async function ListPlaceUsePlace() {
   const requestOptions = {
     method: "GET",
     headers: {
@@ -10,7 +10,7 @@ async function ListPlaceUse() {
     },
   };
 
-  let res = await fetch(`${apiUrl}/placeUses`, requestOptions)
+  let res = await fetch(`${apiUrl}/placeUsePlaces`, requestOptions)
     .then((response) => response.json())
     .then((res) => {
       if (res.data) {
@@ -23,12 +23,12 @@ async function ListPlaceUse() {
   return res;
 }
 
-async function GetPlaceUseById(id: Number | undefined) {
+async function GetPlaceUsePlaceById(id: Number | undefined) {
   const requestOptions = {
     method: "GET",
   };
 
-  let res = await fetch(`${apiUrl}/placeUse/byId/${id}`, requestOptions)
+  let res = await fetch(`${apiUrl}/placeUsePlaces/byId/${id}`, requestOptions)
     .then((response) => response.json())
     .then((res) => {
       if (res.data) {
@@ -41,32 +41,14 @@ async function GetPlaceUseById(id: Number | undefined) {
   return res;
 }
 
-async function GetRecentPlaceUse() {
-  const requestOptions = {
-    method: "GET",
-  };
-
-  let res = await fetch(`${apiUrl}/placeUse/recent`, requestOptions)
-    .then((response) => response.json())
-    .then((res) => {
-      if (res.data) {
-        return res.data;
-      } else {
-        return false;
-      }
-    });
-
-  return res;
-}
-
-async function CreatePlaceUse(data: PlaceUsesInterface) {
+async function CreatePlaceUsePlace(data: PlaceUsePlacesInterface) {
   const requestOptions = {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
   };
 
-  let res = await fetch(`${apiUrl}/placeUses`, requestOptions)
+  let res = await fetch(`${apiUrl}/placeUsePlaces`, requestOptions)
     .then((response) => response.json())
     .then((res) => {
       if (res.data) {
@@ -79,14 +61,14 @@ async function CreatePlaceUse(data: PlaceUsesInterface) {
   return res;
 }
 
-async function UpdatePlaceUse(data: PlaceUsesInterface) {
+async function UpdatePlaceUsePlace(data: PlaceUsePlacesInterface) {
   const requestOptions = {
     method: "PATCH",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
   };
 
-  let res = await fetch(`${apiUrl}/placeUses`, requestOptions)
+  let res = await fetch(`${apiUrl}/placeUsePlaces`, requestOptions)
     .then((response) => response.json())
     .then((res) => {
       if (res.data) {
@@ -99,12 +81,12 @@ async function UpdatePlaceUse(data: PlaceUsesInterface) {
   return res;
 }
 
-async function DeletePlaceUse(id: Number | undefined) {
+async function DeletePlaceUsePlace(id: Number | undefined) {
   const requestOptions = {
     method: "DELETE",
   };
 
-  let res = await fetch(`${apiUrl}/placeUses/${id}`, requestOptions)
+  let res = await fetch(`${apiUrl}/placeUsePlaces/${id}`, requestOptions)
     .then((response) => response.json())
     .then((res) => {
       if (res.data) {
@@ -118,10 +100,9 @@ async function DeletePlaceUse(id: Number | undefined) {
 }
 
 export {
-  ListPlaceUse,
-  GetPlaceUseById,
-  GetRecentPlaceUse,
-  CreatePlaceUse,
-  UpdatePlaceUse,
-  DeletePlaceUse,
+  ListPlaceUsePlace,
+  GetPlaceUsePlaceById,
+  CreatePlaceUsePlace,
+  UpdatePlaceUsePlace,
+  DeletePlaceUsePlace,
 };

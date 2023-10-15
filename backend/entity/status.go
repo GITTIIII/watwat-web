@@ -7,7 +7,7 @@ import (
 
 type Status struct {
 	gorm.Model
-	StatusName  string 
+	StatusName  string  `gorm:"uniqueIndex"`
 
 	Events []Event `gorm:"foreignKey:StatusID"`
 	Requests []Request `gorm:"foreignKey:StatusID"`
