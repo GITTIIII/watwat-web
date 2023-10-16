@@ -5,22 +5,12 @@ import { Link } from "react-router-dom";
 import { PlaceUsesInterface } from "../../../interfaces/IPlaceUse";
 import { useEffect, useState } from "react";
 import { ListPlaceUse, DeletePlaceUse } from "../../../services/https/placeUse"
-import { Pagination, message } from "antd";
+import { message } from "antd";
 
 
 const Place = () => {
     const [messageApi, contextHolder] = message.useMessage();
     const [placeUse, setPlaceUse] = useState<PlaceUsesInterface[]>([])
-    const [currentPage, setCurrentPage] = useState(1);
-    const itemsPerPage = 5;
-    const displayedData = placeUse.slice(
-      (currentPage - 1) * itemsPerPage,
-      currentPage * itemsPerPage
-    );
-
-    const handlePageChange = (page: any) => {
-      setCurrentPage(page);
-    };
 
     async function getPlaceUse() {
       setPlaceUse(await ListPlaceUse())
@@ -69,22 +59,8 @@ const Place = () => {
                 </div>
               ))}
             </div>
-            <div className="paganav">
-              {placeUse.length > itemsPerPage && (
-                <Pagination
-                  className="paginationPlacerequest"
-                  current={currentPage}
-                  total={placeUse.length}
-                  pageSize={itemsPerPage}
-                  showQuickJumper
-                  showTotal={(total) => ` ${total} คำขอ`}
-                  onChange={handlePageChange}
-                />
-              )}
-            </div>
-            </div>
           </div>
-     
+        </div>
     </>
   );
 };
