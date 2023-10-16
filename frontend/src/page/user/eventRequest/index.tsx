@@ -2,18 +2,33 @@ import React, { useState, useEffect } from "react";
 import "./eventRequest.css";
 import EventRequestHistory from "./eventRequestHistory/eventRequestHistory";
 import { Link } from "react-router-dom";
-import { Pagination } from "antd";
+import { Pagination,Select  } from "antd";
 import { RequestInterface } from "../../../interfaces/IRequest";
 import { GetRequests, GetRequestsEventNotNull } from "../../../services/https/request";
+import Cookies from "js-cookie";
 
 function EventRequest() {
   const [eventRequersts, setRequest] = useState<RequestInterface[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const watID = Cookies.get("watID");
+  const memberID = Cookies.get("memberID");
   const itemsPerPage = 11;
-  const displayedData = eventRequersts.slice(
+  const filteredDataMember = eventRequersts.filter(item => item.MemberID === Number(memberID));
+  const [selectedWatId, setSelectedWatId] = useState("thisWat");
+  const [selectedStatusId, setSelectedStatusId] = useState("all");
+  const [total, settotal] = useState(eventRequersts.length);
+  const filteredDatawat = selectedWatId === "thisWat"
+    ? filteredDataMember.filter(item => item.WatID === Number(watID))
+    : selectedWatId === "allWat" ? filteredDataMember
+    : filteredDataMember;
+  const filteredData = selectedStatusId === "all"
+    ? filteredDatawat
+    : filteredDatawat.filter(item => item.StatusID === Number(selectedStatusId));
+  const diplayfilteredData = filteredData.slice(
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
   );
+  
   const handlePageChange = (page: any) => {
     setCurrentPage(page);
   };
@@ -29,6 +44,7 @@ function EventRequest() {
   useEffect(() => {
     geteventRequersts();
   }, []);
+  
   return (
     <div className="warpper">
       <div className="contant">
@@ -61,23 +77,36 @@ function EventRequest() {
               </div>
             </div>
             <div className="requestEvent-itemtr">
-              <EventRequestHistory data={displayedData} />
+              <EventRequestHistory data={diplayfilteredData} />
             </div>
           </div>
           <div className="filterPage request">
             <div className="filter request">
-              {/* <div className="filter-item allrequest">
-                <span>ทั้งหมด</span>
-              </div>
-              <select className="filter-item request"></select>
-              <select className="filter-item request"></select> */}
+             <Select
+              className="filter-item request "
+              value={selectedWatId}
+              onChange={value => setSelectedWatId(value)}
+            >
+              <Select.Option value="thisWat">เฉพาะวัดนี้</Select.Option>
+              <Select.Option value="allWat">วัดทั้งหมด</Select.Option>
+            </Select>
+             <Select
+              className="filter-item request"
+              value={selectedStatusId}
+              onChange={value => setSelectedStatusId(value)}
+              >
+              <Select.Option value="all">ทั้งหมด</Select.Option>
+              <Select.Option value="1">รออนุมัติ</Select.Option>
+              <Select.Option value="2">อนุมัติ</Select.Option>
+              <Select.Option value="3">ไม่อนุมัติ</Select.Option>
+            </Select>
             </div>
             <div className="paganav">
-              {eventRequersts.length > itemsPerPage && (
+              {filteredData.length > itemsPerPage && (
                 <Pagination
                   className="paginationEventrequest"
                   current={currentPage}
-                  total={eventRequersts.length}
+                  total={filteredData.length}
                   pageSize={itemsPerPage}
                   showQuickJumper
                   showTotal={(total) => ` ${total} คำขอ`}

@@ -15,7 +15,7 @@ export interface EventRequestsInterface {
   ParentEvent?: EventRequestsInterface | null;
   EventTypeID?: number;
   EventType?: EventTypesInterface;
-  StatusID?: number;
+  StatusID?: number ;
   Status?: StatusesInterface;
 
   //ใช้สร้าง Host
