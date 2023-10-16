@@ -47,7 +47,7 @@ func CreateWat(c *gin.Context) {
 }
 
 // GET /wat/:id
-func GetWat(c *gin.Context) {
+func GetWatById(c *gin.Context) {
 	var wat entity.Wat
 	id := c.Param("id")
 	if err := entity.DB().Preload("Member").Raw("SELECT * FROM wats WHERE id = ?", id).Find(&wat).Error; err != nil {

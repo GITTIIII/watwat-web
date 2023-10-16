@@ -7,6 +7,7 @@ import {
   GetPlace,
   DeletePlaceByID,
 } from "../../../../services/https/place";
+import Cookies from "js-cookie";
 import "./index.css";
 
 const CreatorPlace = () => {
@@ -22,7 +23,7 @@ const CreatorPlace = () => {
 
   const handleSubmit = async (values: PlacesInterface) => {
     values.Name = value.Name;
-    values.WatID = 1;
+    values.WatID = Number(Cookies.get("memberID"));
     values.StatusID = 16;
 
     let res = await CreatePlace(values);
@@ -106,7 +107,9 @@ const CreatorPlace = () => {
                   <tr key={data.ID}>
                     <td>{data.ID}</td>
                     <td>{data.Name}</td>
-                    <button onClick={() => handleDelete(data)}>ลบ</button>
+                    <td>
+                      <button onClick={() => handleDelete(data)}>ลบ</button>
+                    </td>
                   </tr>
                 );
               })}

@@ -24,7 +24,7 @@ func main() {
 
 	// Wat Routes
 	r.GET("/wats", controller.ListWat)
-	r.GET("/wats/:id", controller.GetWat)
+	r.GET("/wats/:id", controller.GetWatById)
 	r.GET("/watNames/:name", controller.SearchWat)
 	r.POST("/wats", controller.CreateWat)
 	r.PATCH("/wats", controller.UpdateWat)
