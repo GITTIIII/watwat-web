@@ -25,8 +25,7 @@
     height: 100%;
     box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
     background-color: #D9D9D9;
-    overflow-x: auto;
-
+    overflow: scroll;
 }
 .datatitle.nameEvent{
     background-color: #ffff;
