@@ -55,11 +55,14 @@ const Placeform = () => {
     });
   };
 
-  async function createPlaceUsePlace(value: PlaceUsePlacesInterface){
-      value.PlaceID = input.Place
-      value.PlaceUseID = placeUseID
+ 
+  async function createPlaceUsePlace(){
+    const placeUse = await GetRecentPlaceUse();
+    const value:PlaceUsePlacesInterface = {
+      PlaceID : Number(input.Place),
+      PlaceUseID : placeUse.ID}
+      console.log(value)
       await CreatePlaceUsePlace(value)
-      
   }
  
 
@@ -80,8 +83,8 @@ const Placeform = () => {
         type: "success",
         content: "บันทึกข้อมูลสำเร็จ",
       });
-      getPlaceUse()
-      //createPlaceUsePlace(PlaceUsePlacesInterface)
+     
+      createPlaceUsePlace()
       setTimeout(function () {
         navigate("/placeRequest");
       }, 2000);

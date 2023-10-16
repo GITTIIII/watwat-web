@@ -69,10 +69,10 @@ func main() {
 
 	// PlacesUsePlaces Routes
 	r.GET("/", controller.ListPlaceUsePlace)
-	r.GET("/placeUseUsePlaces/byId/:id", controller.GetPlaceUsePlaceById)
-	r.POST("/placeUseUsePlaces", controller.CreatePlaceUsePlace)
-	r.PATCH("/placeUseUsePlaces", controller.UpdatePlaceUsePlace)
-	r.DELETE("/placeUseUsePlaces/:id", controller.DeletePlaceUsePlace)
+	r.GET("/placeUsePlaces/byId/:id", controller.GetPlaceUsePlaceById)
+	r.POST("/placeUsePlaces", controller.CreatePlaceUsePlace)
+	r.PATCH("/placeUsePlaces", controller.UpdatePlaceUsePlace)
+	r.DELETE("/placeUsePlaces/:id", controller.DeletePlaceUsePlace)
 
 	// Gender Routes
 	r.GET("/eventTypes", controller.ListEventTypes)

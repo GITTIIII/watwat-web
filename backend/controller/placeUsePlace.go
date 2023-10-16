@@ -23,8 +23,8 @@ func CreatePlaceUsePlace(c *gin.Context) {
 
 	// สร้าง placeUsePlace
 	p := entity.PlaceUsePlace{
-		PlaceUseID: placeUsePlace.PlaceUseID,
 		PlaceID: placeUsePlace.PlaceID,
+		PlaceUseID: placeUsePlace.PlaceUseID,
 
 		Place: place,
 		PlaceUse: placeUse,
