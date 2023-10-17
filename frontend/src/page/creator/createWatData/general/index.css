@@ -16,14 +16,14 @@
   justify-items: center;
   align-items: center;
   text-align: center;
-  width: 200px;
+  width: 250px;
   height: 30px;
 }
 
 .general textarea {
   display: flex;
   text-align: center;
-  width: 200px;
+  width: 250px;
   height: 130px;
 }
 
@@ -37,7 +37,7 @@
 .general select {
   display: flex;
   text-align: center;
-  width: 200px;
+  width: 250px;
   height: 30px;
 }
 

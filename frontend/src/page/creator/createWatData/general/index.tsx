@@ -24,16 +24,13 @@ const CreatorGeneral = () => {
   const onChange = (e: any) => {
     setValue({
       ...value,
-      [e.target.name]:
-        e.target.value === null ? e.target.placeholder : e.target.value,
+      [e.target.name]: e.target.value,
     });
-    console.log("Hello", e.target.placeholder);
   };
 
   const handleSubmit = async (values: WatsInterface) => {
     values.ID = Number(Cookies.get("memberID"));
-
-    values.Name = value.Name === null ? values.Name : value.Name;
+    values.Name = value.Name;
     values.Abbot = value.Abbot;
     values.Description = value.Description;
     values.Address = value.Address;
@@ -123,23 +120,32 @@ const CreatorGeneral = () => {
             />
 
             <label>เลือกจังหวัด</label>
-            <select name="Province" onChange={onChange} required>
-              <option value="none" hidden></option>
+            <select name="Province" onChange={onChange}>
+              <option value="none" hidden>
+                {String(Object(wat).Province)}
+              </option>
               <option value="นครราชสีมา">นครราชสีมา</option>
+              <option value="กรุงเทพมหานครฯ">กรุงเทพมหานครฯ</option>
             </select>
 
             <label>เลือกอำเภอ</label>
-            <select name="District" onChange={onChange} required>
-              <option value="none" hidden></option>
+            <select name="District" onChange={onChange}>
+              <option value="none" hidden>
+                {String(Object(wat).District)}
+              </option>
               <option value="อำเภอ1">อำเภอ1</option>
               <option value="อำเภอ2">อำเภอ2</option>
+              <option value="อำเภอ3">อำเภอ3</option>
             </select>
 
             <label>เลือกตำบล</label>
-            <select name="Subdistrict" onChange={onChange} required>
-              <option value="none" hidden></option>
+            <select name="Subdistrict" onChange={onChange}>
+              <option value="none" hidden>
+                {String(Object(wat).Subdistrict)}
+              </option>
               <option value="ตำบล1">ตำบล1</option>
               <option value="ตำบล2">ตำบล2</option>
+              <option value="ตำบล3">ตำบล3</option>
             </select>
           </div>
         </div>

@@ -18,10 +18,10 @@ func CreateWat(c *gin.Context) {
 		return
 	}
 
-	// if tx := entity.DB().Where("id = ?", wat.MemberID).First(&member); tx.RowsAffected == 0 {
-	// 	c.JSON(http.StatusBadRequest, gin.H{"error": "wat not found"})
-	// 	return
-	// }
+	if tx := entity.DB().Where("id = ?", wat.MemberID).First(&member); tx.RowsAffected == 0 {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "wat not found"})
+		return
+	}
 
 	// สร้าง Wat
 	w := entity.Wat{
