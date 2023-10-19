@@ -55,11 +55,6 @@ function HeaderCreator() {
         </div>
         <NavbarCreator />
         <div className="topright-navbar">
-          <button>
-            <Link to="/search">
-              <FontAwesomeIcon icon={faMagnifyingGlass} />
-            </Link>
-          </button>
           <UserImage />
           <div
             className={`topright-navbar-menu ${Rclick ? "active" : ""}`}

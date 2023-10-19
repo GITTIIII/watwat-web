@@ -110,3 +110,14 @@ func SearchWat(c *gin.Context) {
 	}
 	c.JSON(http.StatusOK, gin.H{"data": wat})
 }
+
+// // GET /watCreator/:id for creator
+// func GetWatByCreatorID(c *gin.Context) {
+// 	var wat entity.Wat
+// 	id := c.Param("id")
+// 	if err := entity.DB().Preload("Member").Raw("SELECT * FROM wats WHERE member_id = ?", id).Find(&wat).Error; err != nil {
+// 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+// 		return
+// 	}
+// 	c.JSON(http.StatusOK, gin.H{"data": wat})
+// }

@@ -121,6 +121,7 @@ async function UpdateEventRequests(data: EventRequestsInterface) {
   return res;
 }
 
+
 export {
   GetEvents,
   GetEventById,

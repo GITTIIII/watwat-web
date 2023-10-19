@@ -117,7 +117,9 @@ async function GetWat() {
       });
   
     return res;
-  }
+}
+  
+//Search
   async function GetWatByName(name: String | undefined) {
     const requestOptions = {
       method: "GET",
@@ -133,7 +135,25 @@ async function GetWat() {
       });
   
     return res;
-  }
+}
+  // //forCreator
+  // async function GetWatByCreatorID(id: Number | undefined) {
+  //   const requestOptions = {
+  //     method: "GET",
+  //   };
+  
+  //   let res = await fetch(`${apiUrl}/watCreator/${id}`, requestOptions)
+  //     .then((response) => response.json())
+  //     .then((res) => {
+  //       if (res.data) {
+  //         return res.data;
+  //       } else {
+  //         return false;
+  //       }
+  //     });
+  
+  //   return res;
+  // }
   export {
     GetWat,
     GetWatById,
@@ -141,5 +161,6 @@ async function GetWat() {
     UpdateWat,
     DeleteWatByID,
     GetMember,
-    GetWatByName
+    GetWatByName,
+    // GetWatByCreatorID
   };
