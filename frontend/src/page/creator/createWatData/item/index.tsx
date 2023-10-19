@@ -7,6 +7,7 @@ import {
   GetItem,
   DeleteItemByID,
 } from "../../../../services/https/item";
+import Cookies from "js-cookie";
 import "./index.css";
 
 const CreatorItem = () => {
@@ -24,7 +25,7 @@ const CreatorItem = () => {
   const handleSubmit = async (values: ItemsInterface) => {
     values.Name = value.Name;
     values.Amount = parseInt(value.Amount);
-    values.WatID = 1;
+    values.WatID = Number(Cookies.get("memberID"));
     values.StatusID = 1;
 
     let res = await CreateItem(values);
@@ -119,7 +120,9 @@ const CreatorItem = () => {
                     <td>{data.ID}</td>
                     <td>{data.Name}</td>
                     <td>{data.Amount}</td>
-                    <button onClick={() => handleDelete(data)}>ลบ</button>
+                    <td>
+                      <button onClick={() => handleDelete(data)}>ลบ</button>
+                    </td>
                   </tr>
                 );
               })}

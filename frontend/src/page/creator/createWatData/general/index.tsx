@@ -1,12 +1,14 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import SidebarCreatorWatData from "../../../../component/sidebar/sidebarCreatorWatData";
 import { Form, message } from "antd";
 import { WatsInterface } from "../../../../interfaces/IWat";
-import { UpdateWat } from "../../../../services/https/wat";
+import { UpdateWat, GetWatById } from "../../../../services/https/wat";
+import Cookies from "js-cookie";
 import "./index.css";
 
 const CreatorGeneral = () => {
   const [messageApi, contextHolder] = message.useMessage();
+  const [wat, setWat] = useState<WatsInterface[]>([]);
 
   const [value, setValue] = useState({
     Name: "",
@@ -20,11 +22,14 @@ const CreatorGeneral = () => {
   });
 
   const onChange = (e: any) => {
-    setValue({ ...value, [e.target.name]: e.target.value });
+    setValue({
+      ...value,
+      [e.target.name]: e.target.value,
+    });
   };
 
   const handleSubmit = async (values: WatsInterface) => {
-    values.ID = 2;
+    values.ID = Number(Cookies.get("memberID"));
     values.Name = value.Name;
     values.Abbot = value.Abbot;
     values.Description = value.Description;
@@ -33,7 +38,7 @@ const CreatorGeneral = () => {
     values.Province = value.Province;
     values.District = value.District;
     values.Subdistrict = value.Subdistrict;
-    values.MemberID = 1;
+    values.MemberID = Number(Cookies.get("memberID"));
 
     let res = await UpdateWat(values);
     if (res.status) {
@@ -47,10 +52,21 @@ const CreatorGeneral = () => {
     } else {
       messageApi.open({
         type: "error",
-        content: "บันทึกข้อมูลไม่สำเร็จ",
+        content: "บันทึกข้อมูลไม่สำเร็จ ชื่อเจ้าอาวาสซ้ำ",
       });
     }
   };
+
+  const getWat = async () => {
+    let res = await GetWatById(Number(Cookies.get("memberID")));
+    if (res) {
+      setWat(res);
+    }
+  };
+
+  useEffect(() => {
+    getWat();
+  }, []);
 
   return (
     <div className="generalPage">
@@ -59,35 +75,39 @@ const CreatorGeneral = () => {
       <Form onFinish={handleSubmit}>
         <div className="general">
           <div>
-            <label>กรอกชื่อวัด</label>
-            <input
-              name="Name"
-              type="text"
-              placeholder="กรอกชื่อวัด"
-              onChange={onChange}
-            />
-
-            <label>กรอกชื่อเจ้าอาวาส</label>
-            <input
-              name="Abbot"
-              type="text"
-              placeholder="กรอกชื่อเจ้าอาวาส"
-              onChange={onChange}
-            />
-
-            <label>กรอกคำอธิบายวัด</label>
-            <textarea
-              name="Description"
-              placeholder="กรอกคำอธิบายวัด"
-              onChange={onChange}
-            />
+            <div>
+              <label>กรอกชื่อวัด</label>
+              <input
+                name="Name"
+                type="text"
+                placeholder={String(Object(wat).Name)}
+                onChange={onChange}
+              />
+            </div>
+            <div>
+              <label>กรอกชื่อเจ้าอาวาส</label>
+              <input
+                name="Abbot"
+                type="text"
+                placeholder={String(Object(wat).Abbot)}
+                onChange={onChange}
+              />
+            </div>
+            <div>
+              <label>กรอกคำอธิบายวัด</label>
+              <textarea
+                name="Description"
+                placeholder={String(Object(wat).Description)}
+                onChange={onChange}
+              />
+            </div>
           </div>
           <div>
             <label>กรอกรายละเอียดที่อยู่</label>
             <input
               name="Address"
               type="text"
-              placeholder="กรอกรายละเอียดที่อยู่"
+              placeholder={String(Object(wat).Address)}
               onChange={onChange}
             />
 
@@ -95,49 +115,37 @@ const CreatorGeneral = () => {
             <input
               name="Postcode"
               type="text"
-              placeholder="กรอกรหัสไปรษณีย์"
+              placeholder={String(Object(wat).Postcode)}
               onChange={onChange}
             />
 
-            <label>กรอกรหัสไปรษณีย์</label>
-            <select
-              name="Province"
-              placeholder="เลือกจังหวัด"
-              onChange={onChange}
-              required
-            >
-              <option value="none" selected disabled hidden>
-                ---เลือกจังหวัด---
+            <label>เลือกจังหวัด</label>
+            <select name="Province" onChange={onChange}>
+              <option value="none" hidden>
+                {String(Object(wat).Province)}
               </option>
               <option value="นครราชสีมา">นครราชสีมา</option>
+              <option value="กรุงเทพมหานครฯ">กรุงเทพมหานครฯ</option>
             </select>
 
-            <label>กรอกรหัสไปรษณีย์</label>
-            <select
-              name="District"
-              placeholder="เลือกอำเภอ"
-              onChange={onChange}
-              required
-            >
-              <option value="none" selected disabled hidden>
-                ---เลือกอำเภอ---
+            <label>เลือกอำเภอ</label>
+            <select name="District" onChange={onChange}>
+              <option value="none" hidden>
+                {String(Object(wat).District)}
               </option>
               <option value="อำเภอ1">อำเภอ1</option>
               <option value="อำเภอ2">อำเภอ2</option>
+              <option value="อำเภอ3">อำเภอ3</option>
             </select>
 
-            <label>กรอกรหัสไปรษณีย์</label>
-            <select
-              name="Subdistrict"
-              placeholder="เลือกตำบล"
-              onChange={onChange}
-              required
-            >
-              <option value="none" selected disabled hidden>
-                ---เลือกตำบล---
+            <label>เลือกตำบล</label>
+            <select name="Subdistrict" onChange={onChange}>
+              <option value="none" hidden>
+                {String(Object(wat).Subdistrict)}
               </option>
               <option value="ตำบล1">ตำบล1</option>
               <option value="ตำบล2">ตำบล2</option>
+              <option value="ตำบล3">ตำบล3</option>
             </select>
           </div>
         </div>

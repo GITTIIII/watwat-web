@@ -48,7 +48,7 @@ func CreateItem(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"data": i})
 }
 
-// GET /place/:id
+// GET /item/:id
 func GetItemById(c *gin.Context) {
 	var item entity.Item
 	id := c.Param("id")
@@ -59,7 +59,7 @@ func GetItemById(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"data": item})
 }
 
-// GET /place
+// GET /item
 func ListItem(c *gin.Context) {
 	var item []entity.Item
 	if err := entity.DB().Preload("Status").Preload("Wat").Raw("SELECT * FROM items").Find(&item).Error; err != nil {
@@ -69,7 +69,7 @@ func ListItem(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"data": item})
 }
 
-// DELETE /place/:id
+// DELETE /item/:id
 func DeleteItem(c *gin.Context) {
 	id := c.Param("id")
 	if tx := entity.DB().Exec("DELETE FROM items WHERE id = ?", id); tx.RowsAffected == 0 {
@@ -79,7 +79,7 @@ func DeleteItem(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"data": id})
 }
 
-// PATCH /place
+// PATCH /item
 func UpdateItem(c *gin.Context) {
 	var item entity.Item
 	var result entity.Item

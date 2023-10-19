@@ -18,10 +18,10 @@ func CreateWat(c *gin.Context) {
 		return
 	}
 
-	// if tx := entity.DB().Where("id = ?", wat.MemberID).First(&member); tx.RowsAffected == 0 {
-	// 	c.JSON(http.StatusBadRequest, gin.H{"error": "wat not found"})
-	// 	return
-	// }
+	if tx := entity.DB().Where("id = ?", wat.MemberID).First(&member); tx.RowsAffected == 0 {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "wat not found"})
+		return
+	}
 
 	// สร้าง Wat
 	w := entity.Wat{
@@ -47,7 +47,7 @@ func CreateWat(c *gin.Context) {
 }
 
 // GET /wat/:id
-func GetWat(c *gin.Context) {
+func GetWatById(c *gin.Context) {
 	var wat entity.Wat
 	id := c.Param("id")
 	if err := entity.DB().Preload("Member").Raw("SELECT * FROM wats WHERE id = ?", id).Find(&wat).Error; err != nil {

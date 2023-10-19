@@ -7,6 +7,7 @@ import {
   GetMonk,
   DeleteMonkByID,
 } from "../../../../services/https/monk";
+import Cookies from "js-cookie";
 import "./index.css";
 
 const CreatorMonk = () => {
@@ -26,7 +27,7 @@ const CreatorMonk = () => {
     values.Name = value.Name;
     values.Birthday = value.Birthday;
     values.Rank = value.Rank;
-    values.WatID = 1;
+    values.WatID = Number(Cookies.get("memberID"));
 
     let res = await CreateMonk(values);
     if (res.status) {
@@ -133,7 +134,9 @@ const CreatorMonk = () => {
                     <td>{data.Name}</td>
                     <td>{data.Birthday}</td>
                     <td>{data.Rank}</td>
-                    <button onClick={() => handleDelete(data)}>ลบ</button>
+                    <td>
+                      <button onClick={() => handleDelete(data)}>ลบ</button>
+                    </td>
                   </tr>
                 );
               })}
