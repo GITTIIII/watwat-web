@@ -6,8 +6,8 @@ import { Pagination,Select  } from "antd";
 import { RequestInterface } from "../../../interfaces/IRequest";
 import {  GetRequestsEventNotNull } from "../../../services/https/request";
 import Cookies from "js-cookie";
-// import { WatsInterface } from "../../../interfaces/IWat";
-// import { GetWatByCreatorID } from "../../../services/https/wat";
+import { WatsInterface } from "../../../interfaces/IWat";
+import { GetWatByCreatorID } from "../../../services/https/wat";
 
 function AddEvent() {
   const [eventRequersts, setRequest] = useState<RequestInterface[]>([]);
@@ -21,17 +21,19 @@ function AddEvent() {
     }
     setRequest(res);
   };
-  // const [wat, setWat] = useState<WatsInterface[]>([]);
-  // const getWat = async () => {
-  //   let res = await GetWatByCreatorID(Number(memberID));
-  //   if (!Array.isArray(res)) {
-  //     res = [res];
-  //   }
-  //   setWat(res);
-  // };
+  const [wat, setWat] = useState<WatsInterface[]>([]);
+  Cookies.set('watIDforCreator', `${wat[0]?.ID}` , { expires: 1 });
+  const getWat = async () => {
+    let res = await GetWatByCreatorID(Number(memberID));
+    if (!Array.isArray(res)) {
+      res = [res];
+    }
+    setWat(res);
+  };
 
   useEffect(() => {
     geteventRequersts();
+    getWat();
   }, []);
   const filteredDataMember = eventRequersts.filter(item => item.MemberID === Number(memberID));
   const diplayfilteredData = filteredDataMember.slice(
@@ -48,7 +50,7 @@ function AddEvent() {
         <div className="heandcontantdata">
           <div className="heandpagedata title">กิจกรรมที่แจ้งขอจัด</div>
           <div className="heandpagedata addEvent">
-            <Link to="./createEventRequest">+ ขอจัดกิจกรรม</Link>
+            <Link to="./createEvents">+ ขอจัดกิจกรรม</Link>
           </div>
         </div>
         <div className="eventRequestHistory">
@@ -78,26 +80,6 @@ function AddEvent() {
             </div>
           </div>
           <div className="filterPage request">
-            {/* <div className="filter request">
-             <Select
-              className="filter-item request "
-              value={selectedWatId}
-              onChange={value => setSelectedWatId(value)}
-            >
-              <Select.Option value="thisWat">เฉพาะวัดนี้</Select.Option>
-              <Select.Option value="allWat">วัดทั้งหมด</Select.Option>
-            </Select>
-             <Select
-              className="filter-item request"
-              value={selectedStatusId}
-              onChange={value => setSelectedStatusId(value)}
-              >
-              <Select.Option value="all">ทั้งหมด</Select.Option>
-              <Select.Option value="1">รออนุมัติ</Select.Option>
-              <Select.Option value="2">อนุมัติ</Select.Option>
-              <Select.Option value="3">ไม่อนุมัติ</Select.Option>
-            </Select>
-            </div> */}
             <div className="paganav">
               {filteredDataMember.length > itemsPerPage && (
                 <Pagination

@@ -7,9 +7,8 @@ import { RequestInterface } from "../../../../interfaces/IRequest";
 import { GetRequestByEventId } from "../../../../services/https/request";
 import { HostsInterface } from "../../../../interfaces/IHost";
 import { GetHostById } from "../../../../services/https/host";
-import { GetStatusById, GetStatuses } from "../../../../services/https/status";
+import {  GetStatuses } from "../../../../services/https/status";
 import { StatusesInterface } from "../../../../interfaces/IStatus";
-import { eventNames } from "process";
 function DetailEvent() {
   let { id } = useParams();
   const [events, setEvent] = useState<EventRequestsInterface[]>([]);

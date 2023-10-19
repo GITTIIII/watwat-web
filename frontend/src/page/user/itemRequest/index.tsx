@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "./itemPage.css"
+// import "./itemPage.css"
 const ItemRequest = () => {
   return (
     <>

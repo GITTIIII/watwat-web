@@ -15,7 +15,7 @@ import { CreateHost, DeleteHostByID } from "../../../../services/https/host";
 import { RequestInterface } from "../../../../interfaces/IRequest";
 import { GetRequestByEventId } from "../../../../services/https/request";
 
-function UpdateEventRequest() {
+function UpdateEvents() {
   let navigate = useNavigate();
   const [messageApi, contextHolder] = message.useMessage();
   const [request, setRequest] = useState<RequestInterface>();
@@ -128,20 +128,20 @@ function UpdateEventRequest() {
     }
   };
 
-  // const getEventRequestById = async () => {
-  //   let res = await GetEventById(Number(id));
-  //   if (res) {
-  //     setEventRequest(res);
-  //     form.setFieldsValue({ 
-  //       EventName: res.EventName,
-  //       EventTypeID: res.EventTypeID,
-  //     });
-  //   }
-  // };
+  const getEventRequestById = async () => {
+    let res = await GetEventById(Number(id));
+    if (res) {
+      setEventRequest(res);
+      // form.setFieldsValue({ 
+      //   EventName: res.EventName,
+      //   EventTypeID: res.EventTypeID,
+      // });
+    }
+  };
 
   useEffect(() => {
     getEventType();
-    // getEventRequestById();
+    getEventRequestById();
     getRequestById();
   }, []);
 
@@ -391,4 +391,4 @@ function UpdateEventRequest() {
   );
 }
 
-export default UpdateEventRequest;
+export default UpdateEvents;

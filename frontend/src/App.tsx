@@ -21,9 +21,11 @@ import Placeform from "./page/user/placeRequest/place-form";
 import Donate from "./page/user/donate";
 
 //creater ส่วน แจ้งใช้งานเอง
-import MainCreater from "./page/creator/main";
+import MainCreator from "./page/creator/main";
 import AddEvent from "./page/creator/addEvent";
-import CreateEvent from "./page/creator/addEvent/createEvent";
+import CreateEvents from "./page/creator/addEvent/createEvents";
+import UpdateEvents from "./page/user/eventRequest/editEventRequest";
+import DetailEvents from "./page/creator/addEvent/detailEvent";
 import AddPlaceUse from "./page/creator/addPlaceUse";
 import AddItemLoan from "./page/creator/addItemLoan";
 
@@ -77,12 +79,14 @@ const router = createBrowserRouter(
       </Route>
 
       <Route path="" element={<AdminLayout />}></Route>
-        <Route path="/mainAdmin" element={<MainCreater />} />
+        <Route path="/mainAdmin" element={<MainCreator />} />
       
       <Route path="" element={<CreatorLayout />}>
-        <Route path="/mainCreater" element={<MainCreater />} />
+        <Route path="/mainCreator" element={<MainCreator />} />
         <Route path="/addEvent" element={<AddEvent />} />
-        <Route path="/addEvent/createEvent" element={<CreateEvent />} />
+        <Route path="/addEvent/createEvents" element={<CreateEvents />} />
+        <Route path="/addEvent/edit/:id" element={<UpdateEvents/>} />
+        <Route path="/addEvent/detail/:id" element={<DetailEvents/>} />
         <Route path="/addItemLoan" element={<AddItemLoan />} />
         <Route path="/addPlaceUse" element={<AddPlaceUse />} />
 
@@ -93,7 +97,7 @@ const router = createBrowserRouter(
         <Route path="/creatorDonate" element={<CreatorDonate />} />
 
         <Route path="/approveEvent" element={<RequsetEvent />} />
-        <Route path="/approveEvent/eventDetails" element={<EventDetails />} />
+        <Route path="/approveEvent/detail/:id" element={<EventDetails/>} />
       </Route>
     </>
   )

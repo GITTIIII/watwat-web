@@ -31,9 +31,8 @@ function EventRequestHistory({ data }: EventRequestHistoryProps) {
     if (id === undefined) {
       return "Unknown Status"; // Provide a default value when StatusID is undefined
     }
-  const statusObject = events.find((status) => status.ID === id);
-    // return statusObject ? statusObject.StatusName : "Unknown Status";
-    return 
+  const watbject = events.find((events) => events.ID === id);
+    return watbject ? watbject.EventName : "Unknown Status";
   };
   const getEvents = async () => {
     let res = await GetEvents();
@@ -91,8 +90,7 @@ function EventRequestHistory({ data }: EventRequestHistoryProps) {
   useEffect(() => {
     getStatus();
     getEvents();
-  }, []);
-   
+  }, []); 
 
   return (
     <>
@@ -119,7 +117,7 @@ function EventRequestHistory({ data }: EventRequestHistoryProps) {
             <div className="dataItem">
               <button
                 className="btndata"
-                onClick={() => navigate(`/eventRequest/detail/${e.EventID}`)}
+                onClick={() => navigate(`/addEvent/detail/${e.EventID}`)}
               >
                 <span>คลิกเพื่อดูข้อมูล</span>
               </button>

@@ -136,24 +136,24 @@ async function GetWat() {
   
     return res;
 }
-  // //forCreator
-  // async function GetWatByCreatorID(id: Number | undefined) {
-  //   const requestOptions = {
-  //     method: "GET",
-  //   };
+  //forCreator
+  async function GetWatByCreatorID(id: Number | undefined) {
+    const requestOptions = {
+      method: "GET",
+    };
   
-  //   let res = await fetch(`${apiUrl}/watCreator/${id}`, requestOptions)
-  //     .then((response) => response.json())
-  //     .then((res) => {
-  //       if (res.data) {
-  //         return res.data;
-  //       } else {
-  //         return false;
-  //       }
-  //     });
+    let res = await fetch(`${apiUrl}/watCreator/${id}`, requestOptions)
+      .then((response) => response.json())
+      .then((res) => {
+        if (res.data) {
+          return res.data;
+        } else {
+          return false;
+        }
+      });
   
-  //   return res;
-  // }
+    return res;
+  }
   export {
     GetWat,
     GetWatById,
@@ -162,5 +162,5 @@ async function GetWat() {
     DeleteWatByID,
     GetMember,
     GetWatByName,
-    // GetWatByCreatorID
+    GetWatByCreatorID
   };

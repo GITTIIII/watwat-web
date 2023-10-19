@@ -29,7 +29,7 @@ func main() {
 	r.POST("/wats", controller.CreateWat)
 	r.PATCH("/wats", controller.UpdateWat)
 	r.DELETE("/wats/:id", controller.DeleteWat)
-	// r.GET("/watCreator/:id", controller.GetWatByCreatorID)
+	r.GET("/watCreator/:id", controller.GetWatByCreatorID)
 	
 	// Events Routes
 	r.GET("/events", controller.ListEvents)

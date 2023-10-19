@@ -1,0 +1,61 @@
+.requestEvent-item.dataapprov{
+    gap: 10px;
+}
+.dataItem{
+    border-bottom: 1px solid black;
+    padding: 5px;
+}
+.btndata{
+    color:#F0A500;
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+.btndata:hover {
+    color: #334756;
+}
+.dataItemfridt{
+    border-bottom: 3px solid #D9D9D9;
+}
+.dataColounm{
+    border-left: 3px solid #D9D9D9;
+    border-right: 3px solid #D9D9D9;
+    padding: 5px;
+}
+.request_edit {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn {
+    border-radius: 10px;
+    padding: 5px 10px;
+    font-size: 10px;
+    border: none;
+}
+
+.btn.edit {
+    color: white;
+    background-color: #334756;
+}
+
+.btn.delete {
+    color: black;
+    background-color: white;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.btn.edit:hover {
+    color: black;
+    background-color: #F0A500;
+}
+
+.btn.delete:hover {
+    color: white;
+    background-color: #F0A500;
+}
