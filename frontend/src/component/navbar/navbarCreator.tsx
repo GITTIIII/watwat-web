@@ -6,7 +6,7 @@ export default function NavbarCreator() {
     <div className="horizontal-menu">
       <ul>
         <li className="manu-1">
-          <NavLink to="./main">
+          <NavLink to="./mainCreator">
             <span>หน้าหลัก</span>
           </NavLink>
         </li>

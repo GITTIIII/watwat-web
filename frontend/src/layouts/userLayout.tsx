@@ -8,7 +8,7 @@ export default function UserLayout() {
   return (
     <>
         <header>
-            {/* <NavbarUser /> */}
+            <NavbarUser />
         </header>
         <main style={{ backgroundImage: `url(${temple})` }}>
             <Outlet/>

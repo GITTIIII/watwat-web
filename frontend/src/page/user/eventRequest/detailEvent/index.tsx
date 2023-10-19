@@ -38,17 +38,7 @@ function DetailEvent() {
     }
     setHost(res);
   };
-// const getStatus = async (statusId: number | undefined) => {
-//   if (statusId === undefined) {
-//     return "Status is undefined";
-//   } else {
-//     let res = await GetStatusById(statusId);
-//     if (res) {
-//       res = [res];
-//     }
-//     setStatus(res);
-//   }
-//   };
+
   const getStatus = async () => {
     let res = await GetStatuses();
     if (!Array.isArray(res)) {
@@ -84,7 +74,7 @@ function DetailEvent() {
             <div className="datatitle nameEvent" >
               {events.map((e, index) => (
                 <div>
-                  <span>{e.EventName} :{e.StatusID} </span>
+                  <span>{e.EventName} : </span>
                   <span className="statusEvent-data">{getStatusNameById(e.StatusID)}</span>
                 </div>
               ))}
