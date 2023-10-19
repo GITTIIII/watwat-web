@@ -16,7 +16,6 @@ function EventRequest() {
   const filteredDataMember = eventRequersts.filter(item => item.MemberID === Number(memberID));
   const [selectedWatId, setSelectedWatId] = useState("thisWat");
   const [selectedStatusId, setSelectedStatusId] = useState("all");
-  const [total, settotal] = useState(eventRequersts.length);
   const filteredDatawat = selectedWatId === "thisWat"
     ? filteredDataMember.filter(item => item.WatID === Number(watID))
     : selectedWatId === "allWat" ? filteredDataMember

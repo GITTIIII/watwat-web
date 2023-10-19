@@ -1,15 +1,19 @@
-import '../createEventRequest/createEventRequest.css';
-import React, { useState, useEffect } from 'react';
-import { Link, NavLink, useNavigate ,useParams} from "react-router-dom";
-import { Form, message, } from "antd";
+import "../createEventRequest/createEventRequest.css";
+import React, { useState, useEffect } from "react";
+import { Link, NavLink, useNavigate, useParams } from "react-router-dom";
+import { Form, message } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons"; //for icon
 import { EventRequestsInterface } from "../../../../interfaces/IEventRequest";
-import { EventTypesInterface } from '../../../../interfaces/IEventType'; 
-import { GetEventById, GetEventTypes, UpdateEventRequests } from "../../../../services/https/event";
-import { CreateHost, DeleteHostByID } from '../../../../services/https/host';
-import { RequestInterface } from '../../../../interfaces/IRequest';
-import { GetRequestByEventId } from '../../../../services/https/request';
+import { EventTypesInterface } from "../../../../interfaces/IEventType";
+import {
+  GetEventById,
+  GetEventTypes,
+  UpdateEventRequests,
+} from "../../../../services/https/event";
+import { CreateHost, DeleteHostByID } from "../../../../services/https/host";
+import { RequestInterface } from "../../../../interfaces/IRequest";
+import { GetRequestByEventId } from "../../../../services/https/request";
 
 function UpdateEventRequest() {
   let navigate = useNavigate();
@@ -21,23 +25,23 @@ function UpdateEventRequest() {
   let { id } = useParams();
   // อ้างอิง form กรอกข้อมูล
   const [form] = Form.useForm();
-  
+
   const [input, setInput] = useState({
-    EventName: '',
-    DateBegin: '',
-    TimeOfBegin: '',
-    DateEnd: '',
-    TimeOfEnd: '',
-    OutPlace: '',
-    UserTel: '',
-    Description: '',
+    EventName: "",
+    DateBegin: "",
+    TimeOfBegin: "",
+    DateEnd: "",
+    TimeOfEnd: "",
+    OutPlace: "",
+    UserTel: "",
+    Description: "",
     EventID: null,
     EventTypeID: 1,
     StatusID: 1,
     Hosts: [""],
     MemberID: 1,
     WatID: 1,
-  })
+  });
   const handleInput = (e: any) => {
     const { name, value } = e.target;
 
@@ -103,15 +107,13 @@ function UpdateEventRequest() {
       setTimeout(function () {
         navigate("/eventRequest");
       }, 500);
-
     } else {
       messageApi.open({
         type: "error",
         content: "แก้ไขข้อมูลไม่สำเร็จ",
       });
     }
-
-  }
+  };
 
   const getEventType = async () => {
     let res = await GetEventTypes();
@@ -126,26 +128,20 @@ function UpdateEventRequest() {
     }
   };
 
-  const getEventRequestById = async () => {
-    let res = await GetEventById(Number(id));
-    if (res) {
-      setEventRequest(res);
-      console.log(res);
-      console.log("eg");
-      //set form ข้อมูลเริ่มของผู่้ใช้ที่เราแก้ไข
-      form.setFieldsValue({ 
-        EventName: res.EventName ,
-        EventTypeID : res.EventTypeID ,
-        // GenderID: res.GenderID,
-        // Email: res.Email,
-        // Phone: res.Phone,
-    });
-    }
-  };
+  // const getEventRequestById = async () => {
+  //   let res = await GetEventById(Number(id));
+  //   if (res) {
+  //     setEventRequest(res);
+  //     form.setFieldsValue({ 
+  //       EventName: res.EventName,
+  //       EventTypeID: res.EventTypeID,
+  //     });
+  //   }
+  // };
 
   useEffect(() => {
     getEventType();
-    getEventRequestById();
+    // getEventRequestById();
     getRequestById();
   }, []);
 
@@ -188,7 +184,7 @@ function UpdateEventRequest() {
   return (
     <>
       {contextHolder}
-       <Form
+      <Form
         name="basic"
         onFinish={handleSubmit}
         autoComplete="off"
@@ -249,7 +245,6 @@ function UpdateEventRequest() {
                     required
                   />
                 </div>
-                
               ))}
               {isInputVisible ? (
                 <div>
@@ -257,7 +252,7 @@ function UpdateEventRequest() {
                     type="text"
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
-                    onClick={ handleSaveInput}
+                    onClick={handleSaveInput}
                     id="host1"
                     className="hostinput"
                     name="HostName"
@@ -365,18 +360,18 @@ function UpdateEventRequest() {
                 onChange={handleRadioChange}
               />{" "}
               <label htmlFor="switch_right">ไม่ใช่</label>
-            </div>  
+            </div>
             {entertrainClick && (
-                <input
-                  type="number"
-                  id=""
-                  className="noEntertrainment"
-                  placeholder="เลขที่คำขอกิจกรรม"
-                  name="EventID"
-                  onChange={handleInput}
-                  required
-                />
-              )}
+              <input
+                type="number"
+                id=""
+                className="noEntertrainment"
+                placeholder="เลขที่คำขอกิจกรรม"
+                name="EventID"
+                onChange={handleInput}
+                required
+              />
+            )}
           </div>
           <div className="data description">
             <label htmlFor="">คำอธิบายกิจกรรม</label>
@@ -388,7 +383,7 @@ function UpdateEventRequest() {
             />
           </div>
           <div className="submitEventRequest">
-            <input type="submit" value="ยืนยัน" id='submitEventRequest'/>
+            <input type="submit" value="ยืนยัน" id="submitEventRequest" />
           </div>
         </div>
       </Form>

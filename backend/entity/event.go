@@ -6,7 +6,7 @@ import (
 
 type Event struct {
 	gorm.Model
-	EventName string
+	EventName 	string
 	DateBegin   string
 	TimeOfBegin string
 	DateEnd     string
