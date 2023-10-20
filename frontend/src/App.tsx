@@ -16,7 +16,7 @@ import CreateEventRequest from "./page/user/eventRequest/createEventRequest";
 import UpdateEventRequest from "./page/user/eventRequest/editEventRequest";
 import DetailEvent from "./page/user/eventRequest/detailEvent";
 import ItemRequest from "./page/user/itemRequest";
-import ItemRequestData from "./page/user/itemRequestData";
+import ItemRequestData from "./page/user/itemRequest/itemRequestData";
 import PlaceRequest from "./page/user/placeRequest";
 import Placeform from "./page/user/placeRequest/place-form";
 import Donate from "./page/user/donate";

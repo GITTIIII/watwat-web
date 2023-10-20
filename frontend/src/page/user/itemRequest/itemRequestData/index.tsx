@@ -2,10 +2,10 @@ import React from 'react';
 import './ItemRequestData.css';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from "react";
-import { MembersInterface } from "../../../interfaces/IMember";
-import { GetMemberById } from "../../../services/https/member";
-import { ItemsInterface } from "../../../interfaces/IItem";
-import { StatusesInterface } from '../../../interfaces/IStatus';
+import { MembersInterface } from "../../../../interfaces/IMember";
+import { GetMemberById } from "../../../../services/https/member";
+import { ItemsInterface } from "../../../../interfaces/IItem";
+import { StatusesInterface } from '../../../../interfaces/IStatus';
 
 function ItemRequestData() {
 
@@ -75,7 +75,7 @@ const [status3, setStatus3] = useState<StatusesInterface>({
   return (
     <div className="background">
       <div className="boxList-new">
-        <div className="out-content">รายการยืม/คืนล่าสุด</div>
+        <div className="out-content"><b>รายการยืม/คืนล่าสุด</b></div>
       <div className="boxList-new1">
         <div className="out-content0"><b>ชื่อผู้ยืม</b></div>
         <div className="out-content1">
