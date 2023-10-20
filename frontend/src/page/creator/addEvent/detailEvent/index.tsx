@@ -149,6 +149,7 @@ function DetailEvents() {
                     <span>ย้อนกลับ</span>
                   </Link>
                 </div>
+                
               </div>
             </div>
           </div>

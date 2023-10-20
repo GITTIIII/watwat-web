@@ -93,7 +93,9 @@ func main() {
 	r.GET("/requests", controller.ListRequersts)
 	r.GET("/requestsEvent", controller.GetRequestsEventNotNull)
 	r.GET("/requests/:id", controller.GetRequestByEventID)
-	r.DELETE("/requests/:id", controller.DeleteRequest)
+	r.DELETE("/requests/:id", controller.DeleteRequest) 
+
+	r.PATCH("/requests", controller.UpdateRequestEvents)
 
 	// host Routes
 	r.POST("/hosts", controller.CreateHost)

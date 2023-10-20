@@ -63,7 +63,7 @@ function ItemRequest() {
             content: "บันทึกข้อมูลสำเร็จ",
         });
         setTimeout(function() {
-          navigate("/ItemRequestData");
+          navigate("/ItemRequest/ItemRequestData");
         }, 2000);
     } else {
         messageApi.open({
@@ -91,7 +91,7 @@ function ItemRequest() {
     }
   };
 
-  var Member_ID = 1; // ตอนนี้ยังเป็นการเลือกไปเลย ว่าจะเอา id = 1
+  var Member_ID = 1;
   useEffect(() => {
     getMember(Member_ID);
     getItemListName();
@@ -145,9 +145,8 @@ function ItemRequest() {
             <b>กรอกรายละเอียดการยืม/คืน :</b>
           </div>
           <div className="text-long">
-            *หากบันทึกรายการยืมแล้ว ระบบแจ้งว่า <b>“รออนุมัติ”</b> ให้รอการอนุมัติจาก
-            Creator แต่ถ้ามีการแจ้งกลับมาว่า <b>“ยังไม่อนุมัติ”</b> ให้อ่านรายละเอียดที่
-            <b id="fontred2">หมายเหตุ</b> เพื่อตรวจสอบและทำการแก้ไขข้อมูล
+            *หากบันทึกรายการยืมแล้ว ระบบแจ้งสถานะ <b>“รออนุมัติ”</b> ให้รอการอนุมัติจาก
+            Creator เมื่อสถานะแจ้งว่า <b>“อนุมัติ”</b> จึงจะสามารถยืมสิ่งของได้ และตอนคืนให้กลับมาแก้ไขใส่ <b>จำนวนคืน</b> และทำการบันทึกข้อมูลให้เรียบร้อย
           </div>
           <div className="textHead1" id="colorBox">
             <b>ชื่อผู้ยืม*</b>

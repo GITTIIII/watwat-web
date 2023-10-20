@@ -141,13 +141,13 @@ const [status3, setStatus3] = useState<StatusesInterface>({
           <div className="data-Status">สถานะ</div>
           <div className="data-BoxStatus">
               <div className="data-codeStatus">
-                <input type="text" value={status1.StatusName} placeholder='รออนุมัติ/รออนุมัติ'></input>
+                <input type="text" value={status1.StatusName} placeholder='รออนุมัติ/อนุมัติ'></input>
               </div>
               <div className="data-codeStatus1">
-                <input type="text" value={status2.StatusName} placeholder='รออนุมัติ/รออนุมัติ'></input>
+                <input type="text" value={status2.StatusName} placeholder='รออนุมัติ/อนุมัติ'></input>
               </div>
               <div className="data-codeStatus2">
-                <input type="text" value={status3.StatusName} placeholder='รออนุมัติ/รออนุมัติ'></input>
+                <input type="text" value={status3.StatusName} placeholder='รออนุมัติ/อนุมัติ'></input>
               </div>
           </div>
         </div>

@@ -228,25 +228,5 @@ func UpdateEventRequests(c *gin.Context) {
 		return
 	}
 
-	// var existingHost[] entity.Host // Added a variable to hold the existing event
-	// fmt.Println(data.Hosts)
-	// if tx := entity.DB().Where("id = ?", data.ID).First(&existingHost); tx.RowsAffected == 0 {
-	// 	c.JSON(http.StatusBadRequest, gin.H{"error": "event not found"})
-	// 	return
-	// }
-
-	// for i := 0; i < len(data.Hosts); i++ {
-	// 	existingHost[i].HostName = data.Hosts[i]
-
-	// 	// Save the updated event back to the database
-	// 	if err := entity.DB().Save(&existingHost[i]).Error; err != nil {
-	// 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
-	// 		return
-	// 	}
-	// }
-
-	//delete Host
-
-	// c.JSON(http.StatusOK, gin.H{"data": gin.H{"eventUpdated": existingEvent, "RequestUpdated": existingRequest}})
 	c.JSON(http.StatusOK, gin.H{"data": gin.H{"eventUpdated": existingEvent}})
 }
