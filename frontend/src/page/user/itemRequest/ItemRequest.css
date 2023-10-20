@@ -32,21 +32,19 @@
   .text-long {
     position: relative;
     top: 10px;
-    margin-left: 860px;
+    margin-left: 850px;
     color: #334756;
   }
 
   #fontred1 {
-    color: red;
-    text-decoration: underline;
   }
 
   #fontred2 {
     color: red;
+    text-decoration: underline;
   }
 
   #fontblack {
-    text-decoration: underline;
   }
 
   .textHead1 {
