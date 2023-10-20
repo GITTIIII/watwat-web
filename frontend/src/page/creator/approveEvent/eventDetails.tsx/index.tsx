@@ -1,18 +1,25 @@
 import React, { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { EventRequestsInterface } from "../../../../interfaces/IEventRequest";
 import { GetEventById } from "../../../../services/https/event";
 import "../../../user/eventRequest/detailEvent/eventDetails.css";
+import "./eventDetails.css";
 import { RequestInterface } from "../../../../interfaces/IRequest";
-import { GetRequestByEventId } from "../../../../services/https/request";
+import {
+  GetRequestByEventId,
+  UpdateRequest,
+} from "../../../../services/https/request";
 import { HostsInterface } from "../../../../interfaces/IHost";
 import { GetHostById } from "../../../../services/https/host";
 import { GetStatuses } from "../../../../services/https/status";
 import { StatusesInterface } from "../../../../interfaces/IStatus";
 import SidebarCreater from "../../../../component/sidebar/sidebarCreater";
+import { Form, message } from "antd";
 
 function EventDetails() {
   let { id } = useParams();
+  let navigate = useNavigate();
+  const [messageApi, contextHolder] = message.useMessage();
   const [events, setEvent] = useState<EventRequestsInterface[]>([]);
   const [eventRequersts, setRequest] = useState<RequestInterface[]>([]);
   const [host, setHost] = useState<HostsInterface[]>([]);
@@ -60,15 +67,70 @@ function EventDetails() {
     gethosts();
     getStatus();
   }, []);
-  console.log(events[0]?.Status?.ID);
-  console.log(status);
-  console.log("status");
+  const [input, setInput] = useState({
+    Note: '',
+    DateTimeOfApproved: new Date().toLocaleString(),
+    StatusID: 1,
+    StatusEventID: 4,
+  });
 
+  const handleInput = (e: any) => {
+    setInput({
+      ...input,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+const handleStatus = (e: any) => {
+    if (e.target.name === "Approv") {
+      setInput({
+        ...input,
+        StatusID: 2,
+        StatusEventID: 4,
+      });
+    } else if (e.target.name === "NotApprov") {
+      setInput({
+        ...input,
+        StatusID: 3,
+        StatusEventID: 3,
+      });
+    }
+    
+  };
+  console.log(input.Note);
+  const handleSubmit = async (values: RequestInterface) => {
+    values.ID = eventRequersts[0]?.ID;
+    values.Note = input.Note;
+    values.DateTimeOfApproved = input.DateTimeOfApproved;
+    values.StatusID = input.StatusID;
+    values.StatusEventID = input.StatusEventID;
+    values.EventID = Number(id);
+
+    let res = await UpdateRequest(values);
+    if (res.status) {
+      messageApi.open({
+        type: "success",
+        content: "บันทึกข้อมูลสำเร็จ",
+      });
+      setTimeout(function () {
+        navigate("../approveEvent");
+      }, 500);
+    } else {
+      messageApi.open({
+        type: "error",
+        content: "บันทึกข้อมูลไม่สำเร็จ",
+      });
+    }
+  };
+  // console.log(eventRequersts[0]?.Note);
+  // console.log(input.Note);
+  console.log(input.StatusEventID);
   return (
     <>
+      {contextHolder}
       <div className="warpperMainCreator">
         <div className="sidebarCreator">
-          <SidebarCreater></SidebarCreater>
+          <SidebarCreater />
         </div>
         <div className="contantMainCreator">
           <div className="contantEvent details">
@@ -135,30 +197,55 @@ function EventDetails() {
                 ))}
               </div>
             </div>
-            {eventRequersts.map((e) => (
-              <div className="formNote">
-                <div className="note">
-                  <span>หมายเหตุ: </span>
-                </div>
-                <div className="noteData">
-                  <span>{e.Note}</span>
-                </div>
-              </div>
-            ))}
-            {host.map((e) => (
-              <div></div>
-            ))}
-            <div>
-              <div className="filterPage">
-                <div className="filterdetail">
-                  <div className="filter-item back">
-                    <Link to="../approveEvent">
-                      <span>ย้อนกลับ</span>
-                    </Link>
+            <Form onFinish={handleSubmit}>
+              <div>
+                {eventRequersts.map((e, index) => (
+                  <div className="formNote" key={index}>
+                    <div className="note">
+                      <span>หมายเหตุ: </span>
+                    </div>
+                    <div className="noteData">
+                      <input
+                        type="text"
+                        className="noteInput"
+                        placeholder={e.Note ?? ""}
+                        // value={input.Note}
+                        name="Note"
+                        onChange={handleInput}
+                      />
+                    </div>
                   </div>
-                </div>
+                ))}
+                {host.map((e) => (
+                  <div></div>
+                ))}
+                  <div className="filterPage">
+                    <div className="filterdetail">
+                      <div className="filter-item back">
+                        <Link to="../approveEvent">
+                          <span>ย้อนกลับ</span>
+                        </Link>
+                      </div>
+                    </div>
+                    <div className="filterdetail">
+                      <input
+                        type="submit"
+                        value="อนุมัติ"
+                        className="filter-item Approv"
+                        name="Approv"
+                        onClick={handleStatus}
+                      />
+                      <input
+                        type="submit"
+                        value="ไม่อนุมัติ"
+                        className="filter-item notApprov"
+                        name="NotApprov"
+                        onClick={handleStatus}
+                      />
+                    </div>
+                  </div>
               </div>
-            </div>
+            </Form>
           </div>
         </div>
       </div>

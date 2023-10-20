@@ -19,4 +19,7 @@ export interface RequestInterface {
     Wat?: WatsInterface;
     MemberID?: number;
     Member?: MembersInterface;
+
+    //for เปลี่ยนสถานะเมื่อ อนุมัติหรือไม่อนุมัติ
+    StatusEventID?: number ;
 }
