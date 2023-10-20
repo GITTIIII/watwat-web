@@ -16,6 +16,7 @@ import CreateEventRequest from "./page/user/eventRequest/createEventRequest";
 import UpdateEventRequest from "./page/user/eventRequest/editEventRequest";
 import DetailEvent from "./page/user/eventRequest/detailEvent";
 import ItemRequest from "./page/user/itemRequest";
+import ItemRequestData from "./page/user/itemRequest/itemRequestData";
 import PlaceRequest from "./page/user/placeRequest";
 import Placeform from "./page/user/placeRequest/place-form";
 import Donate from "./page/user/donate";
@@ -73,6 +74,7 @@ const router = createBrowserRouter(
         <Route path="/eventRequest/edit/:id" element={<UpdateEventRequest />} />
         <Route path="/eventRequest/detail/:id" element={<DetailEvent />} />
         <Route path="/itemRequest" element={<ItemRequest />} />
+        <Route path="/itemRequest/itemRequestData" element={<ItemRequestData />} />
         <Route path="/placeRequest" element={<PlaceRequest />} />
         <Route path="/placeForm" element={<Placeform />} />
         <Route path="/donate" element={<Donate />} />

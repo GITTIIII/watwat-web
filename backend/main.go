@@ -60,6 +60,13 @@ func main() {
 	r.PATCH("/items", controller.UpdateItem)
 	r.DELETE("/items/:id", controller.DeleteItem)
 
+	// ItemUse Routes
+	r.GET("/item_uses", controller.ListItemUse)
+	r.PATCH("/item_uses", controller.UpdateItemUse)
+	r.POST("/item_uses", controller.CreateItemUse)
+	r.DELETE("/item_uses/:id", controller.DeleteItemUse)
+	r.GET("/item_uses/byId/:id", controller.GetItemUseById)
+
 	// PlacesUses Routes
 	r.GET("/placeUses", controller.ListPlaceUse)
 	r.GET("/placeUses/byId/:id", controller.GetPlaceUseById)

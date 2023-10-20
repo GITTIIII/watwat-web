@@ -25,8 +25,8 @@ func SetupDatabase() {
 		&EventType{},
 		&Host{},
 		&Item{},
-		&ItemLoan{},
-		&ItemLoanItem{},
+		&ItemUse{},
+		&ItemUseItem{},
 		&Member{},
 		&Monk{},
 		&Place{},
@@ -114,6 +114,26 @@ func SetupDatabase() {
 
 	for _, Wat := range Wat {
 		db.Create(&Wat) // Assuming 'db' is your GORM database instance
+	}
+
+	Item := []Item { // phol make by mean
+		{
+			Name: "เก้าอี้แดง",
+			Amount: 200,
+		},
+		{	Name: "เก้าอี้น้ำเงิน",
+			Amount: 210,
+		},
+		{	Name: "เก้าอี้ขาว",
+			Amount: 220,
+		},
+		{	Name: "โต๊ะขาว",
+			Amount: 230,
+		},
+	}
+
+	for _, Item := range Item {
+		db.Create(&Item)
 	}
 
 }

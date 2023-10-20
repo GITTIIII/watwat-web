@@ -17,8 +17,8 @@ type Request struct {
 	MemberID   *uint
 	Member Member `gorm:"foreignKey:MemberID"`
 
-	ItemLoanID   *uint
-	ItemLoan ItemLoan `gorm:"foreignKey:ItemLoanID"`
+	Item_Use_ID   *uint
+	ItemUse ItemUse `gorm:"foreignKey:Item_Use_ID"`
 
 	StatusID *uint
 	Status   Status `gorm:"foreignKey:StatusID"`
