@@ -63,7 +63,7 @@ function ItemRequest() {
             content: "บันทึกข้อมูลสำเร็จ",
         });
         setTimeout(function() {
-          navigate("/ItemRequestData");
+          navigate("/ItemRequest/ItemRequestData");
         }, 2000);
     } else {
         messageApi.open({
