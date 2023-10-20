@@ -13,5 +13,5 @@ type Item struct {
 	WatID *uint
 	Wat   Wat `gorm:"foreignKeyID:WatID"`
 
-	ItemLoanItems []ItemLoanItem `gorm:"foreignKey:ItemID"`
+	ItemUseItems []ItemUseItem `gorm:"foreignKey:ItemID"`
 }

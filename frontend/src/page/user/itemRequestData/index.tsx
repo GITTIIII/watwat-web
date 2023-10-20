@@ -2,7 +2,7 @@ import React from "react";
 import { Link, NavLink, Navigate, useNavigate, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Form, message } from "antd";
-import "./ItemRequest.css"; // edit watwat-web
+// import "./ItemRequest.css"; // edit watwat-web
 
 import { MembersInterface } from "../../../interfaces/IMember"; // have
 import { GetMemberById } from "../../../services/https/member"; // have
@@ -12,7 +12,7 @@ import { ItemUsesInterface } from "../../../interfaces/IItemUse";
 import { CreateItemUse } from "../../../services/https/itemUse";
 import Cookies from "js-cookie";
 
-function ItemRequest() {
+function ItemRequestData() {
 
   const navigate = useNavigate();
 
@@ -258,4 +258,4 @@ function ItemRequest() {
   );
 }
 
-export default ItemRequest;
+export default ItemRequestData;

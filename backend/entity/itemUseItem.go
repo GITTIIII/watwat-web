@@ -4,13 +4,13 @@ import (
 	"gorm.io/gorm"
 )
 
-type ItemLoanItem struct {
+type ItemUseItem struct {
 	gorm.Model
 	
 	ItemID   *uint
 	Item Item `gorm:"foreignKey:ItemID"`
 
-	ItemLoanID   *uint
-	ItemLoan ItemLoan `gorm:"foreignKey:ItemLoanID"`
+	Item_Use_ID *uint
+	Item_Use ItemUse `gorm:"foreignKey:Item_Use_ID"`
 
 }
