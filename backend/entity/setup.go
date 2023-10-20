@@ -127,7 +127,7 @@ func SetupDatabase() {
 		{	Name: "เก้าอี้ขาว",
 			Amount: 220,
 		},
-		{	Name: "เก้าอี้ขาว",
+		{	Name: "โต๊ะขาว",
 			Amount: 230,
 		},
 	}
