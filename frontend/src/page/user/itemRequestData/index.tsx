@@ -1,259 +1,157 @@
-import React from "react"; 
-import { Link, NavLink, Navigate, useNavigate, useParams } from "react-router-dom";
+import React from 'react';
+import './ItemRequestData.css';
+import { Link } from 'react-router-dom';
 import { useState, useEffect } from "react";
-import { Form, message } from "antd";
-// import "./ItemRequest.css"; // edit watwat-web
-
-import { MembersInterface } from "../../../interfaces/IMember"; // have
-import { GetMemberById } from "../../../services/https/member"; // have
-import { GetItem } from "../../../services/https/item"; // have
-import { ItemsInterface } from "../../../interfaces/IItem"; // have
-import { ItemUsesInterface } from "../../../interfaces/IItemUse";
-import { CreateItemUse } from "../../../services/https/itemUse";
-import Cookies from "js-cookie";
+import { MembersInterface } from "../../../interfaces/IMember";
+import { GetMemberById } from "../../../services/https/member";
+import { ItemsInterface } from "../../../interfaces/IItem";
+import { StatusesInterface } from '../../../interfaces/IStatus';
 
 function ItemRequestData() {
 
-  const navigate = useNavigate();
+// ------------------------------------------------------------ getMember
+const [member, setMember] = useState<MembersInterface>({
+  Username: "",
+});
 
-  const [messageApi, contextHolder] = message.useMessage();
-
-  const [input1, setInput] = useState<ItemUsesInterface>({
-    Borrowed_Date: "",
-    Due_Date: "",
-    Return_Date: "",
-    Item_Use_AmountOne: 0,
-    Item_Use_ReturnOne: 0,
-    Item_Use_AmountTwo: 0,
-    Item_Use_ReturnTwo: 0,
-    Item_Use_AmountThree: 0,
-    Item_Use_ReturnThree: 0,
-  });
-
-  const handleInput = (e: any) => {
-    setInput({ ...input1, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    sentItemUseData(input1);
-    console.log(input1);
-  };
-
-  const CookieWat = Cookies.get("watID");
-  // console.log("MeanMeanMean", CookieWat);
-
-  const sentItemUseData = async (values: ItemUsesInterface) => {
-    values.Borrowed_Date = input1.Borrowed_Date;
-    values.Due_Date = input1.Due_Date;
-    values.Return_Date = input1.Return_Date;
-    values.Item_Use_AmountOne = parseInt(input1.Item_Use_AmountOne!.toString(), 10);
-    values.Item_Use_ReturnOne = parseInt(input1.Item_Use_ReturnOne!.toString(), 10);
-    values.Item_Use_AmountTwo = parseInt(input1.Item_Use_AmountTwo!.toString(), 10);
-    values.Item_Use_ReturnTwo = parseInt(input1.Item_Use_ReturnTwo!.toString(), 10);
-    values.Item_Use_AmountThree = parseInt(input1.Item_Use_AmountThree!.toString(), 10);
-    values.Item_Use_ReturnThree = parseInt(input1.Item_Use_ReturnThree!.toString(), 10);
-    // values.WatID = CookieWat;
-    console.log(values);
-
-    let res = await CreateItemUse(values);
-    if (res.status) {
-        messageApi.open({
-            type: "success",
-            content: "บันทึกข้อมูลสำเร็จ",
-        });
-        setTimeout(function() {
-          navigate("/ItemRequestData");
-        }, 2000);
-    } else {
-        messageApi.open({
-            type: "error",
-            content: "บันทึกข้อมูลไม่สำเร็จ",
-        });
-    }
-  };
-
-  const [member, setMember] = useState<MembersInterface>({
-    Username: "",
-  });
-
-  const getMember = async (id: Number) => {
+const getMember = async (id: Number) => {
     try {
-      let res = await GetMemberById(id);
-      if (res) {
-        setMember({
-          Username: res.Username,
-        });
-      }
+        let res = await GetMemberById(id);
+        if (res) {
+            setMember({
+                Username: res.Username,
+            });
+        }
     } catch (error) {
-      console.log(member);
-      console.error("Error fetching data:", error);
+        console.log(member);
+        console.error('Error fetching data:', error);
     }
-  };
+};
 
-  var Member_ID = 1; // ตอนนี้ยังเป็นการเลือกไปเลย ว่าจะเอา id = 1
-  useEffect(() => {
-    getMember(Member_ID);
-    getItemListName();
-  }, []);
+var Member_ID = 1; // 1 = siriphobmean (username)
+useEffect(() => {
+  getMember(Member_ID);
+}, []);
+// ------------------------------------------------------------ Item ID, NAME
+const [item1, setItem1] = useState<ItemsInterface>({
+  ID: 0, // edit!
+}); // รหัสสิ่งของ
 
-  const [item1, setItem1] = useState<ItemsInterface>({
-    ID: 1,
-  });
+const [itemName1, setItemName1] = useState<ItemsInterface>({
+  // ItemName: "เก้าอี้แดง", // edit to use -> getItemNameByID
+  Name: "",
+})
 
-  const [item2, setItem2] = useState<ItemsInterface>({
-    ID: 1,
-  });
+const [item2, setItem2] = useState<ItemsInterface>({
+  ID: 0, // edit!
+}); // รหัสสิ่งของ
 
-  const [item3, setItem3] = useState<ItemsInterface>({
-    ID: 1,
-  });
+const [itemName2, setItemName2] = useState<ItemsInterface>({
+  Name: "", // edit to use -> getItemNameByID
+})
 
-  const [itemID, setItemID] = useState<ItemsInterface[]>([]);
+const [item3, setItem3] = useState<ItemsInterface>({
+  ID: 0, // edit!
+}); // รหัสสิ่งของ
 
-  const getItemListName = async () => {
-    let res = await GetItem();
-    if (res) {
-      setItemID(res);
-    }
-  };
+const [itemName3, setItemName3] = useState<ItemsInterface>({
+  Name: "", // edit to use -> getItemNameByID
+})
+// ------------------------------------------------------------ Status NAME
+const [status1, setStatus1] = useState<StatusesInterface>({
+  // StatusName: "รออนุมัติ", // edit to use -> getStatusByID
+  StatusName: "",
+})
 
-  const handleChange1 = (e: any) => {
-    setItem1({
-      ID: e.target.value,
-    });
-  };
+const [status2, setStatus2] = useState<StatusesInterface>({
+  StatusName: "", // edit to use -> getStatusByID
+})
 
-  const handleChange2 = (e: any) => {
-    setItem2({
-      ID: e.target.value,
-    });
-  };
-
-  const handleChange3 = (e: any) => {
-    setItem3({
-      ID: e.target.value,
-    });
-  };
+const [status3, setStatus3] = useState<StatusesInterface>({
+  StatusName: "", // edit to use -> getStatusByID
+})
+// ------------------------------------------------------------
 
   return (
     <div className="background">
-      {contextHolder}
-      <form onSubmit={handleSubmit}>
-        <div className="content">
-          <div className="head-content">
-            <b>กรอกรายละเอียดการยืม/คืน :</b>
+      <div className="boxList-new">
+        <div className="out-content"><b>รายการยืม/คืนล่าสุด</b></div>
+      <div className="boxList-new1">
+        <div className="out-content0"><b>ชื่อผู้ยืม</b></div>
+        <div className="out-content1">
+          <div className="out-contentHead">
+            {member.Username}
           </div>
-          <div className="text-long">
-            *หากบันทึกรายการยืมแล้ว ระบบแจ้งว่า <b>“รออนุมัติ”</b> ให้รอการอนุมัติจาก
-            Creator แต่ถ้ามีการแจ้งกลับมาว่า <b>“ยังไม่อนุมัติ”</b> ให้อ่านรายละเอียดที่
-            <b id="fontred2">หมายเหตุ</b> เพื่อตรวจสอบและทำการแก้ไขข้อมูล
-          </div>
-          <div className="textHead1" id="colorBox">
-            <b>ชื่อผู้ยืม*</b>
-            <div className="textHeadShow" id="colorBoxShow">
-              <div className="textHeadShow1">{member.Username}</div>
-            </div>
-          </div>
-          <div className="textHead2" id="colorBox">
-            <b>วันที่ยืม*</b>
-            <input type="date" name="Borrowed_date" required onChange={handleInput} />
-          </div>
-          <div className="textHead3" id="colorBox">
-            <b>กำหนดคืน*</b>
-            <input type="date" name="Due_date" required onChange={handleInput} />
-          </div>
-          <div className="textHead4" id="colorBox">
-            <b>วันที่คืน</b>
-            <input type="date" name="Return_date" onChange={handleInput} />
-          </div>
-          <div className="listItem">
-            <b>รายการสิ่งของ</b>
-          </div>
-          <div className="boxList">
-            <div className="codeItem">รหัสสิ่งของ</div>
-            <div className="box-codeItem">
-              <div className="code-codeItem">
+        </div>
+      </div>
+      </div>
+      <div className="button-edit">
+        <Link to ='/ItemRequest'>แก้ไขข้อมูล</Link>
+      </div>
+      <div className="content-new">
+        <div className="boxListShow">
+          <div className="data-codeItem">รหัสสิ่งของ</div>
+          <div className="data-BoxcodeItem">
+              <div className="data-codecodeItem">
                 <input type="text" value={item1.ID} placeholder="0"></input>
               </div>
-              <div className="code-codeItem1">
+              <div className="data-codecodeItem1">
                 <input type="text" value={item2.ID} placeholder="0"></input>
               </div>
-              <div className="code-codeItem2">
-                <input type="text" value={item3.ID} placeholder="0"></input>
+              <div className="data-codecodeItem2">
+              <input type="text" value={item3.ID} placeholder="0"></input>
               </div>
-            </div>
-            <div className="nameItem">ชื่อสิ่งของ</div>
-            <div className="box-nameItem">
-              <div className="code-nameItem">
-                <select
-                  id="myComboBox"
-                  className="combo-box"
-                  onChange={handleChange1}
-                  onSelect={handleChange1}
-                >
-                  {itemID.map((item) => (
-                    <option value={item.ID} key={item.Name}>
-                      {item.Name}
-                    </option>
-                  ))}
-                </select>
-                <select
-                  id="myComboBox"
-                  className="combo-box1"
-                  onChange={handleChange2}
-                  onSelect={handleChange2}
-                >
-                  {itemID.map((item) => (
-                    <option value={item.ID} key={item.Name}>
-                      {item.Name}
-                    </option>
-                  ))}
-                </select>
-                <select
-                  id="myComboBox"
-                  className="combo-box2"
-                  onChange={handleChange3}
-                  onSelect={handleChange3}
-                >
-                  {itemID.map((item) => (
-                    <option value={item.ID} key={item.Name}>
-                      {item.Name}
-                    </option>
-                  ))}
-                </select>
+          </div>
+          <div className="data-nameItem">ชื่อสิ่งของ</div>
+          <div className="data-BoxnameItem">
+              <div className="data-codenameItem">
+                <input type="text" value={itemName1.Name} placeholder='ชื่อสิ่งของ'></input>
               </div>
-            </div>
-            <div className="yItem">จำนวนยืม</div>
-            <div className="box-yItem">
-              <div className="code-yItem">
-                <input type="number" name="Item_Use_AmountOne" placeholder="0" onChange={handleInput} />
+              <div className="data-codenameItem1">
+                <input type="text" value={itemName2.Name} placeholder='ชื่อสิ่งของ'></input>
               </div>
-              <div className="code-yItem1">
-              <input type="number" name="Item_Use_AmountTwo" placeholder="0" onChange={handleInput} />
+              <div className="data-codenameItem2">
+              <input type="text" value={itemName3.Name} placeholder='ชื่อสิ่งของ'></input>
               </div>
-              <div className="code-yItem2">
-              <input type="number" name="Item_Use_AmountThree" placeholder="0" onChange={handleInput} />
+          </div>
+          <div className="data-yItem">จำนวนยืม</div>
+          <div className="data-BoxyItem">
+              <div className="data-codeyItem">
+                <input type="text" placeholder="0"></input>
               </div>
-            </div>
-            <div className="kItem">จำนวนคืน</div>
-            <div className="box-kItem">
-              <div className="code-kItem">
-                <input type="number" name="Item_Use_ReturnOne" placeholder="0" onChange={handleInput} />
+              <div className="data-codeyItem1">
+                <input type="text" placeholder="0"></input>
               </div>
-              <div className="code-kItem1">
-              <input type="number" name="Item_Use_ReturnTwo" placeholder="0" onChange={handleInput} />
+              <div className="data-codeyItem2">
+                <input type="text" placeholder="0"></input>
               </div>
-              <div className="code-kItem2">
-              <input type="number" name="Item_Use_ReturnThree" placeholder="0" onChange={handleInput} />
+          </div>
+          <div className="data-kItem">จำนวนคืน</div>
+          <div className="data-BoxkItem">
+              <div className="data-codekItem">
+                <input type="text" placeholder="0"></input>
               </div>
-            </div>
+              <div className="data-codekItem1">
+                <input type="text" placeholder="0"></input>
+              </div>
+              <div className="data-codekItem2">
+                <input type="text" placeholder="0"></input>
+              </div>
+          </div>
+          <div className="data-Status">สถานะ</div>
+          <div className="data-BoxStatus">
+              <div className="data-codeStatus">
+                <input type="text" value={status1.StatusName} placeholder='รออนุมัติ/รออนุมัติ'></input>
+              </div>
+              <div className="data-codeStatus1">
+                <input type="text" value={status2.StatusName} placeholder='รออนุมัติ/รออนุมัติ'></input>
+              </div>
+              <div className="data-codeStatus2">
+                <input type="text" value={status3.StatusName} placeholder='รออนุมัติ/รออนุมัติ'></input>
+              </div>
           </div>
         </div>
-        <div className="save-button">
-            <button className="save-button1" type="submit">บันทึก</button>
-        </div>
-      </form>
+      </div>
     </div>
   );
 }
