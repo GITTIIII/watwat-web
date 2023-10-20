@@ -2,15 +2,13 @@
     background-color: #bdbdbd;
     width: 100vw; /* กว้างเท่ากับหน้าจอ */
     height: 100vh; /* สูงเท่ากับหน้าจอ */
-    position: fixed;
   }
 
   /* --------------------------- Code Content By MeanGPT ----------------------------------- */
   .content { /* Box รายการสิ่งของ */
     position: relative;
-    /* border: 5px solid black; */
     background-color: white;
-    margin-top: 110px;
+    margin-top: -80px;
     margin-left: 30px;
     height: 510px;
     width: 1480px;
@@ -18,10 +16,8 @@
 
   .head-content {
     position: relative;
-    /* border: 5px solid black; */
     background-color: #334756;
     margin-top: 110px;
-    /* margin-left: 3px; */
     height: 60px;
     width: 1480px;
     color: white;
@@ -58,14 +54,6 @@
     margin-left: 40px;
     margin-top: -25px;
   }
-
-  /* .textHead1 input {
-    position: relative;
-    top: 30px;
-    left: -60px;
-    cursor: pointer;
-    text-align: center;
-  } */
 
   .textHead1 .textHeadShow {
     position: relative;
@@ -160,7 +148,7 @@
     margin-bottom: 10px;
     padding: 5px;
     width: 250px;
-    height: 20px;
+    height: 35px;
   }
   
   .nameItem {
@@ -170,8 +158,8 @@
     padding: 5px;
     width: 550px;
     margin-left: 300px;
-    margin-top: -209.5px;
-    height: 20px;
+    margin-top: -205px;
+    height: 35px;
   }
   
   .yItem {
@@ -181,8 +169,8 @@
     padding: 5px;
     width: 200px;
     margin-left: 900px;
-    margin-top: -209.5px;
-    height: 20px;
+    margin-top: -205px;
+    height: 35px;
   }
   
   .kItem {
@@ -192,8 +180,8 @@
     padding: 5px;
     width: 200px;
     margin-left: 1150px;
-    margin-top: -209.5px;
-    height: 20px;
+    margin-top: -205px;
+    height: 35px;
   }
   
   /* --------------------------- Code (in) Box List By MeanGPT ----------------------------------- */
@@ -202,7 +190,7 @@
     margin-bottom: 10px;
     padding: 5px;
     width: 250px;
-    height: 140px;
+    height: 150px;
   }
   
   .box-nameItem {
@@ -212,7 +200,7 @@
     width: 550px;
     margin-left: 300px;
     margin-top: 0px;
-    height: 140px;
+    height: 150px;
   }
   
   .box-yItem {
@@ -222,7 +210,7 @@
     width: 200px;
     margin-left: 900px;
     margin-top: 0px;
-    height: 140px;
+    height: 150px;
   }
   
   .box-kItem {
@@ -232,15 +220,10 @@
     width: 200px;
     margin-left: 1150px;
     margin-top: 0px;
-    height: 140px;
+    height: 150px;
   }
   
   /* --------------------------- Code (in-in) Box List By MeanGPT ----------------------------------- */
-  /* .code-codeItem {
-    background-color: #D9D9D9;
-    padding: 10px 10px;
-    text-align: center;
-  } */
 
   .code-codeItem input {
     margin-top: 1px;
@@ -248,7 +231,7 @@
     background-color: #D9D9D9;
     text-align: center;
     height: 40px;
-    width: 245px;
+    width: 233.5px;
     margin-left: 1px;
   }
 
@@ -258,7 +241,7 @@
     background-color: #D9D9D9;
     text-align: center;
     height: 40px;
-    width: 245px;
+    width: 233.5px;
     margin-left: 1px;
   }
 
@@ -268,21 +251,9 @@
     background-color: #D9D9D9;
     text-align: center;
     height: 40px;
-    width: 245px;
+    width: 233.5px;
     margin-left: 1px;
   }
-  
-  /* .code-nameItem {
-    background-color: #D9D9D9;
-    padding: 10px 10px;
-    text-align: center;
-  } */
-  
-  /* .code-yItem {
-    background-color: #D9D9D9;
-    padding: 10px 10px;
-    text-align: center;
-  } */
 
   .code-yItem input {
     margin-top: 1px;
@@ -290,8 +261,7 @@
     background-color: #D9D9D9;
     text-align: center;
     height: 40px;
-    width: 195px;
-    /* margin-left: 0.5px; */
+    width: 186px;
   }
 
   .code-yItem1 input {
@@ -300,8 +270,7 @@
     background-color: #D9D9D9;
     text-align: center;
     height: 40px;
-    width: 195px;
-    /* margin-left: 0.5px; */
+    width: 186px;
   }
 
   .code-yItem2 input {
@@ -310,15 +279,8 @@
     background-color: #D9D9D9;
     text-align: center;
     height: 40px;
-    width: 195px;
-    /* margin-left: 0.5px; */
+    width: 186px;
   }
-  
-  /* .code-kItem {
-    background-color: #D9D9D9;
-    padding: 10px 10px;
-    text-align: center;
-  } */
 
   .code-kItem input {
     margin-top: 1px;
@@ -326,7 +288,7 @@
     background-color: #D9D9D9;
     text-align: center;
     height: 40px;
-    width: 195px;
+    width: 186px;
   }
 
   .code-kItem1 input {
@@ -335,7 +297,7 @@
     background-color: #D9D9D9;
     text-align: center;
     height: 40px;
-    width: 195px;
+    width: 186px;
   }
 
   .code-kItem2 input {
@@ -344,7 +306,7 @@
     background-color: #D9D9D9;
     text-align: center;
     height: 40px;
-    width: 195px;
+    width: 186px;
   }
   
   /* --------------------------- Code Footer Button by MeanGPT ----------------------------------- */
@@ -354,8 +316,8 @@
     border-radius: 10px;
     padding: 10px 10px;
     font-size: 16px;
-    width: 110px;
-    height: 30px;
+    width: 120px;
+    height: 45px;
     position: absolute;
     margin-left: 1380px;
     top: 635px;
@@ -374,26 +336,17 @@
     cursor: pointer;
   }
 
-  .save-button a {
+  /* .save-button a {
     color: white;
     text-decoration: none;
-  }
+  } */
 
   /* --------------------------- Code Select Box by MeanGPT ----------------------------------- */
 
-  /* .combo-box {
-    width: 200px;
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    outline: none;
-    text-align: center;
-  } */
-
   .combo-box {
     margin-top: 1px;
-    width: 550px;
-    height: 42px;
+    width: 535px;
+    height: 40px;
     border: none;
     text-align: center;
     background-color: #D9D9D9;
@@ -401,8 +354,8 @@
 
   .combo-box1 {
     margin-top: 6px;
-    width: 550px;
-    height: 42px;
+    width: 535px;
+    height: 40px;
     border: none;
     text-align: center;
     background-color: #D9D9D9;
@@ -410,14 +363,13 @@
 
   .combo-box2 {
     margin-top: 6px;
-    width: 550px;
-    height: 42px;
+    width: 535px;
+    height: 40px;
     border: none;
     text-align: center;
     background-color: #D9D9D9;
   }
-  
-  /* สไตล์สำหรับตัวเลือกในคอมโบบ็อกซ์ */
+
   .combo-box option {
     padding: 5px;
     background-color: white;
