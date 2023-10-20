@@ -91,7 +91,7 @@ function ItemRequest() {
     }
   };
 
-  var Member_ID = 1; // ตอนนี้ยังเป็นการเลือกไปเลย ว่าจะเอา id = 1
+  var Member_ID = 1;
   useEffect(() => {
     getMember(Member_ID);
     getItemListName();
