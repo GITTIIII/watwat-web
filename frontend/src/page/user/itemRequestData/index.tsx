@@ -75,7 +75,7 @@ const [status3, setStatus3] = useState<StatusesInterface>({
   return (
     <div className="background">
       <div className="boxList-new">
-        <div className="out-content"><b>รายการยืม/คืนล่าสุด</b></div>
+        <div className="out-content">รายการยืม/คืนล่าสุด</div>
       <div className="boxList-new1">
         <div className="out-content0"><b>ชื่อผู้ยืม</b></div>
         <div className="out-content1">
