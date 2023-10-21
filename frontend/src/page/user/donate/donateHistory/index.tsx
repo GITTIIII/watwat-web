@@ -146,6 +146,7 @@ export default function Index() {
                 <div className="middle_container">
                     <div className="titleBar">
                         <h2>ประวัติการบริจาค</h2>
+                        
                     </div>
                 </div>
                 <br />
