@@ -227,7 +227,6 @@ function CreateEvents() {
               )}
             </div>
           </div>
-          
           <div className="data dateTimeEvent">
             <label htmlFor="">
               ระยะเวลา
