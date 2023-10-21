@@ -204,6 +204,9 @@ const handleStatus = (e: any) => {
                 {eventRequersts.map((e, index) => (
                   <div className="formNote" key={index}>
                     <div className="note">
+                      <span>วันอนุมัติ : {e.UpdatedAt?.slice(0, 10)} </span>
+                    </div>
+                    <div className="note">
                       <span>หมายเหตุ: </span>
                     </div>
                     <div className="noteData">
@@ -211,7 +214,6 @@ const handleStatus = (e: any) => {
                         type="text"
                         className="noteInput"
                         placeholder={e.Note ?? ""}
-                        // value={input.Note}
                         name="Note"
                         onChange={handleInput}
                       />

@@ -132,6 +132,9 @@ function DetailEvent() {
           {eventRequersts.map((e) => (
             <div className="formNote">
               <div className="note">
+                <span>วันอนุมัติ:{e.UpdatedAt?.slice(0, 10)} </span>
+              </div>
+              <div className="note">
                 <span>หมายเหตุ: </span>
               </div>
               <div className="noteData">
