@@ -59,11 +59,15 @@
     align-items: center;
 }
 .note{
-    width: 10%;
+    width: 15%;
+    padding: 15px;
+}
+.note-name{
+    width: 8%;
     padding: 15px;
 }
 .noteData{
-    width: 90%;
+    width: 77%;
     height: 100%;
 }
 

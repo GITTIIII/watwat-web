@@ -43,7 +43,7 @@
     row-gap: 20px;
     width: 100%;
     text-align: center;
-    font-size: 2vh;
+    font-size: 1em;
     background-color: white;
     border-radius: 20px;
     margin-bottom: 20px ;
@@ -58,6 +58,7 @@
     margin: 10px;
     grid-area: 4/2;
     margin: auto;
+    font-size: 1em;
     display: flex;
 }
 

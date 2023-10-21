@@ -13,7 +13,7 @@
 
 .place-top-form{
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: 50% 50%;
     gap: 20px ;
     margin: 20px;
     align-content: center;
@@ -23,12 +23,12 @@
     display: block;
     margin: auto;
     width: 200px;
-    font-size: 1.5em;
+    font-size: 1.2em;
     color: white;
 }
 
 .place-form-box input {
-    font-size: 2vh;
+    font-size: 1.2em;
     width: 50%;
     height: 50%;
     padding: 0px 20px;
