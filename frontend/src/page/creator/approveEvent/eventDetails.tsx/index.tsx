@@ -122,8 +122,6 @@ const handleStatus = (e: any) => {
       });
     }
   };
-  // console.log(eventRequersts[0]?.Note);
-  // console.log(input.Note);
   console.log(input.StatusEventID);
   return (
     <>
@@ -176,7 +174,16 @@ const handleStatus = (e: any) => {
                     </div>
                     <div className="detail-data">
                       <span>{e.OutPlace}</span>
-                    </div>{" "}
+                    </div>
+                    {e.EventID !== null ? (
+                    <div>
+                      <div className="title-namedata">
+                        <span>เป็นมหรสพของ</span>
+                      </div>
+                      <div className="detail-data">
+                        <span>เลขที่คำขอ {e.EventID}</span>
+                      </div>
+                      </div>): (<></>)}
                   </div>
                 ))}
                 <div className="title-namedata">
@@ -206,7 +213,7 @@ const handleStatus = (e: any) => {
                     <div className="note">
                       <span>วันอนุมัติ : {e.UpdatedAt?.slice(0, 10)} </span>
                     </div>
-                    <div className="note">
+                    <div className="note-name">
                       <span>หมายเหตุ: </span>
                     </div>
                     <div className="noteData">

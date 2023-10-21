@@ -7,6 +7,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+
 // POST /wat
 func CreateWat(c *gin.Context) {
 	var wat entity.Wat

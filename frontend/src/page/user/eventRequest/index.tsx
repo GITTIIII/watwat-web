@@ -4,7 +4,7 @@ import EventRequestHistory from "./eventRequestHistory/eventRequestHistory";
 import { Link } from "react-router-dom";
 import { Pagination,Select  } from "antd";
 import { RequestInterface } from "../../../interfaces/IRequest";
-import { GetRequests, GetRequestsEventNotNull } from "../../../services/https/request";
+import { GetRequestsEventNotNull } from "../../../services/https/request";
 import Cookies from "js-cookie";
 
 function EventRequest() {
@@ -12,6 +12,7 @@ function EventRequest() {
   const [currentPage, setCurrentPage] = useState(1);
   const watID = Cookies.get("watID");
   const memberID = Cookies.get("memberID");
+
   const itemsPerPage = 11;
   const filteredDataMember = eventRequersts.filter(item => item.MemberID === Number(memberID));
   const [selectedWatId, setSelectedWatId] = useState("thisWat");

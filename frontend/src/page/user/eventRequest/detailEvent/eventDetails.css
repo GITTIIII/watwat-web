@@ -62,8 +62,12 @@
     width: 15%;
     padding: 15px;
 }
+.note-name{
+    width: 8%;
+    padding: 15px;
+}
 .noteData{
-    width: 70%;
+    width: 77%;
     height: 100%;
 }
 
