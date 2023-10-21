@@ -122,8 +122,6 @@ const handleStatus = (e: any) => {
       });
     }
   };
-  // console.log(eventRequersts[0]?.Note);
-  // console.log(input.Note);
   console.log(input.StatusEventID);
   return (
     <>

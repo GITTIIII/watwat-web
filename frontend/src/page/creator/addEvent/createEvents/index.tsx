@@ -166,7 +166,6 @@ function CreateEvents() {
               onChange={handleInput}
               required
             />
-
             <select
               id="eventType"
               className="selects"
@@ -232,7 +231,6 @@ function CreateEvents() {
             <label htmlFor="">
               ระยะเวลา
               <span className="more dateTime">
-                {" "}
                 (วัน-เวลา หากมีมหรสพให้รวมไปด้วย)
               </span>
             </label>
