@@ -13,7 +13,7 @@ export default function SidebarCreater() {
                 <li key={index} className={item.cName}>
                   <NavLink to={item.path}>
                     <span>{item.title}</span>
-                  </NavLink>
+                  </NavLink>;,l;
                 </li>
               );
             })}
