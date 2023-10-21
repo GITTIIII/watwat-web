@@ -141,6 +141,7 @@ export default function Index() {
     return (
         <>
             <div className="blackbbbbg">
+                <br />
                 {contextHolder}
                 <div className="middle_container">
                     <div className="titleBar">
@@ -159,7 +160,7 @@ export default function Index() {
                                         <div className="middle_container">
 
                                             <div className="instruction">
-                                                <h3>กรุณากรอกข้อมูลให้เรียบร้อย</h3>
+                                                <h3>ประวัติการบริจาคของคุณ</h3>
                                             </div>
                                         </div>
                                         <br />
@@ -180,7 +181,7 @@ export default function Index() {
                                             <br />
                                             <div className="middle_container">
                                                 <div className="instruction2">
-                                                    <h3>ช่องทางการบริจาคสิ่งของออนไลน์</h3>
+                                                    <h3>ข้อมูลการบริจาค</h3>
                                                 </div>
                                                 <br />
                                             </div>
