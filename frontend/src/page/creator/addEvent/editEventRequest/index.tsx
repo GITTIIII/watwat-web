@@ -44,7 +44,6 @@ function UpdateEvents() {
   });
   const handleInput = (e: any) => {
     const { name, value } = e.target;
-
     if (name === "EventTypeID") {
       setInput({
         ...input,
@@ -132,10 +131,7 @@ function UpdateEvents() {
     let res = await GetEventById(Number(id));
     if (res) {
       setEventRequest(res);
-      // form.setFieldsValue({ 
-      //   EventName: res.EventName,
-      //   EventTypeID: res.EventTypeID,
-      // });
+
     }
   };
 
