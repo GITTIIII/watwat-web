@@ -135,7 +135,7 @@ function EventRequestHistory({ data }: EventRequestHistoryProps) {
               <div className="request_edit">
                 <button
                   className="btn edit"
-                  onClick={() => navigate(`/eventRequest/edit/${e.EventID}`)}
+                  onClick={() => navigate(`/addEvent/edit/${e.EventID}`)}
                 >
                   แก้ไข
                 </button>
