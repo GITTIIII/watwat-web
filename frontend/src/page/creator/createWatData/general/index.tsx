@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import SidebarCreatorWatData from "../../../../component/sidebar/sidebarCreatorWatData";
 import { Form, message } from "antd";
 import { WatsInterface } from "../../../../interfaces/IWat";
-import { UpdateWat, GetWatById } from "../../../../services/https/wat";
+import { UpdateWat, GetWatByCreatorID } from "../../../../services/https/wat";
 import Cookies from "js-cookie";
 import "./index.css";
 
@@ -29,7 +29,7 @@ const CreatorGeneral = () => {
   };
 
   const handleSubmit = async (values: WatsInterface) => {
-    values.ID = Number(Cookies.get("memberID"));
+    values.ID = Number(Object(wat).ID);
     values.Name = value.Name;
     values.Abbot = value.Abbot;
     values.Description = value.Description;
@@ -58,7 +58,7 @@ const CreatorGeneral = () => {
   };
 
   const getWat = async () => {
-    let res = await GetWatById(Number(Cookies.get("memberID")));
+    let res = await GetWatByCreatorID(Number(Cookies.get("memberID")));
     if (res) {
       setWat(res);
     }
