@@ -40,7 +40,19 @@ function ItemRequest() {
     console.log(input1);
   };
 
-  const CookieWat = Cookies.get("watID");
+  // const CookieWat = Cookies.get("watID");
+
+  const watID = Cookies.get("watID");
+  let getwatID = 0;
+  if (watID !== undefined) {
+    getwatID = parseInt(watID, 10);
+  }
+  const memberID = Cookies.get("memberID");
+  let getMemberID = 0;
+  if (memberID !== undefined) {
+    getMemberID = parseInt(memberID, 10);
+  }
+
   // console.log("MeanMeanMean", CookieWat);
 
   const sentItemUseData = async (values: ItemUsesInterface) => {
@@ -91,7 +103,7 @@ function ItemRequest() {
     }
   };
 
-  var Member_ID = 1;
+  var Member_ID = getMemberID;
   useEffect(() => {
     getMember(Member_ID);
     getItemListName();

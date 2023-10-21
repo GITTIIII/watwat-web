@@ -48,7 +48,7 @@ func CreateItemUse(c *gin.Context) {
 func GetItemUseById(c *gin.Context) {
 	var itemUse entity.ItemUse
 	id := c.Param("id")
-	if err := entity.DB().Preload("ActionType").Raw("SELECT * FROM item_uses WHERE id = ?", id).Find(&itemUse).Error; err != nil {
+	if err := entity.DB().Raw("SELECT * FROM item_uses WHERE id = ?", id).Find(&itemUse).Error; err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
@@ -60,7 +60,7 @@ func GetItemUseById(c *gin.Context) {
 // GET /itemUse
 func ListItemUse(c *gin.Context) {
 	var itemUse []entity.ItemUse
-	if err := entity.DB().Preload("ActionType").Raw("SELECT * FROM item_uses").Find(&itemUse).Error; err != nil {
+	if err := entity.DB().Raw("SELECT * FROM item_uses").Find(&itemUse).Error; err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
