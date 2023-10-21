@@ -101,6 +101,16 @@ func main() {
 	r.POST("/hosts", controller.CreateHost)
 	r.GET("/hosts/:id", controller.GetHost)
 	r.DELETE("/hosts/:id", controller.DeleteHost)
+
+	// Donate Routes
+	r.POST("/CreateDonate", controller.CreateDonate)
+	r.GET("/GetDonatesForMember/:id", controller.GetDonateListFromMemID)
+	r.GET("/GetDonatesForWat/:id", controller.GetDonateListFromWatID)
+	r.GET("/GetDonateSumForMember/:id", controller.GetDonateSumFromMemberID)
+	r.GET("/GetShippingAgentList", controller.ListShippingAgents)
+	r.PATCH("/updateDonateStatusReceive/:id", controller.UpdateStatusReceived)
+	r.PATCH("/updateDonateStatusDecline/:id", controller.UpdateStatusDecline)
+	
 	// Run the server
 	r.Run()
 }
