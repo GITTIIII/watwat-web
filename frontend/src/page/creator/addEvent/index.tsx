@@ -76,7 +76,7 @@ function AddEvent() {
               </div>
             </div>
             <div className="requestEvent-itemtr">
-              <EventRequestHistory data={diplayfilteredData} />
+              <EventRequestHistory data={diplayfilteredData.reverse()} />
             </div>
           </div>
           <div className="filterPage request">

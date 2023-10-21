@@ -2,7 +2,7 @@
   "git.ignoreLimitWarning": true,
   "workbench.activityBar.iconClickBehavior": "toggle",
   "workbench.activityBar.visible": true,
-  "workbench.colorTheme": "Tomorrow Night Blue",
+  "workbench.colorTheme": "Visual Studio Dark - C++",
   "workbench.iconTheme": "vs-seti",
   "workbench.preferredDarkColorTheme": "Default High Contrast",
   "workbench.sideBar.location": "left",

@@ -101,7 +101,7 @@ function CreateEventRequest() {
       });
       setTimeout(function () {
         navigate("/eventRequest");
-      }, 2000);
+      }, 500);
     } else {
       messageApi.open({
         type: "error",

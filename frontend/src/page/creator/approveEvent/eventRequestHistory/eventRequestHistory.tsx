@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../../../user/eventRequest/eventRequestHistory/eventRequestHistory.css";
+import "./eventRequestHistory.css";
 import { useNavigate } from "react-router-dom";
 import { GetEvents } from "../../../../services/https/event";
 import { GetStatuses } from "../../../../services/https/status";
@@ -73,9 +74,9 @@ function EventRequestHistory({ data }: EventRequestHistoryProps) {
               <span>{e.UpdatedAt?.slice(0, 10)}</span>
             </div>
           </div>
-          <div className="dataColounm">
-            <div className="dataItem">
-              <span>{getEventNameById(e.EventID)}</span>
+          <div className="dataColounm name">
+            <div className="dataItem name">
+              <span>{getEventNameById(e.EventID)?.slice(0, 30)}</span>
             </div>
           </div>
           <div className="dataColounm">
@@ -85,7 +86,10 @@ function EventRequestHistory({ data }: EventRequestHistoryProps) {
           </div>
           <div className="dataColounm">
             <div className="dataItem">
-              <span>{getStatusNameById(e.StatusID)}</span>
+              <span
+                className={e.StatusID===1 ? "s-wait": e.StatusID===2 ? "s-approv" : e.StatusID===3 ? "s-notapprov" : e.StatusID===4 ? "s-waitEvent" :e.StatusID===2 ? "s-succeedEvent" :" "}
+              >
+                {getStatusNameById(e.StatusID)}</span>
             </div>
           </div>
           <div className="dataColounm">

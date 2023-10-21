@@ -142,7 +142,9 @@ const handleStatus = (e: any) => {
                 {events.map((e, index) => (
                   <div>
                     <span>{e.EventName} : </span>
-                    <span className="statusEvent-data">
+                    <span
+                      className={e.StatusID === 1 ? "s-wait" : e.StatusID === 2 ? "s-approv" : e.StatusID === 3 ? "s-notapprov" : e.StatusID === 4 ? "s-waitEvent" : e.StatusID === 2 ? "s-succeedEvent" : " "}
+                    >
                       {getStatusNameById(e.StatusID)}
                     </span>
                   </div>
