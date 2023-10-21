@@ -1,0 +1,387 @@
+.background-ct {
+    background-color: #ffffff;
+    width: 100vw; /* กว้างเท่ากับหน้าจอ */
+    height: 100vh; /* สูงเท่ากับหน้าจอ */
+  }
+
+  /* --------------------------- Code Content By MeanGPT ----------------------------------- */
+  .content-ct { /* Box รายการสิ่งของ */
+    position: relative;
+    background-color: rgb(207, 207, 207);
+    margin-top: -80px;
+    margin-left: 30px;
+    height: 510px;
+    width: 1480px;
+  }
+
+  .head-content-ct {
+    position: relative;
+    background-color: #334756;
+    margin-top: 110px;
+    height: 60px;
+    width: 1480px;
+    color: white;
+  }
+
+  .head-content-ct b {
+    position: relative;
+    top: 18px;
+    margin-left: 20px;
+  }
+
+  .text-long-ct {
+    position: relative;
+    top: 15px;
+    margin-left: 1050px;
+    color: #334756;
+  }
+
+  #fontred1-ct {
+  }
+
+  #fontred2-ct {
+    color: red;
+    text-decoration: underline;
+  }
+
+  #fontblack-ct {
+  }
+
+  .textHead1-ct {
+    display: flex;
+    margin-left: 40px;
+    margin-top: 15px;
+  }
+
+  .textHead1-ct .textHeadShow-ct {
+    position: relative;
+    top: 30px;
+    left: -60px;
+    cursor: pointer;
+    text-align: center;
+  }
+
+  .textHeadShow1-ct {
+    transform: translateY(40%);
+  }
+  
+  .textHead2-ct {
+    display: flex;
+    margin-left: 40px;
+    margin-top: 40px;
+  }
+  
+  .textHead2-ct input {
+    position: relative;
+    top: 30px;
+    left: -57px;
+    cursor: pointer;
+    text-align: center;
+  }
+  
+  .textHead3-ct {
+    display: flex;
+    margin-left: 600px;
+    margin-top: -40px;
+  }
+  
+  .textHead3-ct input {
+    position: relative;
+    top: 30px;
+    left: -81px;
+    cursor: pointer;
+    text-align: center;
+  }
+  
+  .textHead4-ct {
+    display: flex;
+    margin-left: 1100px;
+    margin-top: -40px;
+  }
+  
+  .textHead4-ct input {
+    position: relative;
+    top: 30px;
+    left: -50px;
+    cursor: pointer;
+    text-align: center;
+  }
+  
+  #colorBox-ct input {
+    border: 0px solid #D9D9D9;
+    border-radius: 10px;
+    background-color: #ffffff;
+    height: 40px;
+    width: 280px;
+  }
+
+  #colorBoxShow-ct {
+    border: 0px solid #D9D9D9;
+    border-radius: 10px;
+    background-color: #ffffff;
+    height: 40px;
+    width: 280px;
+    text-align: center;
+  }
+  
+  .listItem-ct {
+    margin-left: 40px;
+    margin-top: 60px;
+  }
+  
+  .boxList-ct {
+    position: relative;
+    margin-top: 10px;
+    margin-left: 40px;
+    background-color: rgb(207, 207, 207);
+    height: 200px;
+    width: 1400px;
+  }
+  
+  /* --------------------------- Code (Head) Box List By MeanGPT ----------------------------------- */
+  
+  .codeItem-ct {
+    border: 3px solid #D9D9D9;
+    text-align: center;
+    margin-bottom: 10px;
+    padding: 5px;
+    width: 250px;
+    height: 35px;
+    background-color: white;
+  }
+  
+  .nameItem-ct {
+    background-color: white;
+    border: 3px solid #D9D9D9;
+    text-align: center;
+    margin-bottom: 10px;
+    padding: 5px;
+    width: 550px;
+    margin-left: 300px;
+    margin-top: -205px;
+    height: 35px;
+  }
+  
+  .yItem-ct {
+    background-color: white;
+    border: 3px solid #D9D9D9;
+    text-align: center;
+    margin-bottom: 10px;
+    padding: 5px;
+    width: 200px;
+    margin-left: 900px;
+    margin-top: -205px;
+    height: 35px;
+  }
+  
+  .kItem-ct {
+    background-color: white;
+    border: 3px solid #D9D9D9;
+    text-align: center;
+    margin-bottom: 10px;
+    padding: 5px;
+    width: 200px;
+    margin-left: 1150px;
+    margin-top: -205px;
+    height: 35px;
+  }
+  
+  /* --------------------------- Code (in) Box List By MeanGPT ----------------------------------- */
+  .box-codeItem-ct {
+    border: 3px solid #D9D9D9;
+    margin-bottom: 10px;
+    padding: 5px;
+    width: 250px;
+    height: 150px;
+    background-color: white;
+  }
+  
+  .box-nameItem-ct {
+    border: 3px solid #D9D9D9;
+    margin-bottom: 10px;
+    padding: 5px;
+    width: 550px;
+    margin-left: 300px;
+    margin-top: 0px;
+    height: 150px;
+    background-color: white;
+  }
+  
+  .box-yItem-ct {
+    border: 3px solid #D9D9D9;
+    margin-bottom: 10px;
+    padding: 5px;
+    width: 200px;
+    margin-left: 900px;
+    margin-top: 0px;
+    height: 150px;
+    background-color: white;
+  }
+  
+  .box-kItem-ct {
+    border: 3px solid #D9D9D9;
+    margin-bottom: 10px; /* don't use*/
+    padding: 5px;
+    width: 200px;
+    margin-left: 1150px;
+    margin-top: 0px;
+    height: 150px;
+    background-color: white;
+  }
+  
+  /* --------------------------- Code (in-in) Box List By MeanGPT ----------------------------------- */
+
+  .code-codeItem-ct input {
+    margin-top: 1px;
+    border: none;
+    background-color: #D9D9D9;
+    text-align: center;
+    height: 40px;
+    width: 233.5px;
+    margin-left: 1px;
+  }
+
+  .code-codeItem1-ct input {
+    margin-top: 6px;
+    border: none;
+    background-color: #D9D9D9;
+    text-align: center;
+    height: 40px;
+    width: 233.5px;
+    margin-left: 1px;
+  }
+
+  .code-codeItem2-ct input {
+    margin-top: 6px;
+    border: none;
+    background-color: #D9D9D9;
+    text-align: center;
+    height: 40px;
+    width: 233.5px;
+    margin-left: 1px;
+  }
+
+  .code-yItem-ct input {
+    margin-top: 1px;
+    border: none;
+    background-color: #D9D9D9;
+    text-align: center;
+    height: 40px;
+    width: 186px;
+  }
+
+  .code-yItem1-ct input {
+    margin-top: 6px;
+    border: none;
+    background-color: #D9D9D9;
+    text-align: center;
+    height: 40px;
+    width: 186px;
+  }
+
+  .code-yItem2-ct input {
+    margin-top: 6px;
+    border: none;
+    background-color: #D9D9D9;
+    text-align: center;
+    height: 40px;
+    width: 186px;
+  }
+
+  .code-kItem-ct input {
+    margin-top: 1px;
+    border: none;
+    background-color: #D9D9D9;
+    text-align: center;
+    height: 40px;
+    width: 186px;
+  }
+
+  .code-kItem1-ct input {
+    margin-top: 6px;
+    border: none;
+    background-color: #D9D9D9;
+    text-align: center;
+    height: 40px;
+    width: 186px;
+  }
+
+  .code-kItem2-ct input {
+    margin-top: 6px;
+    border: none;
+    background-color: #D9D9D9;
+    text-align: center;
+    height: 40px;
+    width: 186px;
+  }
+  
+  /* --------------------------- Code Footer Button by MeanGPT ----------------------------------- */
+  .save-button-ct {
+    background-color: #334756;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 10px;
+    font-size: 16px;
+    width: 120px;
+    height: 45px;
+    position: absolute;
+    margin-left: 1380px;
+    top: 635px;
+    text-align: center;
+    line-height: 30px;
+    color: #ffff;
+  }
+
+  .save-button1-ct {
+    border: none;
+    color: white;
+    background-color: #334756;
+    font-size: 16px;
+    width: 100px;
+    height: 30px;
+    cursor: pointer;
+  }
+
+  /* --------------------------- Code Select Box by MeanGPT ----------------------------------- */
+
+  .combo-box-ct {
+    margin-top: 1px;
+    width: 535px;
+    height: 40px;
+    border: none;
+    text-align: center;
+    background-color: #D9D9D9;
+  }
+
+  .combo-box1-ct {
+    margin-top: 6px;
+    width: 535px;
+    height: 40px;
+    border: none;
+    text-align: center;
+    background-color: #D9D9D9;
+  }
+
+  .combo-box2-ct {
+    margin-top: 6px;
+    width: 535px;
+    height: 40px;
+    border: none;
+    text-align: center;
+    background-color: #D9D9D9;
+  }
+
+  .combo-box-ct option {
+    padding: 5px;
+    background-color: white;
+  }
+
+  .combo-box1-ct option {
+    padding: 5px;
+    background-color: white;
+  }
+
+  .combo-box2-ct option {
+    padding: 5px;
+    background-color: white;
+  }

@@ -1,0 +1,352 @@
+/* ******************************************************* */
+.middle_container{
+    display: flex;
+    justify-content: center;
+}
+
+/* ******************************************************* */
+
+.grid-container1C{
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.grid-container2-1C {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    padding: 10px;
+}
+
+.grid-container3-1C {
+    display: grid;
+    grid-template-columns: 3fr 1fr ;
+    column-gap: 1%;
+}
+
+.grid-container3-1Cgap {
+    display: grid;
+    grid-template-columns: 3fr 1fr ;
+    column-gap: 1%;
+}
+
+.grid-container2C {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 10px;
+    width: 130%;
+}
+
+
+.grid-container1-5C {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    padding: 10px;
+    width: 95%;
+    column-gap: 1%
+}
+
+.grid-container4C {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding: 10px;
+    width: 130%;
+}
+
+.grid-itemTitle {
+    background-color: #334756;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+    border-radius: 10px;
+    color: white;
+}
+
+.grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 5px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.grid-item1 {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    
+}
+
+.grid-item2 {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    
+}
+
+.grid-itemTPR {
+    padding: 5px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.grid-item2TPR {
+    
+    padding: 5px;
+    display: flex;
+    align-items: center;
+}
+
+/* ******************************************************* */
+
+.beforesplit{
+    width: 95%;
+    height: 100%;
+}
+
+.buttonspace{
+    width: 90%;
+    display: flex;
+    justify-content: end;
+    padding-top: 20px;
+    
+  }
+
+.yellowbutton{
+    background-color: #f0a500;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+
+}
+
+.confirmButton {
+    background-color: #f0a500;
+    width: 85px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+  }
+
+.cancleButton {
+    background-color: #334756;
+    width: 85px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+  }
+  
+.paddingbutton {
+    padding: 5px;
+}
+
+.histbutton {
+    background-color: #334756;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+}
+
+/* ******************************************************* */
+
+.form{
+    width: 80%;
+    display: flex;
+    justify-content: center; 
+}
+
+/* ******************************************************* */
+.titleBar{
+    background-color: #334756;
+    justify-content: center;
+    align-items: center;
+    width: 95%;
+    height: 80px;
+    display: flex;
+    border-radius: 10px;
+    color: white;
+  }
+
+.centerBox {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    width: 30%;
+    padding: 2%;
+}
+
+.instruction{
+    background: #f0a500;
+    width: 30%;
+    height: 45px;
+    justify-content: center;
+    display: flex;
+    border-radius: 10px;
+    color: #ffffff;
+    align-items: center;
+}
+
+.instruction2{
+    background: #f0a500;
+    width: 80%;
+    height: 45px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    border-radius: 10px;
+    color: #ffffff;
+}
+
+.body{
+    background-color: #ffffff;
+    width: 95%;
+    height: 100%;
+    border-radius: 10px;
+    padding: 20px; 
+}
+
+.bodyfull{
+    background-color: #ffffff;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    padding: 20px;    
+}
+
+.bodyx{
+    background-color: #ffffff;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.textrow{
+    background-color: #334756;
+    width: 100%;
+    height: 65px;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    color: #ffffff;
+}
+
+.nameBox{
+    width:100% ;
+    height:40px ;
+    background-color: rgb(186, 186, 186);
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.addressBox{
+    width:100% ;
+    height:180px ;
+    background-color: rgb(186, 186, 186);
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+
+}
+
+.decobox{
+    color: #ffffff;
+    background-color: #f0a500;
+    width: 100%;;
+    align-items: center;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    padding: 20px;
+
+}
+
+.decobox2{
+    color: #ffffff;
+    background-color: #334756;
+    width: 100%;
+    padding: 20px;
+    align-items: center;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    justify-content: start;
+    align-items: center;
+    display: flex;
+
+}
+
+.decobox3{
+    color: #ffffff;
+    background-color: #232323;
+    width: 100%;
+    padding: 20px;
+    align-items: center;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    display: flex;
+
+}
+
+.tableFrame{
+    background-color: #334756;
+    padding: 25px;
+    width: 90%;
+    border-radius: 10px;
+}
+
+.grid-item2 input{
+    height: 50px;
+    width: 100%;
+    border-radius: 10px;
+    background-color: #e0e0e0;
+    
+
+}
+
+.grid-item2 select{
+    height: 50px;
+    width: 100%;
+    border-radius: 10px;
+    background-color: #e0e0e0;
+    
+}
+
+.blackbbbbg{
+    background-color: #4d4d4d;
+    width: 100vw;
+    height: 110%;
+
+}

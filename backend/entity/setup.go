@@ -19,8 +19,7 @@ func SetupDatabase() {
 
 	database.AutoMigrate(
 		&Donate{},
-		&DonateType{},
-		&Donate{},
+		&DonateStatus{},
 		&Event{},
 		&EventType{},
 		&Host{},
@@ -34,6 +33,7 @@ func SetupDatabase() {
 		&PlaceUsePlace{},
 		&Request{},
 		&Role{},
+		&ShippingAgent{},
 		&Status{},
 		&Wat{},
 	)
@@ -147,6 +147,28 @@ func SetupDatabase() {
 
 	for _, Item := range Item {
 		db.Create(&Item)
+	}
+
+	ShippingAgent := []ShippingAgent{
+		{Shipping_agent_name: "Kerry Express"},
+		{Shipping_agent_name: "Flash Express"},
+		{Shipping_agent_name: "Thailand Post"},
+		{Shipping_agent_name: "J&T Express"},
+		{Shipping_agent_name: "DHL Express"},
+	}
+
+	for _, ShippingAgent := range ShippingAgent{
+		db.Create(&ShippingAgent)
+	}
+
+	DonateStatus := []DonateStatus{
+		{Status_name: "RECEIVED"},
+		{Status_name: "DENIDE"},
+		{Status_name: "PENDING"},
+	}
+
+	for _, DonateStatus := range DonateStatus{
+		db.Create(&DonateStatus)
 	}
 
 }
