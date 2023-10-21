@@ -30,7 +30,7 @@ import CreateEvents from "./page/creator/addEvent/createEvents";
 import UpdateEvents from "./page/creator/addEvent/editEventRequest";
 import DetailEvents from "./page/creator/addEvent/detailEvent";
 import AddPlaceUse from "./page/creator/addPlaceUse";
-import AddItemLoan from "./page/creator/addItemLoan";
+import AddItemUse from "./page/creator/addItemUse";
 
 //creator ส่วนเพิ่มข้อมูล
 import CreatorGeneral from "./page/creator/createWatData/general";
@@ -94,7 +94,7 @@ const router = createBrowserRouter(
         <Route path="/addEvent/createEvents" element={<CreateEvents />} />
         <Route path="/addEvent/edit/:id" element={<UpdateEvents/>} />
         <Route path="/addEvent/detail/:id" element={<DetailEvents/>} />
-        <Route path="/addItemLoan" element={<AddItemLoan />} />
+        <Route path="/addItemUse" element={<AddItemUse />} />
         <Route path="/addPlaceUse" element={<AddPlaceUse />} />
 
         <Route path="/creatorGeneral" element={<CreatorGeneral />} />
