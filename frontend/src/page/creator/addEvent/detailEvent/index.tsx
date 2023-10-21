@@ -107,7 +107,17 @@ function DetailEvents() {
                   </div>
                   <div className="detail-data">
                     <span>{e.OutPlace}</span>
-                  </div>{" "}
+                  </div>
+                  {e.EventID !== null ? (
+                    <div>
+                      <div className="title-namedata">
+                        <span>เป็นมหรสพของ</span>
+                      </div>
+                      <div className="detail-data">
+                        <span>เลขที่คำขอ {e.EventID}</span>
+                      </div>
+                    </div>)
+                    : (<></>)}
                 </div>
               ))}
               <div className="title-namedata">
@@ -133,6 +143,9 @@ function DetailEvents() {
           {eventRequersts.map((e) => (
             <div className="formNote">
               <div className="note">
+                <span>วันอนุมัติ : {e.UpdatedAt?.slice(0, 10)} </span>
+              </div>
+              <div className="note-name">
                 <span>หมายเหตุ: </span>
               </div>
               <div className="noteData">
