@@ -129,7 +129,7 @@ const handleStatus = (e: any) => {
       <div className="warpperMainCreator">
         <div className="sidebarCreator">
           <SidebarCreater />
-        </div>cdvdv
+        </div>
         <div className="contantMainCreator">
           <div className="contantEvent details">
             <div>
