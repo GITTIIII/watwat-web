@@ -6,6 +6,7 @@ import { MembersInterface } from "../../../../interfaces/IMember";
 import { GetMemberById } from "../../../../services/https/member";
 import { ItemsInterface } from "../../../../interfaces/IItem";
 import { StatusesInterface } from '../../../../interfaces/IStatus';
+import Cookies from "js-cookie";
 
 function ItemRequestData() {
 
@@ -28,7 +29,22 @@ const getMember = async (id: Number) => {
     }
 };
 
-var Member_ID = 1; // 1 = siriphobmean (username)
+// ------------------------------------------------------------
+
+const watID = Cookies.get("watID");
+let getwatID = 0;
+if (watID !== undefined) {
+  getwatID = parseInt(watID, 10);
+}
+const memberID = Cookies.get("memberID");
+let getMemberID = 0;
+if (memberID !== undefined) {
+  getMemberID = parseInt(memberID, 10);
+}
+
+// ------------------------------------------------------------
+
+var Member_ID = getMemberID;
 useEffect(() => {
   getMember(Member_ID);
 }, []);
