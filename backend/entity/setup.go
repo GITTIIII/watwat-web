@@ -41,11 +41,24 @@ func SetupDatabase() {
 
 	// EventType Data
 	eventType := []EventType{
-		{EventTypeName: "บวช"},
-		{EventTypeName: "เพวส"},
+		{EventTypeName: "งานแต่งงาน"},
+		{EventTypeName: "ทำบุญขึ้นบ้านใหม่"},
+		{EventTypeName: "ทำบุญอุทิศให้ผู้ตาย"},
 		{EventTypeName: "บุญ"},
+		{EventTypeName: "บุญเข้ากรรม"},
+		{EventTypeName: "บุญคูณลาน"},
+		{EventTypeName: "บุญข้าวจ"},
+		{EventTypeName: "บุญพระเวส"},
+		{EventTypeName: "บุญสงกรานต์"},
+		{EventTypeName: "บุญบั้งไฟ"},
+		{EventTypeName: "บุญเข้าพรรษา"},
+		{EventTypeName: "บุญข้าวประดับดิน"},
+		{EventTypeName: "บุญข้าวสาก"},
+		{EventTypeName: "บุญออกพรรษา"},
+		{EventTypeName: "บุญกฐิน"},
 		{EventTypeName: "ศพ"},
-		{EventTypeName: "กฐิน"},
+		{EventTypeName: "อุปสมบท"},	
+		{EventTypeName: "อื่นๆ"},	
 	}
 
 	for _, eventType := range eventType {

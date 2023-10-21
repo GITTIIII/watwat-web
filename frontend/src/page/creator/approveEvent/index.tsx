@@ -77,7 +77,7 @@ function ApproveEventEvent() {
               </div>
             </div>
             <div className="requestEvent-itemtr appr">
-              <EventRequestHistory data={diplayfilteredData} />
+              <EventRequestHistory data={diplayfilteredData.reverse()} />
             </div>
           </div>
           <div className="filterPage request">

@@ -1,0 +1,29 @@
+
+.filter-item.notApprov  {
+    background-color: #334756;
+    border: none;
+    color: #fff;
+}
+
+.filter-item.Approv {
+    background-color: #F0A500;
+    border:none;
+    color: #fff;
+}
+.filter-item.back:hover {
+    background-color: #F0A500;
+    border:none;
+    color: #000000;
+}
+
+.filter-item.Approv:hover,
+.filter-item.notApprov:hover{
+    background-color: #D9D9D9;
+    color: #000;
+}
+.noteInput{
+    width: 92%;
+    height: 100%;
+    border: none;
+    padding: 10px;
+}
