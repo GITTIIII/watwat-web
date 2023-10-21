@@ -21,7 +21,7 @@ export default function NavbarCreator() {
           </NavLink>
         </li>
         <li className="manu-4">
-          <NavLink to="./addItemLoan">
+          <NavLink to="./addItemUse">
             <span>แจ้งใช้สิ่ง/เลิกใช้สิ่งของ</span>
           </NavLink>
         </li>
