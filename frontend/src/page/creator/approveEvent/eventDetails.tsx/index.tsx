@@ -184,7 +184,6 @@ const handleStatus = (e: any) => {
                         <span>เลขที่คำขอ {e.EventID}</span>
                       </div>
                       </div>)
-                      
                     : (<></>)}
                   </div>
                 ))}
