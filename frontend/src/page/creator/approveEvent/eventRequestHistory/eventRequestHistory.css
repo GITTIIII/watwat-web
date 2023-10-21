@@ -5,6 +5,10 @@
     border-bottom: 1px solid black;
     padding: 5px;
 }
+.dataItem.name{
+    max-height:4vh;
+    overflow-x: hidden;
+}
 .btndata{
     color:#F0A500;
     background-color: Transparent;

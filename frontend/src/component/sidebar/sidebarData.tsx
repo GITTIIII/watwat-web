@@ -18,7 +18,7 @@ export const SidebarData = [
   },
   {
     title: "ข้อมูลการบริจาค",
-    path: "/team",
+    path: "/receiveDonate",
     cName: "side-text",
   },
 ];
