@@ -25,7 +25,7 @@ import Donate from "./page/user/donate";
 import MainCreator from "./page/creator/main";
 import AddEvent from "./page/creator/addEvent";
 import CreateEvents from "./page/creator/addEvent/createEvents";
-import UpdateEvents from "./page/user/eventRequest/editEventRequest";
+import UpdateEvents from "./page/creator/addEvent/editEventRequest";
 import DetailEvents from "./page/creator/addEvent/detailEvent";
 import AddPlaceUse from "./page/creator/addPlaceUse";
 import AddItemLoan from "./page/creator/addItemLoan";

@@ -1,42 +1,31 @@
-import "../../../user/eventRequest/createEventRequest/createEventRequest.css";
+import "../../../user/eventRequest/editEventRequest";
 import React, { useState, useEffect } from "react";
-import {  NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate, useParams } from "react-router-dom";
 import { Form, message } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faPlus } from "@fortawesome/free-solid-svg-icons"; //for icon
 import { EventRequestsInterface } from "../../../../interfaces/IEventRequest";
 import { EventTypesInterface } from "../../../../interfaces/IEventType";
-import { CreateEvent, GetEventTypes } from "../../../../services/https/event";
-import Cookies from "js-cookie";
+import {
+  GetEventById,
+  GetEventTypes,
+  UpdateEventRequests,
+} from "../../../../services/https/event";
+import { CreateHost, DeleteHostByID } from "../../../../services/https/host";
+import { RequestInterface } from "../../../../interfaces/IRequest";
+import { GetRequestByEventId } from "../../../../services/https/request";
 
-function CreateEvents() {
+function UpdateEvents() {
   let navigate = useNavigate();
-  const [entertrainClick, setEntertrainClick] = useState(true);
-  const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const selectedValue = event.target.value;
-    console.log("selectedValue");
-    console.log(selectedValue);
-    if (selectedValue === "yes") {
-      setEntertrainClick(true);
-    } else if (selectedValue === "no") {
-      setEntertrainClick(false);
-    }
-    console.log(entertrainClick);
-  };
-
-  const watID = Cookies.get("watIDforCreator");
-  let getwatID = 0;
-  if (watID !== undefined) {
-    getwatID = parseInt(watID, 10);
-  }
-  const memberID = Cookies.get("memberID");
-  let getMemberID = 0;
-  if (memberID !== undefined) {
-    getMemberID = parseInt(memberID, 10);
-  }
-
   const [messageApi, contextHolder] = message.useMessage();
+  const [request, setRequest] = useState<RequestInterface>();
+  const [eventRequest, setEventRequest] = useState<EventRequestsInterface>();
   const [eventTypes, setEventTypes] = useState<EventTypesInterface[]>([]);
+  // รับข้อมูลจาก params
+  let { id } = useParams();
+  // อ้างอิง form กรอกข้อมูล
+  const [form] = Form.useForm();
+
   const [input, setInput] = useState({
     EventName: "",
     DateBegin: "",
@@ -48,19 +37,31 @@ function CreateEvents() {
     Description: "",
     EventID: null,
     EventTypeID: 1,
-    StatusID: 2,
-    MemberID: getMemberID,
-    WatID: getwatID,
+    StatusID: 1,
     Hosts: [""],
+    MemberID: 1,
+    WatID: 1,
   });
-
   const handleInput = (e: any) => {
     const { name, value } = e.target;
-    if (name === "EventTypeID" || name === "EventID") {
+
+    if (name === "EventTypeID") {
       setInput({
         ...input,
-        [name]: parseInt(value, 10),
+        [name]: parseInt(value, 10), // Convert the value to an integer
       });
+    } else if (name === "EventID") {
+      if (value != null) {
+        setInput({
+          ...input,
+          [name]: parseInt(value, 10), // Convert the value to an integer
+        });
+      } else {
+        setInput({
+          ...input,
+          [name]: null,
+        });
+      }
     } else {
       setInput({
         ...input,
@@ -70,6 +71,7 @@ function CreateEvents() {
   };
 
   const handleSubmit = async (values: EventRequestsInterface) => {
+    handleSaveInput();
     values.EventName = input.EventName;
     values.DateBegin = input.DateBegin;
     values.TimeOfBegin = input.TimeOfBegin;
@@ -83,21 +85,24 @@ function CreateEvents() {
     values.StatusID = input.StatusID;
 
     values.Hosts = input.Hosts;
-    console.log(input.MemberID);
+
     values.MemberID = input.MemberID;
     values.WatID = input.WatID;
+
+    values.ID = eventRequest?.ID;
+
+    values.RequestID = request?.ID;
 
     console.log(input.Hosts);
     console.log(values.Hosts);
     console.log("hoss");
-    console.log("getMemberID");
-    console.log(getMemberID);
-
-    let res = await CreateEvent(values);
+    let res = await UpdateEventRequests(values);
     if (res.status) {
+      let resDeleteHost = await DeleteHostByID(Number(id));
+      let resUpdateHoste = await CreateHost(values);
       messageApi.open({
         type: "success",
-        content: "บันทึกข้อมูลสำเร็จ",
+        content: "แก้ไขข้อมูลสำเร็จ",
       });
       setTimeout(function () {
         navigate("/addEvent");
@@ -105,7 +110,7 @@ function CreateEvents() {
     } else {
       messageApi.open({
         type: "error",
-        content: "บันทึกข้อมูลไม่สำเร็จ",
+        content: "แก้ไขข้อมูลไม่สำเร็จ",
       });
     }
   };
@@ -116,14 +121,34 @@ function CreateEvents() {
       setEventTypes(res);
     }
   };
+  const getRequestById = async () => {
+    let res = await GetRequestByEventId(Number(id));
+    if (res) {
+      setRequest(res);
+    }
+  };
+
+  const getEventRequestById = async () => {
+    let res = await GetEventById(Number(id));
+    if (res) {
+      setEventRequest(res);
+      // form.setFieldsValue({ 
+      //   EventName: res.EventName,
+      //   EventTypeID: res.EventTypeID,
+      // });
+    }
+  };
 
   useEffect(() => {
     getEventType();
+    getEventRequestById();
+    getRequestById();
   }, []);
 
   const [inputValue, setInputValue] = useState("");
   const [isInputVisible, setInputVisible] = useState(false);
   const handlePlusIconClick = () => {
+    handleSaveInput();
     setInputVisible(true);
   };
   const handleSaveInput = () => {
@@ -141,8 +166,21 @@ function CreateEvents() {
     updatedHosts[index] = value;
     setInput({ ...input, Hosts: updatedHosts });
   };
-  console.log(input.Hosts);
-  console.log(watID);
+
+  const [entertrainClick, setEntertrainClick] = useState(true);
+  const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const selectedValue = event.target.value;
+    console.log("selectedValue");
+    console.log(selectedValue);
+    if (selectedValue === "yes") {
+      setEntertrainClick(true);
+    } else if (selectedValue === "no") {
+      setEntertrainClick(false);
+    }
+    console.log(entertrainClick);
+  };
+  console.log(input);
+  console.log("res1");
   return (
     <>
       {contextHolder}
@@ -166,6 +204,7 @@ function CreateEvents() {
               onChange={handleInput}
               required
             />
+
             <select
               id="eventType"
               className="selects"
@@ -206,7 +245,6 @@ function CreateEvents() {
                     required
                   />
                 </div>
-                
               ))}
               {isInputVisible ? (
                 <div>
@@ -214,7 +252,7 @@ function CreateEvents() {
                     type="text"
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
-                    onClick={ handleSaveInput}
+                    onClick={handleSaveInput}
                     id="host1"
                     className="hostinput"
                     name="HostName"
@@ -226,12 +264,12 @@ function CreateEvents() {
                 <div></div>
               )}
             </div>
-            
           </div>
           <div className="data dateTimeEvent">
             <label htmlFor="">
               ระยะเวลา
               <span className="more dateTime">
+                {" "}
                 (วัน-เวลา หากมีมหรสพให้รวมไปด้วย)
               </span>
             </label>
@@ -322,18 +360,18 @@ function CreateEvents() {
                 onChange={handleRadioChange}
               />{" "}
               <label htmlFor="switch_right">ไม่ใช่</label>
-            </div>  
+            </div>
             {entertrainClick && (
-                <input
-                  type="number"
-                  id=""
-                  className="noEntertrainment"
-                  placeholder="เลขที่คำขอกิจกรรม"
-                  name="EventID"
-                  onChange={handleInput}
-                  required
-                />
-              )}
+              <input
+                type="number"
+                id=""
+                className="noEntertrainment"
+                placeholder="เลขที่คำขอกิจกรรม"
+                name="EventID"
+                onChange={handleInput}
+                required
+              />
+            )}
           </div>
           <div className="data description">
             <label htmlFor="">คำอธิบายกิจกรรม</label>
@@ -345,7 +383,7 @@ function CreateEvents() {
             />
           </div>
           <div className="submitEventRequest">
-            <input type="submit" value="ยืนยัน" id='submitEventRequest'/>
+            <input type="submit" value="ยืนยัน" id="submitEventRequest" />
           </div>
         </div>
       </Form>
@@ -353,4 +391,4 @@ function CreateEvents() {
   );
 }
 
-export default CreateEvents;
+export default UpdateEvents;
