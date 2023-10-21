@@ -187,6 +187,7 @@ const handleStatus = (e: any) => {
                     : (<></>)}
                   </div>
                 ))}
+                
                 <div className="title-namedata">
                   <span>รายนามเจ้าภาพ</span>
                 </div>
