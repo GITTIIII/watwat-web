@@ -101,7 +101,7 @@ function CreateEvents() {
       });
       setTimeout(function () {
         navigate("/addEvent");
-      }, 2000);
+      }, 500);
     } else {
       messageApi.open({
         type: "error",
@@ -166,7 +166,6 @@ function CreateEvents() {
               onChange={handleInput}
               required
             />
-
             <select
               id="eventType"
               className="selects"
@@ -227,12 +226,12 @@ function CreateEvents() {
                 <div></div>
               )}
             </div>
+            
           </div>
           <div className="data dateTimeEvent">
             <label htmlFor="">
               ระยะเวลา
               <span className="more dateTime">
-                {" "}
                 (วัน-เวลา หากมีมหรสพให้รวมไปด้วย)
               </span>
             </label>

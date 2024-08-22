@@ -20,15 +20,17 @@ import ItemRequestData from "./page/user/itemRequest/itemRequestData";
 import PlaceRequest from "./page/user/placeRequest";
 import Placeform from "./page/user/placeRequest/place-form";
 import Donate from "./page/user/donate";
+import DonateThing from "./page/user/donate/donateThing";
+import DonateHist from "./page/user/donate/donateHistory";
 
 //creater ส่วน แจ้งใช้งานเอง
 import MainCreator from "./page/creator/main";
 import AddEvent from "./page/creator/addEvent";
 import CreateEvents from "./page/creator/addEvent/createEvents";
-import UpdateEvents from "./page/user/eventRequest/editEventRequest";
+import UpdateEvents from "./page/creator/addEvent/editEventRequest";
 import DetailEvents from "./page/creator/addEvent/detailEvent";
 import AddPlaceUse from "./page/creator/addPlaceUse";
-import AddItemLoan from "./page/creator/addItemLoan";
+import AddItemUse from "./page/creator/addItemUse";
 
 //creator ส่วนเพิ่มข้อมูล
 import CreatorGeneral from "./page/creator/createWatData/general";
@@ -40,6 +42,7 @@ import CreatorDonate from "./page/creator/createWatData/donate";
 //creater ส่วน Approve
 import RequsetEvent from "./page/creator/approveEvent";
 import EventDetails from "./page/creator/approveEvent/eventDetails.tsx";
+import DonateAdmin from "./page/creator/receiveDonate";
 
 //Layout
 import UserLayout from "./layouts/userLayout";
@@ -78,6 +81,8 @@ const router = createBrowserRouter(
         <Route path="/placeRequest" element={<PlaceRequest />} />
         <Route path="/placeForm" element={<Placeform />} />
         <Route path="/donate" element={<Donate />} />
+        <Route path="/donate/donateThing" element={<DonateThing />} />
+        <Route path="/donate/donateHistory" element={<DonateHist />} />
       </Route>
 
       <Route path="" element={<AdminLayout />}></Route>
@@ -89,7 +94,7 @@ const router = createBrowserRouter(
         <Route path="/addEvent/createEvents" element={<CreateEvents />} />
         <Route path="/addEvent/edit/:id" element={<UpdateEvents/>} />
         <Route path="/addEvent/detail/:id" element={<DetailEvents/>} />
-        <Route path="/addItemLoan" element={<AddItemLoan />} />
+        <Route path="/addItemUse" element={<AddItemUse />} />
         <Route path="/addPlaceUse" element={<AddPlaceUse />} />
 
         <Route path="/creatorGeneral" element={<CreatorGeneral />} />
@@ -100,6 +105,7 @@ const router = createBrowserRouter(
 
         <Route path="/approveEvent" element={<RequsetEvent />} />
         <Route path="/approveEvent/detail/:id" element={<EventDetails/>} />
+        <Route path="/receiveDonate" element={<DonateAdmin />} />
       </Route>
     </>
   )

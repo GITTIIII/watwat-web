@@ -14,7 +14,6 @@ export default function SidebarCreater() {
                   <NavLink to={item.path}>
                     <span>{item.title}</span>
                   </NavLink>
-                  
                 </li>
               );
             })}
